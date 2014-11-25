@@ -30,8 +30,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       controller: 'AppCtrl'
     })
 
-.state('app.Home', {
-      url: "/Home",
+.state('app.home', {
+      url: "/home",
       views: {
         'menuContent' :{
           templateUrl: "templates/home.html"
