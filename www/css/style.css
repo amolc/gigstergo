@@ -50,9 +50,35 @@ border:none;
 text-align: center;
 	}
 
-.item{
-	border:none;
+ion-item.item.item-complex{
+border:none;
 }
 .item-complex .item-content{
-	background-color: #e95436;
+	background-color: #F76D51;
+	color:#5e350d;
+}
+
+.header{
+
+	text-align: center;
+
+}
+
+.checkbox input{
+	width: 18px;
+	height: 18px;
+	margin-top: 5px;
+}
+
+button.button.button-full.button-positive{
+	background-color:#dd4b39 
+}
+
+li.item.item-checkbox{
+	border:none;
+}
+
+.postgb
+{
+	background-color: #FFD96C;
 }
