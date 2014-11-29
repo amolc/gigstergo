@@ -34,11 +34,6 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngCord
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-.state('login', {
-      url: "/login",
-      templateUrl: "templates/login.html",
-      
-       })
 
 .state('secure', {
                 url: "/secure",
@@ -53,6 +48,15 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngCord
       controller: 'AppCtrl'
     })
 
+.state('app.login', {
+      url: "/login",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/login.html"
+        }
+      }
+    })
+
 .state('app.home', {
       url: "/home",
       views: {
@@ -61,8 +65,6 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngCord
         }
       }
     })
-
-
 
     .state('app.postgig', {
       url: "/postgig",
@@ -125,7 +127,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngCord
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/app/login');
 });
 
 

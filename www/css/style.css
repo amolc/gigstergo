@@ -5,12 +5,17 @@
 }
 
 #loginlogo{
-
+text-align: center;
 max-width: 100%;
 height: auto;
 margin-top: 50px;
+
 }
 
+img{
+	max-width: 100%;
+	width: 180px;
+}
 .padding{
 	padding: 1px;
 }
