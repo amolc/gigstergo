@@ -45,7 +45,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngCord
       url: "/app",
       abstract: true,
       templateUrl: "templates/menu.html",
-      controller: 'AppCtrl'
+      //controller: 'AppCtrl'
     })
 
 .state('app.login', {
