@@ -4,7 +4,18 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+
+
+//var requestToken = "";
+//var accessToken = "";
+var clientId = "683383756975-ju6l6ufitj2pfnhbkd9js4t2riqljj9e.apps.googleusercontent.com";
+var clientSecret = "X3KFDDYgMoE0ZZeKD6hIoGYU ";
+
+
+
+
+
+var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,6 +33,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
+
+.state('login', {
+      url: "/login",
+      templateUrl: "templates/login.html",
+      
+       })
+
+.state('secure', {
+                url: "/secure",
+                templateUrl: "templates/secure.html",
+      
+            })
 
     .state('app', {
       url: "/app",
@@ -102,6 +125,75 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/login');
 });
 
+
+
+exampleApp.controller('LoginController', function($scope, $http, $location) {
+ 
+    $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+ 
+    $scope.login = function() {
+        var ref = window.open('https://accounts.google.com/o/oauth2/auth?client_id=' + clientId + '&redirect_uri=http://localhost:5000/gigster/oauth2callback&scope=https://www.googleapis.com/auth/urlshortener&approval_prompt=force&response_type=code&access_type=offline', '_blank', 'location=no');
+            console.log("hi");
+        ref.addEventListener('loadstart', function(event) {
+            if((event.url).startsWith("http://localhost:5000/gigster/oauth2callback")) {
+                requestToken = (event.url).split("code=")[1];
+                $http({method: "post", url: "https://accounts.google.com/o/oauth2/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=http://localhost:5000/gigster/oauth2callback" + "&grant_type=authorization_code" + "&code=" + requestToken })
+                    .success(function(data) {
+                        accessToken = data.access_token;
+                        console.log(oye);
+                          alert(accessToken);
+                        console.log(accessToken);
+
+                        $location.path("/home");
+                    })
+                    .error(function(data, status) {
+                        alert("ERROR: " + data);
+                    });
+                ref.close();
+            }
+        });
+    }
+ 
+    if (typeof String.prototype.startsWith != 'function') {
+        String.prototype.startsWith = function (str){
+            return this.indexOf(str) == 0;
+        };
+    }
+    
+});
+ 
+ exampleApp.controller('SecureController', function($scope, $http) {
+ 
+    $scope.accessToken = accessToken;
+    
+});
+
+exampleApp.controller('FBlogin', function($scope, $cordovaOauth) {
+$scope.facebookLogin = function() {
+            $cordovaOauth.facebook("1500472286892894", ["http://localhost:5000/gigster/oauth2callback "]).then(function(result) {
+                $scope.oauthResult = result;
+            }, function(error) {
+                $scope.oauthResult = "OAUTH ERROR (see console)";
+                console.log(error);
+            });
+        }
+
+ });
+
+/*
+exampleApp.controller('MyCtrl', function($scope, $cordovaOauth) {
+   $scope.googleLogin = function() {
+        $cordovaOauth.google("683383756975-ju6l6ufitj2pfnhbkd9js4t2riqljj9e.apps.googleusercontent.com", ["https://www.googleapis.com/auth/urlshortener", "https://www.googleapis.com/auth/userinfo.email"]).then(function(result) {
+             $location.path("/secure");
+            console.log(JSON.stringify(result));
+        }, function(error) {
+            console.log(error);
+        });
+    }
+
+
+    });
+    */

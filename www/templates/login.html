@@ -1,0 +1,24 @@
+<ion-view  title="Oauth Login">
+    <ion-content class="loginbody">
+        <div id="loginlogo">
+        		<img ng-src="img/logo-1.png">
+        	</div>	
+
+            <div class="padding" ng-controller="LoginController">
+                <button ng-click="login()" class="button button-block button-stable">
+                    Sign In via Twitter
+                </button>
+            </div>
+       
+            <div class="padding" ng-controller="MyCtrl">
+                <button ng-click="googleLogin()" class="button button-block button-stable">
+                    Sign In via google
+                </button>
+            </div>
+             <div class="padding" ng-controller="FBlogin">
+                <button ng-click="facebookLogin()" class="button button-block button-stable">
+                    Sign In via facebook
+                </button>
+            </div>
+    </ion-content>
+</ion-view>

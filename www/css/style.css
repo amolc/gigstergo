@@ -1,1 +1,21 @@
 /* Empty. Add your own CSS if you like */
+
+.loginbody{
+	background-color:#e95436;
+}
+
+#loginlogo{
+
+max-width: 100%;
+height: auto;
+margin-top: 50px;
+}
+
+.padding{
+	padding: 1px;
+}
+
+
+.logindetails{
+	margin-top: 40px;
+}
