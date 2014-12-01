@@ -82,3 +82,13 @@ li.item.item-checkbox{
 {
 	background-color: #FFF;
 }
+
+.bidbutton{
+	width: 12%;
+	float: right;
+margin-top: -45px;
+}
+.blockw{
+	word-spacing: 7px;
+	white-space: nowrap;
+}

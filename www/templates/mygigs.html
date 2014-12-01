@@ -1,5 +1,16 @@
-<ion-view title="Mygigs">
-  <ion-content class="has-header">
-    <h1>myGigs</h1>
-  </ion-content>
-</ion-view>
+
+<ion-tabs class="tabs-striped tabs-top tabs-background-energized"style="background-color:#5E350D;">
+
+        <ion-tab title="Home" icon="ion-home" href="#/app/mygigs/progress">
+          <ion-nav-view name="home-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="About" icon="ion-ios7-information" href="#/app/mygigs/bid">
+          <ion-nav-view name="about-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Contact" icon="ion-ios7-world"   href="#/app/mygigs/completed">
+          <ion-nav-view name="contact-tab"></ion-nav-view>
+        </ion-tab>
+
+      </ion-tabs>

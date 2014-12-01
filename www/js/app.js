@@ -15,7 +15,7 @@ var clientSecret = "X3KFDDYgMoE0ZZeKD6hIoGYU ";
 
 
 
-var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngCordova'])
+var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStorage', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -65,16 +65,49 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngCord
         }
       }
     })
-
-    .state('app.postgig', {
+.state('app.postgig', {
       url: "/postgig",
+      //abstract: true,
       views: {
         'menuContent' :{
-          templateUrl: "templates/postg.html"
-        }
-      }
-    })
+        templateUrl: "templates/postg.html",
+        //controller: 'tabsCtrl'
 
+        }
+      }  
+    })
+/*
+.state('app.postgig.progress', {
+      url: "/progress",
+      //abstract: true,
+      views: {
+        'home-tab' :{
+        templateUrl: "templates/progress.html",
+        //controller: 'tabsCtrl'
+        }
+      }  
+    })
+    .state('app.postgig.bid', {
+      url: "/bid",
+      //abstract: true,
+      views: {
+        'home-tab' :{
+        templateUrl: "templates/bid.html",
+        //controller: 'tabsCtrl'
+        }
+      }  
+    })
+    .state('app.postgig.completed', {
+      url: "/progress",
+      //abstract: true,
+      views: {
+        'home-tab' :{
+        templateUrl: "templates/progress.html",
+        //controller: 'tabsCtrl'
+        }
+      }  
+    })
+          */
     .state('app.listgig', {
       url: "/listgig",
       views: {
@@ -98,10 +131,41 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngCord
 
     .state('app.mygigs', {
       url: "/mygigs",
+      abstract:true,
       views: {
         'menuContent' :{
           templateUrl: "templates/mygigs.html",
           controller: 'PlaylistCtrl'
+        }
+      }
+    })  
+
+
+.state('app.mygigs.progress', {
+      url: "/progress",
+      views: {
+        'home-tab' :{
+          templateUrl: "templates/progress.html",
+          controller: 'PlaylistCtrl'
+        }
+      }
+    })  
+
+.state('app.mygigs.bid', {
+      url: "/bid",
+      views: {
+        'about-tab' :{
+          templateUrl: "templates/bid.html",
+     
+        }
+      }
+    })  
+.state('app.mygigs.completed', {
+      url: "/completed",
+      views: {
+        'contact-tab' :{
+          templateUrl: "templates/completed.html",
+         
         }
       }
     })  
@@ -111,10 +175,41 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngCord
       views: {
         'menuContent' :{
           templateUrl: "templates/assignment.html",
-          controller: 'PlaylistCtrl'
+          
         }
       }
     })   
+
+       .state('app.assignment.assignprogress', {
+      url: "/assignprogress",
+      views: {
+        'home-tab' :{
+          templateUrl: "templates/assignprogress.html",
+          controller: 'PlaylistCtrl'
+        }
+      }
+    })  
+
+.state('app.assignment.assignbid', {
+      url: "/assignbid",
+      views: {
+        'about-tab' :{
+          templateUrl: "templates/assignbid.html",
+     
+        }
+      }
+    })  
+.state('app.assignment.assigncompleted', {
+      url: "/assigncompleted",
+      views: {
+        'contact-tab' :{
+          templateUrl: "templates/assigncompleted.html",
+         
+        }
+      }
+    })  
+
+
 
 
         .state('app.inbox', {
@@ -130,19 +225,37 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngCord
   $urlRouterProvider.otherwise('/app/login');
 });
 
+exampleApp.controller("LoginController", function($scope, $http,$cordovaOauth, $localStorage, $location) {
 
-
-exampleApp.controller('LoginController', function($scope, $http, $location) {
- 
-    $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
- 
     $scope.login = function() {
-        var ref = window.open('https://accounts.google.com/o/oauth2/auth?client_id=' + clientId + '&redirect_uri=http://localhost:5000/gigster/oauth2callback&scope=https://www.googleapis.com/auth/urlshortener&approval_prompt=force&response_type=code&access_type=offline', '_blank', 'location=no');
+        $cordovaOauth.facebook("1500472286892894", ["email", "read_stream", "user_website", "user_location", "user_relationships"]).then(function(result) {
+            $localStorage.accessToken = result.access_token;
+            console.log("Entered");
+            $location.path("/home");
+            console.log("HOme Page");
+        }, function(error) {
+            alert("There was a problem signing in!  See the console for logs");
+            console.log(error);
+        });
+    };
+
+      $scope.twitterLogin = function() {
+            $cordovaOauth.twitter("CONSUMER_ID_HERE", "CONSUMER_SECRET_HERE").then(function(result) {
+                $scope.oauthResult = result;
+                  $location.path("/home");
+            }, function(error) {
+                $scope.oauthResult = "OAUTH ERROR (see console)";
+                console.log(error);
+            });
+        }
+
+ $scope.googlelogin = function() {
+        var ref = window.open('https://accounts.google.com/o/oauth2/auth?client_id=' + clientId + '&redirect_uri=http://localhost/callback&scope=https://www.googleapis.com/auth/urlshortener&approval_prompt=force&response_type=code&access_type=offline', '_blank', 'location=no');
             console.log("hi");
         ref.addEventListener('loadstart', function(event) {
-            if((event.url).startsWith("http://localhost:5000/gigster/oauth2callback")) {
+            if((event.url).startsWith("http://localhost/callback")) {
                 requestToken = (event.url).split("code=")[1];
-                $http({method: "post", url: "https://accounts.google.com/o/oauth2/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=http://localhost:5000/gigster/oauth2callback" + "&grant_type=authorization_code" + "&code=" + requestToken })
+                $http({method: "post", url: "https://accounts.google.com/o/oauth2/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=http://localhost/callback" + "&grant_type=authorization_code" + "&code=" + requestToken })
                     .success(function(data) {
                         accessToken = data.access_token;
                         console.log(oye);
@@ -158,44 +271,5 @@ exampleApp.controller('LoginController', function($scope, $http, $location) {
             }
         });
     }
- 
-    if (typeof String.prototype.startsWith != 'function') {
-        String.prototype.startsWith = function (str){
-            return this.indexOf(str) == 0;
-        };
-    }
-    
+
 });
- 
- exampleApp.controller('SecureController', function($scope, $http) {
- 
-    $scope.accessToken = accessToken;
-    
-});
-
-exampleApp.controller('FBlogin', function($scope, $cordovaOauth) {
-$scope.facebookLogin = function() {
-            $cordovaOauth.facebook("1500472286892894", ["http://localhost:5000/gigster/oauth2callback "]).then(function(result) {
-                $scope.oauthResult = result;
-            }, function(error) {
-                $scope.oauthResult = "OAUTH ERROR (see console)";
-                console.log(error);
-            });
-        }
-
- });
-
-/*
-exampleApp.controller('MyCtrl', function($scope, $cordovaOauth) {
-   $scope.googleLogin = function() {
-        $cordovaOauth.google("683383756975-ju6l6ufitj2pfnhbkd9js4t2riqljj9e.apps.googleusercontent.com", ["https://www.googleapis.com/auth/urlshortener", "https://www.googleapis.com/auth/userinfo.email"]).then(function(result) {
-             $location.path("/secure");
-            console.log(JSON.stringify(result));
-        }, function(error) {
-            console.log(error);
-        });
-    }
-
-
-    });
-    */
