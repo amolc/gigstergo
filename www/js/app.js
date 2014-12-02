@@ -48,6 +48,15 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       //controller: 'AppCtrl'
     })
 
+.state('app.profile', {
+      url: "/profile",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/profile.html"
+        }
+      }
+    })
+
 .state('app.login', {
       url: "/login",
       views: {
@@ -210,14 +219,21 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
     })  
 
 
-
-
         .state('app.inbox', {
       url: "/inbox",
       views: {
         'menuContent' :{
           templateUrl: "templates/inbox.html",
           controller: 'PlaylistCtrl'
+        }
+      }
+    })
+        .state('app.messages', {
+      url: "/messages",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/messages.html",
+          
         }
       }
     });
