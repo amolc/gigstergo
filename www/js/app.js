@@ -121,7 +121,17 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       url: "/listgig",
       views: {
         'menuContent' :{
-          templateUrl: "templates/listg.html"
+          templateUrl: "templates/listg.html",
+          //controller: 'listgCtrl' 
+        }
+      }
+    })
+    .state('app.gigdetails', {
+      url: "/gigdetails",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/gigdetails.html",
+          //controller: 'gigdetailsCtrl' 
         }
       }
     })
@@ -130,7 +140,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'menuContent' :{
           templateUrl: "templates/gigster.html",
-          controller: 'PlaylistsCtrl'
+        //  controller: 'PlaylistsCtrl'
         }
       }
     })
@@ -144,7 +154,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'menuContent' :{
           templateUrl: "templates/mygigs.html",
-          controller: 'PlaylistCtrl'
+          //controller: 'PlaylistCtrl'
         }
       }
     })  
@@ -155,7 +165,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'home-tab' :{
           templateUrl: "templates/progress.html",
-          controller: 'PlaylistCtrl'
+          //controller: 'PlaylistCtrl'
         }
       }
     })  
@@ -194,7 +204,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'home-tab' :{
           templateUrl: "templates/assignprogress.html",
-          controller: 'PlaylistCtrl'
+        //  controller: 'PlaylistCtrl'
         }
       }
     })  
@@ -224,10 +234,30 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'menuContent' :{
           templateUrl: "templates/inbox.html",
-          controller: 'PlaylistCtrl'
+          //controller: 'PlaylistCtrl'
         }
       }
-    })
+    })  
+      .state('app.bidsubmit', {
+      url: "/bidsubmit",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/bidsubmit.html",
+          //controller: 'PlaylistCtrl'
+        }
+      }
+    })   
+
+        .state('app.statusreport', {
+          url: "/statusreport",
+          views: {
+            'menuContent' :{
+              templateUrl: "templates/statusreport.html",
+              //controller: 'PlaylistCtrl'
+            }
+          }
+        })
+
         .state('app.messages', {
       url: "/messages",
       views: {
