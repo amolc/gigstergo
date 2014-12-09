@@ -258,6 +258,27 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
           }
         })
 
+.state('app.ratencomment', {
+          url: "/ratencomment",
+          views: {
+            'menuContent' :{
+              templateUrl: "templates/ratencomment.html",
+              //controller: 'PlaylistCtrl'
+            }
+          }
+        })
+
+.state('app.sendmsg', {
+          url: "/sendmsg",
+          views: {
+            'menuContent' :{
+              templateUrl: "templates/sendmsg.html",
+              //controller: 'PlaylistCtrl'
+            }
+          }
+        })
+
+
         .state('app.messages', {
       url: "/messages",
       views: {
