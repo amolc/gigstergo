@@ -1,0 +1,5 @@
+Consumer key: 8YNLJvKqLvz80CyJcYzUE9gTT
+Consumer secret:SZt4uIqme0uqahtixeKuKvXNOze5iZA4gTt2rqtOijT0gorw7X
+
+Access token: 1329015186-QRXUfAOJHopJQp3ceu3aHwgRBQsYZ84sM523292
+Access token secret: UtWG5Hl4RuiVAPkltRJN3DEZgbSditaACe0a4aGTSw6Ex
