@@ -19,7 +19,7 @@
 </div>
 <div class="row" style="float:right;">
 <div class="col col-50">
-	23/12/3421
+	
 </div>
 <div class="col col-50">
 	23/23/12
@@ -112,11 +112,11 @@
 </div>
 </div>
 <div class="row" style="float:right;">
-<div class="col col-50">
-	23/12/3421
+<div class="col col-50" ng-repeat="prog in progress">
+{{prog.startdate|date:'dd/MM/yyyy' }}
 </div>
 <div class="col col-50">
-	23/23/12
+{{prog.completiondate|date:'dd/MM/yyyy'}}
 </div>
 </div>
 <div class="row" style="float:right;">

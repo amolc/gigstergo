@@ -122,7 +122,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'menuContent' :{
           templateUrl: "templates/listg.html",
-          //controller: 'listgCtrl' 
+          controller: 'ListgCtrl' 
         }
       }
     })
@@ -165,7 +165,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'home-tab' :{
           templateUrl: "templates/progress.html",
-          //controller: 'PlaylistCtrl'
+          controller: 'ProgressCtrl'
         }
       }
     })  

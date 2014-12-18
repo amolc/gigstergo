@@ -46,15 +46,30 @@
 }
 
 
+h1 {
+	color: #5E350D;	
+	font-size: 22px;
+}
+
+h2 {
+	color: #5E350D;	
+	font-size: 18px;
+}
+
+h3 {
+	color: #5E350D;	
+	font-size: 16px;
+}
 
 
+h4 {
+	color: #5E350D;	
+	font-size: 14px;
+}
 
-
-
-
-
-
-
+.input-color{
+	color: #5E350D;
+}
 
 
 .loginbody{
@@ -111,8 +126,10 @@ ion-item.item.item-complex{
 border:none;
 }
 .item-complex .item-content{
-	background-color: #F76D51;
-	color:#5e350d;
+	/*background-color: #fff; 
+		color:#5e350d;*/
+		color: #fff;
+	background-color: #fab518; 
 }
 
 .header{
@@ -127,7 +144,13 @@ border:none;
 	margin-top: 5px;
 }
 
-button.button.button-full.button-positive{
+.button.button-assertive {
+    border-color: #CC2311;
+    background-color: #EF4E3A;
+    color: #FFF;
+}
+
+button.button.button-positive{
 	background-color:#dd4b39 
 }
 
@@ -175,4 +198,19 @@ color: #5E350D;
 
 .postgb h4{
 color: #5E350D;	
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #909;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #909;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #909;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #909;
 }

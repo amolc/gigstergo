@@ -38,8 +38,48 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('listgCtrl', function($scope, $stateParams) {
+.controller('ProgressCtrl', function($scope,$http,$stateParams) {
+
+  $scope.progress= {};
+
+  $http.get(baseURL + 'assignall').success(function(res) {
+        $scope.progress = res;
+        console.log($scope.progress);
+        if (res.status == 'false') {
+          alert(res.message);
+        } else {
+          console.log("No data");
+        //$scope.states=res;
+          
+        }
+      
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+   
+
+})
 
 
-  
+.controller('ListgCtrl', function($scope,$http,$stateParams) {
+
+  $scope.listgigster= {};
+
+  $http.get(baseURL + 'listgig').success(function(res) {
+        $scope.listgigster = res;
+        console.log(res);
+        console.log($scope.listgigster);
+        if (res.status == 'false') {
+          alert(res.message);
+        } else {
+          
+        //$scope.states=res;
+          console.log("No data");
+        }
+      
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+   
+
 });
