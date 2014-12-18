@@ -92,3 +92,14 @@ margin-top: -45px;
 	word-spacing: 7px;
 	white-space: nowrap;
 }
+
+.bar.bar-assertive{
+background-color: #E95436;
+border-color: #E95436;
+}
+button.button.button-full.button-positive
+{
+background-color: #E95436;
+border-color: #E95436;
+	
+}

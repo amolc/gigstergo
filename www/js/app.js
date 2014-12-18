@@ -204,7 +204,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'home-tab' :{
           templateUrl: "templates/assignprogress.html",
-        //  controller: 'PlaylistCtrl'
+          controller: 'assignmentCtrl'
         }
       }
     })  
@@ -292,13 +292,13 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
   $urlRouterProvider.otherwise('/app/login');
 });
 
-exampleApp.controller("LoginController", function($scope, $http,$cordovaOauth, $localStorage, $location) {
+exampleApp.controller("LoginController", function($scope, $http,$cordovaOauth, $localStorage, $state) {
 
     $scope.login = function() {
         $cordovaOauth.facebook("1500472286892894", ["email", "read_stream", "user_website", "user_location", "user_relationships"]).then(function(result) {
             $localStorage.accessToken = result.access_token;
-            console.log("Entered");
-            $location.path("/home");
+
+            $state.go("app.home");
             console.log("HOme Page");
         }, function(error) {
             alert("There was a problem signing in!  See the console for logs");
@@ -307,11 +307,12 @@ exampleApp.controller("LoginController", function($scope, $http,$cordovaOauth, $
     };
 
       $scope.twitterLogin = function() {
-            $cordovaOauth.twitter("CONSUMER_ID_HERE", "CONSUMER_SECRET_HERE").then(function(result) {
+            $cordovaOauth.twitter("8YNLJvKqLvz80CyJcYzUE9gTT", "SZt4uIqme0uqahtixeKuKvXNOze5iZA4gTt2rqtOijT0gorw7X").then(function(result) {
                 $scope.oauthResult = result;
-                  $location.path("/home");
+                  $state.go("app.home");
             }, function(error) {
                 $scope.oauthResult = "OAUTH ERROR (see console)";
+                alert("There was a problem signing in!  See the console for logs");
                 console.log(error);
             });
         }
@@ -329,7 +330,7 @@ exampleApp.controller("LoginController", function($scope, $http,$cordovaOauth, $
                           alert(accessToken);
                         console.log(accessToken);
 
-                        $location.path("/home");
+                        $state.go("app.home");
                     })
                     .error(function(data, status) {
                         alert("ERROR: " + data);
