@@ -3,6 +3,6 @@ if (document.location.hostname == "localhost"){
     var baseURL = base +"/api/";
     var logoURL = base +"/housingadmin2/logos/";
 } else {
-	var baseURL="http://node.fountaintechies.com/api/";
-	var logoURL = "http://node.fountaintechies.com/housingadmin2/logos/";
+	var baseURL="http://node.fountaintechies.com:7000/api/";
+	var logoURL = "http://node.fountaintechies.com:7000/housingadmin2/logos/";
 } 
