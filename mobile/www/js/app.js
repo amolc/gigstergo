@@ -67,6 +67,15 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })
 
+.state('/app/signup', {
+      url: "/emailogin",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/signup.html",
+           controller:'emailoginCtrl' 
+        }
+      }
+    })
 /*
 .state('app.tab', {
       url: "/tab",

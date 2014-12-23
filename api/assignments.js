@@ -52,7 +52,8 @@ exports.loginval = function(req, res) {
         status:false,
         message :'err'
       };
-      if(val.length>0){
+      console.log(val)
+      if(val!=null){
         resdata.status=true;
         console.log("login");
         resdata.message='successfully login welcom to ..';      
