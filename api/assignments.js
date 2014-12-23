@@ -1,9 +1,9 @@
 var http = require('http');
 var mysql = require('mysql');
 var db = mysql.createPool({
-	database : 'gigster',
-     user : 'root',
-	password : '',
+	database : 'gigster2',
+     user : 'gigster2',
+	password : 'ferrari4321',
     host :'localhost',
  }); 
 
