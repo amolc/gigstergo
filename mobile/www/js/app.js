@@ -109,16 +109,16 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })
 
-.state('app.login', {
+/*.state('app.login', {
       url: "/login",
       views: {
         'menuContent' :{
           templateUrl: "templates/login.html"
         }
       }
-    })
+    })*/
 
-.state('app.emailogin', {
+/*.state('app.emailogin', {
       url: "/emailogin",
       views: {
         'menuContent' :{
@@ -126,7 +126,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
            controller:'emailoginCtrl' 
         }
       }
-    })
+    })*/
 
 
 .state('app.home', {
