@@ -88,12 +88,12 @@ angular.module('starter.controllers', [])
 
            $scope.signup=function(userdata){
 
-                      console.log(userdata);
-                     
-                        $http.post(baseURL + 'signup', userdata).success(function(req,res){
+                       $http.post(baseURL + 'signup', userdata).success(function(req,res){
                       alert("user registerd successfully..!!!");
+                      $state.go('app.login');
+
                       }).error(function(res){
-                      alert("Oooops Error Occured...!!!");
+                      alert(res);
                   });
                       
                   
