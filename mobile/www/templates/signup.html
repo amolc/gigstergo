@@ -1,0 +1,23 @@
+<ion-view title="signup" ng-controller="signupCtrl">
+  <ion-content>
+  <div id="loginlogo">
+   <!--<h2 style="color:#777777 ;font-size:40px">HELLO</h2> -->
+   <img ng-src="img/logo-1.png">
+    </div>
+    <div class="signup">
+  <label class="item item-input item-floating-label">
+    <span class="input-label"><h3>Enter your Email Id</h3></span>
+    <input type="text" placeholder="Email Id" class="input-color" ng-model="user.id">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label"><h3>Enter password</h3></span>
+    <input type="text" placeholder="Enter password" class="input-color" ng-model="user.password">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label"><h3>Confirm password</h3></span>
+    <input type="text" placeholder="Confirm password" class="input-color" ng-model="user.cpassword">
+  </label>
+  
+  <button style="background-color:#E2AC10;"ng-click="signup(user)" class="button button-block button-stable">Sign Up</button>
+  </ion-content>
+</ion-view>

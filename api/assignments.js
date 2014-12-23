@@ -1,7 +1,7 @@
 var http = require('http');
 var mysql = require('mysql');
 var db = mysql.createPool({
-	database : 'gigster2',
+	database : 'gigster',
      user : 'gigster2',
 	password : 'ferrari4321',
     host :'localhost',
@@ -10,6 +10,8 @@ var db = mysql.createPool({
 var CRUD = require('mysql-crud');
 var assignmentCRUD = CRUD(db, 'btr_assignment');
 var projectsCRUD = CRUD (db,'btr_projects');
+var projectsCRUD = CRUD (db,'btr_projects');
+var userCRUD = CRUD (db,'btr_users');
 
 exports.assignall = function(req, res) {
     
@@ -37,7 +39,22 @@ exports.listgig = function(req, res) {
       });    
 };
 
+exports.signup=function(req,res){
+  console.log(req.body);
 
+userCRUD.create({'usermail': req.body.id,'userpass':req.body.password }, function (err, vals){
+    console.log(vals);
+      
+      var resdata={
+        status: false,
+        message :'err'
+      };
+
+
+      res.jsonp(resdata);   
+    });
+
+}
 
 exports.loginval = function(req, res) {
     //console.log(req.body);

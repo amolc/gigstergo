@@ -1,3 +1,4 @@
+
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -83,6 +84,22 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller('signupCtrl', function($scope,$http,$state){
+
+           $scope.signup=function(userdata){
+
+                      console.log(userdata);
+                     
+                        $http.post(baseURL + 'signup', userdata).success(function(req,res){
+                      alert("user registerd successfully..!!!");
+                      }).error(function(res){
+                      alert("Oooops Error Occured...!!!");
+                  });
+                      
+                  
+           };
+
+})
 
 .controller('emailoginCtrl', function($scope,$http,$state){
            

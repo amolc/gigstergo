@@ -37,5 +37,6 @@ app.get('/api/listgig', assignments.listgig);
 app.post('/api/loginval',assignments.loginval);
 
 app.post('/api/postgig',assignments.postgig);
+app.post('/api/signup',assignments.signup);
 app.listen(7000);
 console.log('Listening.. on port 7000...'); 
