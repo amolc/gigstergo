@@ -72,9 +72,8 @@ angular.module('starter.controllers', [])
         if (res.status == 'false') {
           alert(res.message);
         } else {
-          
-        //$scope.states=res;
-          console.log("No data");
+            $scope.listgigster=res;
+          console.log($scope.listgigster);
         }
       
       }).error(function() {
@@ -82,4 +81,54 @@ angular.module('starter.controllers', [])
       });
    
 
+})
+
+
+.controller('emailoginCtrl', function($scope,$http,$state){
+           
+
+            $scope.login =function(user)
+            {   
+                    console.log(user);
+         $http.post(baseURL + 'loginval',user).success(function(res) {
+        $scope.response = res;
+        console.log(res);
+        if (res.status == false) {
+          alert(res.message);
+        } else {
+        window.localStorage.setItem('islogin',true);
+          $state.go("app.home");
+        }
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+     }   
+})
+
+.controller('postgigCtrl', function($scope,$http,$state,$filter){
+            $scope.date = new Date();
+              var date = $scope.date;
+              time=$filter('date')(date,"h:mm:ss a");
+              date=$filter('date')(date,'yyyy/M/d');
+              console.log(date);
+              console.log(time);
+              $scope.postg={
+                 date:date, 
+                 
+              }
+            $scope.ins =function(postg)
+            {   
+                    console.log(postg);
+         $http.post(baseURL + 'postgig',postg).success(function(res) {
+        $scope.response = res;
+        console.log(res);
+        if (res.status == false) {
+          console.log("done");
+        } else {
+            console.log("incomplete");
+        }
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });  
+     }   
 });

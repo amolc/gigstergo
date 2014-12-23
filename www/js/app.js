@@ -66,6 +66,17 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })
 
+.state('app.emailogin', {
+      url: "/emailogin",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/emailogin.html",
+           controller:'emailoginCtrl' 
+        }
+      }
+    })
+
+
 .state('app.home', {
       url: "/home",
       views: {
@@ -80,7 +91,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'menuContent' :{
         templateUrl: "templates/postg.html",
-        //controller: 'tabsCtrl'
+        controller: 'postgigCtrl'
 
         }
       }  

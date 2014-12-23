@@ -47,6 +47,7 @@
 
 
 h1 {
+	font-family: 'source_sans_probold';
 	color: #5E350D;	
 	font-size: 22px;
 }
@@ -57,14 +58,17 @@ h2 {
 }
 
 h3 {
+	font-family: 'source_sans_probold';
 	color: #5E350D;	
 	font-size: 16px;
 }
 
 
 h4 {
+	font-family: 'source_sans_probold';
 	color: #5E350D;	
 	font-size: 14px;
+
 }
 
 .input-color{
@@ -145,14 +149,12 @@ border:none;
 }
 
 .button.button-assertive {
-    border-color: #CC2311;
-    background-color: #EF4E3A;
+    background-color:#EC6B39;
+	border-color:#EC6B39;
     color: #FFF;
 }
 
-button.button.button-positive{
-	background-color:#dd4b39 
-}
+
 
 li.item.item-checkbox{
 	border:none;
@@ -200,17 +202,16 @@ color: #5E350D;
 color: #5E350D;	
 }
 
-::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #909;
+
+*::-webkit-input-placeholder {
+		font-family:'source_sans_probold';
+  color: #414242 !important;
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #909;
-   opacity:  1;
+*:-moz-placeholder {
+	font-family:'source_sans_probold';
+  color: #414242 !important;
 }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #909;
-   opacity:  1;
+*:-ms-input-placeholder { /* IE10+ */
+  color: #414242 !important;
 }
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-   color:    #909;
-}
+

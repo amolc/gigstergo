@@ -6,44 +6,46 @@
     
 <div class="list postgb">
   <label class="item item-input item-floating-label">
-    <span class="input-label">Title(Headline for your gigs)</span>
-    <input type="text" placeholder="Title" class="input-color">
+    <span class="input-label"><h3>Title(Headline for your gigs)</h3></span>
+    <input type="text" placeholder="Title" class="input-color" ng-model="postg.title">
   </label>
   <label class="item item-input item-floating-label">
-    <span class="input-label">Description</span>
-    <input type="text" placeholder="Description">
+    <span class="input-label"><h3>Description</h3></span>
+    <input type="text" placeholder="Description" ng-model="postg.desc">
   </label>
   <label class="item item-input item-floating-label">
-    <span class="input-label">How much u ve a pay</span>
-    <input type="text" placeholder="How much your like to pay">
+    <span class="input-label"><h3>How much u ve a pay</h3></span>
+    <input type="text" placeholder="How much your like to pay" ng-model="postg.pay">
   </label>
 
-  <ul class="list" style="display:inline;">
+  <ul class="list">
 
   <li class="item item-checkbox postgb">
      <label class="checkbox">
-       <input type="checkbox">
+       <input type="checkbox" ng-model="postg.jobtype"ng-true-value="f" ng-disabled="postg.f">
      </label>
-     Per gig
+     <h4>Per gig</h4>
   </li>
 <li class="item item-checkbox postgb">
-     <label class="checkbox">
-       <input type="checkbox">
+     <label class="checkbox" >
+       <input type="checkbox" ng-disabled="postg.jobtype" ng-true-value="h" ng-model="postg.h">
      </label>
-     Per hour
+     <h4>Per hour</h4>
   </li>
  
 
 </ul>
 <label class="item item-input item-floating-label">
-    <span class="input-label">Skills you required</span>
-    <input type="text" placeholder="Skills you required">
+    <span class="input-label"><h3>Skills you required</h3></span>
+    <input type="text" placeholder="Skills you required" ng-model="postg.skill">
   </label>
 
 <label class="item item-input item-floating-label">
-    <span class="input-label">Select expiry date of your Gig</span>
-    <input type="text" placeholder="Select expiry date of your Gig">
+    <span class="input-label"><h3>Select expiry date of your Gig</h3></span>
+    <input type="date" placeholder="Select expiry date of your Gig" ng-model="postg.expdate">
   </label>
+
+<!--
 <div>
 	<h4>Would you like to invite your favourite Gigsters to bid?</h4>
 	<li class="item item-checkbox no-border postgb">
@@ -58,9 +60,9 @@
      </label>
     No
   </li>
-</div>
+</div> -->
 <div class="card">
-<button class="button button-block button-positive">
+<button style=""class="button button-block button-assertive" ng-click="ins(postg)">
   Post gig
 </button>
 </div>
