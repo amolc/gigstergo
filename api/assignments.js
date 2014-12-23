@@ -40,21 +40,25 @@ exports.listgig = function(req, res) {
 };
 
 exports.signup=function(req,res){
-  console.log(req.body);
 
-userCRUD.create({'usermail': req.body.id,'userpass':req.body.password }, function (err, vals){
-    console.log(vals);
+    userCRUD.load({usermail :req.body.id }, function (err, val) {  
+     
+       userCRUD.create({'usermail': req.body.id,'userpass':req.body.password }, function (err, vals){
+             console.log(vals);
       
-      var resdata={
-        status: false,
-        message :'err'
-      };
+              var resdata={
+               status: false,
+               message :'Ooops! Error Occured...'
+               };
 
 
-      res.jsonp(resdata);   
-    });
+              res.jsonp(resdata);   
+             });
+    
+  });
 
-}
+
+};
 
 exports.loginval = function(req, res) {
     //console.log(req.body);
