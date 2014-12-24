@@ -33,8 +33,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-
-
+   
 .state('secure', {
                 url: "/secure",
                 templateUrl: "templates/secure.html",
@@ -76,39 +75,9 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
     })
 
 
+
+     
 /*
-.state('app.tab', {
-      url: "/tab",
-      abstract: true,
-      templateUrl: "templates/tab.html",
-      //controller: 'AppCtrl'
-    })
-
-.state('app.tab.postgig', {
-      url: "/postgig",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/postgig.html",
-          controller: 'postgigCtrl'
-        }
-      }
-    })
-
-
-.state('app.tab.postgig', {
-      url: "/postgig",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/postgig.html",
-          controller: 'postgigCtrl'
-        }
-      }
-    })
-
-*/
-
-        
-
 .state('app.profile', {
       url: "/profile",
       views: {
@@ -118,24 +87,9 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })
 
-/*.state('app.login', {
-      url: "/login",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/login.html"
-        }
-      }
-    })*/
 
-/*.state('app.emailogin', {
-      url: "/emailogin",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/emailogin.html",
-           controller:'emailoginCtrl' 
-        }
-      }
-    })*/
+*/
+
 
 
 .state('app.home', {
@@ -146,21 +100,33 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
         }
       }
     })
-.state('app.postgig', {
+
+  .state('app.tabs', {
+      url: "/tabs",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/tabs.html",
+          //controller: 'PlaylistCtrl'
+        }
+      }
+    })
+
+
+.state('app.tabs.postgig', {
       url: "/postgig",
       //abstract: true,
       views: {
-        'menuContent' :{
+        'tab-tab1' :{
         templateUrl: "templates/postg.html",
         controller: 'postgigCtrl'
 
         }
       }  
     })
-    .state('app.listgig', {
+    .state('app.tabs.listgig', {
       url: "/listgig",
       views: {
-        'menuContent' :{
+        'tab-tab2' :{
           templateUrl: "templates/listg.html",
           controller: 'ListgCtrl' 
         }
@@ -175,17 +141,25 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
         }
       }
     })
-    .state('app.gigster', {
+    .state('app.tabs.gigster', {
       url: "/gigster",
       views: {
-        'menuContent' :{
+        'tab-tab3' :{
           templateUrl: "templates/gigster.html",
         //  controller: 'PlaylistsCtrl'
         }
       }
     })
 
-      
+    .state('app.tabs.inbox', {
+      url: "/inbox",
+      views: {
+        'tab-tab5' :{
+          templateUrl: "templates/inbox1.html",
+         
+        }
+      }
+    })    
 
 
     .state('app.mygigs', {
@@ -266,22 +240,25 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
          
         }
       }
+    }) 
+
+
+    .state('app.inbox.tab5', {
+      url: "/tab5",
+      views: {
+        'tab-tab5' :{
+          templateUrl: "templates/inbox1.html",
+         
+        }
+      }
     })  
 
 
-        .state('app.inbox', {
-      url: "/inbox",
-        abstract:true,
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/inbox.html",
-          //controller: 'PlaylistCtrl'
-        }
-      }
-    })
+
+        /*
 
         .state('app.inbox.tab1', {
-      url: "/tab1",
+      url: "/<!--1",
       views: {
         'tab-tab1' :{
           templateUrl: "templates/postg.html",
@@ -318,17 +295,9 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })  
 
-.state('app.inbox.tab5', {
-      url: "/tab5",
-      views: {
-        'tab-tab5' :{
-          templateUrl: "templates/inbox1.html",
-         
-        }
-      }
-    })  
 
 
+    */
 
 
       .state('app.bidsubmit', {
@@ -382,7 +351,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     });
 
-    
+
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');

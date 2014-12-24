@@ -5,10 +5,14 @@
    <!--<h2 style="color:#777777 ;font-size:40px">HELLO</h2> -->
    <img ng-src="img/logo-1.png">
  </div>
-
+<form name="form" class="css-form" novalidate>
  <div class="list" style="padding-top:40px;">
   <label class="item item-input">
-    <input type="text" placeholder="Name" ng-model="user.gigname">
+    <input type="email" name="uEmail" placeholder="Email" ng-model="user.gigname">
+ <div ng-show="form.$submitted || form.uEmail.$touched">
+      <span ng-show="form.uEmail.$error.required">Tell us your email.</span>
+      <span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+    </div>
   </label>
   <label class="item item-input">
     <input type="password" placeholder="Password" ng-model="user.password">
@@ -17,6 +21,6 @@
   <p align="center">not a user... Please Sign-up <strong><a class="item" href="#/app/signup">here..!</a></strong></p>
         
 </div>
-
+</form>
   </ion-content>
 </ion-view>
