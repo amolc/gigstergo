@@ -51,7 +51,8 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       url: "/login",
       views: {
         'menuContent' :{
-          templateUrl: "templates/login.html"
+          templateUrl: "templates/login.html",
+          controller:'mainloginctrl'
         }
       }
     })
@@ -64,15 +65,15 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })
 
-.state('app.emailogin', {
-      url: "/emailogin",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/emailogin.html",
-           controller:'emailoginCtrl' 
+  .state('app.emailogin', {
+        url: "/emailogin",
+        views: {
+          'menuContent' :{
+            templateUrl: "templates/emailogin.html",
+             controller:'emailoginCtrl' 
+          }
         }
-      }
-    })
+      })
 
 
 
@@ -96,7 +97,8 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       url: "/home",
       views: {
         'menuContent' :{
-          templateUrl: "templates/home.html"
+          templateUrl: "templates/home.html",
+          controller:'homeCtrl' 
         }
       }
     })

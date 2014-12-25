@@ -70,11 +70,13 @@ exports.loginval = function(req, res) {
 
     CRUD(db, 'btr_users').load({usermail :gigname,userpass : password }, function (err, val) {  
       var resdata={
+        record:'',
         status:false,
         message :'err'
       };
       console.log(val)
       if(val!=null){
+        resdata.record=val;
         resdata.status=true;
         console.log("login");
         resdata.message='successfully login welcom to ..';      

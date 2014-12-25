@@ -85,7 +85,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('signupCtrl', function($scope,$http,$state){
-
+       if( window.localStorage.getItem('islogin') == 'true' ){
+        $state.go('app.home')
+       }
            $scope.signup=function(userdata){
 
                        $http.post(baseURL + 'signup', userdata).success(function(req,res){
@@ -101,8 +103,46 @@ angular.module('starter.controllers', [])
 
 })
 
+//new controllers
+.controller('homeCtrl', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+       
+
+})
+
+.controller('mainloginctrl', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') == 'true' ){
+        $state.go('app.home')
+       }
+     
+})
+
+.controller('logoutcontroller', function($scope,$http,$state){
+       $scope.logout=function(){
+
+       };
+     
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .controller('emailoginCtrl', function($scope,$http,$state){
-           
+            if( window.localStorage.getItem('islogin') == 'true' ){
+        $state.go('app.home')
+       }
 
             $scope.login =function(user)
             {   
@@ -113,7 +153,10 @@ angular.module('starter.controllers', [])
         if (res.status == false) {
           alert(res.message);
         } else {
+          console.log(res.record[0]);
         window.localStorage.setItem('islogin',true);
+        window.localStorage.setItem('userdetails',res.record[0]);
+
           $state.go("app.home");
         }
       }).error(function() {
@@ -123,6 +166,14 @@ angular.module('starter.controllers', [])
 })
 
 .controller('postgigCtrl', function($scope,$http,$state,$filter){
+ if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+
+
+
+
+
             $scope.date = new Date();
               var date = $scope.date;
               time=$filter('date')(date,"h:mm:ss a");
