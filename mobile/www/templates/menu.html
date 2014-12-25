@@ -35,6 +35,7 @@
       <ion-list class="sidemenucolor">
         <ion-item nav-clear menu-close href="#/app/profile" class="border1">
           <img style="width:50px;height:50px;" src="img/person.png">
+          <p>Welcome .. {{username}}</p>
         </ion-item>
         <!--<ion-item nav-clear menu-close href="#/app/home" class="border1">
           Home
@@ -58,8 +59,8 @@
           inbox
            <i class="icon ion-ios7-email-outline" style="margin-left:20px;"></i>    
         </ion-item ng-controller="logoutcontroller">
-         <ion-item nav-clear menu-close href="#/app/home">
-          Logout               
+        <ion-item nav-clear menu-close href="">
+          Logout
         </ion-item>
       </ion-list>
     </ion-content>

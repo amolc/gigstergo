@@ -78,18 +78,19 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
 
 
      
-/*
+
 .state('app.profile', {
       url: "/profile",
       views: {
         'menuContent' :{
-          templateUrl: "templates/profile.html"
+          templateUrl: "templates/profile.html",
+          controller: 'profilecontroller'
         }
       }
     })
 
 
-*/
+
 
 
 
@@ -170,7 +171,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'menuContent' :{
           templateUrl: "templates/mygigs.html",
-          //controller: 'PlaylistCtrl'
+          controller: 'mygigsctrl'
         }
       }
     })  
@@ -210,6 +211,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'menuContent' :{
           templateUrl: "templates/assignment.html",
+          controller: "mainassognmentctrl"
           
         }
       }

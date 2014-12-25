@@ -4,8 +4,7 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
-
-  // Create the login modal that we will use lat
+    // Create the login modal that we will use lat
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
@@ -40,7 +39,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ProgressCtrl', function($scope,$http,$stateParams) {
-
+if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
   $scope.progress= {};
 
   $http.get(baseURL + 'assignall').success(function(res) {
@@ -62,8 +63,11 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('ListgCtrl', function($scope,$http,$stateParams) {
+.controller('ListgCtrl', function($scope,$http,$stateParams,$state) {
 
+if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
   $scope.listgigster= {};
 
   $http.get(baseURL + 'listgig').success(function(res) {
@@ -119,21 +123,41 @@ angular.module('starter.controllers', [])
      
 })
 
-.controller('logoutcontroller', function($scope,$http,$state){
-       $scope.logout=function(){
 
-       };
-     
+
+.controller('mygigsctrl', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
 })
 
+.controller('mainassognmentctrl', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+})
 
+.controller('mainassognmentctrl', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+})
 
+.controller('profilecontroller', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+       var userdetailsforprofile=window.localStorage.getItem('userdetails');
+      console.log(userdetailsforprofile);
+      var user={
+        fname:'',
+        lname:'',
+        username:'',
 
+      }
+     // $scope.user.username=userdetailsforprofile.username;
 
-
-
-
-
+})
 
 
 
