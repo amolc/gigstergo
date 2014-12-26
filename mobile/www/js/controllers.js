@@ -4,8 +4,7 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
-
-  // Create the login modal that we will use lat
+    // Create the login modal that we will use lat
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
@@ -28,19 +27,11 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
 
 .controller('ProgressCtrl', function($scope,$http,$stateParams) {
-
+if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
   $scope.progress= {};
 
   $http.get(baseURL + 'assignall').success(function(res) {
@@ -62,8 +53,11 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('ListgCtrl', function($scope,$http,$stateParams) {
+.controller('ListgCtrl', function($scope,$http,$stateParams,$state) {
 
+/*if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       } */
   $scope.listgigster= {};
 
   $http.get(baseURL + 'listgig').success(function(res) {
@@ -81,10 +75,19 @@ angular.module('starter.controllers', [])
         alert("Please check your internet connection or data source..");
       });
    
+          $scope.logout=function(){
+            window.localStorage.setItem('islogin',false);
+           $state.go('app.login');  
+   
+         };
+
 
 })
 
 .controller('signupCtrl', function($scope,$http,$state){
+  if( window.localStorage.getItem('islogin') == 'true' ){
+    $state.go('app.home')
+  }
   $scope.warning = '';      
   $scope.signup=function(userdata){
     $http.post(baseURL + 'signup', userdata).success(function(req,res){
@@ -94,12 +97,70 @@ angular.module('starter.controllers', [])
     }).error(function(res){
       alert(res);
     });
- };
+  };
 
 })
 
+//new controllers
+.controller('homeCtrl', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+       
+
+})
+
+.controller('mainloginctrl', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') == 'true' ){
+        $state.go('app.home')
+       }
+     
+})
+
+
+
+.controller('mygigsctrl', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+})
+
+.controller('mainassognmentctrl', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+})
+
+.controller('mainassognmentctrl', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+})
+
+.controller('profilecontroller', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+       var userdetailsforprofile=window.localStorage.getItem('userdetails');
+      console.log(userdetailsforprofile);
+      var user={
+        fname:'',
+        lname:'',
+        username:'',
+
+      }
+     // $scope.user.username=userdetailsforprofile.username;
+
+})
+
+
+
+
+
 .controller('emailoginCtrl', function($scope,$http,$state){
-           
+            if( window.localStorage.getItem('islogin') == 'true' ){
+        $state.go('app.home')
+       }
 
             $scope.login =function(user)
             {   
@@ -110,7 +171,10 @@ angular.module('starter.controllers', [])
         if (res.status == false) {
           alert(res.message);
         } else {
+          console.log(res.record[0]);
         window.localStorage.setItem('islogin',true);
+        window.localStorage.setItem('userdetails',res.record[0]);
+
           $state.go("app.home");
         }
       }).error(function() {
@@ -120,6 +184,14 @@ angular.module('starter.controllers', [])
 })
 
 .controller('postgigCtrl', function($scope,$http,$state,$filter){
+ if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+
+
+
+
+
             $scope.date = new Date();
               var date = $scope.date;
               time=$filter('date')(date,"h:mm:ss a");

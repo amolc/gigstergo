@@ -1,7 +1,69 @@
-<ion-view title="PostGig">
- <!-- <ion-nav-buttons side="left">
-    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
-  </ion-nav-buttons> -->
+<ion-view>
+<ion-content>
+<form name="mainForm" ng-submit="sendForm()">
+    <div>
+      <label for="title">Title</label>
+      <input id="title" name="title" type="text" ng-model="postg.title" required/>
+      <!--<span class="error" ng-show="mainForm.title.$error.required">required</span>   -->
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <input id="description" name="description" type="text" ng-model="postg.desc" required/>
+      <!--<span class="error" ng-show="mainForm.description.$error.required">required</span> -->
+    </div>
+    <div>
+   
+   
+    <input type="text" name="pay" placeholder="How much your like to pay" ng-model="postg.pay" required/>
+ <!--<span class="error" ng-show="mainForm.pay.$error.required">required</span>-->
+
+  <ul class="list">
+
+  <li class="item item-checkbox postgb">
+     <label class="checkbox">
+       <input type="checkbox" ng-model="postg.jobtype"ng-true-value="f" ng-disabled="postg.f">
+     </label>
+     <h4>Per gig</h4>
+  </li>
+<li class="item item-checkbox postgb">
+     <label class="checkbox" >
+       <input type="checkbox" ng-disabled="postg.jobtype" ng-true-value="h" ng-model="postg.h">
+     </label>
+     <h4>Per hour</h4>
+  </li>
+ 
+
+</ul>   
+    </div>
+    <div>
+      <label for="skill">Skills</label>
+      <input id="skill" name="skill" type="text" ng-model="postg.skill" required/>
+      <!--<span class="error" ng-show="mainForm.skill.$error.required">required</span> -->
+
+    </div>
+    <div>
+      <label for="expdate">Expire Date</label>
+      <input id="expdate" name="expdate" type="date" ng-model="postg.expdate" required/>
+      <!--<span class="error" ng-show="mainForm.expdate.$error.required">required</span> -->
+
+    </div>
+
+    <div class="card">
+<button style=""class="button button-block button-assertive" ng-click="ins(postg)">
+  Post gig
+</button>
+</div>
+  </form>
+</ion-content>
+</ion-view>
+
+
+
+
+
+
+<!--<ion-view title="PostGig">
+ 
   <ion-content class="has-header postgb">
     
 <div class="list postgb">
@@ -45,22 +107,6 @@
     <input type="date" placeholder="Select expiry date of your Gig" ng-model="postg.expdate">
   </label>
 
-<!--
-<div>
-	<h4>Would you like to invite your favourite Gigsters to bid?</h4>
-	<li class="item item-checkbox no-border postgb">
-     <label class="checkbox">
-       <input type="checkbox">
-     </label>
-     Yes
-  </li>
-<li class="item item-checkbox no-border postgb">
-     <label class="checkbox">
-       <input type="checkbox">
-     </label>
-    No
-  </li>
-</div> -->
 <div class="card">
 <button style=""class="button button-block button-assertive" ng-click="ins(postg)">
   Post gig
@@ -71,3 +117,4 @@
 
   </ion-content>
 </ion-view>
+    -->

@@ -71,11 +71,13 @@ exports.loginval = function(req, res) {
 
     CRUD(db, 'btr_users').load({usermail :gigname,userpass : password }, function (err, val) {  
       var resdata={
+        record:'',
         status:false,
         message :'err'
       };
       console.log(val)
       if(val!=null){
+        resdata.record=val;
         resdata.status=true;
         console.log("login");
         resdata.message='successfully login welcom to ..';      
@@ -89,31 +91,12 @@ exports.loginval = function(req, res) {
  }; 
 
 
-/*
-exports.postgig = function(req, res) {
-  console.log(req.body.title);
-projectsCRUD.create({
-                  'prjTitle' : req.body.title,
-                  'prjdesc' : req.body.desc,
-                  'skills': req.body.skill,
-                  'postedon': req.body.time,    
-                  'proposedbudget' : req.body.pay,
-                  'bidfrom' : req.body.date,
-                  'bidto' : req.body.expdate,
-                  'jobtype' :req.body.jobtype          
-                  
-              },
-      function (err, vals) {
-        console.log(vals);
-      });
-  }; */
-
-
 exports.postgig= function (req,res){
 
 console.log(req.body.title);
 
-projectsCRUD.create({'prjTitle': req.body.title,'prjdesc':req.body.desc,'proposedbudget':req.body.pay,'jobtype':req.body.jobtype,'skills':req.body.skill,'bidto':req.body.expdate,'bidfrom':req.body.date }, function (err, vals){
+projectsCRUD.create({'prjTitle': req.body.title,'prjdesc':req.body.desc,'proposedbudget':req.body.pay,'jobtype':req.body.jobtype,'skills':req.body.skill,'bidto':req.body.expdate,'bidfrom':req.body.date },
+ function (err, vals){
     console.log(vals);
       
       var resdata={

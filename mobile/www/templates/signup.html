@@ -1,7 +1,41 @@
 <ion-view title="signup" ng-controller="signupCtrl">
+<ion-content>
+ <div id="loginlogo">
+   <img ng-src="img/logo-1.png">
+    </div>
+
+
+
+ <form name="mainForm" ng-submit="signup(user)">
+        <div>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" ng-model="user.id" required/>
+      <span class="error" ng-show="mainForm.email.$error.required">required</span>
+      <span class="error" ng-show="mainForm.email.$error.email">invalid email</span>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" ng-model="user.password" required/>
+      <span class="error" ng-show="mainForm.password.$error.required">required</span>
+    </div>
+    <div>
+      <label for="cpassword">Confirm Password</label>
+      <input id="cpassword" name="cpassword" type="password" ng-model="user.cpassword" required/>
+      <span class="error" ng-show="mainForm.cpassword.$error.required">required</span>
+    </div>
+    <div>
+      <button style="background-color:#E2AC10;" class="button button-block button-stable">Login</button>
+    </div>
+  </form> 
+</ion-content>
+</ion-view>
+
+<!--
+
+
+<ion-view title="signup" ng-controller="signupCtrl">
   <ion-content>
   <div id="loginlogo">
-   <!--<h2 style="color:#777777 ;font-size:40px">HELLO</h2> -->
    <img ng-src="img/logo-1.png">
     </div>
     <div class="signup">
@@ -21,3 +55,4 @@
   <button style="background-color:#E2AC10;"ng-click="signup(user)" class="button button-block button-stable">Sign Up</button>
   </ion-content>
 </ion-view>
+-->
