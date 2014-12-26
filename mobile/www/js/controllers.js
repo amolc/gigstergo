@@ -27,16 +27,6 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
 
 .controller('ProgressCtrl', function($scope,$http,$stateParams) {
 if( window.localStorage.getItem('islogin') != 'true' ){
@@ -65,9 +55,9 @@ if( window.localStorage.getItem('islogin') != 'true' ){
 
 .controller('ListgCtrl', function($scope,$http,$stateParams,$state) {
 
-if( window.localStorage.getItem('islogin') != 'true' ){
+/*if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
-       }
+       } */
   $scope.listgigster= {};
 
   $http.get(baseURL + 'listgig').success(function(res) {
@@ -85,6 +75,12 @@ if( window.localStorage.getItem('islogin') != 'true' ){
         alert("Please check your internet connection or data source..");
       });
    
+          $scope.logout=function(){
+            window.localStorage.setItem('islogin',false);
+           $state.go('app.login');  
+   
+         };
+
 
 })
 
