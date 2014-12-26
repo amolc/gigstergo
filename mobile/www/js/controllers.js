@@ -111,8 +111,7 @@ console.log(reqdata);
   $scope.warning = '';      
   $scope.signup=function(userdata){
     $http.post(baseURL + 'signup', userdata).success(function(req,res){
-      console.log( res );
-      $scope.warning = res.message; 
+      $scope.warning = req.message; 
       //$state.go('app.login');
     }).error(function(res){
       alert(res);
