@@ -32,7 +32,6 @@ exports.getbid = function(req, res) {
 };
 
 exports.listgig = function(req, res) {
-    
     var query = "SELECT * FROM  btr_projects";  
     db.query( query, function (err, val) {  
       console.log( val );
@@ -109,3 +108,14 @@ projectsCRUD.create({'prjTitle': req.body.title,'prjdesc':req.body.desc,'propose
     });
 
 };
+
+
+exports.progressassignments=function(req,res){
+var userid=req.body.userid;
+    var query = "SELECT * FROM btr_projects AS tbl1 INNER JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto where tbl1.userId="+userid+" and tbl1.status=2 order by tbl1.postedon";  
+    db.query( query, function (err, val) {  
+        console.log(val);
+        res.jsonp(val);
+      });    
+};
+

@@ -44,7 +44,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       url: "/app",
       abstract: true,
       templateUrl: "templates/menu.html",
-      //controller: 'AppCtrl'
+      controller: 'AppCtrl'
     })
 
 .state('app.login', {
@@ -79,7 +79,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
 
 
      
-
+/*
 .state('app.profile', {
       url: "/profile",
       views: {
@@ -89,7 +89,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
         }
       }
     })
-
+*/
 
 
 
