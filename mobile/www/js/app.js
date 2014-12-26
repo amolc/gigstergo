@@ -192,7 +192,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'about-tab' :{
           templateUrl: "templates/bid.html",
-     
+          controller:'biddingcontroller'     
         }
       }
     })  

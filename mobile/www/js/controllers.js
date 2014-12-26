@@ -157,6 +157,63 @@ console.log(reqdata);
        }
 })
 
+
+.controller('biddingcontroller', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+       $scope.progress= {};
+  var reqdata={
+      userid:window.localStorage.getItem('userid1')
+  };
+  $http.get(baseURL + 'biddingmygigs',reqdata).success(function(res) {
+        //console.log(res);
+        $scope.bidding = res;
+       // console.log($scope.progress);
+        if (res.status == 'false') {
+          alert(res.message);
+        } else {
+          console.log("No data");
+        //$scope.states=res;
+          
+        }
+      
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+   
+
+})
+
+.controller('completedcontroller', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+
+       $scope.progress= {};
+  var reqdata={
+      userid:window.localStorage.getItem('userid1')
+  };
+  $http.get(baseURL + 'completedmygigs',reqdata).success(function(res) {
+        //console.log(res);
+        $scope.completed = res;
+       // console.log($scope.progress);
+        if (res.status == 'false') {
+          alert(res.message);
+        } else {
+          console.log("No data");
+        //$scope.states=res;
+          
+        }
+      
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+
+
+})
+
+
 /*.controller('profilecontroller', function($scope,$http,$state){
        if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
