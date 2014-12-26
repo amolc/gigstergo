@@ -1,188 +1,36 @@
 <ion-view title="In progress">
   <ion-content class="has-header">
-<div class="list card">
-<div class="item item-avatar">
-	<img src="img/person.png">
-    <h2>Sourab undre</h2>
-    <h3><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></h3>
-
-</div>
-<div class="row">
-<div class="col col-67">
-<h3>Test for ankush</h3>
-<h4>Completion process</h4>
-</div>
-<div style="margin-left: 54px; margin-top: 5px;">
-	<a href="#/app/sendmsg"><i style="font-size:45px;" class="icon ion-ios7-chatboxes-outline"></i>
-</a>
-</div>
-</div>
-<div class="row" style="float:right;">
-<div class="col col-50">
-	
-</div>
-<div class="col col-50">
-	23/23/12
-</div>
-</div>
-<div class="row" style="float:right;">
-<a href= "#/app/statusreport " class="col col-67" style="background-color:green;width:100%;height:25px;">
-
-</a>
-
-<div style="margin-left: 54px; margin-top: -11px;"><a href="#/app/ratencomment" style="text-decoration:"none";><i style="font-size:45px;"class="icon ion-ios7-compose"></i></a></div>
-</div>
-<h4>Completed...!!!!</h4>
-</div>
-
-
-
-
-<div class="list card">
-<div class="item item-avatar">
-	<img src="img/person.png">
-    <h2>Shital</h2>
-    <h3><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></h3>
-
-</div>
-
-<h3>Test for ankush</h3>
-<h4>Completion process</h4>
-<div class="row">
-<div class="col col-50">
-	23/12/3421
-</div>
-<div class="col col-50">
-	23/23/12
-</div>
-
-	
-</div>
-<a href= "#/app/statusreport " class="col col-50" style="background-color:yellow;width:100%;height:25px;">
-</a>
-<h4>In Progress...!!!!</h4>
-</div>
-
-
-<div class="list card">
-<div class="item item-avatar">
-	<img src="img/person.png">
-    <h2>Ashish</h2>
-    <h3><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></h3>
-
-</div>
-
-<h3>Test for ankush</h3>
-<h4>Completion process</h4>
-<div class="row">
-<div class="col col-50">
-	23/12/3421
-</div>
-<div class="col col-50">
-	23/23/12
-</div>
-
-	
-</div>
-<a href= "#/app/statusreport " class="col col-10" style="background-color:red;width:100%;height:25px;">
-</a>
-<h4>Slow...!!!!</h4>
-</div>
-
-
-  </ion-content>
-</ion-view>
-<ion-view title="In progress">
-  <ion-content class="has-header">
-<div class="list card">
-<div class="item item-avatar">
-	<img src="img/person.png">
-    <h2>Sourab undre</h2>
-    <h3><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></h3>
-
-</div>
-<div class="row">
-<div class="col col-67">
-<h3>Test for ankush</h3>
-<h4>Completion process</h4>
-</div>
-<div style="margin-left: 54px; margin-top: 5px;">
-	<a href="#/app/sendmsg"><i style="font-size:45px;" class="icon ion-ios7-chatboxes-outline"></i>
-</a>
-</div>
-</div>
-<div class="row" style="float:right;">
-<div class="col col-50" ng-repeat="prog in progress">
-{{prog.startdate|date:'dd/MM/yyyy' }}
-</div>
-<div class="col col-50">
-{{prog.completiondate|date:'dd/MM/yyyy'}}
-</div>
-</div>
-<div class="row" style="float:right;">
-<a href= "#/app/statusreport " class="col col-67" style="background-color:green;width:100%;height:25px;">
-
-</a>
-
-<div style="margin-left: 54px; margin-top: -11px;"><a href="#/app/ratencomment" style="text-decoration:"none";><i style="font-size:45px;"class="icon ion-ios7-compose"></i></a></div>
-</div>
-<h4>Completed...!!!!</h4>
-</div>
-
-
-
-
-<div class="list card">
-<div class="item item-avatar">
-	<img src="img/person.png">
-    <h2>Shital</h2>
-    <h3><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></h3>
-
-</div>
-
-<h3>Test for ankush</h3>
-<h4>Completion process</h4>
-<div class="row">
-<div class="col col-50">
-	23/12/3421
-</div>
-<div class="col col-50">
-	23/23/12
-</div>
-
-	
-</div>
-<a href= "#/app/statusreport " class="col col-50" style="background-color:yellow;width:100%;height:25px;">
-</a>
-<h4>In Progress...!!!!</h4>
-</div>
-
-
-<div class="list card">
-<div class="item item-avatar">
-	<img src="img/person.png">
-    <h2>Ashish</h2>
-    <h3><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></h3>
-
-</div>
-
-<h3>Test for ankush</h3>
-<h4>Completion process</h4>
-<div class="row">
-<div class="col col-50">
-	23/12/3421
-</div>
-<div class="col col-50">
-	23/23/12
-</div>
-
-	
-</div>
-<a href= "#/app/statusreport " class="col col-10" style="background-color:red;width:100%;height:25px;">
-</a>
-<h4>Slow...!!!!</h4>
-</div>
-
-
+  <div class="list list-inset">
+  	<div class="item item-avatar">
+    <img src="img/person.png">
+    <h2>Marty McFly</h2>
+    <p>November 05, 1955</p>
+    </div>
+     <div class="item item-body">
+    <p>
+      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+      the content is from a card-body consisting of an image and paragraph text. The footer
+      consists of tabs, icons aligned left, within the card-footer.
+    </p>
+    <p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p>
+  </div>
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+      Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+      Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+      Share
+    </a>
+  </div>
+  </div>
   </ion-content>
 </ion-view>

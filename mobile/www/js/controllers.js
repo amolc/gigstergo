@@ -2,8 +2,21 @@
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+ 
+var user=window.localStorage.getItem('username');
+      
+//$scope.user=userdetailsforprofile.usermail;
+
+console.log(user);
+
+
+
+
+
+
+
   // Form data for the login modal
-  $scope.loginData = {};
+ /* $scope.loginData = {};
     // Create the login modal that we will use lat
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
@@ -24,7 +37,7 @@ angular.module('starter.controllers', [])
     $timeout(function() {
       $scope.closeLogin();
     }, 1000);
-  };
+  };*/
 })
 
 
@@ -33,10 +46,13 @@ if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        }
   $scope.progress= {};
-
-  $http.get(baseURL + 'assignall').success(function(res) {
+  var reqdata={
+      userid:window.localStorage.getItem('userid1')
+  };
+  $http.get(baseURL + 'progressassignments',reqdata).success(function(res) {
+        //console.log(res);
         $scope.progress = res;
-        console.log($scope.progress);
+       // console.log($scope.progress);
         if (res.status == 'false') {
           alert(res.message);
         } else {
@@ -59,6 +75,10 @@ if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        } */
   $scope.listgigster= {};
+  var reqdata={
+      userid:window.localStorage.getItem('userid1')
+  };
+console.log(reqdata);
 
   $http.get(baseURL + 'listgig').success(function(res) {
         $scope.listgigster = res;
@@ -137,21 +157,28 @@ if( window.localStorage.getItem('islogin') != 'true' ){
        }
 })
 
-.controller('profilecontroller', function($scope,$http,$state){
+/*.controller('profilecontroller', function($scope,$http,$state){
        if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        }
        var userdetailsforprofile=window.localStorage.getItem('userdetails');
       console.log(userdetailsforprofile);
-      var user={
+      $scope.user={
         fname:'',
         lname:'',
         username:'',
+        email:'',
+        phone:'',
+        Tagline:'',
+        Skills:'',
+        City:'',
+        Country:''
 
       }
-     // $scope.user.username=userdetailsforprofile.username;
+      user.username=userdetailsforprofile.username;
+      $scope.user.email='userdetailsforprofile.usermail';
 
-})
+})*/
 
 
 
@@ -174,7 +201,9 @@ if( window.localStorage.getItem('islogin') != 'true' ){
           console.log(res.record[0]);
         window.localStorage.setItem('islogin',true);
         window.localStorage.setItem('userdetails',res.record[0]);
-
+        window.localStorage.setItem('username',res.record[0].usermail);
+        window.localStorage.setItem('userid1',res.record[0].userId);
+        
           $state.go("app.home");
         }
       }).error(function() {

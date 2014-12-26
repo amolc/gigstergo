@@ -35,8 +35,14 @@ app.get('/api/assignall', assignments.assignall);
 app.get('/api/getbid', assignments.getbid);
 app.get('/api/listgig', assignments.listgig);
 app.post('/api/loginval',assignments.loginval);
-
+app.get('/api/progressassignments',assignments.progressassignments);
 app.post('/api/postgig',assignments.postgig);
 app.post('/api/signup',assignments.signup);
+//app.post('/api/getuserprofile',assignments.getuserprofile);
+
+
+
+
+
 app.listen(7000);
 console.log('Listening.. on port 7000...'); 
