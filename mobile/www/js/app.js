@@ -60,7 +60,8 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       url: "/signup",
       views: {
         'menuContent' :{
-          templateUrl: "templates/signup.html"
+          templateUrl: "templates/signup.html",
+          controller:'signupCtrl' 
         }
       }
     })
@@ -70,7 +71,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
         views: {
           'menuContent' :{
             templateUrl: "templates/emailogin.html",
-             controller:'emailoginCtrl' 
+            controller:'emailoginCtrl' 
           }
         }
       })
