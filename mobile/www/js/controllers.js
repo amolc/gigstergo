@@ -85,19 +85,16 @@ angular.module('starter.controllers', [])
 })
 
 .controller('signupCtrl', function($scope,$http,$state){
-
-           $scope.signup=function(userdata){
-
-                       $http.post(baseURL + 'signup', userdata).success(function(req,res){
-                      alert("user registerd successfully..!!!");
-                      $state.go('app.login');
-
-                      }).error(function(res){
-                      alert(res);
-                  });
-                      
-                  
-           };
+  $scope.warning = '';      
+  $scope.signup=function(userdata){
+    $http.post(baseURL + 'signup', userdata).success(function(req,res){
+      console.log( res );
+      $scope.warning = res.message; 
+      //$state.go('app.login');
+    }).error(function(res){
+      alert(res);
+    });
+ };
 
 })
 

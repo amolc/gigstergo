@@ -35,6 +35,7 @@ exports.listgig = function(req, res) {
     
     var query = "SELECT * FROM  btr_projects";  
     db.query( query, function (err, val) {  
+      console.log( val );
         res.jsonp(val);
       });    
 };
