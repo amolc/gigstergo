@@ -364,6 +364,27 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
+
+}).directive('logout', function( $state ){
+    return {
+      restrict:'E',
+      template : '<a href="#"><img ng-src="img/menu/logoutnew.svg" alt="LogOut" height="30" width="30" />Logga ut <i class="icon ion-ios7-arrow-right"></i> Välj ny förening </a>',
+      compile : function(element, attributes) {
+            element.attr("id", "ass_logout");
+            return {
+               pre: function(scope, element, attributes, controller, transcludeFn){
+                  scope.association_details = JSON.parse( window.localStorage.getItem("association_details") );                  
+               },
+               post:function( scope, elem, attrs ){
+                  elem.bind('click', function (){
+                      window.localStorage.setItem( 'userdetails', '' );
+                      window.localStorage.setItem( 'loginStatus', false );
+                      $state.go('app.login');
+                  })                  
+               }
+           }
+        }
+    }
 });
 
 exampleApp.controller("LoginController", function($scope, $http,$cordovaOauth, $localStorage, $state) {
