@@ -244,7 +244,7 @@ height: 40px;
 width: 40px;
 text-align: center;
 padding: 5px;float:left;}
-.profile-img-div{text-align: center;background: red;}
+.profile-img-div{text-align: center;}
 .profile-img{width: 75px;
 height: 75px;
 border: 3px solid #fd8900;
@@ -258,3 +258,4 @@ margin-top: 10px;position: absolute;}
 background-color:#ECECEC;
 }
 .inpute-post-gig{border: 1px solid;}
+.menu a.item-content{background:url('../img/background.png');}
