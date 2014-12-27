@@ -1,5 +1,43 @@
-<ion-view title="My completed">
+<ion-view title="My bids completed">
   <ion-content class="has-header">
-    <h1>completed</h1>
+    
+    <div class="list" ng-repeat="b in biddingbidscomplted">
+            
+        <div class="list list-inset">
+    <div class="item item-avatar">
+    <img src="img/person.png">
+    <h2>{{b.fname+" "+b.lname}}</h2>
+    <p>{{b.city}}</p>
+    <p><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></p>
+    </div>
+     <div class="item item-body">
+     <h2>{{b.prjTitle}}</h2>
+     <p>posted on : {{b.postedon | date:'medium'}}</p>
+    
+    <p>
+      project description: {{b.prjdesc}}
+    </p>
+    <p>
+      status : {{b.status}}
+    </p>
+    
+  </div>
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+      Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+      Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+      Share
+    </a>
+  </div>
+  </div>
+  </div>
   </ion-content>
 </ion-view>
+lksdndk
