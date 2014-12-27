@@ -245,7 +245,7 @@ $scope.progress= {};
 
 })
 
-.controller('assignmentbidcontroller', function($scope,$http,$state){
+/*.controller('assignmentbidcontroller', function($scope,$http,$state){
        if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        }
@@ -272,7 +272,7 @@ $scope.progress= {};
       });
 
 })
-
+*/
 
 .controller('assignmentbidcompleted', function($scope,$http,$state){
        if( window.localStorage.getItem('islogin') != 'true' ){
