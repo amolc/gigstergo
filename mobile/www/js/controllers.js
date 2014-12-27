@@ -52,8 +52,8 @@ if( window.localStorage.getItem('islogin') != 'true' ){
   var reqdata={
       userid:userididid
   };
-  //controller.log(reqdata);
-  $http.get(baseURL + 'progressassignments',reqdata).success(function(res) {
+  console.log(reqdata);
+  $http.post(baseURL + 'progressassignments',reqdata).success(function(res) {
         //console.log(res);
         $scope.progress = res;
        // console.log($scope.progress);
@@ -145,6 +145,35 @@ console.log(reqdata);
 })
 
 
+.controller('inboxcontroller', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+       $scope.allmsgs= {};
+       var userididid=window.localStorage.getItem('userid1');
+        console.log(userididid);
+        //console.log(user);
+        var reqdata={
+            userid:userididid
+         };
+   $http.get(baseURL + 'userallmasseges',reqdata).success(function(res) {
+        //console.log(res);
+        $scope.allmsgs = res;
+       // console.log($scope.progress);
+        if (res.status == 'false') {
+          alert(res.message);
+        } else {
+          console.log("No data");
+        //$scope.states=res;
+          
+        }
+      
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+
+})
+
 
 .controller('mygigsctrl', function($scope,$http,$state){
        if( window.localStorage.getItem('islogin') != 'true' ){
@@ -169,7 +198,7 @@ $scope.biddingawarded= {};
   var reqdata={
       userid:userididid
   };
-   $http.get(baseURL + 'bidsawarded',reqdata).success(function(res) {
+   $http.post(baseURL + 'bidsawarded',reqdata).success(function(res) {
         //console.log(res);
         $scope.biddingawarded = res;
        // console.log($scope.progress);
@@ -198,7 +227,7 @@ $scope.progress= {};
   var reqdata={
       userid:userididid
   };
-  $http.get(baseURL + 'bidsbidding',reqdata).success(function(res) {
+  $http.post(baseURL + 'bidsbidding',reqdata).success(function(res) {
         //console.log(res);
         $scope.biddingbids = res;
        // console.log($scope.progress);
@@ -256,7 +285,7 @@ $scope.progress= {};
   var reqdata={
       userid:userididid
   };
-        $http.get(baseURL + 'bidsbidding',reqdata).success(function(res) {
+        $http.post(baseURL + 'bidsbidding',reqdata).success(function(res) {
         //console.log(res);
         $scope.biddingbidscomplted = res;
        // console.log($scope.progress);
@@ -297,7 +326,7 @@ $scope.progress= {};
   var reqdata={
       userid:userididid
   };
-  $http.get(baseURL + 'biddingmygigs',reqdata).success(function(res) {
+  $http.post(baseURL + 'biddingmygigs',reqdata).success(function(res) {
         //console.log(res);
         $scope.bidding = res;
        // console.log($scope.progress);
@@ -328,7 +357,7 @@ $scope.progress= {};
   var reqdata={
       userid:userididid
   };
-  $http.get(baseURL + 'completedmygigs',reqdata).success(function(res) {
+  $http.post(baseURL + 'completedmygigs',reqdata).success(function(res) {
         //console.log(res);
         $scope.completed = res;
        // console.log($scope.progress);

@@ -160,6 +160,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'tab-tab5' :{
           templateUrl: "templates/inbox1.html",
+          controller: 'inboxcontroller'
          
         }
       }
