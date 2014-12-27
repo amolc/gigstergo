@@ -39,7 +39,7 @@ app.get('/api/progressassignments',assignments.progressassignments);
 app.post('/api/postgig',assignments.postgig);
 app.post('/api/signup',assignments.signup);
 app.get('/api/biddingmygigs',assignments.biddingmygigs);
-app.get('/api/completedmygigs',assignments.completedmygigs);userallmasseges
+app.get('/api/completedmygigs',assignments.completedmygigs);
 app.get('/api/userallmasseges',assignments.userallmasseges);
 app.get('/api/bidsawarded',assignments.bidsawarded);
 app.get('/api/bidsbidding',assignments.bidsbidding);

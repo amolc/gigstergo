@@ -3,42 +3,41 @@
 
 
     <div class="list" ng-repeat="b in bidding">
-        {{b}}
+            
+        <div class="list list-inset">
+    <div class="item item-avatar">
+    <img src="img/person.png">
+    <h2>{{b.fname+" "+b.lname}}</h2>
+    <p>{{b.city}}</p>
+    <p><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></p>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="list card">
-    <div class="item item-avatar">	
-    <img src="img/person.png">
-    <h2>Sourab undre</h2>
-    <h3><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></h3>
-</div>
-<h2>My bids</h2>
-<h4>gigstergo.com</h4>
-<p>y. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing s</p>
-</div>
-
-
-<div class="list card">
-    <div class="item item-avatar">	
-    <img src="img/person.png">
-    <h2>Sourab undre</h2>
-    <h3><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></h3>
-</div>
-<h2>My bids</h2>
-<h4>gigstergo.com</h4>
-<p>y. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing s</p>
-</div>
+     <div class="item item-body">
+     <h2>{{b.prjTitle}}</h2>
+     <p>posted on : {{b.postedon | date:'medium'}}</p>
+    
+    <p>
+      project description: {{b.prjdesc}}
+    </p>
+    <p>
+      status : {{b.status}}
+    </p>
+    
+  </div>
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+      Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+      Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+      Share
+    </a>
+  </div>
+  </div>
+  </div>
   </ion-content>
 </ion-view>

@@ -1,26 +1,15 @@
 <ion-view title="My Bid">
   <ion-content class="has-header">
-    <div class="list card">
+    <div class="list card" ng-repeat="p in biddingbids">
     <div class="item item-avatar">	
     <img src="img/person.png">
-    <h2>Sourab undre</h2>
+    <h2>{{p.fname+" "+p.lname}}</h2>
+    <p>{{p.city}}</p>
     <h3><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></h3>
 </div>
-<h2>My bids</h2>
-<h4>gigstergo.com</h4>
-<p>y. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing s</p>
-</div>
-
-
-<div class="list card">
-    <div class="item item-avatar">	
-    <img src="img/person.png">
-    <h2>Sourab undre</h2>
-    <h3><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></h3>
-</div>
-<h2>My bids</h2>
-<h4>gigstergo.com</h4>
-<p>y. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing s</p>
+<h2>{{p.prjTitle}}</h2>
+<h4>posted on : {{p.postedon | date:'medium'}}</h4>
+<p>{{p.prjdesc}}</p>
 </div>
   </ion-content>
 </ion-view>

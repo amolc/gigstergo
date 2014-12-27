@@ -60,7 +60,8 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       url: "/signup",
       views: {
         'menuContent' :{
-          templateUrl: "templates/signup.html"
+          templateUrl: "templates/signup.html",
+          controller:'signupCtrl'
         }
       }
     })
@@ -201,6 +202,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'contact-tab' :{
           templateUrl: "templates/completed.html",
+          controller:'completedcontroller'
          
         }
       }
@@ -232,6 +234,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'about-tab' :{
           templateUrl: "templates/assignbid.html",
+          controller: 'assignmentbidcontroller'
      
         }
       }
@@ -241,6 +244,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       views: {
         'contact-tab' :{
           templateUrl: "templates/assigncompleted.html",
+          controller: 'assignmentbidcompleted'
          
         }
       }

@@ -112,7 +112,8 @@ projectsCRUD.create({'prjTitle': req.body.title,'prjdesc':req.body.desc,'propose
 
 exports.progressassignments=function(req,res){
 var userid=req.body.userid;
-    var query = "SELECT * FROM btr_projects AS tbl1 INNER JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto where tbl1.userId=5 and tbl1.status=2 order by tbl1.postedon";  
+    var query = "SELECT * FROM btr_projects AS tbl1 INNER JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto where tbl1.userId=22 and tbl1.status='2' order by tbl1.postedon DESC";
+    //SELECT * FROM btr_projects AS tbl1 INNER JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto where tbl1.userId=6 and tbl1.status='2' order by tbl1.postedon DESC";  
 
     db.query( query, function (err, val) {  
       console.log(err);
@@ -123,7 +124,7 @@ var userid=req.body.userid;
 
 exports.biddingmygigs=function(req,res){
 var userid=req.body.userid;
-    var query = "SELECT * FROM btr_projects AS tbl1 INNER JOIN btr_bids AS tbl2 ON tbl2.projectId=tbl1.prjId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.bidfrom where tbl1.userId=6 and tbl1.status='0' or tbl1.status='1' order by tbl1.postedon DESC";  
+    var query = "SELECT * FROM btr_projects AS tbl1 LEFT JOIN btr_bids AS tbl2 ON tbl2.projectId=tbl1.prjId LEFT JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.bidfrom where tbl1.userId=22 and tbl1.status='0' or tbl1.status='1' order by tbl1.postedon DESC";  
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);
@@ -135,7 +136,7 @@ var userid=req.body.userid;
 
 exports.completedmygigs=function(req,res){
 var userid=req.body.userid;
-    var query = "SELECT * FROM btr_projects AS tbl1 INNER JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto INNER JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId where tbl1.userId="+userid+" and tbl1.status='3' order by tbl1.postedon DESC";  
+    var query = "SELECT * FROM btr_projects AS tbl1 LEFT JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId LEFT JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto LEFT JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId and tbl4.projectId=tbl1.prjId where tbl1.userId=22 and tbl1.status='3' order by tbl1.postedon DESC";  
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);
@@ -157,7 +158,8 @@ var userid=req.body.userid;
 
 exports.bidsawarded=function(req,res){
 var userid=req.body.userid;
-    var query = "SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId where tbl1.bidfrom="+userid+" and tbl1.status='2' order by tbl1.bidon DESC";
+console.log(userid);
+    var query = "SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId and tbl2.status='2' INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId where tbl1.bidfrom=22  order by tbl1.bidon DESC";
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);
@@ -169,7 +171,7 @@ var userid=req.body.userid;
 
 exports.bidsbidding=function(req,res){
 var userid=req.body.userid;
-    var query = "SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId where tbl1.bidfrom="+userid+" and tbl1.status='0' or tbl1.status='1' order by tbl1.bidon DESC";
+    var query = "SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId and tbl2.status='0' or tbl2.status='1' INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId where tbl1.bidfrom=22 order by tbl1.bidon DESC";
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);
@@ -178,9 +180,9 @@ var userid=req.body.userid;
       });    
 };
 
-exports.bidsbidding=function(req,res){
+exports.assignbidscompleted=function(req,res){
 var userid=req.body.userid;
-    var query = "SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId where tbl1.bidfrom="+userid+" and tbl1.status='3' order by tbl1.bidon DESC";
+    var query = "SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId where tbl1.bidfrom=22 and tbl1.status='3' order by tbl1.bidon DESC";
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);
@@ -191,7 +193,7 @@ var userid=req.body.userid;
 
 exports.bidscompleted=function(req,res){
 var userid=req.body.userid;
-    var query = "SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId INNER JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId where tbl1.bidfrom="+userid+" and tbl1.status='3' order by tbl1.bidon DESC";
+    var query = "SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId INNER JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId where tbl1.bidfrom=22 and tbl1.status='3' order by tbl1.bidon DESC";
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);

@@ -7,7 +7,7 @@ var user=window.localStorage.getItem('username');
       
 //$scope.user=userdetailsforprofile.usermail;
 
-console.log(user);
+//console.log(user);
 
 
 
@@ -46,9 +46,13 @@ if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        }
   $scope.progress= {};
+  var userididid=window.localStorage.getItem('userid1');
+  console.log(userididid);
+  //console.log(user);
   var reqdata={
       userid:window.localStorage.getItem('userid1')
   };
+  //controller.log(reqdata);
   $http.get(baseURL + 'progressassignments',reqdata).success(function(res) {
         //console.log(res);
         $scope.progress = res;
@@ -71,9 +75,9 @@ if( window.localStorage.getItem('islogin') != 'true' ){
 
 .controller('ListgCtrl', function($scope,$http,$stateParams,$state) {
 
-/*if( window.localStorage.getItem('islogin') != 'true' ){
+if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
-       } */
+       } 
   $scope.listgigster= {};
   var reqdata={
       userid:window.localStorage.getItem('userid1')
@@ -108,8 +112,10 @@ console.log(reqdata);
   if( window.localStorage.getItem('islogin') == 'true' ){
     $state.go('app.home')
   }
+  alert();
   $scope.warning = '';      
   $scope.signup=function(userdata){
+    console.log(userdata);
     $http.post(baseURL + 'signup', userdata).success(function(req,res){
       $scope.warning = req.message; 
       //$state.go('app.login');
@@ -150,11 +156,120 @@ console.log(reqdata);
        }
 })
 
-.controller('mainassognmentctrl', function($scope,$http,$state){
+.controller('assignmentCtrl', function($scope,$http,$state){
        if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        }
+$scope.biddingawarded= {};
+  var reqdata={
+      userid:window.localStorage.getItem('userid1')
+  };
+  $http.get(baseURL + 'bidsawarded',reqdata).success(function(res) {
+        //console.log(res);
+        $scope.biddingawarded = res;
+       // console.log($scope.progress);
+        if (res.status == 'false') {
+          alert(res.message);
+        } else {
+          console.log("No data");
+        //$scope.states=res;
+          
+        }
+      
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+
 })
+
+.controller('assignmentbidcontroller', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+$scope.progress= {};
+  var reqdata={
+      userid:window.localStorage.getItem('userid1')
+  };
+  $http.get(baseURL + 'bidsbidding',reqdata).success(function(res) {
+        //console.log(res);
+        $scope.biddingbids = res;
+       // console.log($scope.progress);
+        if (res.status == 'false') {
+          alert(res.message);
+        } else {
+          console.log("No data");
+        //$scope.states=res;
+          
+        }
+      
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+
+})
+
+.controller('assignmentbidcontroller', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+        $scope.biddingbids= {};
+           var reqdata={
+                         userid:window.localStorage.getItem('userid1')
+                        };
+        $http.get(baseURL + 'bidsbidding',reqdata).success(function(res) {
+        //console.log(res);
+        $scope.biddingbids = res;
+       // console.log($scope.progress);
+        if (res.status == 'false') {
+                  alert(res.message);
+        } else {
+              console.log("No data");
+            //$scope.states=res;
+        }
+      
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+
+})
+
+
+.controller('assignmentbidcompleted', function($scope,$http,$state){
+       if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }
+        $scope.biddingbidscomplted= {};
+           var reqdata={
+                         userid:window.localStorage.getItem('userid1')
+                        };
+        $http.get(baseURL + 'bidsbidding',reqdata).success(function(res) {
+        //console.log(res);
+        $scope.biddingbidscomplted = res;
+       // console.log($scope.progress);
+        if (res.status == 'false') {
+                  alert(res.message);
+        } else {
+              console.log("No data");
+            //$scope.states=res;
+        }
+      
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .controller('biddingcontroller', function($scope,$http,$state){
@@ -189,7 +304,7 @@ console.log(reqdata);
         $state.go('app.login')
        }
 
-       $scope.progress= {};
+       $scope.completed= {};
   var reqdata={
       userid:window.localStorage.getItem('userid1')
   };
