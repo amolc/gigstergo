@@ -156,7 +156,7 @@ console.log(reqdata);
         var reqdata={
             userid:userididid
          };
-   $http.get(baseURL + 'userallmasseges',reqdata).success(function(res) {
+   $http.post(baseURL + 'userallmasseges',reqdata).success(function(res) {
         //console.log(res);
         $scope.allmsgs = res;
        // console.log($scope.progress);
