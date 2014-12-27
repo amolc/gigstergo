@@ -367,7 +367,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
 }).directive('logout', function( $state ){
     return {
       restrict:'E',
-      template : '<a href="#"><img ng-src="img/menu/logoutnew.svg" alt="LogOut" height="30" width="30" />Logga ut <i class="icon ion-ios7-arrow-right"></i> Välj ny förening </a>',
+      template : '<span class="menu-space">Logout</span>',
       compile : function(element, attributes) {
             element.attr("id", "ass_logout");
             return {
