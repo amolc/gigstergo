@@ -33,33 +33,33 @@
 
     <ion-content>
       <ion-list class="sidemenucolor">
-        <ion-item nav-clear menu-close href="#/app/profile" class="border1" ng-controller="AppCtrl">
-          <img style="width:50px;height:50px;" src="img/person.png">
-          <p>Welcome .. {{user}}</p>
+        <ion-item nav-clear menu-close href="#/app/profile" ng-controller="AppCtrl" class="profile-img-div">
+          <img class="profile-img" src="img/person.jpg">
+          <p>Welcome{{user}}</p>
         </ion-item>
         <!--<ion-item nav-clear menu-close href="#/app/home" class="border1">
           Home
         </ion-item>  -->
          <ion-item nav-clear menu-close href="#/app/tabs/postgig">
-         <i class="icon  ion-home menu-icon"></i> HOME
+         <i class="icon  ion-home menu-icon"></i><span class="menu-space">HOME</span> 
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/tabs/postgig">
-         <i class="icon  ion-clipboard menu-icon"></i> POST GIG
+         <i class="icon  ion-compose menu-icon"></i> <span class="menu-space">POST GIG</span>
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/tabs/listgig">
-         <i class="icon  ion-document menu-icon"></i> BROWSE GIG
+         <i class="icon  ion-clipboard menu-icon"></i> <span class="menu-space">BROWSE GIG</span>
         </ion-item>
       <!--  <ion-item nav-clear menu-close href="#/app/tabs/gigster">
           Gigster
         </ion-item>  -->
         <ion-item nav-clear menu-close href="#/app/mygigs/progress">
-         <i class="icon  ion-navigate menu-icon"></i> MY GIGS
+         <i class="icon  ion-paper-airplane menu-icon"></i><span class="menu-space">MY GIGS</span>
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/assignment/assignprogress">
-         <i class="icon  ion-navigate menu-icon"></i> MY BIDS
+         <i class="icon  ion-paper-airplane menu-icon"></i><span class="menu-space"> MY BIDS</span>
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/tabs/inbox">
-          <i class="icon  ion-email menu-icon"></i>INBOX
+          <i class="icon  ion-email menu-icon"></i><span class="menu-space">INBOX</span>
          </ion-item ng-controller="logoutcontroller">
         <ion-item nav-clear menu-close href="">
           Logout

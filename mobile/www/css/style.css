@@ -236,11 +236,19 @@ line-height: 42px;
 cursor: pointer;}
 .email-inpute{margin: 15px 0px;border-radius: 2px;}
 .login-btn{background: #f26722; border:none; color: #fff;width: 46%; margin: 15px 0 0 8px;}
-.menu-icon:before{font-size: 30px;
+.menu-icon:before{font-size: 25px;
 color: rgb(90, 76, 76);
 border: 2px solid;
 border-radius: 50px;
 height: 40px;
 width: 40px;
 text-align: center;
-padding: 2px;}
+padding: 5px;float:left;}
+.profile-img-div{text-align: center;background: red;}
+.profile-img{width: 75px;
+height: 75px;
+border: 3px solid #fd8900;
+border-radius: 50%;}
+.item-content{background: red;}
+.menu-space{margin-left: 15px;
+margin-top: 10px;}
