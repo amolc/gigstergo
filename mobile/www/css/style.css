@@ -129,11 +129,11 @@ text-align: center;
 ion-item.item.item-complex{
 border:none;
 }
-.item-complex .item-content{
+.item-complex{
 	/*background-color: #fff; 
 		color:#5e350d;*/
-		color: #fff;
-	background-color: #fab518; 
+		color: #331515;
+	background:url('../img/home-back.jpg') no-repeat;
 }
 
 .header{
@@ -176,8 +176,7 @@ margin-top: -45px;
 }
 
 .bar.bar-assertive{
-background-color: #E2AC10;
-border-color: #E2AC10;
+background-color: #ffcb3e;
 }
 button.button.button-full.button-positive
 {
@@ -235,5 +234,13 @@ border-style: 2px solid;
 font-size: 16px;
 line-height: 42px;
 cursor: pointer;}
-.email-inpute{margin: 15px 0px;}
-.login-btn{background: #f26722; border:none; color: #fff;}
+.email-inpute{margin: 15px 0px;border-radius: 2px;}
+.login-btn{background: #f26722; border:none; color: #fff;width: 46%; margin: 15px 0 0 8px;}
+.menu-icon:before{font-size: 30px;
+color: rgb(90, 76, 76);
+border: 2px solid;
+border-radius: 50px;
+height: 40px;
+width: 40px;
+text-align: center;
+padding: 2px;}

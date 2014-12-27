@@ -27,11 +27,11 @@
         </ion-side-menu-content> 
  
   <ion-side-menu>
-  <ion-header-bar class="bar bar-header"style="background-color:#fab518; border: none;">
+  <ion-header-bar class="bar bar-header">
         
           </ion-header-bar>
 
-    <ion-content style="background-color:#fab518;">
+    <ion-content>
       <ion-list class="sidemenucolor">
         <ion-item nav-clear menu-close href="#/app/profile" class="border1" ng-controller="AppCtrl">
           <img style="width:50px;height:50px;" src="img/person.png">
@@ -40,25 +40,27 @@
         <!--<ion-item nav-clear menu-close href="#/app/home" class="border1">
           Home
         </ion-item>  -->
+         <ion-item nav-clear menu-close href="#/app/tabs/postgig">
+         <i class="icon  ion-home menu-icon"></i> HOME
+        </ion-item>
         <ion-item nav-clear menu-close href="#/app/tabs/postgig">
-          Post Gig
+         <i class="icon  ion-clipboard menu-icon"></i> POST GIG
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/tabs/listgig">
-          Browse Gig
+         <i class="icon  ion-document menu-icon"></i> BROWSE GIG
         </ion-item>
       <!--  <ion-item nav-clear menu-close href="#/app/tabs/gigster">
           Gigster
         </ion-item>  -->
         <ion-item nav-clear menu-close href="#/app/mygigs/progress">
-          My Gigs
+         <i class="icon  ion-navigate menu-icon"></i> MY GIGS
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/assignment/assignprogress">
-          My Bids
+         <i class="icon  ion-navigate menu-icon"></i> MY BIDS
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/tabs/inbox">
-          inbox
-           <i class="icon ion-ios7-email-outline" style="margin-left:20px;"></i>    
-        </ion-item ng-controller="logoutcontroller">
+          <i class="icon  ion-email menu-icon"></i>INBOX
+         </ion-item ng-controller="logoutcontroller">
         <ion-item nav-clear menu-close href="">
           Logout
         </ion-item>
