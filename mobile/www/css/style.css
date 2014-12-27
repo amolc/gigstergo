@@ -98,7 +98,10 @@ img{
 }
 
 
-.logindetails{ border-bottom: 1px solid #fff; }
+.logindetails{
+	padding: 15px 15px 0 15px;
+	border-bottom: 1px solid #fff;
+}
 
 
 
@@ -232,7 +235,7 @@ font-size: 16px;
 line-height: 42px;
 cursor: pointer;}
 .email-inpute{margin: 15px 0px;border-radius: 2px;}
-.login-btn{ background: #f26722; border:none; color: #fff; width: 49%; }
+.login-btn{background: #f26722; border:none; color: #fff;width: 46%; margin: 15px 0 0 8px;}
 .menu-icon:before{font-size: 25px;
 color: rgb(90, 76, 76);
 border: 2px solid;
@@ -255,5 +258,3 @@ margin-top: 10px;position: absolute;}
 background-color:#ECECEC;
 }
 .inpute-post-gig{border: 1px solid;}
-
-#login_wraper{ position: absolute; bottom: 10px; padding:10px; }

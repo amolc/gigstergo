@@ -112,10 +112,10 @@ projectsCRUD.create({'prjTitle': req.body.title,'prjdesc':req.body.desc,'propose
 
 exports.progressassignments=function(req,res){
 var userid=req.body.userid;
-console.log(req.body.userid);
     var query = "SELECT * FROM btr_projects AS tbl1 INNER JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto where tbl1.userId="+userid+" and tbl1.status='2' order by tbl1.postedon DESC";
     //SELECT * FROM btr_projects AS tbl1 INNER JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto where tbl1.userId=6 and tbl1.status='2' order by tbl1.postedon DESC";  
-   db.query( query, function (err, val) {  
+
+    db.query( query, function (err, val) {  
       console.log(err);
         console.log(val);
         res.jsonp(val);
@@ -147,8 +147,7 @@ var userid=req.body.userid;
 
 exports.userallmasseges=function(req,res){
 var userid=req.body.userid;
-console.log(userid);
-    var query = "select * from btr_messages AS tbl1 INNER JOIN btr_userprofile AS tbl2 ON tbl2.userId=tbl1.msgfrom where msgto="+userid+" order by msgId DESC";  
+    var query = "select * from btr_messages where msgto="+userid+" order by msgId DESC";  
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);
@@ -160,7 +159,7 @@ console.log(userid);
 exports.bidsawarded=function(req,res){
 var userid=req.body.userid;
 console.log(userid);
-    var query = "SELECT * FROM btr_bids AS tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId and tbl2.status='2' INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId where tbl1.bidfrom="+userid+"   order by tbl1.bidon DESC";
+    var query = "SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId and tbl2.status='2' INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId where tbl1.bidfrom="+userid+"   order by tbl1.bidon DESC";
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);
