@@ -50,7 +50,7 @@ if( window.localStorage.getItem('islogin') != 'true' ){
   console.log(userididid);
   //console.log(user);
   var reqdata={
-      userid:window.localStorage.getItem('userid1')
+      userid:userididid
   };
   //controller.log(reqdata);
   $http.get(baseURL + 'progressassignments',reqdata).success(function(res) {
@@ -79,8 +79,11 @@ if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        } 
   $scope.listgigster= {};
+  var userididid=window.localStorage.getItem('userid1');
+  console.log(userididid);
+  //console.log(user);
   var reqdata={
-      userid:window.localStorage.getItem('userid1')
+      userid:userididid
   };
 console.log(reqdata);
 
@@ -112,7 +115,6 @@ console.log(reqdata);
   if( window.localStorage.getItem('islogin') == 'true' ){
     $state.go('app.home')
   }
-  alert();
   $scope.warning = '';      
   $scope.signup=function(userdata){
     console.log(userdata);
@@ -161,10 +163,13 @@ console.log(reqdata);
         $state.go('app.login')
        }
 $scope.biddingawarded= {};
+ var userididid=window.localStorage.getItem('userid1');
+  console.log(userididid);
+  //console.log(user);
   var reqdata={
-      userid:window.localStorage.getItem('userid1')
+      userid:userididid
   };
-  $http.get(baseURL + 'bidsawarded',reqdata).success(function(res) {
+   $http.get(baseURL + 'bidsawarded',reqdata).success(function(res) {
         //console.log(res);
         $scope.biddingawarded = res;
        // console.log($scope.progress);
@@ -187,8 +192,11 @@ $scope.biddingawarded= {};
         $state.go('app.login')
        }
 $scope.progress= {};
+  var userididid=window.localStorage.getItem('userid1');
+  console.log(userididid);
+  //console.log(user);
   var reqdata={
-      userid:window.localStorage.getItem('userid1')
+      userid:userididid
   };
   $http.get(baseURL + 'bidsbidding',reqdata).success(function(res) {
         //console.log(res);
@@ -213,9 +221,12 @@ $scope.progress= {};
         $state.go('app.login')
        }
         $scope.biddingbids= {};
-           var reqdata={
-                         userid:window.localStorage.getItem('userid1')
-                        };
+  var userididid=window.localStorage.getItem('userid1');
+  console.log(userididid);
+  //console.log(user);
+  var reqdata={
+      userid:userididid
+  };
         $http.get(baseURL + 'bidsbidding',reqdata).success(function(res) {
         //console.log(res);
         $scope.biddingbids = res;
@@ -239,9 +250,12 @@ $scope.progress= {};
         $state.go('app.login')
        }
         $scope.biddingbidscomplted= {};
-           var reqdata={
-                         userid:window.localStorage.getItem('userid1')
-                        };
+  var userididid=window.localStorage.getItem('userid1');
+  console.log(userididid);
+  //console.log(user);
+  var reqdata={
+      userid:userididid
+  };
         $http.get(baseURL + 'bidsbidding',reqdata).success(function(res) {
         //console.log(res);
         $scope.biddingbidscomplted = res;
@@ -277,8 +291,11 @@ $scope.progress= {};
         $state.go('app.login')
        }
        $scope.progress= {};
+  var userididid=window.localStorage.getItem('userid1');
+  console.log(userididid);
+  //console.log(user);
   var reqdata={
-      userid:window.localStorage.getItem('userid1')
+      userid:userididid
   };
   $http.get(baseURL + 'biddingmygigs',reqdata).success(function(res) {
         //console.log(res);
@@ -305,8 +322,11 @@ $scope.progress= {};
        }
 
        $scope.completed= {};
+  var userididid=window.localStorage.getItem('userid1');
+  console.log(userididid);
+  //console.log(user);
   var reqdata={
-      userid:window.localStorage.getItem('userid1')
+      userid:userididid
   };
   $http.get(baseURL + 'completedmygigs',reqdata).success(function(res) {
         //console.log(res);
