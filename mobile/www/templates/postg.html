@@ -2,19 +2,19 @@
 <ion-content>
 <form name="mainForm" ng-submit="sendForm()">
     <div>
-      <label for="title">Title</label>
-      <input id="title" name="title" type="text" ng-model="postg.title" required/>
+      <label for="title"><h3>Title</h3></label>
+      <input id="title" class="inpute-post-gig" name="title" type="text" ng-model="postg.title" required/>
       <!--<span class="error" ng-show="mainForm.title.$error.required">required</span>   -->
     </div>
     <div>
-      <label for="description">Description</label>
+      <label for="description"><h3>Description</h3></label>
       <input id="description" name="description" type="text" ng-model="postg.desc" required/>
       <!--<span class="error" ng-show="mainForm.description.$error.required">required</span> -->
     </div>
     <div>
    
-   
-    <input type="text" name="pay" placeholder="How much your like to pay" ng-model="postg.pay" required/>
+    <label for="description"><h3>How much your like to pay</h3></label>
+    <input type="text" name="pay" placeholder="" ng-model="postg.pay" required/>
  <!--<span class="error" ng-show="mainForm.pay.$error.required">required</span>-->
 
   <ul class="list">
@@ -23,33 +23,33 @@
      <label class="checkbox">
        <input type="checkbox" ng-model="postg.jobtype"ng-true-value="f" ng-disabled="postg.f">
      </label>
-     <h4>Per gig</h4>
+     <h3>Per gig</h3>
   </li>
 <li class="item item-checkbox postgb">
      <label class="checkbox" >
        <input type="checkbox" ng-disabled="postg.jobtype" ng-true-value="h" ng-model="postg.h">
      </label>
-     <h4>Per hour</h4>
+     <h3>Per hour</h3>
   </li>
  
 
 </ul>   
     </div>
     <div>
-      <label for="skill">Skills</label>
+      <label for="skill"><h3>Skills</h3></label>
       <input id="skill" name="skill" type="text" ng-model="postg.skill" required/>
       <!--<span class="error" ng-show="mainForm.skill.$error.required">required</span> -->
 
     </div>
     <div>
-      <label for="expdate">Expire Date</label>
+      <label for="expdate"><h3>Expire Date</h3></label>
       <input id="expdate" name="expdate" type="date" ng-model="postg.expdate" required/>
       <!--<span class="error" ng-show="mainForm.expdate.$error.required">required</span> -->
 
     </div>
 
     <div class="card">
-<button style=""class="button button-block button-assertive" ng-click="ins(postg)">
+<button style=""class="button button-block post-gig-btn" ng-click="ins(postg)">
   Post gig
 </button>
 </div>

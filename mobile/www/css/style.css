@@ -252,3 +252,9 @@ border-radius: 50%;}
 .item-content{background: red;}
 .menu-space{margin-left: 15px;
 margin-top: 10px;position: absolute;}
+.post-gig-btn{background-color: #f68a1e;color:#fff;}
+.tabs{background-color: #ECECEC;}
+.tabs-striped.tabs-background-energized .tabs {
+background-color:#ECECEC;
+}
+.inpute-post-gig{border: 1px solid;}
