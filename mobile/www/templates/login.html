@@ -1,29 +1,25 @@
 <ion-view title="Login" ng-controller="LoginController">
 
 <ion-content class="whit" scroll="false" padding="true">
-   <div id="loginlogo">
-   <!--<h2 style="color:#777777 ;font-size:40px">HELLO</h2> -->
-   <!-- <img ng-src="img/logo-1.png"> -->
-    </div>
+   <!-- <div id="loginlogo">
+   <h2 style="color:#777777 ;font-size:40px">HELLO</h2> 
+   <img ng-src="img/logo-1.png">
+   </div> -->
  <form>
       <div class="list logindetails">
         <button ng-click="twitterLogin()" class="button twitter-btn"> <i class="icon ion-social-twitter-outline"></i>
-                   
-                </button>
-
+        </button>
         <button ng-click="googlelogin()" class="button twitter-btn"> <i class="icon ion-social-googleplus"></i>
-                    
-                </button>
-
-      <button ng-click="login()" class="button twitter-btn"> <i class="icon ion-social-facebook-outline"></i>
-                   
-                </button>
-
+        </button>
+        <button ng-click="login()" class="button twitter-btn"> <i class="icon ion-social-facebook-outline"></i>
+        </button>
+        <button ng-click="login()" class="button twitter-btn"> <i class="icon ion-social-facebook-outline"></i>
+        </button>
 
                <!--  <a href="#/app/emailogin" class="button button-block button-stable facebookblue"> 
                     Sign In via Email
                 </a> -->
-             </div>
+      </div>
     </form>
     <form name="mainForm" ng-submit="login(user)">
         <div>
@@ -38,8 +34,8 @@
       <!-- <span class="error" ng-show="mainForm.lastName.$error.required">required</span> -->
     </div>
     <div>
-      <button style="background-color:#E2AC10;" class="button button-block button-stable">LOGIN</button>
-      <button style="background-color:#E2AC10;" class="button button-block button-stable">SIGNUP</button>
+      <button style="background-color:#f26722;" class="button login-btn">LOGIN</button>
+      <button style="background-color:#f26722;" class="button login-btn">SIGNUP</button>
   <!-- <p align="center">not a user... Please Sign-up <strong><a class="item" href="#/app/signup">here..!</a></strong></p> -->
     </div>
   </form> 

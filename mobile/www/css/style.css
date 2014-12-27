@@ -86,8 +86,6 @@ background-color:#ffcc00;
 text-align: center;
 max-width: 100%;
 height: auto;
-margin-top: 50px;
-
 }
 
 img{
@@ -101,7 +99,8 @@ img{
 
 
 .logindetails{
-	margin-top: 40px;
+	padding: 15px 15px 0 15px;
+	border-bottom: 1px solid #fff;
 }
 
 
@@ -221,7 +220,7 @@ color: #FFF;
 border: none;
 position: relative;
 display: inline-block;
-margin: 0;
+margin: 8px;
 padding: 0 12px;
 min-width: 52px;
 min-height: 47px;
@@ -236,4 +235,5 @@ border-style: 2px solid;
 font-size: 16px;
 line-height: 42px;
 cursor: pointer;}
-.email-inpute{margin-bottom: 15px;}
+.email-inpute{margin: 15px 0px;}
+.login-btn{background: #f26722; border:none; color: #fff;}
