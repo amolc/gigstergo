@@ -96,6 +96,7 @@ img{
 }
 .padding{
 	padding: 1px;
+	background:url('../img/home-back.jpg') no-repeat;
 }
 
 
@@ -215,3 +216,24 @@ color: #5E350D;
   color: #414242 !important;
 }
 
+.twitter-btn{background-color: rgba(73, 39, 39, 0);
+color: #FFF;
+border: none;
+position: relative;
+display: inline-block;
+margin: 0;
+padding: 0 12px;
+min-width: 52px;
+min-height: 47px;
+border: 2px solid;
+border-radius: 50%;
+/* border-width: 1px; */
+border-style: 2px solid;
+/* border-radius: 63px; */
+/* vertical-align: top; */
+/* text-align: center; */
+/* text-overflow: ellipsis; */
+font-size: 16px;
+line-height: 42px;
+cursor: pointer;}
+.email-inpute{margin-bottom: 15px;}

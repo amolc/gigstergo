@@ -3,28 +3,46 @@
 <ion-content class="whit" scroll="false" padding="true">
    <div id="loginlogo">
    <!--<h2 style="color:#777777 ;font-size:40px">HELLO</h2> -->
-   <img ng-src="img/logo-1.png">
+   <!-- <img ng-src="img/logo-1.png"> -->
     </div>
  <form>
       <div class="list logindetails">
-        <button ng-click="twitterLogin()" class="button button-block button-stable twitterblue"> <i class="icon ion-social-twitter-outline"></i>
-                    Sign In via Twitter
+        <button ng-click="twitterLogin()" class="button twitter-btn"> <i class="icon ion-social-twitter-outline"></i>
+                   
                 </button>
 
-        <button ng-click="googlelogin()" class="button button-block button-stable googlered"> <i class="icon ion-social-googleplus"></i>
-                    Sign In via google
+        <button ng-click="googlelogin()" class="button twitter-btn"> <i class="icon ion-social-googleplus"></i>
+                    
                 </button>
 
-      <button ng-click="login()" class="button button-block button-stable facebookblue"> <i class="icon ion-social-facebook-outline"></i>
-                    Sign In via facebook
+      <button ng-click="login()" class="button twitter-btn"> <i class="icon ion-social-facebook-outline"></i>
+                   
                 </button>
 
 
-                <a href="#/app/emailogin" class="button button-block button-stable facebookblue"> 
+               <!--  <a href="#/app/emailogin" class="button button-block button-stable facebookblue"> 
                     Sign In via Email
-                </a>
+                </a> -->
              </div>
     </form>
+    <form name="mainForm" ng-submit="login(user)">
+        <div>
+      <!-- <label for="email">Email</label> -->
+      <input id="email" class="email-inpute" placeholder="Email"name="email" type="email" ng-model="user.gigname" required/>
+      <!-- <span class="error" ng-show="mainForm.email.$error.required">required</span> -->
+      <span class="error" ng-show="mainForm.email.$error.email">invalid email</span>
+    </div>
+    <div>
+     <!--  <label for="password">Password</label> -->
+      <input id="password" placeholder="Password" name="password" type="password" class="email-inpute" ng-model="user.password" required/>
+      <!-- <span class="error" ng-show="mainForm.lastName.$error.required">required</span> -->
+    </div>
+    <div>
+      <button style="background-color:#E2AC10;" class="button button-block button-stable">LOGIN</button>
+      <button style="background-color:#E2AC10;" class="button button-block button-stable">SIGNUP</button>
+  <!-- <p align="center">not a user... Please Sign-up <strong><a class="item" href="#/app/signup">here..!</a></strong></p> -->
+    </div>
+  </form> 
 </ion-content>
 
 </ion-view>
