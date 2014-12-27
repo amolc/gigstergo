@@ -147,7 +147,7 @@ var userid=req.body.userid;
 
 exports.userallmasseges=function(req,res){
 var userid=req.body.userid;
-    var query = "select * from btr_messages where msgto="+userid+" order by msgId DESC";  
+    var query = "select * from btr_messages where msgto=22 order by msgId DESC";  
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);

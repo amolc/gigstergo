@@ -21,7 +21,7 @@
                 </a> -->
       </div>
     </form>
-    <form name="mainForm" ng-submit="login(user)">
+    <form name="mainForm" ng-submit="login(user)" ng-controller="emailoginCtrl">
         <div>
       <!-- <label for="email">Email</label> -->
       <input id="email" class="email-inpute" placeholder="Email"name="email" type="email" ng-model="user.gigname" required/>
@@ -34,7 +34,7 @@
       <!-- <span class="error" ng-show="mainForm.lastName.$error.required">required</span> -->
     </div>
     <div>
-      <button class="button login-btn" ng-click="login(user)">LOGIN</button>
+      <button class="button login-btn" ng-click="">LOGIN</button>
       <button class="button login-btn">SIGNUP</button>
   <!-- <p align="center">not a user... Please Sign-up <strong><a class="item" href="#/app/signup">here..!</a></strong></p> -->
     </div>
