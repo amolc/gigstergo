@@ -258,10 +258,10 @@ max-width: 40px;
 max-height: 80px;
 width: 100%;
 border-radius: 50px;}
-.side-menu-color{background: #fd8900;}
-#gig-menus{text-align: center;
+#gig-menus{text-align: center;}
+.menu{	background: url('../img/side-menu-bg.png') repeat 0 0 transparent;
 }
-#gig-menus .item-content{background: transparent;
+#gig-menus .item-content,#gig-menus .item{background: transparent;
 border: none;}
 
 #login_wraper{position: absolute;
