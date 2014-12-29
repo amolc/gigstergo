@@ -378,6 +378,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
                   elem.bind('click', function (){
                       window.localStorage.setItem( 'userdetails', '' );
                       window.localStorage.setItem( 'loginStatus', false );
+                      window.localStorage.setItem( 'islogin', false );
                       $state.go('app.login');
                   })                  
                }
