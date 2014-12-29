@@ -83,11 +83,12 @@ background-color:#ffcc00;
 }
 
 #loginlogo{
-text-align: center;
+text-align: left;
 max-width: 100%;
 height: auto;
+padding-top: 5px;
 }
-
+#loginlogo img{width: 120px;padding-left: 5px;}
 img{
 	max-width: 100%;
 	width: 180px;
@@ -100,7 +101,7 @@ img{
 
 
 .logindetails{
-	padding: 15px 15px 0 15px;
+	margin: 15px 20px 0 15px;
 	border-bottom: 1px solid #fff;
 }
 
@@ -230,7 +231,7 @@ font-size: 16px;
 line-height: 42px;
 cursor: pointer;}
 .email-inpute{margin: 15px 0px;border-radius: 2px;}
-.login-btn{background: #f26722; border:none; color: #fff;width: 46%;line-height: 33px;min-height: 36px;}
+.login-btn{background: #f26722; border:none; color: #fff;width: 49%;line-height: 33px;min-height: 36px;}
 .menu-icon:before{font-size: 25px;
 color: rgb(90, 76, 76);
 border: 2px solid;
@@ -262,12 +263,14 @@ max-height: 80px;
 width: 100%;
 border-radius: 50px;}
 .side-menu-color{background: #fd8900;}
-.profile-img-div{position: relative;
-z-index: 2;
-padding: 16px 49px 16px 16px;
-border: none;
-background: red;}
+#gig-menus{text-align: center;
+}
+#gig-menus .item-content{background: red;}
 
 #login_wraper{position: absolute;
 bottom: 10px; width: 100%}
 #mail-menu{padding: 0px 25px;}
+#login-div{text-align: center;}
+#login-nav{float: right;
+padding-right: 5px;
+font-size: 21px;}

@@ -5,7 +5,7 @@
 
    
   <div id="loginlogo">
-   <a><i class="icon ion-navicon-round"></i></a> 
+   <a id="login-nav"><i class="icon ion-navicon-round"></i></a> 
    <img ng-src="img/logo-1.png">
    </div>
    <div id="login_wraper">
@@ -26,7 +26,7 @@
         </div>
       </form>
     <form name="mainForm" ng-submit="login(user)" ng-controller="emailoginCtrl" id="mail-menu">
-        <div>
+        <div id="login-div">
         <!-- <label for="email">Email</label> -->
         <input id="email" class="email-inpute" placeholder="Email"name="email" type="email" ng-model="user.gigname" required/>
         <!-- <span class="error" ng-show="mainForm.email.$error.required">required</span> -->
