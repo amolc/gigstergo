@@ -103,6 +103,7 @@ img{
 .logindetails{
 	margin: 15px 20px 0 15px;
 	border-bottom: 1px solid #fff;
+	text-align: center;
 }
 
 
@@ -227,9 +228,11 @@ font-size: 16px;
 line-height: 42px;
 cursor: pointer;}
 .email-inpute{margin: 15px 0px;border-radius: 2px;}
+#email{padding-left: 8px;}
+#password{padding-left: 8px;}
 .login-btn{background: #f26722; border:none; color: #fff;width: 49%;line-height: 33px;min-height: 36px;}
 .menu-icon:before{font-size: 25px;
-color: rgb(90, 76, 76);
+color: #fff;
 border: 2px solid;
 border-radius: 50px;
 height: 40px;
@@ -237,13 +240,12 @@ width: 40px;
 text-align: center;
 padding: 5px;float:left;}
 .profile-img-div{text-align: center;background: red;}
-.profile-img{width: 75px;
-height: 75px;
-border: 3px solid #fd8900;
+.profile-img{width: 85px;
+height: 85px;
+border: 3px solid #fff;
 border-radius: 50%;}
 .item-content{background: red;}
-.menu-space{margin-left: 15px;
-margin-top: 10px;position: absolute;}
+.menu-space{left: 70px;top: 27px;position: absolute;font-family: 'source_sans_prosemibold';}
 .post-gig-btn{background-color: #f68a1e;color:#fff;}
 .tabs{background-color: #ECECEC;}
 .tabs-striped.tabs-background-energized .tabs {
@@ -258,11 +260,11 @@ max-width: 40px;
 max-height: 80px;
 width: 100%;
 border-radius: 50px;}
-#gig-menus{text-align: center;}
 .menu{	background: url('../img/side-menu-bg.png') repeat 0 0 transparent;
 }
 #gig-menus .item-content,#gig-menus .item{background: transparent;
 border: none;}
+#gig-menus a.item-content:active{background: #fff;}
 
 #login_wraper{position: absolute;
 bottom: 10px; width: 100%}
@@ -271,3 +273,4 @@ bottom: 10px; width: 100%}
 #login-nav{float: right;
 padding-right: 5px;
 font-size: 21px;}
+#menu-img-center{text-align: center;}
