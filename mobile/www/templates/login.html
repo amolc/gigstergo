@@ -1,6 +1,6 @@
 <ion-view title="Login" ng-controller="LoginController">
 
-<ion-content class="whit home-back-img" scroll="false" padding="true">
+<ion-content class="whit" scroll="false" padding="true" id="home-back-img">
    <!-- <div id="loginlogo">
    <h2 style="color:#777777 ;font-size:40px">HELLO</h2> 
    <img ng-src="img/logo-1.png">
@@ -22,7 +22,7 @@
                   </a> -->
         </div>
       </form>
-    <form name="mainForm" ng-submit="login(user)" ng-controller="emailoginCtrl">
+    <form name="mainForm" ng-submit="login(user)" ng-controller="emailoginCtrl" id="mail-menu">
         <div>
         <!-- <label for="email">Email</label> -->
         <input id="email" class="email-inpute" placeholder="Email"name="email" type="email" ng-model="user.gigname" required/>

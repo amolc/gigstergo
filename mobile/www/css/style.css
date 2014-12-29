@@ -92,9 +92,10 @@ img{
 	max-width: 100%;
 	width: 180px;
 }
-.home-back-img{
+#home-back-img{
 	padding: 1px;
-	background:url('../img/home-back.jpg') no-repeat;
+	background:url('../img/home-back.jpg') no-repeat center top;
+	background-color: rgb(24, 45, 88);
 }
 
 
@@ -269,3 +270,4 @@ background: red;}
 
 #login_wraper{position: absolute;
 bottom: 10px;}
+#mail-menu{padding: 0px 25px;}
