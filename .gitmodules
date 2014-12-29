@@ -1,3 +1,3 @@
-[submodule "gigapp"]
-	path = gigapp
+[submodule "gigsterm"]
+	path = gigsterm
 	url = https://github.com/amolc/gigsterm.git
