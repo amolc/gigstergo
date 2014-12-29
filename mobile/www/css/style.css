@@ -266,3 +266,6 @@ z-index: 2;
 padding: 16px 49px 16px 16px;
 border: none;
 background: red;}
+
+#login_wraper{position: absolute;
+bottom: 10px;}
