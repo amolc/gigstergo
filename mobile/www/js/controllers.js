@@ -2,9 +2,8 @@
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
- 
-var user=window.localStorage.getItem('username');
-      
+  var user=window.localStorage.getItem('username');
+  console.log( 'lofgin status'+window.localStorage.getItem('islogin') );    
 //$scope.user=userdetailsforprofile.usermail;
 
 //console.log(user);
