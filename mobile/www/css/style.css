@@ -128,10 +128,6 @@ border:none;
 text-align: center;
 	}
 
-ion-item.item.item-complex{
-border:none;
-}
-
 .header{
 
 	text-align: center;
@@ -265,7 +261,8 @@ border-radius: 50px;}
 .side-menu-color{background: #fd8900;}
 #gig-menus{text-align: center;
 }
-#gig-menus .item-content{background: red;}
+#gig-menus .item-content{background: transparent;
+border: none;}
 
 #login_wraper{position: absolute;
 bottom: 10px; width: 100%}
