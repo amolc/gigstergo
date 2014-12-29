@@ -1,3 +1,3 @@
-[submodule "housingadmin"]
-	path = housingadmin
-	url = http://github.com/amolc/housingadmin.git
+[submodule "gigapp"]
+	path = gigapp
+	url = https://github.com/amolc/gigsterm.git
