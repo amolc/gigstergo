@@ -230,7 +230,7 @@ font-size: 16px;
 line-height: 42px;
 cursor: pointer;}
 .email-inpute{margin: 15px 0px;border-radius: 2px;}
-.login-btn{background: #f26722; border:none; color: #fff;width: 46%; margin: 15px 0 0 8px;}
+.login-btn{background: #f26722; border:none; color: #fff;width: 46%;line-height: 33px;min-height: 36px;}
 .menu-icon:before{font-size: 25px;
 color: rgb(90, 76, 76);
 border: 2px solid;
@@ -269,5 +269,5 @@ border: none;
 background: red;}
 
 #login_wraper{position: absolute;
-bottom: 10px;}
+bottom: 10px; width: 100%}
 #mail-menu{padding: 0px 25px;}
