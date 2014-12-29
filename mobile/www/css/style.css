@@ -92,7 +92,7 @@ img{
 	max-width: 100%;
 	width: 180px;
 }
-.padding{
+.home-back-img{
 	padding: 1px;
 	background:url('../img/home-back.jpg') no-repeat;
 }
@@ -258,3 +258,11 @@ margin-top: 10px;position: absolute;}
 background-color:#ECECEC;
 }
 .inpute-post-gig{border: 1px solid;}
+img.list-gig-img{position: absolute;
+top: 18px;
+left: 0px;
+width: 50px;
+max-width: 40px;
+max-height: 80px;
+width: 100%;
+border-radius: 50px;}

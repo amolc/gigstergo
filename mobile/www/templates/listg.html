@@ -1,7 +1,26 @@
 <ion-view title="Listgig">
   <ion-content class="has-header"padding="true">
-  <div class="list">
+<div class="row">
+  <div class="col">.col</div>
+  <div class="col col-75">.col.col-75</div>
+</div>
 
+<div class="row"> 
+<div class="col">
+<div class="list">
+
+    <a class="item item-thumbnail-left" href="#">
+      <img src="cover.jpg" class="list-gig-img">
+      <h2>Pretty Hate Machine</h2>
+      <p>Nine Inch Nails</p>
+    </a>
+
+    ...
+
+</div>
+</div>
+<div class="col">
+<div class="list">
 <a class="item item-avatar" href="#/app/gigdetails" ng-repeat="list in listgigster">
     
       
@@ -12,7 +31,6 @@
         Bid
       </button>
     </a>
-
     
            <button id="set-font-logout"><a ng-click="logout()"> LOgout </a></button>
                  
@@ -112,7 +130,8 @@
     </a>
   -->
 </div>
-
+</div>
+</div>
 
     </ion-content>
 </ion-view>
