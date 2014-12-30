@@ -32,7 +32,7 @@ exports.getbid = function(req, res) {
 };
 
 exports.listgig = function(req, res) {
-    var query = "SELECT * FROM  btr_projects";  
+    var query = "SELECT * FROM  btr_projects order by postedon DESC";  
     db.query( query, function (err, val) {  
       console.log( val );
         res.jsonp(val);
@@ -92,9 +92,9 @@ exports.loginval = function(req, res) {
 
 exports.postgig= function (req,res){
 
-console.log(req.body.title);
+console.log(req.body);
 
-projectsCRUD.create({'prjTitle': req.body.title,'prjdesc':req.body.desc,'proposedbudget':req.body.pay,'jobtype':req.body.jobtype,'skills':req.body.skill,'bidto':req.body.expdate,'bidfrom':req.body.date },
+projectsCRUD.create({'userId': req.body.userid,'prjTitle': req.body.title,'prjdesc':req.body.desc,'postedon':req.body.postedon, 'proposedbudget':req.body.pay,'bidfrom':req.body.date,'bidto':req.body.expdate,'jobtype':req.body.jobtype,'keywords':req.body.skill },
  function (err, vals){
     console.log(vals);
       
