@@ -11,6 +11,7 @@ var bodyParser = require('body-parser');
 
 
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
@@ -38,12 +39,12 @@ app.post('/api/loginval',assignments.loginval);
 app.get('/api/progressassignments',assignments.progressassignments);
 app.post('/api/postgig',assignments.postgig);
 app.post('/api/signup',assignments.signup);
-app.get('/api/biddingmygigs',assignments.biddingmygigs);
-app.get('/api/completedmygigs',assignments.completedmygigs);
-app.get('/api/userallmasseges',assignments.userallmasseges);
-app.get('/api/bidsawarded',assignments.bidsawarded);
-app.get('/api/bidsbidding',assignments.bidsbidding);
-app.get('/api/bidscompleted',assignments.bidscompleted);
+app.post('/api/biddingmygigs',assignments.biddingmygigs);
+app.post('/api/completedmygigs',assignments.completedmygigs);
+app.post('/api/userallmasseges',assignments.userallmasseges);
+app.post('/api/bidsawarded',assignments.bidsawarded);
+app.post('/api/bidsbidding',assignments.bidsbidding);
+app.post('/api/bidscompleted',assignments.bidscompleted);
 //app.post('/api/getuserprofile',assignments.getuserprofile);
 
 
