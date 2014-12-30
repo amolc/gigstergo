@@ -32,7 +32,8 @@ exports.getbid = function(req, res) {
 };
 
 exports.listgig = function(req, res) {
-    var query = "SELECT * FROM  btr_projects order by postedon DESC";  
+  //SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId INNER JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId where tbl1.bidfrom="+userid+" and tbl1.status='3' order by tbl1.bidon DESC";
+    var query = "SELECT * FROM  btr_projects AS tbl1 INNER JOIN btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId order by postedon DESC";  
     db.query( query, function (err, val) {  
       console.log( val );
         res.jsonp(val);
