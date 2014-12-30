@@ -1,6 +1,6 @@
 var express = require('express'), path = require('path');
 var app = express();
-
+var md5 = require('MD5');
 var querystring = require('querystring');
 var request = require('request');
 

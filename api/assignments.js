@@ -1,5 +1,6 @@
 var http = require('http');
 var mysql = require('mysql');
+var md5 = require('MD5');
 var db = mysql.createPool({
 	database : 'gigster',
      user : 'gigster2',
@@ -121,7 +122,8 @@ exports.bidongig=function(req,res){
 
 exports.loginval = function(req, res) {
     //console.log(req.body);
-
+    console.log( md5(req.body.password) )
+    
     var gigname=req.body.gigname;
     var password=req.body.password; 
       console.log(gigname);
