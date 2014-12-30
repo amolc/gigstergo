@@ -10,8 +10,10 @@ var db = mysql.createPool({
 var CRUD = require('mysql-crud');
 var assignmentCRUD = CRUD(db, 'btr_assignment');
 var projectsCRUD = CRUD (db,'btr_projects');
-var projectsCRUD = CRUD (db,'btr_projects');
 var userCRUD = CRUD (db,'btr_users');
+var bidCRUD = CRUD (db,'btr_bids');
+var btrmsgCRUD = CRUD (db,'btr_messages');
+
 
 exports.assignall = function(req, res) {
     
@@ -60,6 +62,62 @@ exports.signup=function(req,res){
 
 
 };
+
+
+
+
+exports.bidongig=function(req,res){
+
+  console.log(req.body);
+      bidCRUD.create({'bidfrom': req.body.currentuser,'bidon':req.body.bidon, 'projectId':req.body.record.prjId,'bidcontent':req.body.proposal,'bidprice':req.body.price}, function (err, vals){
+           
+            console.log(err);
+
+            var mailmatter="<p>Hello "+req.body.record.fname+" "+req.body.record.lname+" </p><p>You have received a new bid on your Gig <a href='#'></a> from </p><p></p><p><a href='#'>Click here to see more details and award this Gig.</a></p>";
+                       
+
+              btrmsgCRUD.create({'msgfrom':req.body.currentuser,'msgto':req.body.record.userId, 'msgcontent':mailmatter,'msgon':req.body.bidon,'projectId':req.body.record.prjId,'isread':'0','msgtype':'r'}, function (err, vals){
+
+
+              console.log(vals);
+      
+              var resdata={
+               status: false,
+               message :'Ooops! Error Occured...'
+               };
+
+
+              res.jsonp(resdata);   
+
+
+
+              });
+
+
+
+
+             
+             });
+
+     
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 exports.loginval = function(req, res) {
     //console.log(req.body);
