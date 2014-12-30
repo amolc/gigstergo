@@ -127,7 +127,7 @@ exports.loginval = function(req, res) {
     console.log( md5(req.body.password) )
     
     var gigname=req.body.gigname;
-    var password=req.body.password; 
+    var password=md5(req.body.password); 
       console.log(gigname);
       console.log(password);
 
