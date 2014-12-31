@@ -47,21 +47,83 @@ exports.listgig = function(req, res) {
 
 exports.signup=function(req,res){
 
-    userCRUD.load({usermail :req.body.id }, function (err, val) {  
-     
-       userCRUD.create({'usermail': req.body.id,'userpass':req.body.password }, function (err, vals){
+    var password=md5(req.body.password); 
+    console.log(req.body);
+    console.log(password);
+    var resdata={};
+
+   var query = "SELECT * FROM  btr_users where usermail="+req.body.gigid;  
+    db.query( query, function (err, val) {  
+      console.log( val );
+            if(val==null){
+                console.log(val);
+
+                  userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username }, function (err, vals){
+                      console.log(vals);
+                          if(vals.insertId==null){
+                               resdata={
+                                    status: false,
+                                    message :'Ooops! Error Occured...'
+                              };
+                              res.jsonp(resdata);
+                          }else{
+                              resdata={
+                                    status: true,
+                                    message :'Yipeeee! Registered successfully!!!!'
+                              };
+                              res.jsonp(resdata);
+                          }
+                        
+                   });
+  
+           }else{
+                          resdata={
+                                    status: false,
+                                    message :'Ooops! User Already Exists...'
+                                 };
+                                 res.jsonp(resdata);
+            console.log('duplicate record');
+           }
+           
+      });  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*  userCRUD.load({usermail :req.body.gigid }, function (err, val) {  
+     if(val==null && val.length==0){
+
+       userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username }, function (err, vals){
              console.log(vals);
       
-              var resdata={
+              resdata={
                status: false,
                message :'Ooops! Error Occured...'
                };
-
-
-              res.jsonp(resdata);   
-             });
-    
-  });
+              });
+     }else{
+         resdata={
+               status: false,
+               message :'Ooops! User Already Exists..'
+               };
+     }
+     res.jsonp(resdata);
+     console.log(err);
+     console.log(val)
+  });*/
 
 
 };
@@ -131,7 +193,7 @@ exports.loginval = function(req, res) {
       console.log(gigname);
       console.log(password);
 
-    CRUD(db, 'btr_users').load({usermail :gigname,userpass : password }, function (err, val) {  
+    CRUD(db, 'btr_users').load({usermail :gigname, userpass : password }, function (err, val) {  
       var resdata={
         record:'',
         status:false,
