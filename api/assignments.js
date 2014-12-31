@@ -52,78 +52,41 @@ exports.signup=function(req,res){
     console.log(password);
     var resdata={};
 
-   var query = "SELECT * FROM  btr_users where usermail="+req.body.gigid;  
-    db.query( query, function (err, val) {  
-      console.log( val );
-            if(val==null){
-                console.log(val);
+   userCRUD.load({usermail :req.body.gigid }, function (err, val) {  
+     if(val.length>0){
+             resdata={
+               status: false,
+               message :'Ooops! User Already Exists..'
+               };
+                res.jsonp(resdata);
 
-                  userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username }, function (err, vals){
-                      console.log(vals);
-                          if(vals.insertId==null){
-                               resdata={
-                                    status: false,
-                                    message :'Ooops! Error Occured...'
-                              };
-                              res.jsonp(resdata);
-                          }else{
-                              resdata={
+        }else{
+                userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username }, function (err, vals){
+                console.log(vals);
+                  if(parseInt(vals.affectedRows)>0){
+                      resdata={
                                     status: true,
                                     message :'Yipeeee! Registered successfully!!!!'
                               };
                               res.jsonp(resdata);
-                          }
-                        
-                   });
-  
-           }else{
-                          resdata={
-                                    status: false,
-                                    message :'Ooops! User Already Exists...'
-                                 };
-                                 res.jsonp(resdata);
-            console.log('duplicate record');
-           }
-           
-      });  
 
+                }else{
+                resdata={
+                   status: false,
+                   message :'Ooops! Error Occured...'
+                 };
+                 res.jsonp(resdata);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*  userCRUD.load({usermail :req.body.gigid }, function (err, val) {  
-     if(val==null && val.length==0){
-
-       userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username }, function (err, vals){
-             console.log(vals);
-      
-              resdata={
-               status: false,
-               message :'Ooops! Error Occured...'
-               };
+                }
+              
               });
-     }else{
-         resdata={
-               status: false,
-               message :'Ooops! User Already Exists..'
-               };
-     }
-     res.jsonp(resdata);
-     console.log(err);
-     console.log(val)
-  });*/
+
+        }
+
+    
+    
+   
+  });
 
 
 };
@@ -200,7 +163,7 @@ exports.loginval = function(req, res) {
         message :'err'
       };
       console.log(val)
-      if(val!=null){
+      if(val.length>0){
         resdata.record=val;
         resdata.status=true;
         console.log("login");
