@@ -40,7 +40,6 @@ exports.listgig = function(req, res) {
   //SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId INNER JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId where tbl1.bidfrom="+userid+" and tbl1.status='3' order by tbl1.bidon DESC";
     var query = "SELECT * FROM  btr_projects AS tbl1 LEFT JOIN btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_bids AS tbl3 ON tbl3.bidfrom="+userid+" and tbl3.projectId=tbl1.prjId order by postedon DESC";  
     db.query( query, function (err, val) {  
-      console.log( val );
         res.jsonp(val);
       });    
 };
@@ -61,7 +60,7 @@ exports.signup=function(req,res){
                 res.jsonp(resdata);
 
         }else{
-                userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username }, function (err, vals){
+                userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username , 'profileimage':req.body.profileimage }, function (err, vals){
                 console.log(vals);
                   if(parseInt(vals.affectedRows)>0){
                       resdata={
@@ -236,7 +235,7 @@ var userid=req.body.userid;
 
 exports.userallmasseges=function(req,res){
 var userid=req.body.userid;
-    var query = "select * from btr_messages where msgto="+userid+" order by msgId DESC";  
+    var query = "select * from btr_messages as tbl1 LEFT JOIN btr_userprofile as tbl2 on tbl2.userId=tbl1.msgfrom where msgto="+userid+" order by msgId DESC";  
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);
@@ -292,12 +291,12 @@ var userid=req.body.userid;
 };
 
 exports.biddingdetails=function(req,res){
-      var prjid=req.body.prjid;
-    var query = "SELECT * FROM btr_bids tbl1 LEFT JOIN btr_userprofile AS tbl2 ON tbl2.userId=tbl1.bidfrom where tbl1.projectId="+prjid+" order by tbl1.bidon DESC";
-    db.query( query, function (err, val) {  
+var prjid=req.body.prjid;
+    var query = "SELECT * FROM btr_bids AS tbl1 LEFT JOIN btr_userprofile AS tbl2 ON tbl2.userId=tbl1.bidfrom where tbl1.projectId="+prjid;
+    db.query( query, function (err, val) { 
       console.log(query);
       console.log(err);
         console.log(val);
         res.jsonp(val);
-      });   
+      });    
 };
