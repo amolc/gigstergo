@@ -324,3 +324,7 @@ var msgto=req.body.msgto;
         res.jsonp(val);
       });    
 };
+
+exports.awardgig=function(req,res){
+  console.log(req.body);
+};
