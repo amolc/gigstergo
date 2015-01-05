@@ -300,3 +300,27 @@ var prjid=req.body.prjid;
         res.jsonp(val);
       });    
 };
+
+exports.cancelgig=function(req,res){
+var prjid=req.body.prjid;
+    var query = "UPDATE btr_projects SET status ='5' WHERE prjId ="+prjid;  
+      db.query( query, function (err, rows ) { 
+       // var rrr = rows;
+        res.jsonp(rows);
+      });    
+};
+
+
+exports.getpreviousmsgs=function(req,res){
+var prjid=req.body.prjid;
+var msgfrom=req.body.msgfrom;
+var msgto=req.body.msgto;
+    
+    var query = "SELECT * FROM btr_messages where projectId = "+prjid+" and  msgfrom = "+msgfrom+" and msgto= "+msgto;
+    db.query( query, function (err, val) { 
+      console.log(query);
+      console.log(err);
+        console.log(val);
+        res.jsonp(val);
+      });    
+};
