@@ -327,4 +327,25 @@ var msgto=req.body.msgto;
 
 exports.awardgig=function(req,res){
   console.log(req.body);
+
+  assignmentCRUD.create({'projectId': req.body.projectId, 'awardedto': req.body.awardedto, 'assignedon': req.body.assignedon, 'startdate': req.body.startdate, 'rating': req.body.rating, 'termsaccepted': req.body.termsaccepted, 'projectowner': req.body.projectowner, 'status': req.body.status, 'isread': req.body.isread, 'completiondate': req.body.completiondate, 'amount': req.body.amount }, function (err, vals){ 
+                console.log(vals);
+                  if(parseInt(vals.affectedRows)>0){
+                       var query = "UPDATE btr_projects SET status ='2' WHERE prjId ="+req.body.projectId;  
+                       db.query( query, function (err, rows ) { 
+                         // var rrr = rows;
+                         res.jsonp(rows);
+                      });    
+
+                }else{
+                resdata={
+                   status: false,
+                   message :'Ooops! Error Occured...'
+                 };
+                 res.jsonp(resdata);
+
+                }
+              
+              });
+
 };
