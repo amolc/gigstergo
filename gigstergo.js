@@ -46,6 +46,7 @@ app.post('/api/bidsawarded',assignments.bidsawarded);
 app.post('/api/bidsbidding',assignments.bidsbidding);
 app.post('/api/bidscompleted',assignments.bidscompleted);
 app.post('/api/bidongig',assignments.bidongig);
+app.post('/api/biddingdetails',assignments.biddingdetails);
 
 
 
