@@ -315,14 +315,28 @@ exports.getpreviousmsgs=function(req,res){
 var prjid=req.body.prjid;
 var msgfrom=req.body.msgfrom;
 var msgto=req.body.msgto;
+   
+    var query = "SELECT * FROM btr_userprofile where userId="+msgfrom;
+    db.query( query, function (err1, val1) { 
+          var query = "SELECT * FROM btr_userprofile where userId="+msgto;
+          db.query( query, function (err2, val2) { 
+                var query = "SELECT * FROM btr_messages where projectId = "+prjid+" and ( (msgfrom = "+msgto+" and msgto= "+msgfrom+")  or (msgfrom= "+msgfrom+" and msgto = "+msgto+") ) order by msgon ASC";
+                db.query( query, function (err3, val3) { 
+                   
+                      var msgall={
+                        sender: val1,
+                        reciever: val2,
+                        msgs: val3
+                      };
+
+                      res.jsonp(msgall);  
+                  });  
+               
+              });  
+         });  
+
     
-    var query = "SELECT * FROM btr_messages where projectId = "+prjid+" and  msgfrom = "+msgfrom+" and msgto= "+msgto;
-    db.query( query, function (err, val) { 
-      console.log(query);
-      console.log(err);
-        console.log(val);
-        res.jsonp(val);
-      });    
+
 };
 
 exports.awardgig=function(req,res){
@@ -336,6 +350,31 @@ exports.awardgig=function(req,res){
                          // var rrr = rows;
                          res.jsonp(rows);
                       });    
+
+                }else{
+                resdata={
+                   status: false,
+                   message :'Ooops! Error Occured...'
+                 };
+                 res.jsonp(resdata);
+
+                }
+              
+              });
+
+};
+
+exports.sendmsg=function(req,res){
+  console.log(req.body);
+
+  btrmsgCRUD.create({'msgfrom': req.body.msgfrom, 'msgto': req.body.msgto, 'msgcontent': req.body.data, 'haveattachment': req.body.haveattachment, 'msgon': req.body.msgon, 'projectId': req.body.projectid, 'isread': req.body.isread, 'msgtype': req.body.msgtype, 'reportid': req.body.reportid }, function (err, vals){ 
+                console.log(vals);
+                  if(parseInt(vals.affectedRows)>0){
+                          resdata={
+                   status: true,
+                   message :'msg sent successfully!!!!'
+                 };
+                 res.jsonp(resdata);
 
                 }else{
                 resdata={

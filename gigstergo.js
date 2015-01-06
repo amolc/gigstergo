@@ -50,7 +50,7 @@ app.post('/api/biddingdetails',assignments.biddingdetails);
 app.post('/api/cancelgig',assignments.cancelgig);
 app.post('/api/getpreviousmsgs',assignments.getpreviousmsgs);
 app.post('/api/awardgig',assignments.awardgig);
-
+app.post('/api/sendmsg',assignments.sendmsg);
 
 
 
