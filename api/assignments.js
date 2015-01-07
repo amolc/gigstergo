@@ -38,8 +38,10 @@ exports.listgig = function(req, res) {
   console.log(req.body);
   var userid=req.body.userid;
   //SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId INNER JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId where tbl1.bidfrom="+userid+" and tbl1.status='3' order by tbl1.bidon DESC";
-    var query = "SELECT * FROM  btr_projects AS tbl1 LEFT JOIN btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_bids AS tbl3 ON tbl3.bidfrom="+userid+" and tbl3.projectId=tbl1.prjId order by postedon DESC";  
+    var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER JOIN btr_bids AS tbl3 ON tbl3.bidfrom=22 and tbl3.projectId=tbl1.prjId order by postedon DESC";  
+    console.log(query);
     db.query( query, function (err, val) {  
+
         res.jsonp(val);
       });    
 };
@@ -132,20 +134,6 @@ exports.bidongig=function(req,res){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 exports.loginval = function(req, res) {
     //console.log(req.body);
     console.log( md5(req.body.password) )
@@ -207,7 +195,7 @@ projectsCRUD.create({'userId': req.body.userid,'prjTitle': req.body.title,'prjde
 exports.progressassignments=function(req,res){
 var userid=req.body.userid;
 console.log(userid);
-    var query = "SELECT * FROM btr_projects AS tbl1 INNER JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto where tbl1.userId="+userid+" and tbl1.status='2' order by tbl1.postedon DESC";
+    var query = "SELECT * FROM btr_projects AS tbl1 LEFT JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId LEFT JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto LEFT JOIN btr_reports AS tbl4 on tbl4.projectId=tbl1.prjId where tbl1.userId="+userid+" and tbl1.status='2' order by tbl1.postedon DESC";
     //SELECT * FROM btr_projects AS tbl1 INNER JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto where tbl1.userId=6 and tbl1.status='2' order by tbl1.postedon DESC";  
 
     db.query( query, function (err, val) {  
@@ -242,7 +230,7 @@ var userid=req.body.userid;
 
 exports.userallmasseges=function(req,res){
 var userid=req.body.userid;
-    var query = "select * from btr_messages as tbl1 LEFT JOIN btr_userprofile as tbl2 on tbl2.userId=tbl1.msgfrom where msgto="+userid+" order by msgId DESC";  
+    var query = "select tbl2.fname, tbl2.lname, tbl1.* from btr_messages as tbl1 LEFT JOIN btr_userprofile as tbl2 on tbl2.userId=tbl1.msgfrom where msgto="+userid+" order by msgId DESC";  
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);
