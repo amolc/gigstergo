@@ -533,7 +533,7 @@ exports.getuserprofiledata=function(req,res){
           console.log(query1);
           console.log(err);
             //console.log(val1);
-               var query2 = "SELECT prjId,prjTitle,proposedbudget FROM btr_projects where userId="+userid;
+               var query2 = "SELECT prjId,prjTitle,proposedbudget FROM btr_projects where userId="+userid+" LIMIT 3";
                 db.query( query2, function (err, val2) { 
                   console.log(query2);
                   console.log(err);
