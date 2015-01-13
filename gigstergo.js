@@ -51,6 +51,14 @@ app.post('/api/cancelgig',assignments.cancelgig);
 app.post('/api/getpreviousmsgs',assignments.getpreviousmsgs);
 app.post('/api/awardgig',assignments.awardgig);
 app.post('/api/sendmsg',assignments.sendmsg);
+app.post('/api/sendreport',assignments.sendreport);
+app.post('/api/sendfeedback',assignments.sendfeedback);
+app.post('/api/getuserprofiledata',assignments.getuserprofiledata);
+app.post('/api/updateoverview',assignments.updateoverview);
+app.post('/api/updateabout',assignments.updateabout);
+app.post('/api/saveprofile',assignments.saveprofile);
+app.post('/api/sendfeedbackfrmbidder',assignments.sendfeedbackfrmbidder);
+
 
 
 

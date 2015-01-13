@@ -14,6 +14,9 @@ var projectsCRUD = CRUD (db,'btr_projects');
 var userCRUD = CRUD (db,'btr_users');
 var bidCRUD = CRUD (db,'btr_bids');
 var btrmsgCRUD = CRUD (db,'btr_messages');
+var btrreportsCRUD=CRUD(db,'btr_reports');
+var btrreviewsCRUD=CRUD(db,'btr_reviews');
+var btrprofileCRUD=CRUD(db,'btr_userprofile');
 
 
 exports.assignall = function(req, res) {
@@ -219,7 +222,7 @@ var userid=req.body.userid;
 
 exports.completedmygigs=function(req,res){
 var userid=req.body.userid;
-    var query = "SELECT * FROM btr_projects AS tbl1 LEFT JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId LEFT JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto LEFT JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId and tbl4.projectId=tbl1.prjId where tbl1.userId="+userid+" and tbl1.status='3' order by tbl1.postedon DESC";  
+    var query = "SELECT * FROM btr_projects AS tbl1 LEFT JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId LEFT JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto where tbl1.userId="+userid+" and tbl1.status='3' order by tbl1.postedon DESC";  
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);
@@ -242,7 +245,7 @@ var userid=req.body.userid;
 exports.bidsawarded=function(req,res){
 var userid=req.body.userid;
 console.log(userid);
-    var query = "SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId and tbl2.status='2' INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId where tbl1.bidfrom="+userid+"   order by tbl1.bidon DESC";
+    var query = "SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId and tbl2.status='2' INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId LEFT JOIN btr_reports AS tbl4 on tbl4.projectId=tbl2.prjId where tbl1.bidfrom="+userid+"   order by tbl1.bidon DESC";
     db.query( query, function (err, val) {  
       console.log(query);
       console.log(err);
@@ -383,3 +386,330 @@ exports.sendmsg=function(req,res){
               });
 
 };
+
+exports.sendreport=function(req,res){
+console.log(req.body);
+var reportid=req.body.rpId;
+console.log(reportid);
+      if(parseInt(reportid)>0){
+
+         btrreportsCRUD.update({'projectId' :req.body.projectId},{'rpdate' :req.body.rpdate,'description':req.body.description,'completion':req.body.completion }, function (err, val) {   
+            if(parseInt(val.affectedRows)>0){
+                var resdata={
+                  status:true,
+                  massage:'updated  successfuly'
+                   };
+                  }else{
+                    var resdata={
+                  status:false,
+                  massage:'not updated'
+                   };
+                    
+                  }
+                res.jsonp(resdata);
+            });   
+
+
+
+      }else{
+
+
+            btrreportsCRUD.create({'rpdate':req.body.rpdate, 'projectId':req.body.projectId, 'reportto':req.body.reportto, 'reportfrom':req.body.reportfrom, 'description':req.body.description, 'isapproved':req.body.isapproved, 'completion':req.body.completion }, function (err,vals){
+
+             console.log(vals);
+                  if(parseInt(vals.affectedRows)>0){
+                          resdata={
+                   status: true,
+                   message :'report sent successfully!!!!'
+                 };
+                 res.jsonp(resdata);
+
+                }else{
+                resdata={
+                   status: false,
+                   message :'Ooops! Error Occured...'
+                 };
+                 res.jsonp(resdata);
+
+                }
+            });
+
+      }
+
+
+     
+};
+
+
+
+
+exports.sendfeedback=function(req,res){
+  console.log(req.body);
+
+  btrreviewsCRUD.create({'ratefrom': req.body.ratefrom, 'rateto': req.body.rateto, 'projectId': req.body.projectId, 'feedback': req.body.feedback, 'rating': req.body.rating, 'ratedon': req.body.ratedon }, function (err, vals){ 
+                console.log(vals);
+                  if(parseInt(vals.affectedRows)>0){
+
+                          projectsCRUD.update({'prjId' :req.body.projectId},{'status' :'3'}, function (err, val) {   
+                                  if(parseInt(val.affectedRows)>0){
+                                      var resdata={
+                                        status:true,
+                                        massage:'feedback sent successfully!!!'
+                                         };
+                                        }else{
+                                          var resdata={
+                                        status:false,
+                                        massage:'error!!!'
+                                         };
+                                          
+                                        }
+                                      res.jsonp(resdata);
+                                  });   
+
+
+
+                  
+
+                }else{
+                      resdata={
+                         status: false,
+                         message :'Ooops! Error Occured...'
+                       };
+                 res.jsonp(resdata);
+
+                }
+              
+              });
+
+};
+
+
+
+
+exports.sendfeedbackfrmbidder=function(req,res){
+  console.log(req.body);
+
+  btrreviewsCRUD.create({'ratefrom': req.body.ratefrom, 'rateto': req.body.rateto, 'projectId': req.body.projectId, 'feedback': req.body.feedback, 'rating': req.body.rating, 'ratedon': req.body.ratedon }, function (err, vals){ 
+                console.log(vals);
+                  if(parseInt(vals.affectedRows)>0){
+
+                                  if(parseInt(val.affectedRows)>0){
+                                      var resdata={
+                                        status:true,
+                                        massage:'feedback sent successfully!!!'
+                                         };
+                                        }else{
+                                          var resdata={
+                                        status:false,
+                                        massage:'error!!!'
+                                         };
+                                          
+                                        }
+                                      res.jsonp(resdata);
+                          
+
+
+                  
+
+                }else{
+                      resdata={
+                         status: false,
+                         message :'Ooops! Error Occured...'
+                       };
+                 res.jsonp(resdata);
+
+                }
+              
+              });
+
+};
+
+
+exports.getuserprofiledata=function(req,res){
+  console.log(req.body);
+  userid=req.body.userid;
+     var query1 = "SELECT tbl2.*,tbl3.countryname,tbl1.notify,tbl1.username,tbl1.usermail FROM btr_users as tbl1 Left join btr_userprofile as tbl2 on tbl2.userId=tbl1.userId Left join btr_countries as tbl3 on tbl3.id=tbl2.country where tbl1.userId="+userid;
+        db.query( query1, function (err, val1) { 
+          console.log(query1);
+          console.log(err);
+            //console.log(val1);
+               var query2 = "SELECT prjId,prjTitle,proposedbudget FROM btr_projects where userId="+userid;
+                db.query( query2, function (err, val2) { 
+                  console.log(query2);
+                  console.log(err);
+                    //console.log(val2);
+                             var query3 = "SELECT * FROM btr_countries";
+                                        db.query( query3, function (err, val3) { 
+                                          console.log(query3);
+                                          console.log(err);
+                                        //    console.log(val3);
+                                            var responce={
+                                              profile:val1,
+                                              prjs:val2,
+                                              countries:val3
+                                            }
+
+                                             res.jsonp(responce);
+
+                                          }); 
+
+                  }); 
+          });    
+ };
+
+
+ exports.updateabout=function(req,res){
+  console.log(req.body);
+
+   if(req.body.prfId>0){
+           btrprofileCRUD.update({'prfId' :req.body.prfId},{'aboutus' :req.body.aboutus}, function (err, val) {   
+            if(parseInt(val.affectedRows)>0){
+                var resdata={
+                  status:true,
+                  massage:'updated  successfuly'
+                   };
+                  }else{
+                    var resdata={
+                  status:false,
+                  massage:'not updated'
+                   };
+                    
+                  }
+                res.jsonp(resdata);
+            }); 
+
+}else{
+
+         btrprofileCRUD.create({'aboutus' :req.body.aboutus}, function (err, val) {   
+            if(parseInt(val.affectedRows)>0){
+                var resdata={
+                  status:true,
+                  massage:'updated  successfuly'
+                   };
+                  }else{
+                    var resdata={
+                  status:false,
+                  massage:'not updated'
+                   };
+                    
+                  }
+                res.jsonp(resdata);
+            }); 
+
+
+}
+        
+ };
+
+ exports.updateoverview=function(req,res){
+  console.log(req.body);
+   if(req.body.prfId>0){
+
+        btrprofileCRUD.update({'prfId' :req.body.prfId},{'overview' :req.body.overview}, function (err, val) {   
+            if(parseInt(val.affectedRows)>0){
+                var resdata={
+                  status:true,
+                  massage:'updated  successfuly'
+                   };
+                  }else{
+                    var resdata={
+                  status:false,
+                  massage:'not updated'
+                   };
+                    
+                  }
+                res.jsonp(resdata);
+            }); 
+
+
+}else{
+
+
+btrprofileCRUD.create({'overview' :req.body.overview}, function (err, val) {   
+            if(parseInt(val.affectedRows)>0){
+                var resdata={
+                  status:true,
+                  massage:'updated  successfuly'
+                   };
+                  }else{
+                    var resdata={
+                  status:false,
+                  massage:'not updated'
+                   };
+                    
+                  }
+                res.jsonp(resdata);
+            });
+     
+}
+        
+ };
+
+
+ exports.saveprofile=function(req,res){
+  console.log(req.body);
+
+        if(req.body.prfId>0){
+
+
+               btrprofileCRUD.update({'prfId' :req.body.prfId},{'fname' :req.body.fname, 'lname' :req.body.lname, 'contactno' :req.body.contactno, 'tagline' :req.body.tagline, 'skills' :req.body.skills, 'city' :req.body.city, 'country' :req.body.country }, function (err, val) {   
+              userCRUD.update({'userId' :req.body.userId},{'username' :req.body.fname, 'usermail' :req.body.usermail, 'notify' :req.body.notify }, function (err, val2) {   
+            
+
+
+                          if(parseInt(val.affectedRows)>0){
+                              var resdata={
+                                status:true,
+                                massage:'updated  successfuly'
+                                 };
+                                }else{
+                                  var resdata={
+                                status:false,
+                                massage:'not updated'
+                                 };
+                                  
+                                }
+                              res.jsonp(resdata);
+
+
+                }); 
+
+
+            }); 
+
+        }else{
+
+
+
+
+
+           btrprofileCRUD.create({'fname' :req.body.fname, 'lname' :req.body.lname, 'contactno' :req.body.contactno, 'tagline' :req.body.tagline, 'skills' :req.body.skills, 'city' :req.body.city, 'country' :req.body.country }, function (err, val) {   
+              userCRUD.update({'userId' :req.body.userId},{'username' :req.body.fname, 'usermail' :req.body.usermail, 'notify' :req.body.notify }, function (err, val2) {   
+            
+
+
+                          if(parseInt(val.affectedRows)>0){
+                              var resdata={
+                                status:true,
+                                massage:'updated  successfuly'
+                                 };
+                                }else{
+                                  var resdata={
+                                status:false,
+                                massage:'not updated'
+                                 };
+                                  
+                                }
+                              res.jsonp(resdata);
+
+
+                }); 
+
+
+            }); 
+
+
+       
+        }
+        
+ };
