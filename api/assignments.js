@@ -2,9 +2,9 @@ var http = require('http');
 var mysql = require('mysql');
 var md5 = require('MD5');
 var db = mysql.createPool({
-	database : 'gigster',
-     user : 'gigster2',
-	password : 'ferrari4321',
+	database : 'gigster2',
+     user : 'root',
+	password : '',
     host :'localhost',
  }); 
 
@@ -41,7 +41,8 @@ exports.listgig = function(req, res) {
   console.log(req.body);
   var userid=req.body.userid;
   //SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId INNER JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId where tbl1.bidfrom="+userid+" and tbl1.status='3' order by tbl1.bidon DESC";
-    var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER JOIN btr_bids AS tbl3 ON tbl3.bidfrom=22 and tbl3.projectId=tbl1.prjId order by postedon DESC";  
+   //var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city,tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER JOIN btr_bids AS tbl3 ON tbl3.bidfrom=22 and tbl3.projectId=tbl1.prjId order by postedon DESC";  
+   var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city,tbl3.*,tbl4.profileimage FROM btr_projects AS tbl1 LEFT OUTER join btr_users AS tbl4 ON tbl4.userId=tbl1.userId LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER JOIN btr_bids AS tbl3 ON tbl3.bidfrom=22 and tbl3.projectId=tbl1.prjId order by postedon DESC";  
     console.log(query);
     db.query( query, function (err, val) {  
 
