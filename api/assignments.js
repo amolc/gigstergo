@@ -5,7 +5,7 @@ var db = mysql.createPool({
 	database : 'gigster',
      user : 'gigstermobile',
 	password : '10gXWOqeaf',
-    host :'gigster2.founatintechies.com',
+    host :'gigster2.founatintechies.com'
  }); 
 
 var CRUD = require('mysql-crud');
@@ -41,7 +41,12 @@ exports.listgig = function(req, res) {
   console.log(req.body);
   var userid=req.body.userid;
   //SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId INNER JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId where tbl1.bidfrom="+userid+" and tbl1.status='3' order by tbl1.bidon DESC";
-    var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER JOIN btr_bids AS tbl3 ON tbl3.bidfrom=22 and tbl3.projectId=tbl1.prjId order by postedon DESC LIMIT 10";  
+
+//    var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER JOIN btr_bids AS tbl3 ON tbl3.bidfrom=22 and tbl3.projectId=tbl1.prjId order by postedon DESC LIMIT 10";  
+
+   //var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city,tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER JOIN btr_bids AS tbl3 ON tbl3.bidfrom=22 and tbl3.projectId=tbl1.prjId order by postedon DESC";  
+   var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city,tbl3.*,tbl4.profileimage,tbl4.username FROM btr_projects AS tbl1 LEFT OUTER join btr_users AS tbl4 ON tbl4.userId=tbl1.userId LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER JOIN btr_bids AS tbl3 ON tbl3.bidfrom=22 and tbl3.projectId=tbl1.prjId order by postedon DESC";  
+
     console.log(query);
     db.query( query, function (err, val) {  
 
@@ -291,6 +296,7 @@ var userid=req.body.userid;
 exports.biddingdetails=function(req,res){
 var prjid=req.body.prjid;
     var query = "SELECT * FROM btr_bids AS tbl1 LEFT JOIN btr_userprofile AS tbl2 ON tbl2.userId=tbl1.bidfrom where tbl1.projectId="+prjid;
+  
     db.query( query, function (err, val) { 
       console.log(query);
       console.log(err);
@@ -648,15 +654,20 @@ btrprofileCRUD.create({'overview' :req.body.overview}, function (err, val) {
 
  exports.saveprofile=function(req,res){
   console.log(req.body);
-
         if(req.body.prfId>0){
 
+              if(req.body.notify==true)
+                req.body.notify = '1';
+              else
+                req.body.notify = '0';
+               if(req.body.showGigs==true)
+                req.body.showGigs = '1';
+              else
+                req.body.showGigs = '0';
+              console.log("Hiiiiiiiiiiiiii gggg "+req.body.showGigs );
 
                btrprofileCRUD.update({'prfId' :req.body.prfId},{'fname' :req.body.fname, 'lname' :req.body.lname, 'contactno' :req.body.contactno, 'tagline' :req.body.tagline, 'skills' :req.body.skills, 'city' :req.body.city, 'country' :req.body.country }, function (err, val) {   
-              userCRUD.update({'userId' :req.body.userId},{'username' :req.body.fname, 'usermail' :req.body.usermail, 'notify' :req.body.notify }, function (err, val2) {   
-            
-
-
+              userCRUD.update({'userId' :req.body.userId},{'username' :req.body.username, 'usermail' :req.body.usermail,'notify' :req.body.notify, 'showGigs' :req.body.showGigs }, function (err, val2) {               
                           if(parseInt(val.affectedRows)>0){
                               var resdata={
                                 status:true,
@@ -669,7 +680,23 @@ btrprofileCRUD.create({'overview' :req.body.overview}, function (err, val) {
                                  };
                                   
                                 }
-                              res.jsonp(resdata);
+                                console.log(val2)
+                                if(parseInt(val2.affectedRows)>0){
+                              var resdata2={
+                                status:true,
+                                massage:'updated  successfuly val2'
+                                 };
+                                }else{
+                                  var resdata2={
+                                status:false,
+                                massage:'not updated val2'
+                                 };
+                                  
+                                }
+                               
+                              res.jsonp(resdata2);
+
+
 
 
                 }); 
@@ -679,12 +706,18 @@ btrprofileCRUD.create({'overview' :req.body.overview}, function (err, val) {
 
         }else{
 
-
-
-
+           if(req.body.notify==true)
+                req.body.notify = '1';
+              else
+                req.body.notify = '0';
+            if(req.body.showGigs==true)
+                req.body.showGigs = '1';
+              else
+                req.body.showGigs = '0';
+              console.log("Hiiiiiiiiiiiiii bbbbb "+req.body.notify);
 
            btrprofileCRUD.create({'fname' :req.body.fname, 'lname' :req.body.lname, 'contactno' :req.body.contactno, 'tagline' :req.body.tagline, 'skills' :req.body.skills, 'city' :req.body.city, 'country' :req.body.country }, function (err, val) {   
-              userCRUD.update({'userId' :req.body.userId},{'username' :req.body.fname, 'usermail' :req.body.usermail, 'notify' :req.body.notify }, function (err, val2) {   
+              userCRUD.update({'userId' :req.body.userId},{'username' :req.body.username, 'usermail' :req.body.usermail, 'notify' :req.body.notify, 'showGigs' :req.body.showGigs }, function (err, val2) {   
             
 
 
