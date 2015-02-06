@@ -3,9 +3,9 @@ var mysql = require('mysql');
 var md5 = require('MD5');
 var db = mysql.createPool({
 	database : 'gigster',
-     user : 'gigster2',
-	password : 'ferrari4321',
-    host :'localhost',
+     user : 'gigstermobile',
+	password : '10gXWOqeaf',
+    host :'gigster2.founatintechies.com',
  }); 
 
 var CRUD = require('mysql-crud');
