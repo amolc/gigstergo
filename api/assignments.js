@@ -50,6 +50,7 @@ exports.listgig = function(req, res) {
     db.query( query, function (err, val) {  
       console.log(val);
         res.jsonp(val);
+        
       });    
 };
 
