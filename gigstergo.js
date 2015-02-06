@@ -34,7 +34,7 @@ app.use('/mobile', express.static(__dirname + '/gigsterm/www'));
 
 app.get('/api/assignall', assignments.assignall);
 app.get('/api/getbid', assignments.getbid);
-app.post('/api/listgig', assignments.listgig);
+app.get('/api/listgig', assignments.listgig);
 app.post('/api/loginval',assignments.loginval);
 app.post('/api/progressassignments',assignments.progressassignments);
 app.post('/api/postgig',assignments.postgig);
