@@ -2,10 +2,14 @@ var http = require('http');
 var mysql = require('mysql');
 var md5 = require('MD5');
 var db = mysql.createPool({
-	database : 'dbgigster',
+  database : 'dbgigster2 ',
      user : 'gigstermobile',
-	password : '10gXWOqeaf',
-    host :'gigster2.founatintechies.com'
+  password : '10gXWOqeaf',
+    host :'gigster2.fountaintechies.com'
+	/*database : 'gigster2',
+     user : 'root',
+	password : '',
+    host :'localhost'*/
  }); 
 
 var CRUD = require('mysql-crud');
@@ -178,7 +182,7 @@ exports.postgig= function (req,res){
 
 console.log(req.body);
 
-projectsCRUD.create({'userId': req.body.userid,'prjTitle': req.body.title,'prjdesc':req.body.desc,'postedon':req.body.postedon, 'proposedbudget':req.body.pay,'bidfrom':req.body.date,'bidto':req.body.expdate,'jobtype':req.body.jobtype,'keywords':req.body.skill },
+projectsCRUD.create({'userId': req.body.userid,'prjTitle': req.body.title,'prjdesc':req.body.desc,'postedon':req.body.postedon, 'proposedbudget':req.body.pay,'bidfrom':req.body.date,'bidto':req.body.expdate,'jobtype':req.body.jobtype,'keywords':req.body.skill,'gigLocation':req.body.gigLocation },
  function (err, vals){
     console.log(vals);
       if(parseInt(vals.affectedRows)>0){
