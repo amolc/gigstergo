@@ -1,0 +1,24 @@
+
+<ion-view>
+<ion-content padding="true">
+<div class="list">
+ <form name="mainForm" ng-submit="login(user)">
+        <div>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" ng-model="user.gigname" required/>
+      <span class="error" ng-show="mainForm.email.$error.required">required</span>
+      <span class="error" ng-show="mainForm.email.$error.email">invalid email</span>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" ng-model="user.password" required/>
+      <span class="error" ng-show="mainForm.lastName.$error.required">required</span>
+    </div>
+    <div>
+      <button style="background-color:#E2AC10;" class="button button-block button-stable">Login</button>
+  <p align="center">not a user... Please Sign-up <strong><a class="item" href="#/app/signup">here..!</a></strong></p>
+    </div>
+  </form> 
+  </div>
+</ion-content>
+</ion-view>

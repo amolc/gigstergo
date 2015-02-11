@@ -1,0 +1,57 @@
+<ion-modal-view > 
+  <ion-header-bar id="bid-on-back">
+    <h3 class="title" id="bid-on-gig-name">EDIT-PROFILE</h3>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeeditprofilmodel()"><i class="icon ion-close-round" id="close-btn"></i></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+  <div class="card" id="profile-img-center">
+    <img src="img/person.jpg" class="list-gig-img">
+    <span id="edit-profile-img"><i class="icon  ion-edit edit-icon"></i></span>
+    <div ng-controller="UploadCtrl">
+        <img ng-if="image" src="{{image}}" alt="">
+           <input my-upload type="file" name="upload" id="profile-image">           
+           <img ng-show="image" ng-src="{{image.url}}" type="{{image.file.type}}" />
+    </div>
+  </div>  
+
+  <div class="card">
+  <form name="mainForm" id="post-gig-form" ng-submit="saveprofile(mainForm.$valid,editprofilerecord)">
+    <input id="title" type="text" placeholder="First Name" ng-model="editprofilerecord.fname" required="required">
+    <input id="title" type="text" placeholder="Last Name" ng-model="editprofilerecord.lname" required="required">
+    <input id="title" type="text" placeholder="User Name" ng-model="editprofilerecord.username" required="required">
+     <input id="title" type="email" placeholder="Email" ng-model="editprofilerecord.usermail" required="required">
+     <input id="title" type="number" placeholder="Mobile" ng-model="editprofilerecord.contactno" required="required">
+    <input id="title" type="text" placeholder="Tag line" ng-model="editprofilerecord.tagline" required="required">
+    <input id="title" type="text" placeholder="Skills" ng-model="editprofilerecord.skills" required="required">
+    <input id="title" type="text" placeholder="City" ng-model="editprofilerecord.city" required="required">
+     <select id="profile-select-box" ng-model="editprofilerecord.country" data-ng-options="item.id as item.countryname for item in userprofiledata.countries">
+    </select>
+
+    <li class="item item-toggle" id="switch-profile">
+       <h4>Notification</h4> 
+       <label class="toggle toggle-assertive" id="profile-switch-lable">
+         <input type="checkbox" ng-model="editprofilerecord.notify">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+    <li class="item item-toggle" id="switch-profile">
+       <h4>Show Gigs</h4> 
+       <label class="toggle toggle-assertive" id="profile-switch-lable">
+         <input type="checkbox" ng-model="editprofilerecord.showGigs">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+
+    
+   
+    <button class="bid-button" type="submit">Update</button>
+  </form>
+  </div>
+  </ion-content>
+</ion-modal-view>

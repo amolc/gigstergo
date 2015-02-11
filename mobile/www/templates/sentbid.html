@@ -1,0 +1,23 @@
+<ion-modal-view> 
+  <ion-header-bar id="bid-on-back">
+    <h3 class="title">SENT BID</h3>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closebiddetail()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+  <form name="mainForm" ng-submit="doBid(bid)" id="post-gig-form">
+  	<h3>{{bidsentrecord.prjTitle}}</h3>
+  	<h4 class="ng-binding">Proposed budget: {{bidsentrecord.proposedbudget}}</h4>
+    <div>
+      <label for="description"><h3>Description : {{bidsentrecord.bidcontent}}</h3></label>
+      </div>
+    <div>
+      <label for="skill"><h3>Bid price : {{bidsentrecord.bidprice}} <h3></label>
+    
+    </div>
+ 
+  </form>
+    
+  </ion-content>
+</ion-modal-view>

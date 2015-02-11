@@ -1,0 +1,25 @@
+<ion-modal-view> 
+  <ion-header-bar id="bid-on-back">
+    <h3 class="title">SEND FEEDBACK</h3>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closefeedbackmodel()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+  <form name="mainForm" id="post-gig-form">
+  
+  
+  <p><i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+      </p>
+  <label for="description">Comment</label>
+  <textarea rows="10" cols="10" id="description" name="description" type="text" ng-model="feedback.feedback" required="" class="ng-pristine ng-invalid ng-invalid-required">      </textarea>
+
+    <button class="bid-button" ng-click="sendfeedback(feedback)">send</button>
+
+  </form>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,32 @@
+<ion-view title="MY GIGS">
+  <ion-content class="has-header">
+
+
+    <div class="list" ng-repeat="b in bidding">
+        <div class="list list-inset" ng-if="b.status != '2'" >
+    <div class="item item-avatar">
+    <img src="img/person.png">
+    <h2>{{b.fname+" "+b.lname}}</h2>
+    <p>{{b.city}}</p>
+    <p><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></p>
+    </div>
+            <div class="item item-body" ng-click="gigdetailsmodelinmygig(b,$index)">
+                <h2>{{b.prjTitle}}</h2>
+                <p>posted on : {{b.postedon | date:'medium'}}</p>
+    
+                <p>
+                    project description: {{b.prjdesc}}
+                </p>
+                <p>
+                    status : {{b.status}}
+                </p>
+    
+            </div>
+                 <button class="bid-button" ng-if="b.status != '5'"  ng-click="cancelgigmodel( b, $index )"> Cancel gig </button>
+                 <p ng-if="b.status == '5'"> gig canceled....!!!! </p>
+            
+              
+      </div>
+  </div>
+</ion-content>
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-modal-view style="background:url(img/msg-back.jpg); background-size:cover;"> 
+  <ion-header-bar id="bid-on-back">
+  <div class="buttons">
+      <button class="button button-clear" ng-click="closemsgmodel()"><i class="icon  ion-chevron-left" id="msg-back"></i></button>
+    </div>
+    <h2>{{list.prjTitle}}</h2>
+  </ion-header-bar>
+  <ion-content class="has-header" >
+  <div class="list" id="message-list" ng-repeat="msg in msgs.msgs" style="margin:0px;padding-bottom:0px;">
+  <div class="card msg-recive" ng-if="msg.msgfrom==to">
+	  <div class="item item-text-wrap msg-chat" >
+	  <img src="img/person.jpg" class="msg-img">
+    <STRONG>{{reciever}} </STRONG></br>
+	    <div ng-bind-html="msg.msgcontent"></div>
+	  </div>
+  </div>
+  <div class="card msg-send" ng-if="msg.msgfrom==from">
+	  <div class="item item-text-wrap msg-chat">    
+	  <img src="img/person.jpg" class="msg-img">
+    <STRONG>{{sender}} </STRONG></br>
+     <div ng-bind-html="msg.msgcontent"></div>
+	  </div>
+  </div>
+   
+  </div>
+   </ion-content>
+  <ion-footer-bar align-title="left" class="bar-assertive" id="msg-footer">
+  <div id="reply-msg">
+	  <textarea rows="2" cols="10" id="msg-inbox" ng-model="sendmsgdata.data" type="text" placeholder="Type your message here"></textarea>
+	  <i class="icon  ion-android-send" id="send-icon" ng-click="sendmsg(sendmsgdata)"></i>	
+  </div>
+  
+</ion-footer-bar>
+  
+</ion-view>
+
+
+
+

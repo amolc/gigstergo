@@ -1,0 +1,47 @@
+<ion-view title="MY GIGS">
+  <ion-content class="has-header">
+
+<div class="list" ng-repeat="p in progress">
+  <div ng-if="p.status==2">
+  <div class="card">
+    <div class="item item-avatar" style="padding-left: 100px;">
+   <img src="img/person.jpg" id="award-img">
+    <h2>{{p.fname+" "+p.lname}}</h2>
+    <p>{{p.city}}</p>
+    <p><i class="icon  ion-star" id="star-icon"></i><i class="icon  ion-star" id="star-icon"></i><i class="icon  ion-star" id="star-icon"></i><i class="icon  ion-star" id="star-icon"></i><i class="icon  ion-star" id="star-icon"></i></p>
+    <i class="icon ion-chatboxes" ng-click="msgmodel(p.projectowner,p.awardedto,p.prjId)" id="chat-icon"></i>
+    </div>
+     <div class="item item-body">
+     <h2>{{p.prjTitle}}</h2>
+     <p>posted on : {{p.postedon | date:'medium'}}</p>
+    
+    <p>
+      project description: {{p.prjdesc}}
+    </p>
+    <p>
+      status : {{p.status}}
+    </p>
+    </div>
+    <a style="width:100%;">
+    <div class="item range range-positive">
+    <h4>send report</h4>
+     <span id="status-bar-start"> {{p.startdate | date:'dd,MMM yyyy'}}</span>
+     <span id="status-bar-end">{{p.completiondate | date:'dd,MMM yyyy'}}</span>
+    <input type="range" name="volume" min="0" max="100" value="{{(p.completion> 0)?p.completion:0}}" id="status-bar-width" readonly>
+    </a>
+
+    </div>
+
+    <div class="item item-body" ng-if="p.completion==100">
+    <h4>send</h4>
+    <i class="icon ion-compose" id="send-report" ng-click="feedbackmodel(p,$index)"></i>  
+    </div>
+    <!-- <div>
+    <button class="bid-button" ng-click="msgmodel( p , $index )"> Msg </button>
+    </div> -->
+    </div>
+  </div>
+</div>
+
+  </ion-content>
+</ion-view>

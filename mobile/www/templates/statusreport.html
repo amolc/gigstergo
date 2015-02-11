@@ -1,0 +1,33 @@
+<ion-modal-view> 
+  <ion-header-bar id="bid-on-back">
+    <h3 class="title">STATUS REPORT</h3>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closestatusreportmodel()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+<div style="margin:15px;">
+  <div class="list">
+      <textarea rows="10" cols="10" id="description" name="description" type="text" ng-model="record.description" required="" class="ng-pristine ng-invalid ng-invalid-required">      </textarea>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Status
+        </div>
+          <select ng-model="record.completion">
+            <option value=10 >10%</option>
+            <option value=20  selected>20%</option>
+            <option value=30 >30%</option>
+            <option value=40 >40%</option>
+            <option value=50 >50%</option>
+            <option value=60 >60%</option>
+            <option value=70 >70%</option>      
+            <option value=80 >80%</option>
+            <option value=90 >90%</option>
+            <option value=100 >100%</option>
+          </select>
+      </label>
+      <button class="button button-block button-assertive" ng-click="sendreport(record)"> Send Report</button>  
+  </div>
+</div>  
+   </ion-content>
+</ion-modal-view>

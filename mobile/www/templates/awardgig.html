@@ -1,0 +1,28 @@
+<ion-modal-view> 
+  <ion-header-bar id="awarded">
+    <h3 class="title">AWARDED</h3>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeawardgigmodel()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+  <form name="mainForm" ng-submit="awardgigfunction(awarddata)" id="post-gig-form">
+
+  	<h3>{{progressmygigdetails.prjTitle}}</h3>
+  	<h4 class="ng-binding">Award To</h4><p>{{awardgigrecord.fname+" "+awardgigrecord.lname}}</p>
+    <h4 class="ng-binding">Star Date:</h4><p> {{date | date:'yyyy-MM-dd' }}</p>
+    
+    <label for="skill">End Date</label>
+     <input id="end-date" name="expdate" type="date" ng-model="awarddata.completiondate" required="" class="ng-pristine ng-invalid ng-invalid-required">
+
+     <label>Final Amount</label>
+     <input id="title" ng-model="bidding.amount">
+
+
+
+
+    <button style="" class="button button-block post-gig-btn"  > Award gig </button>
+  </form>
+    
+  </ion-content>
+</ion-modal-view>

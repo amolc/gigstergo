@@ -1,0 +1,67 @@
+<ion-view title="profile">
+
+  <ion-content class="has-header"padding="true">
+    <div class="list" id="change-password"><h5>change password | </h5></div>
+      <div class="card">
+        <a class="item item-thumbnail">
+          <div id="edit-profile" ng-click="showeditprofilemodel(userprofile)"><i class="icon  ion-edit edit-icon"></i></div>
+          <!--img src="img/person.jpg" class="list-gig-img"-->
+           <div class="list-gig-img">
+              <img ng-src="https://graph.facebook.com/{{ user.id }}/picture?"  class="list-gig-img"/>
+            </div>
+          <h2>{{userprofile.username}}</h2>
+          <p>{{userprofile.tagline}}</p>
+          <p>{{user.name}}</p>
+          <p><i class="icon  ion-star" id="star-icon"></i>
+             <i class="icon  ion-star" id="star-icon"></i>
+             <i class="icon  ion-star" id="star-icon"></i>
+             <i class="icon  ion-star" id="star-icon"></i>
+             <i class="icon  ion-star" id="star-icon"></i>
+          </p>
+          <p class="gig-paragraph ng-binding"><i class="icon  ion-location" id="map-icon"></i>{{userprofile.city}},{{ userprofile.countryname | lowercase  }} </p>
+        </a>
+      </div>
+      <div class="card">
+       
+        <a class="item item-thumbnail">
+        <div id="edit-profile" ng-click="editabout=true"><i class="icon  ion-edit edit-icon"></i></div>
+        <div ng-hide="editabout">
+          <h2>About</h2>
+          <p>{{userprofile.aboutus}}</p>
+       </div>
+        
+
+       <div ng-show="editabout">
+          <h2>About</h2>
+          <textarea rows="10" cols="10" id="description" name="description" type="text" ng-model="userprofile.aboutus" required="" class="ng-pristine ng-invalid ng-invalid-required"></textarea>
+            <button class="bid-button" ng-click="editabout=saveabout(userprofile)">Update</button>
+       </div>
+
+       </a>
+
+      </div>
+      <div class="card">
+        <a class="item item-thumbnail">
+           <div id="edit-profile" ng-click="editoverview=true"><i class="icon  ion-edit edit-icon"></i></div>
+        <div ng-hide="editoverview">
+          <h2>Overview</h2>
+          <p>{{userprofile.overview}}</p>
+       </div>
+         <div ng-show="editoverview">
+          <h2>Overview</h2>
+          <textarea rows="10" cols="10" id="description" name="description" type="text" ng-model="userprofile.overview" required="" class="ng-pristine ng-invalid ng-invalid-required"></textarea>
+            <button class="bid-button" ng-click="editoverview=saveoverview(userprofile)">Update</button>
+       </div>
+        </a>
+      </div>
+      </div>
+      <div class="card">
+       <div class="list" ng-repeat="gig in userprofiledata.prjs">
+        <a class="item item-thumbnail" >
+          <h2>Gigs</h2>
+          <p>{{gig.prjTitle}}</p>
+          <p><b>SGD {{gig.proposedbudget}}</b></p>
+        </a>
+      </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-modal-view> 
+  <ion-header-bar id="bid-on-back">
+    <h3 class="title" id="bid-on-gig-name">BID ON GIG</h3>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closegigdetail()"><i class="icon ion-close-round" id="close-btn"></i></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+  <form name="mainForm" ng-submit="doBid(mainForm.$valid,bid)" id="post-gig-form">
+
+  	<h3>{{record.prjTitle}}</h3>
+  	<h4 class="ng-binding">Proposed budget: {{record.proposedbudget}}</h4>
+    <div>
+      <label for="description"><h3>Bid Details</h3></label>
+      <textarea cols="10" rows="10" id="description" placeholder="Other than price, sending more information usually helps. For example, how long the Gig will take or when you are available etc" type="text" name="description" ng-model="bid.proposal" required></textarea> 
+      <span class="error" ng-show="mainForm.description.$error.required" style="display:none;">required</span> 
+    </div>
+    <div>
+      <label for="skill"><h3>Bid price<h3></label>
+      <input id="skill" name="skill" type="number" ng-model="bid.price" required/>
+      <span class="error" ng-show="mainForm.skill.$error.required" style="display:none;">required</span> 
+      <span class="error" ng-show="mainForm.skill.$invalid" style="display:none;">Invalid input</span> 
+
+    </div>
+    <button style=""class="button button-block post-gig-btn"> Bid Now </button>
+  </form>
+    
+  </ion-content>
+</ion-modal-view>

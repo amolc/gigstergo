@@ -1,0 +1,25 @@
+<ion-modal-view> 
+  <ion-header-bar id="bid-on-back">
+    <h3 class="title">Cancel gig</h3>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closecancelgigmodel()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+
+   <form name="mainForm" id="cancel-gig-form">
+
+  	<h3>Title :{{cancelgigrecord.prjTitle}}</h3>
+  	
+  	<h3>Reason for cancel</h3>
+  	<textarea rows="7" cols="10" id="description" name="description" type="text" ng-model="postg.desc" required="" class="ng-pristine ng-invalid ng-invalid-required">     
+	</textarea>
+
+
+
+    <button style=""class="button button-block post-gig-btn" ng-click="cancelgig(cancelgigrecord.prjId,cancelgigindex)" > cancel gig </button>
+  </form>
+
+    
+  </ion-content>
+</ion-modal-view>

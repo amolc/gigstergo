@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'SourceSansProBold';
+    src: url('sourcesanspro-bold.eot');
+    src: url('sourcesanspro-bold.eot') format('embedded-opentype'),
+         url('sourcesanspro-bold.woff2') format('woff2'),
+         url('sourcesanspro-bold.woff') format('woff'),
+         url('sourcesanspro-bold.ttf') format('truetype'),
+         url('sourcesanspro-bold.svg#SourceSansProBold') format('svg');
+}

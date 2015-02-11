@@ -1,0 +1,73 @@
+<ion-modal-view> 
+  <ion-header-bar id="bid-on-back">
+    <h3 class="title">Gig Details</h3>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closegigdetailmodel()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+<div>
+<div class="row"> 
+  <div class="col col-33 img-col">
+      <img src="img/person.jpg" class="list-gig-img">      
+  </div>
+  <div class="col col-67 img-col">
+    <h2>{{prjrecord.fname+" "+prjrecord.lname}}</h2>
+      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{prjrecord.city}}</p>
+      <p><i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+      </p>
+  </div>  
+</div> 
+<div class="row gig-row">
+  <div class="col">
+   <div class="list">
+      <a class="item browse-gig-col" > 
+            <h2>{{prjrecord.prjTitle}}</h2>
+            <h4>Posted on:{{prjrecord.postedon|date:'dd/MM/yyyy'}}</h4>
+            <p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p> 
+             <h4>Proposed budget: {{prjrecord.prjdesc}}</h4> 
+            <div ng-if="prjrecord.userId != currentuser ">
+              <button ng-if="prjrecord.bidfrom != currentuser" class="bid-button" ng-click="gigdetail( prjrecord, index )"> BID </button>
+              <button ng-if="prjrecord.bidfrom == currentuser" class="bid-button" ng-click="sentbid(prjrecord )"> BID SENT </button>
+            </div>
+      </a>
+  </div>
+ </div> 
+</div>
+<div class="row gig-row">
+<div class="col">
+  <h4>Discription</h4>  
+  <p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p> 
+</div>  
+</div>
+</div>
+<div class="row">
+  <div class="col">
+  <h3>Bids</h3>
+  </div>
+</div>
+<div class="row" ng-repeat="list in bidders">
+  <div class="col col-25 img-col">
+      <img src="img/person.jpg" class="list-gig-img">      
+  </div>
+  <div class="col col-75 img-col">
+    <h2>{{list.fname+" "+list.lname}}</h2>
+      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
+      <p><i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+      </p>
+  </div>
+</div>  
+ 
+
+
+    
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,34 @@
+
+
+
+<ion-modal-view id="signup-background"> 
+  <ion-header-bar id="bid-on-back">
+    <h3 class="title">SINGUP</h3>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closesignupmodal()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+ <form name="signupform" id="mail-menu" ng-submit="dosignup(signupform.$valid,user)">
+        <div id="login-div">
+        <!-- <label for="email">Email</label> -->
+        <input id="email" name="Username" class="email-inpute" placeholder="Username" type="text" ng-model="user.username" required/>
+        <span class="error" ng-show="signupform.Username.$error.required" style="display:none;">required</span>
+        <input id="email" class="email-inpute" placeholder="Email" name="email" type="email" ng-model="user.gigid" required/>
+        <span class="error" ng-show="signupform.email.$error.required" style="display:none;">required</span>
+        <span class="error" ng-show="signupform.email.$error.email">Invalid email</span>
+       <!--  <label for="password">Password</label> -->
+        <input id="password" placeholder="Password" name="password" type="password" class="email-inpute" ng-model="user.password" required/>
+        <!-- <span class="error" ng-show="mainForm.lastName.$error.required">required</span> -->
+        <span class="error" ng-show="signupform.password.$error.required" style="display:none;">required</span>
+       <!--  <label for="password">Password</label> -->
+        <input id="password" placeholder="Re-Password" name="cpassword" data-password-verify="user.password" type="password" class="email-inpute" ng-model="user.cpassword" required/>
+        <span class="error" ng-show="signupform.cpassword.$error.passwordVerify">Confirm password didnot match..!!!</span>
+        <div id="errmsg"></div>
+        <button class="button button-block signup-btn">SIGNUP</button>
+    <!-- <p align="center">not a user... Please Sign-up <strong><a class="item" href="#/app/signup">here..!</a></strong></p> -->
+      </div>
+    </form> 
+    
+  </ion-content>
+</ion-modal-view>

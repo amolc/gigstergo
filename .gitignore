@@ -6,3 +6,5 @@ platforms/
 gigsterm/
 plugins/
 *.log
+gigsterm/node_modules/
+gigsterm/platforms/

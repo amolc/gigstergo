@@ -1,0 +1,31 @@
+<ion-modal-view> 
+  <ion-header-bar id="awarded">
+    <h3 class="title">send msgs</h3>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closemsgmodel()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+ 
+
+
+
+<div class="row gig-row" ng-repeat="msg in msgs">
+  <div class="col">
+   <div class="list">
+      <a class="item browse-gig-col" > 
+            <h2>{{recordinmygawarded.fname+" "+recordinmygawarded.lname}}</h2>
+            <h4>Posted on:{{msg.msgon|date:'dd/MM/yyyy'}}</h4>
+             <h4>msg:</h4>  <p style="white-space: pre-line;">{{msg.msgcontent}}</p> 
+      </a>
+  </div>
+ </div> 
+</div>
+
+
+
+
+
+
+  </ion-content>
+</ion-modal-view>

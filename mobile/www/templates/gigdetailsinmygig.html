@@ -1,0 +1,72 @@
+<ion-modal-view> 
+  <ion-header-bar id="bid-on-back">
+    <h3 class="title">Send Massege</h3>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closegigdetailmodel()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+<div>
+<div class="row"> 
+  <div class="col col-33 img-col">
+      <img src="img/person.jpg" class="list-gig-img">      
+  </div>
+  <div class="col col-67 img-col">
+    <h2>{{progressmygigdetails.fname+" "+progressmygigdetails.lname}}</h2>
+      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{progressmygigdetails.city}}</p>
+      <p><i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+      </p>
+  </div>  
+</div> 
+<div class="row gig-row">
+  <div class="col">
+   <div class="list">
+      <a class="item browse-gig-col" > 
+            <h2>{{progressmygigdetails.prjTitle}}</h2>
+            <h4>Posted on:{{progressmygigdetails.postedon|date:'dd/MM/yyyy'}}</h4>
+            <p style="white-space: pre-line;">{{progressmygigdetails.prjdesc}}</p> 
+             <h4>Proposed budget: {{progressmygigdetails.prjdesc}}</h4> 
+           
+      </a>
+  </div>
+ </div> 
+</div>
+<div class="row gig-row">
+<div class="col">
+  <h4>Discription</h4>  
+  <p style="white-space: pre-line;">{{progressmygigdetails.prjdesc}}</p> 
+</div>  
+</div>
+
+<div class="row">
+  <div class="col">
+  <h3>Bids</h3>
+  </div>
+</div>
+<div class="row" ng-repeat="list in bidders">
+  <div class="col col-25 img-col">
+      <img src="img/person.jpg" class="list-gig-img">      
+  </div>
+  <div class="col col-75 img-col">
+    <h2>{{list.fname+" "+list.lname}}</h2>
+      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
+      <p><i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+         <i class="icon  ion-star" id="star-icon"></i>
+      </p>
+      
+       <button class="award-btn" ng-if="bidding.status != '2'" ng-click="awardgigmodel(list,$index)"> Award gig </button>    
+  </div>
+</div>  
+ </div>
+
+
+    
+  </ion-content>
+</ion-modal-view>
