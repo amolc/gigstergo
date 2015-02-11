@@ -315,8 +315,8 @@ $scope.isRecentOrder = function(date) {
  $scope.getimgurl=function(data){
      
   var record=data;
-      //var url="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
-      var url="img/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
+      var url="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
+      //var url="img/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
    return url;
  };
 
