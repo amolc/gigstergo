@@ -1,19 +1,21 @@
-
+  
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, OpenFB) {
   $scope.user=window.localStorage.getItem('username');
   $scope.loginstatus = window.localStorage.getItem('islogin');
+  $scope.myvar = true;
+  $scope.setFocus =  function(){
+
+    $scope.myvar= !$scope.myvar;
+    
+  };
   if( $scope.loginstatus ){
     $scope.loginstatus = false;
   }
   console.log( 'lofgin status'+window.localStorage.getItem('islogin') );  
    var userrecord=window.localStorage.getItem('userdetails'); 
    $scope.record=JSON.parse(userrecord);
-
-
-
-
 
    OpenFB.get('/me').success(function (user) {
                   $scope.user = user;
@@ -60,9 +62,6 @@ angular.module('starter.controllers', [])
 
 
 })
-
-
-
 
 .controller('ProgressCtrl', function($scope,$http,$stateParams, $state, $ionicModal) {
 if( window.localStorage.getItem('islogin') != 'true' ){
@@ -271,6 +270,12 @@ $scope.sendfeedback=function(feedback){
     var userididid=window.localStorage.getItem('userid1');
     $scope.currentuser = window.localStorage.getItem('userid1');
     //console.log($scope.currentuser);
+
+$scope.myvar = false;
+  $scope.setFocus =  function(){
+    $scope.myvar= !$scope.myvar;
+  };
+
      var reqdata={
            userid:userididid
       };
@@ -310,7 +315,8 @@ $scope.isRecentOrder = function(date) {
  $scope.getimgurl=function(data){
      
   var record=data;
-      var url="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
+      //var url="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
+      var url="img/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
    return url;
  };
 
@@ -1513,38 +1519,38 @@ $scope.saveprofile=function(isvalid,userprofile){
     }
   var userididid=parseInt(window.localStorage.getItem('userid1'));
   console.log(userididid);
-     $scope.date = new Date();
-     $scope.date = new Date();
+      var date = new Date();
      var date8 = new Date();
-     date8.setDate(date8.getDate() + 8);
+     date8.setDate(date8.getDate() + 7);
      if((date8.getMonth()+1)<10)
       var month = '0'+(date8.getMonth()+1);
      else 
        var month = (date8.getMonth()+1); 
      if(date8.getDate()<10)
-      var day = '0'+date8.getDate();
-      else 
-       var day = date8.getDate(); 
-     $scope.dateafter8 = date8.getFullYear()+'-'+month+'-'+day;
-     
-        var date = $scope.date;
-          time=$filter('date')(date,"h:mm:ss a");
-          date=$filter('date')(date,'yyyy/M/d');
+        var day = '0'+date8.getDate();
+     else 
+        var day = date8.getDate(); 
+       var date8 = date8.getFullYear()+'-'+month+'-'+day;             
+          /*time=$filter('date')(date,"h:mm:ss a");
+          date=$filter('date')(date,'yyyy/M/d');*/
           var stampo=event.timeStamp;
           $scope.postg={
-                 date:date, 
+                 expdate:date8, 
                  userid:userididid,
                  postedon:stampo,
+                 date:date,
                }
                console.log($scope.postg);
 
  $scope.insertgig =function(formstatus,postg)
  {   
-
+     
     if(formstatus==true){
       console.log(postg);
        var div = document.getElementById('errmsgpostgig');
        $http.post(baseURL + 'postgig', postg).success(function(res) {
+                   
+                    console.log(res);
                    $scope.response = res;
                        if (res.status == false) {
           

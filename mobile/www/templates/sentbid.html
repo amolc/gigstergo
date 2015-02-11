@@ -1,8 +1,8 @@
 <ion-modal-view> 
-  <ion-header-bar id="bid-on-back">
-    <h3 class="title">SENT BID</h3>
+  <ion-header-bar id="bid-on-gig-name">
+    <h3 id="bid-on-gig-name" class="title">BID SENT</h3>
     <div class="buttons">
-      <button class="button button-clear" ng-click="closebiddetail()">Close</button>
+      <button class="button button-clear" ng-click="closebiddetail()"><i class="icon ion-close-round" id="close-btn"></i></button>
     </div>
   </ion-header-bar>
   <ion-content>
@@ -10,7 +10,7 @@
   	<h3>{{bidsentrecord.prjTitle}}</h3>
   	<h4 class="ng-binding">Proposed budget: {{bidsentrecord.proposedbudget}}</h4>
     <div>
-      <label for="description"><h3>Description : {{bidsentrecord.bidcontent}}</h3></label>
+      <label for="description"><h3>Bid details: {{bidsentrecord.bidcontent}}</h3></label>
       </div>
     <div>
       <label for="skill"><h3>Bid price : {{bidsentrecord.bidprice}} <h3></label>

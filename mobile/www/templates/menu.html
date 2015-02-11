@@ -7,6 +7,7 @@
           
             <h1 class="title" ></h1>
             <ion-nav-buttons side="right">
+              <input autocomplete="off" ng-hide="myvar" id="search-box" name="s" placeholder="Search…" type="text" class="" style="width: 109px;">
               <button ng-click="setFocus()" ng-hide="hasFocus" class="button button-icon ion-ios7-search-strong animated"></button>
               
               <span ng-show="hasFocus" class="animated">
@@ -60,7 +61,8 @@
         <ion-item nav-clear menu-close href="#/app/tabs/inbox">
           <i class="icon  ion-email menu-icon"></i><span class="menu-space">INBOX</span>
          </ion-item>
-        <ion-item nav-clear menu-close href="" ng-show="loginstatus">
+        <!-- < ion-item nav-clear menu-close href="" ng-show="loginstatus">  -->
+        <ion-item nav-clear menu-close href="">
           <i class="icon  ion-log-out menu-icon"></i><logout></logout>
         </ion-item>
         
