@@ -28,7 +28,7 @@ app.all('*', function(req, res, next) {
   next();
  });  
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/mobile', express.static(__dirname + '/gigsterm/www'));
+app.use('/mobile', express.static(__dirname + '/mobile/www'));
 
 
 
