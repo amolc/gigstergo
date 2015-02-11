@@ -2,14 +2,14 @@ var http = require('http');
 var mysql = require('mysql');
 var md5 = require('MD5');
 var db = mysql.createPool({
-  database : 'dbgigster2 ',
+  /*database : 'dbgigster2 ',
      user : 'gigstermobile',
   password : '10gXWOqeaf',
-    host :'gigster2.fountaintechies.com'
-	/*database : 'gigster2',
+    host :'gigster2.fountaintechies.com'*/
+	database : 'gigster2',
      user : 'root',
 	password : '',
-    host :'localhost'*/
+    host :'localhost'
  }); 
 
 var CRUD = require('mysql-crud');
@@ -45,8 +45,9 @@ exports.listgig = function(req, res) {
   console.log(req.body);
   var userid = parseInt( req.body.userid );
   //SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId INNER JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId where tbl1.bidfrom="+userid+" and tbl1.status='3' order by tbl1.bidon DESC";
-    var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId order by postedon DESC LIMIT 10";  
-
+    //var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId order by postedon DESC LIMIT 10";  
+    var query ="SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage FROM btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=tbl1.userId order by postedon DESC LIMIT 10";
+    //var query1="SELECT tbl3.profileimage FROM btr_projects AS tbl1 LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=tbl1.userId order by postedon DESC LIMIT 10";
    //var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city,tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER JOIN btr_bids AS tbl3 ON tbl3.bidfrom=22 and tbl3.projectId=tbl1.prjId order by postedon DESC";  
 //   var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city,tbl3.*,tbl4.profileimage,tbl4.username FROM btr_projects AS tbl1 LEFT OUTER join btr_users AS tbl4 ON tbl4.userId=tbl1.userId LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER JOIN btr_bids AS tbl3 ON tbl3.bidfrom=22 and tbl3.projectId=tbl1.prjId order by postedon DESC LIMIT 10";  
 
@@ -56,7 +57,8 @@ exports.listgig = function(req, res) {
       console.log(val);
         res.jsonp(val);
 
-      });    
+      });
+      
 };
 
 exports.signup=function(req,res){
