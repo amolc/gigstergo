@@ -39,7 +39,6 @@ app.post('/api/loginval',assignments.loginval);
 app.post('/api/progressassignments',assignments.progressassignments);
 app.post('/api/postgig',assignments.postgig);
 app.post('/api/signup',assignments.signup);
-app.post('/api/loginfb',assignments.loginfb);
 app.post('/api/biddingmygigs',assignments.biddingmygigs);
 app.post('/api/completedmygigs',assignments.completedmygigs);
 app.post('/api/userallmasseges',assignments.userallmasseges);

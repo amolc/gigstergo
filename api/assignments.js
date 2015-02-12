@@ -6,7 +6,7 @@ var db = mysql.createPool({
      user : 'gigstermobile',
   password : '10gXWOqeaf',
     host :'gigster2.fountaintechies.com'
-    /*database : 'gigster2',
+/*    database : 'gigster2',
      user : 'root',
   password : '',
     host :'localhost'*/
@@ -207,31 +207,7 @@ projectsCRUD.create({'userId': req.body.userid,'prjTitle': req.body.title,'prjde
 };
 
 //for FB profile save start
-exports.postgig= function (req,res){
 
-console.log(req.body);
-
-projectsCRUD.create({'userId': req.body.userid,'prjTitle': req.body.title,'prjdesc':req.body.desc,'postedon':req.body.postedon, 'proposedbudget':req.body.pay,'bidfrom':req.body.date,'bidto':req.body.expdate,'jobtype':req.body.jobtype,'keywords':req.body.skill,'gigLocation':req.body.gigLocation },
- function (err, vals){
-    console.log(vals);
-      if(parseInt(vals.affectedRows)>0){
-         var resdata={
-        status:true,
-        message :'data added successfully!!!!'
-        };
-      }else{
-        var resdata={
-        status:false,
-        message :'error occured!!!!'
-        };
-      }
-     
-
-
-      res.jsonp(resdata);   
-    });
-
-};
 //for FB profile save end
 
 
