@@ -214,6 +214,16 @@ exports.loginfb= function (req,res){
                message :'Ooops! User Already Exists..'
 
                };
+        console.log(val)
+        if(val.length>0){
+        resdata.record=val;
+        resdata.status=true;
+        console.log("login");
+        resdata.message='successfully login welcom to ..';      
+      }else{
+        resdata.status=false;
+        resdata.message='Wrong user name or password';
+      }
                 res.jsonp(resdata);
                 console.log('Ooops! User Already Exists..');
 
