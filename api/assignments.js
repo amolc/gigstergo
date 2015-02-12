@@ -204,8 +204,18 @@ projectsCRUD.create({'userId': req.body.userid,'prjTitle': req.body.title,'prjde
 //for FB profile save start
 exports.loginfb= function (req,res){
     console.log('facebook login---------------------------------------------------');
-    console.log( req.body );
-    userCRUD.load({usermail :res.email }, function (err, val) {       
+    console.log( req.body);
+    var resdata={};
+    userCRUD.load({usermail :req.body.email}, function (err, val) {     
+        if(val.length>0) {
+
+            resdata={
+               status: false,
+               message :'Ooops! User Already Exists..'
+               };
+                res.jsonp(resdata);
+
+        }else{
         
                 userCRUD.create({'usermail': req.body.email, 'username':req.body.name , 'fbId':req.body.id }, function (err, vals){
                   console.log(vals);
@@ -226,6 +236,7 @@ exports.loginfb= function (req,res){
                 }
               
               });
+              }
 
   });
 

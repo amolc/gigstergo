@@ -573,9 +573,8 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 
   };
     // facebook login
-    $scope.facebookLogin = function (user , formstatus) {
-            alert(user);
-            console.log(user);
+    $scope.facebookLogin = function ( ) {
+            
             OpenFB.login('email,read_stream,publish_stream').then(
                 function () {
                   //$scope.user = user ;
@@ -583,32 +582,27 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 				  
 				      OpenFB.get('/me').success(function (user) {
 						      $scope.user = user;
-						      alert(user.name);
-						      alert(user.email);
-                  alert(user.id);
-                  if(formstatus==true){
-                    alert(formstatus);
+						      alert(user.name +' '+ user.email + +user.id );
+                  
                     console.log(user);                     
                      $http.post(baseURL + 'loginfb', user).success(function(res) {
-                                 
-                                  console.log(res);
+                                
+                                 console.log(res);
                                  $scope.response = res;
                                      if (res.status == false) {
-                        
+                            
                                       } else {
-                                       console.log("incomplete");
+                                       
+                                         window.localStorage.setItem('islogin',true);
+                                          $state.go("app.profile");
+
+
                                       }
                                    
                             }).error(function() {
                                    alert("Please check your internet connection or data source..");
                             });
-                  }
-                  window.localStorage.setItem('islogin',true);
-                  $state.go("app.profile");
-
-
-
-
+                  
             		});			
 				          
 
