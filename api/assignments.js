@@ -6,11 +6,7 @@ var db = mysql.createPool({
      user : 'gigstermobile',
   password : '10gXWOqeaf',
     host :'gigster2.fountaintechies.com'
-    /*database : 'gigster2',
-     user : 'root',
-  password : '',
-    host :'localhost'*/
- }); 
+     }); 
 
 var CRUD = require('mysql-crud');
 var assignmentCRUD = CRUD(db, 'btr_assignment');

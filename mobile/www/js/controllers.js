@@ -1,4 +1,4 @@
-  
+
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, OpenFB) {
@@ -587,7 +587,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 						      alert(user.email);
                   alert(user.id);
                   if(formstatus==true){
-                    console.log("Forr fb");
+                    alert(formstatus);
                     console.log(user);                     
                      $http.post(baseURL + 'loginfb', user).success(function(res) {
                                  
