@@ -358,9 +358,10 @@ $scope.isRecentOrder = function(date) {
 
   // Perform the login action when the user submits the login form
   $scope.doBid = function(formstatus,bid) {
-
+    console.log(formstatus);
     if(formstatus==true){
             $http.post(baseURL + 'bidongig', bid).success(function(req,res){
+                
                 $scope.warning = req.message; 
                 $scope.listgigster[ $scope.recordindex ].bidfrom= $scope.currentuser;
                 $scope.modal.hide();
@@ -503,7 +504,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
                     window.localStorage.setItem('username',res.record[0].usermail);
                     window.localStorage.setItem('userid1',res.record[0].userId);
                     $scope.modal.hide();
-                   $state.go("app.tabs.listgig");
+                   $state.go("app.profile");
            }
               }).error(function() {
                      alert("Please check your internet connection or data source..");
@@ -584,16 +585,11 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 						      alert(user.email);
                   alert(user.id);
                   window.localStorage.setItem('islogin',true);
-                  $state.go("app.tabs.listgig");
+                  $state.go("app.profile");
 
 
             		});			
-				           //alert(user.email);
-                  
-                  // alert(user.email +''+user.name+''+user.id);
-                 //$location.path('/app/profile');
-                 //$state.go('app.profile')
-               
+				          
 
 
                 },

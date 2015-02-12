@@ -6,6 +6,10 @@ var db = mysql.createPool({
      user : 'gigstermobile',
   password : '10gXWOqeaf',
     host :'gigster2.fountaintechies.com'
+    /*database : 'gigster2',
+     user : 'root',
+  password : '',
+    host :'localhost'*/
  }); 
 
 var CRUD = require('mysql-crud');
@@ -107,7 +111,7 @@ exports.signup=function(req,res){
 
 
 exports.bidongig=function(req,res){
-
+  
   console.log(req.body);
       bidCRUD.create({'bidfrom': req.body.currentuser,'bidon':req.body.bidon, 'projectId':req.body.record.prjId,'bidcontent':req.body.proposal,'bidprice':req.body.price}, function (err, vals){
            
@@ -118,12 +122,12 @@ exports.bidongig=function(req,res){
 
               btrmsgCRUD.create({'msgfrom':req.body.currentuser,'msgto':req.body.record.userId, 'msgcontent':mailmatter,'msgon':req.body.bidon,'projectId':req.body.record.prjId,'isread':'0','msgtype':'r'}, function (err, vals){
 
-
+              console.log("vals");
               console.log(vals);
       
               var resdata={
                status: false,
-               message :'Ooops! Error Occured...'
+               message :'Ooops! Error Occured...sefksdck'
                };
 
 
@@ -201,6 +205,34 @@ projectsCRUD.create({'userId': req.body.userid,'prjTitle': req.body.title,'prjde
     });
 
 };
+
+//for FB profile save start
+exports.postgig= function (req,res){
+
+console.log(req.body);
+
+projectsCRUD.create({'userId': req.body.userid,'prjTitle': req.body.title,'prjdesc':req.body.desc,'postedon':req.body.postedon, 'proposedbudget':req.body.pay,'bidfrom':req.body.date,'bidto':req.body.expdate,'jobtype':req.body.jobtype,'keywords':req.body.skill,'gigLocation':req.body.gigLocation },
+ function (err, vals){
+    console.log(vals);
+      if(parseInt(vals.affectedRows)>0){
+         var resdata={
+        status:true,
+        message :'data added successfully!!!!'
+        };
+      }else{
+        var resdata={
+        status:false,
+        message :'error occured!!!!'
+        };
+      }
+     
+
+
+      res.jsonp(resdata);   
+    });
+
+};
+//for FB profile save end
 
 
 exports.progressassignments=function(req,res){
