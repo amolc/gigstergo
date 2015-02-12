@@ -545,7 +545,7 @@ exports.sendfeedbackfrmbidder=function(req,res){
 exports.getuserprofiledata=function(req,res){
   console.log(req.body);
   userid=req.body.userid;
-     var query1 = "SELECT tbl2.*,tbl3.countryname,tbl1.notify,tbl1.username,tbl1.usermail FROM btr_users as tbl1 Left join btr_userprofile as tbl2 on tbl2.userId=tbl1.userId Left join btr_countries as tbl3 on tbl3.id=tbl2.country where tbl1.userId="+userid;
+     var query1 = "SELECT tbl2.*,tbl3.countryname,tbl1.notify,tbl1.username,tbl1.usermail, tbl1.profileimage FROM btr_users as tbl1 Left join btr_userprofile as tbl2 on tbl2.userId=tbl1.userId Left join btr_countries as tbl3 on tbl3.id=tbl2.country where tbl1.userId="+userid;
         db.query( query1, function (err, val1) { 
           console.log(query1);
           console.log(err);
