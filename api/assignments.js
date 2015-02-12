@@ -213,7 +213,7 @@ exports.loginfb= function (req,res){
     userCRUD.load({usermail :res.email }, function (err, val) {       
         
                 userCRUD.create({'usermail': res.email, 'username':res.name , 'fbId':res.id }, function (err, vals){
-                  .log(vals);
+                  console.log(vals);
                   if(parseInt(vals.affectedRows)>0){
                       resdata={
                                     status: true,
