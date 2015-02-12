@@ -208,15 +208,12 @@ projectsCRUD.create({'userId': req.body.userid,'prjTitle': req.body.title,'prjde
 
 //for FB profile save start
 exports.loginfb= function (req,res){
-    console.log("req body");
-    console.log(req.body);
-    console.log("res ");
-    console.log(res);
+    console.log('facebook login---------------------------------------------------');
 
     userCRUD.load({usermail :res.email }, function (err, val) {       
         
                 userCRUD.create({'usermail': res.email, 'username':res.name , 'fbId':res.id }, function (err, vals){
-                console.log(vals);
+                  .log(vals);
                   if(parseInt(vals.affectedRows)>0){
                       resdata={
                                     status: true,
