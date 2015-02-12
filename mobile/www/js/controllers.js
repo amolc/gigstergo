@@ -539,6 +539,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
            $http.post(baseURL + 'signup', user).success(function(res){
          // $scope.warning = req.message; 
           console.log(res);
+          alert("signUp successful");
           if(res.status==true){
              $scope.modal1.hide();
              $state.go('app.login');
