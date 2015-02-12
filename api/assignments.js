@@ -212,9 +212,10 @@ exports.loginfb= function (req,res){
             resdata={
                status: false,
                message :'Ooops! User Already Exists..'
-               console.log('Ooops! User Already Exists..');
+
                };
                 res.jsonp(resdata);
+                console.log('Ooops! User Already Exists..');
 
         }else{
         
