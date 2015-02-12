@@ -1422,6 +1422,7 @@ $scope.awardgigfunction=function(data){
                   notify:data.notify,
                   showGigs:data.showGigs,                  
                   country:parseInt(data.country)
+
               };
               
       $scope.modal.show();
