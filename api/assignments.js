@@ -220,7 +220,7 @@ exports.loginfb= function (req,res){
                   if(parseInt(vals.affectedRows)>0){
                       resdata={
                                     status: true,
-                                    message :'Yipeeee! Registered successfully!!!!'
+                                    message :'Yipeeee! on FB Registered successfully!!!!'
                               };
                               res.jsonp(resdata);
 
@@ -235,11 +235,6 @@ exports.loginfb= function (req,res){
               
               });
 
-        
-
-    
-    
-   
   });
 
 };
