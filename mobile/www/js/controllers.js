@@ -593,8 +593,15 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
                             
                                       } else {
                                        
-                                         window.localStorage.setItem('islogin',true);
-                                          $state.go("app.profile");
+                                        console.log(res.record[0]);
+                   $scope.linprofile = res.record[0];
+                   console.log( $scope.linprofile.profileimage )
+                    window.localStorage.setItem('islogin',true);
+                    window.localStorage.setItem('userdetails',JSON.stringify(res.record[0]));
+                    window.localStorage.setItem('username',res.record[0].usermail);
+                    window.localStorage.setItem('userid1',res.record[0].userId);
+                    $scope.modal.hide();
+                   $state.go("app.profile");
 
 
                                       }
