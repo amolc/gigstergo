@@ -574,7 +574,8 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
   };
     // facebook login
     $scope.facebookLogin = function (user , formstatus) {
-
+            alert(user);
+            console.log(user);
             OpenFB.login('email,read_stream,publish_stream').then(
                 function () {
                   //$scope.user = user ;
@@ -585,8 +586,27 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 						      alert(user.name);
 						      alert(user.email);
                   alert(user.id);
+                  if(formstatus==true){
+                    console.log("Forr fb");
+                    console.log(user);                     
+                     $http.post(baseURL + 'loginfb', user).success(function(res) {
+                                 
+                                  console.log(res);
+                                 $scope.response = res;
+                                     if (res.status == false) {
+                        
+                                      } else {
+                                       console.log("incomplete");
+                                      }
+                                   
+                            }).error(function() {
+                                   alert("Please check your internet connection or data source..");
+                            });
+                  }
                   window.localStorage.setItem('islogin',true);
                   $state.go("app.profile");
+
+
 
 
             		});			

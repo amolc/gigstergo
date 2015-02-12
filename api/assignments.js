@@ -2,14 +2,14 @@ var http = require('http');
 var mysql = require('mysql');
 var md5 = require('MD5');
 var db = mysql.createPool({
-  database : 'gigster',
+ /* database : 'gigster',
      user : 'gigstermobile',
   password : '10gXWOqeaf',
-    host :'gigster2.fountaintechies.com'
-/*    database : 'gigster2',
+    host :'gigster2.fountaintechies.com'*/
+    database : 'gigster2',
      user : 'root',
   password : '',
-    host :'localhost'*/
+    host :'localhost'
  }); 
 
 var CRUD = require('mysql-crud');
@@ -207,7 +207,42 @@ projectsCRUD.create({'userId': req.body.userid,'prjTitle': req.body.title,'prjde
 };
 
 //for FB profile save start
+exports.loginfb= function (req,res){
+    console.log("req body");
+    console.log(req.body);
+    console.log("res ");
+    console.log(res);
 
+    userCRUD.load({usermail :res.email }, function (err, val) {       
+        
+                userCRUD.create({'usermail': res.email, 'username':res.name , 'fbId':res.id }, function (err, vals){
+                console.log(vals);
+                  if(parseInt(vals.affectedRows)>0){
+                      resdata={
+                                    status: true,
+                                    message :'Yipeeee! Registered successfully!!!!'
+                              };
+                              res.jsonp(resdata);
+
+                }else{
+                resdata={
+                   status: false,
+                   message :'Ooops! Error Occured...'
+                 };
+                 res.jsonp(resdata);
+
+                }
+              
+              });
+
+        
+
+    
+    
+   
+  });
+
+};
 //for FB profile save end
 
 
