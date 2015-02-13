@@ -550,6 +550,18 @@ $ionicModal.fromTemplateUrl('templates/forgotpass.html', {
     $scope.modal2.show();
   };
  // Perform the login action when the user submits the login form
+
+
+  $scope.doforgotpass = function(formstatus,user){
+    if (formstatus==true) {
+
+      alert("going to forgotpass");
+        
+    };
+     
+  };
+
+
   $scope.dosignup = function(formstatus,user) {
 
        if(formstatus==true){
@@ -599,9 +611,11 @@ $ionicModal.fromTemplateUrl('templates/forgotpass.html', {
 				  
 				      OpenFB.get('/me').success(function (user) {
 						      $scope.user = user;
-						      alert(user.name +' '+ user.email + +user.id );
-                  
-                    console.log(user);                     
+						      
+
+                  var fbimg="https://graph.facebook.com/{{ user.id }}/picture?";
+                  alert(user.name +' '+ user.email + +user.id );
+                     console.log(user);                     
                      $http.post(baseURL + 'loginfb', user).success(function(res) {
                                 
                                  console.log(res);
@@ -612,7 +626,7 @@ $ionicModal.fromTemplateUrl('templates/forgotpass.html', {
                                        
                                         console.log(res.record[0]);
                    $scope.linprofile = res.record[0];
-                   console.log( $scope.linprofile.profileimage )
+                    console.log( $scope.linprofile.profileimage )
                     window.localStorage.setItem('islogin',true);
                     window.localStorage.setItem('userdetails',JSON.stringify(res.record[0]));
                     window.localStorage.setItem('username',res.record[0].usermail);
