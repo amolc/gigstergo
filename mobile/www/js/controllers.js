@@ -537,6 +537,23 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
         }
     $scope.modal1.show();
   };
+
+$ionicModal.fromTemplateUrl('templates/forgotpass.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal2 = modal;
+  });
+ 
+// Triggered in the login modal to close it
+  $scope.closeforgotpasmodal = function() {
+    $scope.modal2.hide();
+  };
+
+  // Open the login modal
+  $scope.forgotpasswindow = function(data) {
+     
+    $scope.modal2.show();
+  };
  // Perform the login action when the user submits the login form
 
 
@@ -596,14 +613,13 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
                 function () {
                   //$scope.user = user ;
                   //alert('Login successful');
-				  
 				      OpenFB.get('/me').success(function (user) {
-						      $scope.user = user;
-						                     
-                  alert(user.name +' '+ user.email + +user.id );
+				    
+                  $scope.user = user;
+                 alert(user.name +' '+ user.email + +user.id );
                      console.log(user);                     
                      $http.post(baseURL + 'loginfb', user).success(function(res) {
-                                
+                                      
                                  console.log(res);
                                  $scope.response = res;
                                      if (res.status == false) {
@@ -1531,18 +1547,8 @@ $scope.saveprofile=function(isvalid,userprofile){
 
   // Open the login modal
   $scope.showchangepassword = function(data) {
-    if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login');
-       }else{
-              $scope.editprofilerecord={
-                  userId:data.userId,                 
-                  usermail:data.usermail                  
-              };
-              
+    
     $scope.modal1.show();
-       }
-    
-    
   };
 
 
