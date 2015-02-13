@@ -536,18 +536,18 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 $ionicModal.fromTemplateUrl('templates/forgotpass.html', {
     scope: $scope
   }).then(function(modal) {
-    $scope.modal1 = modal;
+    $scope.modal2 = modal;
   });
  
 // Triggered in the login modal to close it
   $scope.closeforgotpasmodal = function() {
-    $scope.modal1.hide();
+    $scope.modal2.hide();
   };
 
   // Open the login modal
   $scope.forgotpasswindow = function(data) {
      
-    $scope.modal1.show();
+    $scope.modal2.show();
   };
  // Perform the login action when the user submits the login form
   $scope.dosignup = function(formstatus,user) {
