@@ -267,6 +267,11 @@ $scope.sendfeedback=function(feedback){
 
 
 .controller('ListgCtrl', function($scope,$http,$stateParams,$state,$ionicModal , $ionicLoading , OpenFB) {
+  
+  if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+    }    
+
     var userididid=window.localStorage.getItem('userid1');
     $scope.currentuser = window.localStorage.getItem('userid1');
     //console.log($scope.currentuser);
@@ -594,9 +599,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 				  
 				      OpenFB.get('/me').success(function (user) {
 						      $scope.user = user;
-						      
-
-                  var fbimg="https://graph.facebook.com/{{ user.id }}/picture?";
+						                     
                   alert(user.name +' '+ user.email + +user.id );
                      console.log(user);                     
                      $http.post(baseURL + 'loginfb', user).success(function(res) {
