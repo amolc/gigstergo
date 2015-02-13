@@ -20,7 +20,7 @@
   <form name="mainForm" id="post-gig-form" ng-submit="saveprofile(mainForm.$valid,editprofilerecord)">
         <input id="title" type="text" placeholder="First Name" ng-model="editprofilerecord.fname">
         <input id="title" type="text" placeholder="Last Name" ng-model="editprofilerecord.lname" >
-        <input id="title" name="username" type="text" placeholder="User Name" ng-model="editprofilerecord.username" required="required">
+        <input id="title" disabled name="username" type="text" placeholder="User Name" ng-model="editprofilerecord.username" required="required">
         <span class="error" ng-if="mainForm.username.$dirty && mainForm.username.$invalid" >Username required</span>
          <input id="title" name="usermail" type="email" placeholder="Email" ng-model="editprofilerecord.usermail" required="required">
          <span class="error" ng-if="mainForm.usermail.$dirty && mainForm.usermail.$invalid" >Usermail required and should be valid mail</span>
