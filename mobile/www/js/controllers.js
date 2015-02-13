@@ -1417,7 +1417,10 @@ $scope.awardgigfunction=function(data){
  $http.post(baseURL + 'getuserprofiledata', reqdata).success(function(res) {
         //console.log(res);
         $scope.userprofiledata = res;
+        console.log(res);
         $scope.userprofile = $scope.userprofiledata.profile[0];
+        console.log("profile------------------------------------");
+        console.log($scope.userprofile);
        // console.log($scope.progress);
         if (res.status == 'false') {
           alert(res.message);
@@ -1531,12 +1534,15 @@ $scope.saveprofile=function(isvalid,userprofile){
 
   // Open the login modal
   $scope.showchangepassword = function(data) {
+    console.log("In changepassword");
+    console.log(data);
     if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login');
        }else{
               $scope.editprofilerecord={
                   userId:data.userId,                 
-                  usermail:data.usermail                  
+                  usermail:data.usermail,
+                  userpass:data.userpass                  
               };
               
     $scope.modal1.show();
