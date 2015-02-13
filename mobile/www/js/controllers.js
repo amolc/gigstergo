@@ -523,6 +523,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 // Triggered in the login modal to close it
   $scope.closesignupmodal = function() {
     $scope.modal1.hide();
+    
   };
 
   // Open the login modal
@@ -531,6 +532,21 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
           profileimage : '118XX1419939486.jpg',
         }
     $scope.modal1.show();
+  };
+
+  $ionicModal.fromTemplateUrl('templates/forgotpass.html', {
+    $scope: $scope
+  }).then(function(modal){
+    $scope.modal2=modal;
+  });
+
+  $scope.closesignupmodal1 = function() {
+    
+    $scope.modal2.hide();
+  };
+
+  $scope.forgotpasswindow = function(data){
+    $scope.modal2.show();
   };
  // Perform the login action when the user submits the login form
   $scope.dosignup = function(formstatus,user) {
