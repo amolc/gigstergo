@@ -625,6 +625,7 @@ $ionicModal.fromTemplateUrl('templates/forgotpass.html', {
                                      if (res.status == false) {
                             
                                       } else {
+                                      
                                        
                                         console.log(res.record[0]);
                    $scope.linprofile = res.record[0];
