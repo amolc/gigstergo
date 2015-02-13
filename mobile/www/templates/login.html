@@ -39,7 +39,7 @@
     <!-- <p align="center">not a user... Please Sign-up <strong><a class="item" href="#/app/signup">here..!</a></strong></p> -->
       </div>
       <div ng-hide="social">
-   <form name="mainForm" id="mail-menu" ng-submit="dologin(mainForm.$valid,user)" >
+   <form name="mainForm" id="mail-menu1" ng-submit="dologin(mainForm.$valid,user)" >
       <div id="email-login-div">
         <!-- <label for="email">Email</label> -->
         <input id="email" class="email-inpute" placeholder="Email" name="email" type="email" ng-model="user.gigname" required/>
@@ -58,7 +58,7 @@
         <button class="button login-btn">LOGIN</button>
         <button class="button signup-btn" ng-click="signupmodalwindow()">SIGNUP</button>
       </div>
-      <p id="free-signin-text" style="display: inline-block; margin-top: 10px; color: #F06E11;font-size: 15px;font-family: 'source_sans_proregular';" ng-click="forgotpasswindow()">Forgot Password?</p>    
+      <p style="display: inline-block; margin-top: 10px; color: #F06E11;font-size: 15px;font-family: 'source_sans_proregular';" ng-click="forgotpasswindow()">Forgot Password?</p>    
     </form>
 
        <div id="login-div">
