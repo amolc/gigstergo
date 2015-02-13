@@ -18,39 +18,42 @@
 
   <div class="card">
   <form name="mainForm" id="post-gig-form" ng-submit="saveprofile(mainForm.$valid,editprofilerecord)">
-    <input id="title" type="text" placeholder="First Name" ng-model="editprofilerecord.fname" required="required">
-    <input id="title" type="text" placeholder="Last Name" ng-model="editprofilerecord.lname" required="required">
-    <input id="title" type="text" placeholder="User Name" ng-model="editprofilerecord.username" required="required">
-     <input id="title" type="email" placeholder="Email" ng-model="editprofilerecord.usermail" required="required">
-     <input id="title" type="number" placeholder="Mobile" ng-model="editprofilerecord.contactno" required="required">
-    <input id="title" type="text" placeholder="Tag line" ng-model="editprofilerecord.tagline" required="required">
-    <input id="title" type="text" placeholder="Skills" ng-model="editprofilerecord.skills" required="required">
-    <input id="title" type="text" placeholder="City" ng-model="editprofilerecord.city" required="required">
-     <select id="profile-select-box" ng-model="editprofilerecord.country" data-ng-options="item.id as item.countryname for item in userprofiledata.countries">
-    </select>
+        <input id="title" type="text" placeholder="First Name" ng-model="editprofilerecord.fname">
+        <input id="title" type="text" placeholder="Last Name" ng-model="editprofilerecord.lname" >
+        <input id="title" name="username" type="text" placeholder="User Name" ng-model="editprofilerecord.username" required="required">
+        <span class="error" ng-if="mainForm.username.$dirty && mainForm.username.$invalid" >Username required</span>
+         <input id="title" name="usermail" type="email" placeholder="Email" ng-model="editprofilerecord.usermail" required="required">
+         <span class="error" ng-if="mainForm.usermail.$dirty && mainForm.usermail.$invalid" >Usermail required and should be valid mail</span>
+         <input id="title" name="contactno" type="number" placeholder="Mobile" ng-model="editprofilerecord.contactno">
+          <span class="error" ng-if="mainForm.contactno.$dirty && mainForm.contactno.$invalid" >Invalid Contact Number</span>
+        <input id="title" type="text" placeholder="Tag line" ng-model="editprofilerecord.tagline">
+        <input id="title" type="text" placeholder="Skills" ng-model="editprofilerecord.skills">
+        <input id="title" type="text" placeholder="City" ng-model="editprofilerecord.city">
+         <select id="profile-select-box" ng-model="editprofilerecord.country" data-ng-options="item.id as item.countryname for item in userprofiledata.countries">
+        </select>
 
-    <li class="item item-toggle" id="switch-profile">
-       <h4>Notification</h4> 
-       <label class="toggle toggle-assertive" id="profile-switch-lable">
-         <input type="checkbox" ng-model="editprofilerecord.notify">
-         <div class="track">
-           <div class="handle"></div>
-         </div>
-       </label>
-    </li>
-    <li class="item item-toggle" id="switch-profile">
-       <h4>Show Gigs</h4> 
-       <label class="toggle toggle-assertive" id="profile-switch-lable">
-         <input type="checkbox" ng-model="editprofilerecord.showGigs">
-         <div class="track">
-           <div class="handle"></div>
-         </div>
-       </label>
-    </li>
+        <li class="item item-toggle" id="switch-profile">
+           <h4>Notification</h4> 
+           <label class="toggle toggle-assertive" id="profile-switch-lable">
+             <input type="checkbox" ng-model="editprofilerecord.notify">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <li class="item item-toggle" id="switch-profile">
+           <h4>Show Gigs</h4> 
+           <label class="toggle toggle-assertive" id="profile-switch-lable">
+             <input type="checkbox" ng-model="editprofilerecord.showGigs">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
 
-    
-   
-    <button class="bid-button" type="submit">Update</button>
+        
+       
+        <button class="bid-button" type="submit">Update</button>
   </form>
   </div>
   </ion-content>
