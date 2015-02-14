@@ -1435,7 +1435,8 @@ $scope.awardgigfunction=function(data){
         //console.log(res);
         $scope.userprofiledata = res;
         $scope.userprofile = $scope.userprofiledata.profile[0];
-       // console.log($scope.progress);
+        console.log("For profile passssssss--------------------------------------------");
+        console.log($scope.userprofile);
         if (res.status == 'false') {
           alert(res.message);
         } else {
