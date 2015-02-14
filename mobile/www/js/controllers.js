@@ -6,13 +6,13 @@ angular.module('starter.controllers', [])
   $scope.loginstatus = window.localStorage.getItem('islogin');
   $scope.myvar = true;
   $scope.setFocus =  function(){
-
-    $scope.myvar= !$scope.myvar;
+  $scope.myvar= !$scope.myvar;
     
-  };
+};
   if( $scope.loginstatus ){
-    $scope.loginstatus = false;
-  }
+  $scope.loginstatus = false;
+}
+
   console.log( 'lofgin status'+window.localStorage.getItem('islogin') );  
    var userrecord=window.localStorage.getItem('userdetails'); 
    $scope.record=JSON.parse(userrecord);
@@ -22,7 +22,7 @@ angular.module('starter.controllers', [])
                     
                     alert('appctrl');                 
 
-                }); 
+}); 
  //  $scope.imgpath="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+$scope.record.profileimage+"&width=40&height=40&cropratio=1:1";
 //console.log(record);
 //$scope.user=userdetailsforprofile.usermail;
@@ -626,7 +626,7 @@ $ionicModal.fromTemplateUrl('templates/forgotpass.html', {
                             
                                       } else {
                                       
-                                       
+
                                         console.log(res.record[0]);
                    $scope.linprofile = res.record[0];
                     console.log( $scope.linprofile.profileimage )
