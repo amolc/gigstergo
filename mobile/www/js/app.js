@@ -6,13 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 
 
-//var requestToken = "";
-//var accessToken = "";
-var clientId = "93257858140-rf5fh69gvk2q90sivtkc3sglmrtbum80.apps.googleusercontent.com";
-var clientSecret = "3cJKVKS9Jz3ukuckhGnlWoqg";
-//var code="4/IIH-eIbJerIV9YyfOoOTnrLP3fMx8I2_ZU9ERnB5_n4.UqD-WpBOcR8Tcp7tdiljKKZpyqSzlgI";
-
-var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStorage', 'ngCordova','angular-md5', 'twitterApp.services' , 'openfb','validation.match'])
+var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStorage', 'ngCordova','angular-md5', 'twitterApp.services' , 'openfb'])
 
 .run(function($ionicPlatform , OpenFB) {
 
@@ -410,6 +404,11 @@ exampleApp.controller("LoginController", function($scope, $http,$cordovaOauth, $
  $scope.googlelogin = function() {
         
 
+  //var requestToken = "";
+//var accessToken = "";
+var clientId = "93257858140-rf5fh69gvk2q90sivtkc3sglmrtbum80.apps.googleusercontent.com";
+var clientSecret = "3cJKVKS9Jz3ukuckhGnlWoqg";
+//var code="4/IIH-eIbJerIV9YyfOoOTnrLP3fMx8I2_ZU9ERnB5_n4.UqD-WpBOcR8Tcp7tdiljKKZpyqSzlgI";
 
         /*var ref = window.open('https://accounts.google.com/o/oauth2/auth?client_id=' + clientId + '&redirect_uri=urn:ietf:wg:oauth:2.0:oob&scope=https://www.googleapis.com/auth/urlshortener&approval_prompt=force&response_type=code&access_type=offline', '_blank', 'location=no');
             ref.addEventListener('loadstart', function(event) {
@@ -482,9 +481,7 @@ exampleApp.directive("passwordVerify", function() {
 
 'use strict';
 
-angular.module('validation.match', []);
-
-angular.module('validation.match').directive('match', match);
+exampleApp.directive('match', match);
 
 function match ($parse) {
     return {

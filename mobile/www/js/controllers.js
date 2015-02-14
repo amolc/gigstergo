@@ -1,6 +1,5 @@
 
-angular.module('starter.controllers',[])
-
+angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, OpenFB) {
   $scope.user=window.localStorage.getItem('username');
   $scope.loginstatus = window.localStorage.getItem('islogin');
@@ -1413,26 +1412,19 @@ $scope.awardgigfunction=function(data){
        if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        }
-
-
-/////////
-
-    OpenFB.get('/me').success(function (user) {
+       /* OpenFB.get('/me').success(function (user) {
                   $scope.user = user;
-                                     
-
-                }); 
+        }); */
 
         $scope.editabout=false;
         $scope.editoverview=false;
- var userididid=window.localStorage.getItem('userid1');
-  console.log(userididid);
-  //console.log(user);
-  var reqdata={
-      userid:userididid
-  };
- $http.post(baseURL + 'getuserprofiledata', reqdata).success(function(res) {
-        //console.log(res);
+
+        
+        var reqdata={
+            userid: window.localStorage.getItem('userid1')
+        };
+       $http.post(baseURL + 'getuserprofiledata', reqdata).success(function(res) {
+        console.log(res);
         $scope.userprofiledata = res;
         $scope.userprofile = $scope.userprofiledata.profile[0];
         console.log("For profile passssssss--------------------------------------------");
@@ -1450,17 +1442,17 @@ $scope.awardgigfunction=function(data){
       });
 
      // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/editprofile.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-  // Triggered in the login modal to close it
-  $scope.closeeditprofilmodel = function() {
-    $scope.modal.hide();
-  };
+    $ionicModal.fromTemplateUrl('templates/editprofile.html', {
+      scope: $scope
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+    // Triggered in the login modal to close it
+    $scope.closeeditprofilmodel = function() {
+      $scope.modal.hide();
+    };
 
-  $scope.showeditprofilemodel = function(data) {
+    $scope.showeditprofilemodel = function(data) {
     if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login');
        }else{
@@ -1485,85 +1477,95 @@ $scope.awardgigfunction=function(data){
        }
   };
 
-$scope.saveabout=function(userprofile){
- $http.post(baseURL + 'updateabout', userprofile).success(function(res) {
-       
-      }).error(function() {
-        alert("Please check your internet connection or data source..");
+      $scope.saveabout=function(userprofile){
+       $http.post(baseURL + 'updateabout', userprofile).success(function(res) {
+             
+            }).error(function() {
+              alert("Please check your internet connection or data source..");
+            });
+
+      return false;
+      };
+
+      $scope.saveoverview=function(userprofile){
+
+       $http.post(baseURL + 'updateoverview', userprofile).success(function(res) {
+             
+            }).error(function() {
+              alert("Please check your internet connection or data source..");
+            });
+
+      return false;
+      };
+
+
+      $scope.saveprofile=function(isvalid,userprofile){
+        
+        console.log(userprofile);
+        if(isvalid==true){
+          $http.post(baseURL + 'saveprofile', userprofile).success(function(res) {
+             
+                if(res.status==true){
+                  console.log(userprofile);
+                $scope.userprofile.fname=userprofile.fname;
+                $scope.userprofile.lname=userprofile.lname;
+                $scope.userprofile.username=userprofile.username;
+                $scope.userprofile.usermail=userprofile.usermail;
+                $scope.userprofile.contactno=parseInt(userprofile.contactno);
+                $scope.userprofile.tagline=userprofile.tagline;
+                $scope.userprofile.skills=userprofile.skills;
+                $scope.userprofile.city=userprofile.city;
+                $scope.userprofile.country=parseInt(userprofile.country);
+                $scope.userprofile.notify=userprofile.notify;
+                $scope.userprofile.showGigs=userprofile.showGigs;          
+                }
+            }).error(function() {
+              alert("Please check your internet connection or data source..");
+            });
+            $scope.modal.hide();
+        }
+
+      };
+
+      $ionicModal.fromTemplateUrl('templates/changepassword.html', {
+        scope: $scope
+      }).then(function(modal) {
+        $scope.modal1 = modal;
       });
+     
+    // Triggered in the change password modal to close it
+      $scope.updatepassword = function( validform, editprofilerecord ) {
+        console.log( validform );
+        console.log( editprofilerecord );
+        //$scope.modal1.hide();
+      };
+      $scope.closechangepassword = function() {
+        $scope.modal1.hide();
+      };
 
-return false;
-};
+      // Open the login modal
+      $scope.showchangepassword = function( userprofile ) {
+        if( window.localStorage.getItem('islogin') != 'true' ){
+            $state.go('app.login');
+           }else{
+              console.log( userprofile );
+                  $scope.editprofilerecord={
+                      userId: userprofile.userId,
+                      usermail: userprofile.usermail,
+                      currentpassword:'',
+                      newpassword:'',
+                      newpasswordverify:'',
 
-$scope.saveoverview=function(userprofile){
 
- $http.post(baseURL + 'updateoverview', userprofile).success(function(res) {
-       
-      }).error(function() {
-        alert("Please check your internet connection or data source..");
-      });
+                     
+                  };
+               if($scope.editprofilerecord.newpass != $scope.editprofilerecord.confirmpass)
+                alert
 
-return false;
-};
-
-
-$scope.saveprofile=function(isvalid,userprofile){
-  
-  console.log(userprofile);
-  if(isvalid==true){
-    $http.post(baseURL + 'saveprofile', userprofile).success(function(res) {
-       
-          if(res.status==true){
-            console.log(userprofile);
-          $scope.userprofile.fname=userprofile.fname;
-          $scope.userprofile.lname=userprofile.lname;
-          $scope.userprofile.username=userprofile.username;
-          $scope.userprofile.usermail=userprofile.usermail;
-          $scope.userprofile.contactno=parseInt(userprofile.contactno);
-          $scope.userprofile.tagline=userprofile.tagline;
-          $scope.userprofile.skills=userprofile.skills;
-          $scope.userprofile.city=userprofile.city;
-          $scope.userprofile.country=parseInt(userprofile.country);
-          $scope.userprofile.notify=userprofile.notify;
-          $scope.userprofile.showGigs=userprofile.showGigs;          
-          }
-      }).error(function() {
-        alert("Please check your internet connection or data source..");
-      });
-      $scope.modal.hide();
-  }
-
-};
-
-  $ionicModal.fromTemplateUrl('templates/changepassword.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal1 = modal;
-  });
- 
-// Triggered in the login modal to close it
-  $scope.closechangepassword = function() {
-    $scope.modal1.hide();
-  };
-
-  // Open the login modal
-  $scope.showchangepassword = function(data) {
-    if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login');
-       }else{
-              $scope.editprofilerecord={
-                  userId:data.userId,
-                  usermail:data.usermail,
-                  userpass:data.userpass
-                 
-              };
-           if($scope.editprofilerecord.newpass != $scope.editprofilerecord.confirmpass)
-            alert
-
-     $scope.modal1.show();
-       }      
-    
-  };
+         $scope.modal1.show();
+           }      
+        
+      };
 
 })
 
