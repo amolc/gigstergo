@@ -7,7 +7,7 @@ var db = mysql.createPool({
   password : '10gXWOqeaf',
     host :'gigster2.fountaintechies.com'
      }); 
-
+// 14 feb
 var CRUD = require('mysql-crud');
 var assignmentCRUD = CRUD(db, 'btr_assignment');
 var projectsCRUD = CRUD (db,'btr_projects');
