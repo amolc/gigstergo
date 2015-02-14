@@ -1549,8 +1549,18 @@ $scope.saveprofile=function(isvalid,userprofile){
 
   // Open the login modal
   $scope.showchangepassword = function(data) {
+    if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login');
+       }else{
+              $scope.editprofilerecord={
+                  userId:data.userId,
+                  usermail:data.usermail,
+                  userpass:data.userpass
+              };
+              
+     $scope.modal1.show();
+       }      
     
-    $scope.modal1.show();
   };
 
 

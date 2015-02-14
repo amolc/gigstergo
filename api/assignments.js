@@ -146,7 +146,7 @@ exports.bidongig=function(req,res){
 
 exports.loginval = function(req, res) {
     //console.log(req.body);
-    console.log( md5(req.body.password) )
+    console.log( md5(req.body.password) );
     
     var gigname=req.body.gigname;
     var password=md5(req.body.password); 
