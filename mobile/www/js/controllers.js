@@ -1549,16 +1549,21 @@ $scope.saveprofile=function(isvalid,userprofile){
 
   // Open the login modal
   $scope.showchangepassword = function(data) {
+    data.newpass='';
+    data.confirmpass='';
     if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login');
        }else{
               $scope.editprofilerecord={
                   userId:data.userId,
                   usermail:data.usermail,
-                  userpass:data.userpass
+                  userpass:data.userpass,
+                  newpass:data.newpass,
+                  confirmpass:data.confirmpass
               };
-          var pass = $document.getElementById("currentpass").value;
-          console.log(pass);
+           if($scope.editprofilerecord.newpass != $scope.editprofilerecord.confirmpass)
+            alert
+
      $scope.modal1.show();
        }      
     
