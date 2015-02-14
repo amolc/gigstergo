@@ -1,5 +1,5 @@
 
-angular.module('starter.controllers', [])
+angular.module('starter.controllers',[])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, OpenFB) {
   $scope.user=window.localStorage.getItem('username');
@@ -1548,17 +1548,14 @@ $scope.saveprofile=function(isvalid,userprofile){
 
   // Open the login modal
   $scope.showchangepassword = function(data) {
-    data.newpass='';
-    data.confirmpass='';
     if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login');
        }else{
               $scope.editprofilerecord={
                   userId:data.userId,
                   usermail:data.usermail,
-                  userpass:data.userpass,
-                  newpass:data.newpass,
-                  confirmpass:data.confirmpass
+                  userpass:data.userpass
+                 
               };
            if($scope.editprofilerecord.newpass != $scope.editprofilerecord.confirmpass)
             alert

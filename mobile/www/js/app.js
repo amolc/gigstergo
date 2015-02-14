@@ -12,7 +12,7 @@ var clientId = "93257858140-rf5fh69gvk2q90sivtkc3sglmrtbum80.apps.googleusercont
 var clientSecret = "3cJKVKS9Jz3ukuckhGnlWoqg";
 //var code="4/IIH-eIbJerIV9YyfOoOTnrLP3fMx8I2_ZU9ERnB5_n4.UqD-WpBOcR8Tcp7tdiljKKZpyqSzlgI";
 
-var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStorage', 'ngCordova','angular-md5', 'twitterApp.services' , 'openfb'])
+var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStorage', 'ngCordova','angular-md5', 'twitterApp.services' , 'openfb','validation.match'])
 
 .run(function($ionicPlatform , OpenFB) {
 
@@ -479,3 +479,42 @@ exampleApp.directive("passwordVerify", function() {
      }
    };
 });
+
+'use strict';
+
+angular.module('validation.match', []);
+
+angular.module('validation.match').directive('match', match);
+
+function match ($parse) {
+    return {
+        require: '?ngModel',
+        restrict: 'A',
+        link: function(scope, elem, attrs, ctrl) {
+            if(!ctrl) {
+                if(console && console.warn){
+                    console.warn('Match validation requires ngModel to be on the element');
+                }
+                return;
+            }
+
+            var matchGetter = $parse(attrs.match);
+
+            scope.$watch(getMatchValue, function(){
+                ctrl.$validate();
+            });
+
+            ctrl.$validators.match = function(){
+                return ctrl.$viewValue === getMatchValue();
+            };
+
+            function getMatchValue(){
+                var match = matchGetter(scope);
+                if(angular.isObject(match) && match.hasOwnProperty('$viewValue')){
+                    match = match.$viewValue;
+                }
+                return match;
+            }
+        }
+    };
+}
