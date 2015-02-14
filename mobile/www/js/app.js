@@ -33,18 +33,18 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
    
-  .state('secure', {
+.state('secure', {
       url: "/secure",
       templateUrl: "templates/secure.html",
 
   })
-  .state('app', {
+.state('app', {
       url: "/app",
       abstract: true,
       templateUrl: "templates/menu.html",
       controller: 'AppCtrl'
   })
-  .state('app.login', {
+.state('app.login', {
       url: "/login",
       views: {
         'menuContent' :{
@@ -53,7 +53,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
         }
       }
   })
-  .state('app.emailogin', {
+.state('app.emailogin', {
         url: "/emailogin",
         views: {
           'menuContent' :{
@@ -62,7 +62,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
           }
         }
   })
-  .state('app.profile', {
+.state('app.profile', {
 
       url: "/profile",
       views: {
@@ -88,7 +88,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })
 
-  .state('app.tabs', {
+.state('app.tabs', {
       url: "/tabs",
       views: {
         'menuContent' :{
@@ -111,7 +111,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }  
     })
 
-    .state('app.tabs.listgig', {
+.state('app.tabs.listgig', {
       url: "/listgig",
       views: {
         'tab-tab2' :{
@@ -121,7 +121,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })
 
-    .state('app.gigdetails', {
+.state('app.gigdetails', {
       url: "/gigdetails",
       views: {
         'menuContent' :{
@@ -131,7 +131,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })
 
-    .state('app.tabs.gigster', {
+.state('app.tabs.gigster', {
       url: "/gigster",
       views: {
         'tab-tab3' :{
@@ -141,7 +141,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })
 
-    .state('app.tabs.inbox', {
+.state('app.tabs.inbox', {
       url: "/inbox",
       views: {
         'tab-tab5' :{
@@ -153,7 +153,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
     })    
 
 
-    .state('app.mygigs', {
+.state('app.mygigs', {
       url: "/mygigs",
       abstract:true,
       views: {
@@ -207,7 +207,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })  
 
-       .state('app.assignment', {
+.state('app.assignment', {
       url: "/assignment",
       views: {
         'menuContent' :{
@@ -218,7 +218,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })   
 
-       .state('app.assignment.assignprogress', {
+.state('app.assignment.assignprogress', {
       url: "/assignprogress",
       views: {
         'home-tab' :{
@@ -309,7 +309,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
     */
 
 
-      .state('app.bidsubmit', {
+.state('app.bidsubmit', {
       url: "/bidsubmit",
       views: {
         'menuContent' :{
