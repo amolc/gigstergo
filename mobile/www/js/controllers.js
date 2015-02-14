@@ -1557,7 +1557,7 @@ $scope.saveprofile=function(isvalid,userprofile){
                   usermail:data.usermail,
                   userpass:data.userpass
               };
-          val pass = $document.getElementById("currentpass").value;
+          var pass = $document.getElementById("currentpass").value;
           console.log(pass);
      $scope.modal1.show();
        }      
