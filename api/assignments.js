@@ -56,6 +56,8 @@ exports.listgig = function(req, res) {
       
 };
 
+
+
 exports.signup=function(req,res){
 
     var password=md5(req.body.password); 

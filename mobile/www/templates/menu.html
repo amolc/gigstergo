@@ -7,67 +7,62 @@
           
             <h1 class="title" ></h1>
             <ion-nav-buttons side="right">
-              <input autocomplete="off" ng-hide="myvar" id="search-box" name="s" placeholder="Search…" type="text" class="" style="width: 109px;">
-              <button ng-click="setFocus()" ng-hide="hasFocus" class="button button-icon ion-ios7-search-strong animated"></button>
+            <input autocomplete="off" ng-hide="myvar" id="search-box" name="s" placeholder="Search…" type="text" class="" style="width: 109px;">
+            <button ng-click="setFocus()" ng-hide="hasFocus" class="button button-icon ion-ios7-search-strong animated"></button>
               
-              <span ng-show="hasFocus" class="animated">
-                <label class="item-input-wrapper animated">
+            <span ng-show="hasFocus" class="animated">
+            <label class="item-input-wrapper animated">
                   
-                  <input ng-blur="noFocus()" type="search style:"height:32px" " placeholder="Search">
-                </label>
-                <button ng-click="noFocus()" class="button button-clear animated">
-                  Cancel
-                </button>
-              </span>
-
+            <input ng-blur="noFocus()" type="search style:"height:32px" " placeholder="Search">
+            </label>
+            <button ng-click="noFocus()" class="button button-clear animated">Cancel</button>
+            </span>
             </ion-nav-buttons> 
-          </ion-nav-bar>
-        
-          <ion-nav-view name="menuContent" ></ion-nav-view>
-        </ion-side-menu-content> 
+            </ion-nav-bar>
+            <ion-nav-view name="menuContent" ></ion-nav-view>
+            </ion-side-menu-content> 
  
-  <ion-side-menu width="290" >
-  <!-- <ion-header-bar class="bar bar-header">
+            <ion-side-menu width="290" >
+            <!-- <ion-header-bar class="bar bar-header">
         
-          </ion-header-bar> -->
+            </ion-header-bar> -->
 
-    <ion-content>
-      <ion-list id="gig-menus">
-        <ion-item nav-clear menu-close href="#/app/profile" ng-controller="AppCtrl" id="menu-img-center">
-          <img class="profile-img" src="img/person.jpg">
-          <h3>Welcome {{linprofile.profileimage}}</h3>
-        </ion-item menu-color>
-        <!--<ion-item nav-clear menu-close href="#/app/home" class="border1">
-          Home
-        </ion-item>  
-         <ion-item nav-clear menu-close href="#/app/app/home" class="menu">
-         <i class="icon  ion-home menu-icon "></i><span class="menu-space">HOME</span> 
-        </ion-item>-->
-        <ion-item nav-clear menu-close href="#/app/tabs/postgig">
-         <i class="icon  ion-compose menu-icon"></i> <span class="menu-space">POST GIG</span>
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/tabs/listgig">
-         <i class="icon  ion-pricetags menu-icon"></i> <span class="menu-space">BROWSE GIG</span>
-        </ion-item>
-      <!--  <ion-item nav-clear menu-close href="#/app/tabs/gigster">
-          Gigster
-        </ion-item>  -->
-        <ion-item nav-clear menu-close href="#/app/mygigs/progress">
-         <i class="icon  ion-filing menu-icon"></i><span class="menu-space">MY GIGS</span>
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/assignment/assignprogress">
-         <i class="icon  ion-hammer menu-icon"></i><span class="menu-space"> MY BIDS</span>
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/tabs/inbox">
-          <i class="icon  ion-email menu-icon"></i><span class="menu-space">INBOX</span>
-         </ion-item>
-        <!-- < ion-item nav-clear menu-close href="" ng-show="loginstatus">  -->
-        <ion-item nav-clear menu-close href="">
-          <i class="icon  ion-log-out menu-icon"></i><logout></logout>
-        </ion-item>
-        
-
-      </ion-list>
+            <ion-content>
+            <ion-list id="gig-menus">
+            <ion-item nav-clear menu-close href="#/app/profile" ng-controller="AppCtrl" id="menu-img-center">
+            <!--img class="profile-img" src="img/person.jpg" -->
+            <img class="profile-img" src="img/person.jpg">
+            <h3>Welcome {{linprofile.profileimage}}</h3>
+            </ion-item menu-color>
+            <!--<ion-item nav-clear menu-close href="#/app/home" class="border1">
+              Home
+            </ion-item>  
+            <ion-item nav-clear menu-close href="#/app/app/home" class="menu">
+            <i class="icon  ion-home menu-icon "></i><span class="menu-space">HOME</span> 
+            </ion-item>-->
+            <ion-item nav-clear menu-close href="#/app/tabs/postgig">
+            <i class="icon  ion-compose menu-icon"></i> <span class="menu-space">POST GIG</span>
+            </ion-item>
+            <ion-item nav-clear menu-close href="#/app/tabs/listgig">
+            <i class="icon  ion-pricetags menu-icon"></i> <span class="menu-space">BROWSE GIG</span>
+            </ion-item>
+            <!--  <ion-item nav-clear menu-close href="#/app/tabs/gigster">
+              Gigster
+            </ion-item>  -->
+            <ion-item nav-clear menu-close href="#/app/mygigs/progress">
+            <i class="icon  ion-filing menu-icon"></i><span class="menu-space">MY GIGS</span>
+            </ion-item>
+            <ion-item nav-clear menu-close href="#/app/assignment/assignprogress">
+            <i class="icon  ion-hammer menu-icon"></i><span class="menu-space"> MY BIDS</span>
+            </ion-item>
+            <ion-item nav-clear menu-close href="#/app/tabs/inbox">
+            <i class="icon  ion-email menu-icon"></i><span class="menu-space">INBOX</span>
+            </ion-item>
+            <!-- < ion-item nav-clear menu-close href="" ng-show="loginstatus">  -->
+            <ion-item nav-clear menu-close href="">
+            <i class="icon  ion-log-out menu-icon"></i><logout></logout>
+            </ion-item>
+        </ion-list>
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>

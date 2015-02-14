@@ -365,31 +365,36 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('app/login');
 
-}).directive('logout', function( $state , OpenFB){
+}).directive('logout', function( $state ,  OpenFB){
+ 
+  
+     
+    
     return {
       restrict:'E',
       template : '<span class="menu-space">LOGOUT</span>',
       compile : function(element, attributes) {
-            element.attr("id", "ass_logout");
-            return {
-               pre: function(scope, element, attributes, controller, transcludeFn){
-                  scope.association_details = JSON.parse( window.localStorage.getItem("association_details") );                  
-               },
-               post:function( scope, elem, attrs ){
-                  elem.bind('click', function (){
-                      window.localStorage.clear();
-                      //window.localStorage.setItem('islogin',true);
-                      $state.go('app.login');
-                  })                  
+      element.attr("id", "ass_logout");
+    return {
+      pre: function(scope, element, attributes, controller, transcludeFn){
+      scope.association_details = JSON.parse( window.localStorage.getItem("association_details") );                  
+      },
+      post:function( scope, elem, attrs ){
+      elem.bind('click', function (){
+      window.localStorage.clear();
+      //window.localStorage.setItem('islogin',true);
+      $state.go('app.login');
+    })                  
                }
            }
         }
     }
+
+
 });
 
 exampleApp.controller("LoginController", function($scope, $http,$cordovaOauth, $localStorage, $state , $location , $window ) {
-
-    
+      
 
       $scope.twitterLogin = function() {
             $cordovaOauth.twitter("8YNLJvKqLvz80CyJcYzUE9gTT", "SZt4uIqme0uqahtixeKuKvXNOze5iZA4gTt2rqtOijT0gorw7X").then(function(result) {
@@ -452,7 +457,7 @@ exampleApp.directive("passwordVerify", function() {
       link: function(scope, element, attrs, ctrl) {
         scope.$watch(function() {
             var combined;
-
+            
             if (scope.passwordVerify || ctrl.$viewValue) {
                combined = scope.passwordVerify + '_' + ctrl.$viewValue; 
             }                    
