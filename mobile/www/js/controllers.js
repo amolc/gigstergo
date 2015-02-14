@@ -1460,7 +1460,6 @@ $scope.awardgigfunction=function(data){
     $scope.modal.hide();
   };
 
-  
   $scope.showeditprofilemodel = function(data) {
     if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login');
@@ -1569,19 +1568,7 @@ $scope.saveprofile=function(isvalid,userprofile){
     
   };
 
-
-              OpenFB.get('/me').success(function (user) {
-                  $scope.user = user;
-
-                  
-                  
-
-                }); 
-
-
 })
-
-
 
 .controller('postgigCtrl', function($scope,$http,$state,$filter){
  if( window.localStorage.getItem('islogin') != 'true' ){
