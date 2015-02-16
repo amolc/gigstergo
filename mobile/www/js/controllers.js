@@ -380,13 +380,13 @@ $scope.isRecentOrder = function(date) {
     
 };
 
- // Create the login modal that we will use later
+ // Create the sentbid modal that we will use later
   $ionicModal.fromTemplateUrl('templates/sentbid.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal2 = modal;
   });
-  // Triggered in the login modal to close it
+  // Triggered in the sentbid modal to close it
   $scope.closebiddetail = function() {
     $scope.modal2.hide();
   };
@@ -394,6 +394,7 @@ $scope.isRecentOrder = function(date) {
     if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        }else{
+        console.log("sentbid.......--------------------------------");
       $scope.bidsentrecord=data;
       $scope.modal2.show();
        }

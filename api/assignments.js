@@ -109,7 +109,7 @@ exports.signup=function(req,res){
 
 
 exports.bidongig=function(req,res){
-  
+  console.log("For bib on");
   console.log(req.body);
       bidCRUD.create({'bidfrom': req.body.currentuser,'bidon':req.body.bidon, 'projectId':req.body.record.prjId,'bidcontent':req.body.proposal,'bidprice':req.body.price}, function (err, vals){
            
