@@ -291,6 +291,7 @@ $scope.myvar = false;
 
            $scope.listgigster = res;
         console.log(res);
+        console.log('listgigster obj');
         console.log($scope.listgigster);
            if (res.status == 'false') {
                alert(res.message);
