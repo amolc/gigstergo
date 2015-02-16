@@ -31,10 +31,14 @@
             <h4>Posted on:{{prjrecord.postedon|date:'dd/MM/yyyy'}}</h4>
             <p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p> 
              <h4>Proposed budget: {{prjrecord.prjdesc}}</h4> 
-            <div ng-if="prjrecord.userId != currentuser ">
-              <button ng-if="prjrecord.bidfrom != currentuser" class="bid-button" ng-click="gigdetail( prjrecord, index )"> BID </button>
-              <button ng-if="prjrecord.bidfrom == currentuser" class="bid-button" ng-click="sentbid(prjrecord )"> BID SENT </button>
+            
+               <button ng-if="prjrecord.userId == currentuser" class="bid-button" >Cancel Gig</button>
+            
+            <div ng-if="prjrecord.userId != currentuser "> 
+              <button ng-if="prjrecord.userId != currentuser" class="bid-button" ng-click="gigdetail( prjrecord, index )"> BID </button>
+              <button ng-if="prjrecord.userId == currentuser" class="bid-button" ng-click="sentbid(prjrecord )"> BID SENT </button>
             </div>
+               
       </a>
   </div>
  </div> 
