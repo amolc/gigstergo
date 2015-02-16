@@ -15,8 +15,9 @@
         <div id="login1-div">
         <!-- <label for="email">Email</label> -->
         <p id="or-name">Submit your email address, and we'll send you an email that helps you to create a new password.</p>
+        
         <input id="email" class="email-inpute" placeholder="Email" name="email" type="email" ng-model="user.gigid" required/>
-        <span class="error" ng-show="forgotpassform.email.$error.required" style="display:none;">required</span>
+        <span class="error" ng-show="forgotpassform.email.$error.required && forgotpassform.email.$dirty" >required</span>
         <span class="error" ng-show="forgotpassform.email.$error.email">Invalid email</span>
        <!--  <label for="password">Password</label> -->
         
