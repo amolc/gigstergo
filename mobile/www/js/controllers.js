@@ -559,7 +559,7 @@ $ionicModal.fromTemplateUrl('templates/forgotpass.html', {
   $scope.doforgotpass = function(formstatus,user){
     if (formstatus==true) {
 
-      alert("Email has been send to uour E-mail, Please check the mail for login");
+      alert("Email has been send to your E-mail, Please check the mail for login");
         
     };
      
