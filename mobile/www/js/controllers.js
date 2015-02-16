@@ -362,6 +362,15 @@ $scope.isRecentOrder = function(date) {
     
   };
 
+
+  $scope.cancelgig= function(formstatus,index) {
+  console.log("cancelling gig ");
+ };
+
+
+
+
+
   // Perform the login action when the user submits the login form
   $scope.doBid = function(formstatus,bid) {
     console.log(formstatus);
@@ -448,6 +457,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
     
   };
 
+ 
 
 
 
@@ -1364,6 +1374,7 @@ $scope.awardgigfunction=function(data){
 
 
  $scope.cancelgig=function(projectid,index){
+  console.log("cancelgig fired");
        var reqdata={
       prjid:projectid
        };

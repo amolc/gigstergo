@@ -32,7 +32,7 @@
             <p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p> 
              <h4>Proposed budget: {{prjrecord.prjdesc}}</h4> 
             
-               <button ng-if="prjrecord.userId == currentuser" class="bid-button" >Cancel Gig</button>
+               <button ng-if="prjrecord.userId == currentuser" class="bid-button" ng-click="cancelgig(prjrecord)" >Cancel Gig</button>
             
             <div ng-if="prjrecord.userId != currentuser "> 
               <button ng-if="prjrecord.userId != currentuser" class="bid-button" ng-click="gigdetail( prjrecord, index )"> BID </button>
