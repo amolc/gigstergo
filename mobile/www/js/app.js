@@ -82,7 +82,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })
 
-.state('app.tabs', {
+/*.state('app.tabs', {
       url: "/tabs",
       views: {
         'menuContent' :{
@@ -91,29 +91,27 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
         }
       }
     })
-
-
-.state('app.tabs.postgig', {
-      url: "/postgig",
-      //abstract: true,
-      views: {
-        'tab-tab1' :{
-        templateUrl: "templates/postg.html",
-        controller: 'postgigCtrl'
-
-        }
-      }  
-    })
-
-.state('app.tabs.listgig', {
+*/
+.state('app.listgig', {
       url: "/listgig",
       views: {
-        'tab-tab2' :{
+        'menuContent' :{
           templateUrl: "templates/listg.html",
           controller: 'ListgCtrl' 
         }
       }
     })
+
+.state('app.postgig', {
+      url: "/postgig",
+      views: {
+        'menuContent' :{
+        templateUrl: "templates/postg.html",
+        controller: 'postgigCtrl'
+
+        }
+      }  
+  })
 
 .state('app.gigdetails', {
       url: "/gigdetails",
@@ -125,20 +123,20 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       }
     })
 
-.state('app.tabs.gigster', {
+.state('app.gigster', {
       url: "/gigster",
       views: {
-        'tab-tab3' :{
+        'menuContent' :{
           templateUrl: "templates/gigster.html",
         //  controller: 'PlaylistsCtrl'
         }
       }
     })
 
-.state('app.tabs.inbox', {
+.state('app.inbox', {
       url: "/inbox",
       views: {
-        'tab-tab5' :{
+        'menuContent' :{
           templateUrl: "templates/inbox1.html",
           controller : "inboxcontroller"
          
