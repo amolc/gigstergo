@@ -22,7 +22,7 @@
          <i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
       </p>
-  </div>  
+  </div>
 </div> 
 <div class="row gig-row">
   <div class="col">
@@ -33,10 +33,10 @@
             <p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p> 
              <h4>Proposed budget: {{prjrecord.prjdesc}}</h4> 
             
-               <button ng-if="prjrecord.userId == currentuser" class="bid-button" ng-click="cancelgig(prjrecord)" >Cancel Gig</button>
+               
             
-            <div ng-if="prjrecord.userId != currentuser "> 
-              <button ng-if="prjrecord.userId != currentuser" class="bid-button" ng-click="gigdetail( prjrecord, index )"> BID </button>
+              <div ng-if="prjrecord.userId != currentuser "> 
+              <button ng-if="prjrecord.userId != currentuser" class="bid-button" ng-click="gigdetail()"> BID </button>
               <button ng-if="prjrecord.userId == currentuser" class="bid-button" ng-click="sentbid(prjrecord )"> BID SENT </button>
             </div>
                
@@ -50,6 +50,8 @@
   <p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p> 
 </div>  
 </div>
+
+<button ng-if="prjrecord.userId == currentuser" class="bid-button" ng-click="cancelgig(prjrecord, index)" >Cancel Gig</button>
 </div>
 <div class="row">
   <div class="col">

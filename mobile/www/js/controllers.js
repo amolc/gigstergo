@@ -363,11 +363,6 @@ $scope.isRecentOrder = function(date) {
   };
 
 
-  $scope.cancelgig= function(formstatus,index) {
-  console.log("cancelling gig ");
- };
-
-
 
 
 
@@ -434,6 +429,9 @@ $scope.isRecentOrder = function(date) {
  var reqdata={
       prjid: $scope.prjrecord.prjId
   };
+
+
+
 
 $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
         $scope.bidders = res;

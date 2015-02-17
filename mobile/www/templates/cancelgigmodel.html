@@ -1,8 +1,8 @@
 <ion-modal-view> 
   <ion-header-bar id="bid-on-back">
-    <h3 class="title">Cancel gig</h3>
+    <h3 id="bid-on-gig-name" class="title">Cancel gig</h3>
     <div class="buttons">
-      <button class="button button-clear" ng-click="closecancelgigmodel()">Close</button>
+      <button class="button button-clear" ng-click="closecancelgigmodel()"><i class="icon ion-close-round" id="close-btn"></i></button>
     </div>
   </ion-header-bar>
   <ion-content>
@@ -17,7 +17,7 @@
 
 
 
-    <button style=""class="button button-block post-gig-btn" ng-click="cancelgig(cancelgigrecord.prjId,cancelgigindex)" > cancel gig </button>
+    <button style=""class="button button-block post-gig-btn" ng-click="gocancelgig(cancelgigrecord.prjId,cancelgigindex)" > cancel gig </button>
   </form>
 
     
