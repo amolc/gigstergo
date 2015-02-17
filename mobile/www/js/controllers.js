@@ -268,7 +268,7 @@ $scope.sendfeedback=function(feedback){
   
   if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
-    }    
+    }   
 
     var userididid=window.localStorage.getItem('userid1');
     $scope.currentuser = window.localStorage.getItem('userid1');
@@ -477,8 +477,8 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 })
 
 .controller('mainloginctrl', function($scope , $http , $state , $ionicModal , $location , OpenFB){
-   if( window.localStorage.getItem('islogin') == 'true' ){
-    $state.go('app.tabs.listgig')
+   if( window.localStorage.getItem('islogin')=='true' ){
+    $state.go('app.listgig')
    }
    $scope.social=true;
    // Create the login modal that we will use later
