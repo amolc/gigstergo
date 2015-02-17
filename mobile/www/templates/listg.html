@@ -32,7 +32,8 @@
                 <div class="col col-33 img-col"> 
                   <a class="item browse-gig-col" > 
 
-                          <button ng-if="list.userId != currentuser" class="new-bid-button" ng-click="gigdetail( list, $index )"> BID </button>
+                          <button ng-if="list.userId != currentuser && list.bidfrom != currentuser" class="new-bid-button" ng-click="gigdetail( list, $index )"> BID </button>
+                          <button ng-if="list.bidfrom == currentuser" class="new-bid-button" ng-click="sentbid(list , $index)"> Bid Sent </button>
                          
                           <!--<button ng-if="list.userId == currentuser" class="new-bid-button" ng-click="sentbid(list , $index)">BID SENT </button>     -->
                     
