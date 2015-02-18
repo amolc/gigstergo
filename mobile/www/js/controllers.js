@@ -1752,12 +1752,3 @@ $scope.sendmsg=function(data){
 
 })
 
-$scope.send_mail=function(data){ 
-$scope.data = data;
-       $http.post(baseURL + 'sendmail', data).success(function(req,res){                
-                console.log("------------------------Message sent:  ");
-          }).error(function(res){
-            alert("Message send failed");
-            console.log("Message send failed");
-          });
-}

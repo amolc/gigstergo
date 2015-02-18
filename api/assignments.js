@@ -94,6 +94,7 @@ exports.signup=function(req,res){
                 userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username , 'profileimage':req.body.profileimage }, function (err, vals){
                 console.log(vals);
                   if(parseInt(vals.affectedRows)>0){
+                    send_mail(req.body.gigid,"Yipeeee! Registered successfully!!!!  "+req.body.username,"Thanks for joining gigster2");
                       resdata={
                                     status: true,
                                     message :'Yipeeee! Registered successfully!!!!'
@@ -819,14 +820,12 @@ btrprofileCRUD.create({'overview' :req.body.overview}, function (err, val) {
         
  };
 
- exports.send_mail = function(req,res) {
+ function send_mail( usermail,mailmatter,subjt) {
   console.log("in send mail");
-  console.log(req.body);
-  var usermail = req.body.usermail;
-  var subjt = req.body.subjt;
-  var mailmatter = req.body.mailmatter;
-
-  transporter.sendMail({
+  console.log(usermail);
+  console.log(mailmatter);
+  
+   transporter.sendMail({
    from: "ankush.nek@gmail.com", // sender address
    to: usermail, // comma separated list of receivers
    subject: subjt, // Subject line
@@ -840,4 +839,4 @@ btrprofileCRUD.create({'overview' :req.body.overview}, function (err, val) {
              console.log("------------------------Message sent:  " + response.message);
        }
     }); 
-};
+}

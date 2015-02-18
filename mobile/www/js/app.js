@@ -6,7 +6,8 @@
 // 'starter.controllers' is found in controllers.js
 
 
-var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStorage', 'ngCordova','angular-md5', 'twitterApp.services' , 'openfb'])
+var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStorage', 'ngCordova','angular-md5', 'twitterApp.services' , 'openfb'
+  ])
 
 .run(function($ionicPlatform , OpenFB) {
 
