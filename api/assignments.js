@@ -2,7 +2,7 @@ var http = require('http');
 var mysql = require('mysql');
 var md5 = require('MD5');
 var nodemailer = require("nodemailer");
-transporter = nodemailer.createTransport({
+var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'ankush.nek@gmail.com',
