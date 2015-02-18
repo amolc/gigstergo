@@ -1,5 +1,9 @@
 angular.module('starter.controllers', [])
-.controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, OpenFB) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, $http, $stateParams, $ionicLoading, OpenFB) {
+
+   
+
+
   $scope.user=window.localStorage.getItem('username');
   $scope.loginstatus = window.localStorage.getItem('islogin');
   $scope.myvar = true;
@@ -7,11 +11,12 @@ angular.module('starter.controllers', [])
   $scope.myvar= !$scope.myvar;
     
 };
+
   if( $scope.loginstatus ){
   $scope.loginstatus = false;
 }
 
-  console.log( 'lofgin status'+window.localStorage.getItem('islogin') );  
+  console.log( 'lofgin status '+window.localStorage.getItem('islogin') );  
    var userrecord=window.localStorage.getItem('userdetails'); 
    
    $scope.record=JSON.parse(userrecord);
@@ -19,7 +24,7 @@ angular.module('starter.controllers', [])
    OpenFB.get('/me').success(function (user) {
                   $scope.user = user;
                     
-                    alert('appctrl');                 
+                                  
 
 }); 
  //  $scope.imgpath="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+$scope.record.profileimage+"&width=40&height=40&cropratio=1:1";
@@ -60,6 +65,18 @@ angular.module('starter.controllers', [])
 
 
 
+
+var userididid=parseInt(window.localStorage.getItem('userid1'));
+
+    console.log("Object is "+userididid);
+
+
+    var reqdata={
+           userid:userididid
+      };
+      $scope.listgigster= {};
+
+      
 })
 
 .controller('ProgressCtrl', function($scope,$http,$stateParams, $state, $ionicModal) {

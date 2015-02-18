@@ -56,15 +56,29 @@ exports.listgig = function(req, res) {
     //var query1="SELECT tbl3.profileimage FROM btr_projects AS tbl1 LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=tbl1.userId order by postedon DESC LIMIT 10";
    //var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city,tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER JOIN btr_bids AS tbl3 ON tbl3.bidfrom=22 and tbl3.projectId=tbl1.prjId order by postedon DESC";  
 //   var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city,tbl3.*,tbl4.profileimage,tbl4.username FROM btr_projects AS tbl1 LEFT OUTER join btr_users AS tbl4 ON tbl4.userId=tbl1.userId LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER JOIN btr_bids AS tbl3 ON tbl3.bidfrom=22 and tbl3.projectId=tbl1.prjId order by postedon DESC LIMIT 10";  
-
     console.log(query);
     db.query( query, function (err, val) {  
             
         res.jsonp(val);
 
-      });
-      
+      });      
 };
+
+/*exports.app = function(req ,res){
+  var userId=parseInt(req.body.userid);
+
+  var query ="SELECT btr_bids.bidfrom,btr_projects.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage, GROUP_CONCAT( btr_bids.bidfrom ) \
+      FROM btr_projects \
+      RIGHT JOIN btr_bids on btr_bids.projectId = btr_projects.prjId \
+      LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=btr_projects.userId \
+       LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=btr_projects.userId \
+       group by btr_bids.projectId order by postedon DESC LIMIT 25";console.log(query);
+  db.query(query, function(err, val){
+    res.jsonp(val);
+  });
+};
+*/
+
 
 
 

@@ -35,6 +35,7 @@ app.use('/mobile', express.static(__dirname + '/mobile/www'));
 app.get('/api/assignall', assignments.assignall);
 app.get('/api/getbid', assignments.getbid);
 app.get('/api/listgig', assignments.listgig);
+//app.get('/api/app', assignments.app);
 app.get('/api/send', sendmail.sendmail);
 app.post('/api/loginval',assignments.loginval);
 app.post('/api/progressassignments',assignments.progressassignments);
