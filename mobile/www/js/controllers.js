@@ -13,6 +13,7 @@ angular.module('starter.controllers', [])
 
   console.log( 'lofgin status'+window.localStorage.getItem('islogin') );  
    var userrecord=window.localStorage.getItem('userdetails'); 
+   
    $scope.record=JSON.parse(userrecord);
 
    OpenFB.get('/me').success(function (user) {
@@ -270,8 +271,11 @@ $scope.sendfeedback=function(feedback){
         $state.go('app.login')
     }   
 
-    var userididid=window.localStorage.getItem('userid1');
-    $scope.currentuser = window.localStorage.getItem('userid1');
+    var userididid=parseInt(window.localStorage.getItem('userid1'));
+
+    console.log(userididid);
+    //var userididid=window.localStorage.getItem('userid1');
+    //$scope.currentuser =parseInt(window.localStorage.getItem('userid1'));
     //console.log($scope.currentuser);
 
 $scope.myvar = false;
@@ -1626,7 +1630,7 @@ $scope.awardgigfunction=function(data){
                         } else {
                          console.log("incomplete");
                         }
-                     $state.go('app.tabs.listgig');
+                     $state.go('app.listgig');
               }).error(function() {
                      alert("Please check your internet connection or data source..");
               });

@@ -2,11 +2,15 @@ var http = require('http');
 var mysql = require('mysql');
 var md5 = require('MD5');
 var db = mysql.createPool({
-  database : 'gigster',
-     user : 'gigstermobile',
-  password : '10gXWOqeaf',
+   
+    database : 'gigster',
+    user : 'gigstermobile',
+    password : '10gXWOqeaf',
     host :'gigster2.fountaintechies.com'
-     }); 
+   
+
+   
+      }); 
 // 14 feb
 var CRUD = require('mysql-crud');
 var assignmentCRUD = CRUD(db, 'btr_assignment');
