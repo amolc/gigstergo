@@ -36,6 +36,7 @@ app.get('/api/assignall', assignments.assignall);
 app.get('/api/getbid', assignments.getbid);
 app.get('/api/listgig', assignments.listgig);
 app.get('/api/send', sendmail.sendmail);
+app.post('/api/sendmail', sendmail.sendmail);
 app.post('/api/loginval',assignments.loginval);
 app.post('/api/progressassignments',assignments.progressassignments);
 app.post('/api/postgig',assignments.postgig);
