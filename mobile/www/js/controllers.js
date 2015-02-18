@@ -1299,13 +1299,13 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 
 
 
-// Create the login modal that we will use later
+// Create the awardgig modal that we will use later
   $ionicModal.fromTemplateUrl('templates/awardgig.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
   });
-  // Triggered in the login modal to close it
+  // Triggered in the awardgig modal to close it
   $scope.closeawardgigmodel = function() {
     $scope.modal.hide();
   };

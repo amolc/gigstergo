@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 assignments = require('./api/assignments.js');
-
+sendmail=require('./api/sendmail.js');
 
 app.all('*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -35,6 +35,7 @@ app.use('/mobile', express.static(__dirname + '/mobile/www'));
 app.get('/api/assignall', assignments.assignall);
 app.get('/api/getbid', assignments.getbid);
 app.get('/api/listgig', assignments.listgig);
+app.get('/api/send', sendmail.sendmail);
 app.post('/api/loginval',assignments.loginval);
 app.post('/api/progressassignments',assignments.progressassignments);
 app.post('/api/postgig',assignments.postgig);
@@ -51,7 +52,7 @@ app.post('/api/biddingdetails',assignments.biddingdetails);
 app.post('/api/cancelgig',assignments.cancelgig);
 app.post('/api/getpreviousmsgs',assignments.getpreviousmsgs);
 app.post('/api/awardgig',assignments.awardgig);
-app.post('/api/sendmsg',assignments.sendmsg);
+app.post('/api/sendmsg',assignments.sendmsg);							
 app.post('/api/sendreport',assignments.sendreport);
 app.post('/api/sendfeedback',assignments.sendfeedback);
 app.post('/api/getuserprofiledata',assignments.getuserprofiledata);
