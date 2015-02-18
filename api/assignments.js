@@ -108,6 +108,7 @@ exports.signup=function(req,res){
                 userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username , 'profileimage':req.body.profileimage }, function (err, vals){
                 console.log(vals);
                   if(parseInt(vals.affectedRows)>0){
+                    send_mail(req.body.gigid,"mail body","Thanks for creating account");
                       resdata={
                                     status: true,
                                     message :'Yipeeee! Registered successfully!!!!'
@@ -840,12 +841,11 @@ btrprofileCRUD.create({'overview' :req.body.overview}, function (err, val) {
         
  };
 
- exports.send_mail = function(req,res) {
+ function send_mail(usermail,mailmatter,subjt) {
   console.log("in send mail");
-  console.log(req.body);
-  var usermail = req.body.usermail;
-  var subjt = req.body.subjt;
-  var mailmatter = req.body.mailmatter;
+  console.log(usermail);
+  console.log(mailmatter);
+  
 
   transporter.sendMail({
    from: "ankush.nek@gmail.com", // sender address
