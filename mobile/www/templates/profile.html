@@ -32,7 +32,7 @@
        </div>
          <div ng-show="editoverview">
           <h2>About</h2>
-          <textarea rows="10" cols="10" id="description" name="description" type="text" ng-model="userprofile.overview" required="" class="ng-pristine ng-invalid ng-invalid-required"></textarea>
+          <textarea rows="10" cols="10" id="description" name="description" type="text" ng-model="userprofile.overview" required class="ng-pristine ng-invalid ng-invalid-required"></textarea>
             <button class="bid-button" ng-click="editoverview=saveoverview(userprofile)">Update</button>
        </div>
         </a>
@@ -40,7 +40,7 @@
       </div>
       <div class="card">
        <div class="list" ng-repeat="gig in userprofiledata.prjs">
-        <a class="item item-thumbnail" >
+        <a class="item item-thumbnail">
           <h2>Gigs</h2>
           <p>{{gig.prjTitle}}</p>
           <p><b>SGD {{gig.proposedbudget}}</b></p>
