@@ -1,8 +1,15 @@
 var http = require('http');
 var mysql = require('mysql');
 var md5 = require('MD5');
-var db = mysql.createPool({
-   
+var nodemailer = require("nodemailer");
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'ankush.nek@gmail.com',
+        pass: 'ankush2neknoor'
+    }
+});
+var db = mysql.createPool({   
     database : 'gigster',
     user : 'gigstermobile',
     password : '10gXWOqeaf',
@@ -825,3 +832,26 @@ btrprofileCRUD.create({'overview' :req.body.overview}, function (err, val) {
         }
         
  };
+
+ exports.send_mail = function(req,res) {
+  console.log("in send mail");
+  console.log(req.body);
+  var usermail = req.body.usermail;
+  var subjt = req.body.subjt;
+  var mailmatter = req.body.mailmatter;
+
+  transporter.sendMail({
+   from: "ankush.nek@gmail.com", // sender address
+   to: usermail, // comma separated list of receivers
+   subject: subjt, // Subject line
+   text: mailmatter // plaintext body
+  },
+      function(error, response){
+        if(error){
+           console.log(error);
+           console.log("------------------------Message send failed here....");
+        }else{
+             console.log("------------------------Message sent:  " + response.message);
+       }
+    }); 
+};
