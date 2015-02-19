@@ -108,24 +108,7 @@ exports.signup=function(req,res){
                 userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username , 'profileimage':req.body.profileimage }, function (err, vals){
                 console.log(vals);
                   if(parseInt(vals.affectedRows)>0){
-                    var mailmatter = "<table align='center' style='background:#efefef;' cellspacing='30'>
-                    <tbody>
-                    <tr><td align='center'><img src='http://gigstergo.com/images/mail-logo.png'/></td></tr>
-                    <tr><td align='center'>
-                    <table cellspacing='15' ><tbody align='center'>
-                    <tr><td><h1>You are one click away...</h1></td></tr>
-                    <tr><td><h3 style='margin-bottom: -5px;'>"+req.body.gigid+"</h3></td></tr>
-                    <tr><td>
-                      Click on the button below and verify your Gigster account</td></tr>     
-                    <tr><td>
-                      <a style='border: 1px solid #F6B533;background:#ffcc00;border-radius: 5px;padding: 5px;font-weight:bold;color:#fff;text-decoration:none;' href='#'>Verify account</a>
-                    </td></tr>          
-                    </tbody>
-                    </table>
-                    </td>
-                    </tr>
-                  </tbody>
-                  </table>";
+                    var mailmatter = "<table align='center' style='background:#efefef;' cellspacing='30'><tbody><tr><td align='center'><img src='http://gigstergo.com/images/mail-logo.png'/></td></tr><tr><td align='center'><table cellspacing='15' ><tbody align='center'><tr><td><h1>You are one click away...</h1></td></tr><tr><td><h3 style='margin-bottom: -5px;'>"+req.body.gigid+"</h3></td></tr><tr><td>Click on the button below and verify your Gigster account</td></tr>     <tr><td><a style='border: 1px solid #F6B533;background:#ffcc00;border-radius: 5px;padding: 5px;font-weight:bold;color:#fff;text-decoration:none;' href='#'>Verify account</a></td></tr></tbody></table></td></tr></tbody></table>";
                               send_mail(req.body.gigid,mailmatter,"Thank you for joining Gigster!");
                       resdata={
                                     status: true,
