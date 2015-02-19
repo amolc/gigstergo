@@ -293,8 +293,8 @@ exports.loginfb= function (req,res){
 exports.progressassignments=function(req,res){
 var userid=req.body.userid;
 console.log(userid);
-    var query = "SELECT * FROM btr_projects AS tbl1 LEFT JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId LEFT JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto LEFT JOIN btr_reports AS tbl4 on tbl4.projectId=tbl1.prjId where tbl1.userId="+userid+" and tbl1.status='2' order by tbl1.postedon DESC";
-    //SELECT * FROM btr_projects AS tbl1 INNER JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto where tbl1.userId=6 and tbl1.status='2' order by tbl1.postedon DESC";  
+    //var query = "SELECT * FROM btr_projects AS tbl1 LEFT JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId LEFT JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto LEFT JOIN btr_reports AS tbl4 on tbl4.projectId=tbl1.prjId where tbl1.userId="+userid+" and tbl1.status='2' order by tbl1.postedon DESC";
+   var query =  "SELECT * FROM btr_projects AS tbl1 LEFT JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId LEFT JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto LEFT JOIN btr_reports AS tbl4 on tbl4.projectId=tbl1.prjId left join btr_users as tbl5 on tbl5.userId=tbl1.userId where tbl1.userId="+userid+" and tbl1.status='2' order by tbl1.postedon DESC";
 
     db.query( query, function (err, val) {  
       console.log(err);

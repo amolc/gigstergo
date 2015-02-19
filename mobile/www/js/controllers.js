@@ -92,9 +92,10 @@ if( window.localStorage.getItem('islogin') != 'true' ){
   };
   //controller.log(reqdata);
   $http.post(baseURL + 'progressassignments',reqdata).success(function(res) {
-        //console.log(res);
+        console.log(res);
         $scope.progress = res;
-       // console.log($scope.progress);
+       // console.log(progress);
+
         if (res.status == 'false') {
           alert(res.message);
         } else {
