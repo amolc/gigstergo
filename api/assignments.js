@@ -852,7 +852,7 @@ btrprofileCRUD.create({'overview' :req.body.overview}, function (err, val) {
    from: "ankush.nek@gmail.com", // sender address
    to: usermail, // comma separated list of receivers
    subject: subjt, // Subject line
-   text: mailmatter // plaintext body
+   html: mailmatter // html body
   },
       function(error, response){
         if(error){
