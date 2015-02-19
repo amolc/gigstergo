@@ -30,8 +30,6 @@ app.all('*', function(req, res, next) {
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/mobile', express.static(__dirname + '/mobile/www'));
 
-
-
 app.get('/api/assignall', assignments.assignall);
 app.get('/api/getbid', assignments.getbid);
 app.get('/api/listgig', assignments.listgig);
