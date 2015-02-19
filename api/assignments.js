@@ -6,7 +6,7 @@ var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'ankush.nek@gmail.com',
-        pass: 'ankush2neknoor'
+        pass: 'dvZ19kPylIgqIO6QvDLN5g'
     }
 });
 var db = mysql.createPool({   
