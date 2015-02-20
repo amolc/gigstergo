@@ -109,6 +109,47 @@ if( window.localStorage.getItem('islogin') != 'true' ){
       });
 
 
+        $ionicModal.fromTemplateUrl('templates/MygigAwardedgigdtls.html', {
+          scope:$scope
+        }).then(function(modal){
+          $scope.modal4=modal;
+        });
+        $scope.closegigdetailmodel = function(){
+          $scope.modal4.hide();
+        };
+
+        $scope.awardmygig = function(data, index){
+            if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }else{
+
+            $scope.index=index;
+     $scope.progressmygigdetails=data;
+     $scope.biddersinmygig={};
+
+ var reqdata={
+      prjid: $scope.progressmygigdetails.prjId
+  };
+
+$http.post(baseURL + 'hi',reqdata).success(function(res) {
+        $scope.biddersinmygig = res;
+        console.log(res);
+        console.log($scope.biddersinmygig);
+        if (res.status == 'false') {
+          alert(res.message);
+        } else {
+            $scope.bidders=res;
+          console.log($scope.biddersinmygig);
+        }
+      
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+
+            $scope.modal4.show();
+       }
+        }
+
 
 
 // Create the login modal that we will use later
@@ -948,29 +989,6 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
       $scope.modal2.show();
        }
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
