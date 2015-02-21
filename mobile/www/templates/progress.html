@@ -1,9 +1,9 @@
 <ion-view title="MY GIGS">
   <ion-content class="has-header">
 
-<div class="list" ng-repeat="p in progress">
+<div class="list"  ng-repeat="p in progress">
   <div ng-if="p.status==2">
-  <div class="card">
+  <div class="card  list1" >
     <div class="item item-avatar" style="padding-left: 100px;">
    <img src="img/person.jpg" id="award-img">
     <h2>{{p.username}}</h2>
@@ -11,7 +11,7 @@
     <p><i class="icon  ion-star" id="star-icon"></i><i class="icon  ion-star" id="star-icon"></i><i class="icon  ion-star" id="star-icon"></i><i class="icon  ion-star" id="star-icon"></i><i class="icon  ion-star" id="star-icon"></i></p>
     <i class="icon ion-chatboxes" ng-click="msgmodel(p.projectowner,p.awardedto,p.prjId)" id="chat-icon"></i>
     </div>
-     <div class="item item-body">
+     <div class="item item-body" ng-click="awardmygig(p, $index)">
      <h2>{{p.prjTitle}}</h2>
      <p>posted on : {{p.postedon | date:'medium'}}</p>
     

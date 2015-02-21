@@ -358,9 +358,10 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
   $urlRouterProvider.otherwise('app/login');
 
 }).directive('logout', function( $state ,  OpenFB){
- 
-  
-     
+    
+if( window.localStorage.getItem('islogin') == 'true' ){
+        
+       }
     
     return {
       restrict:'E',

@@ -15,7 +15,6 @@ var db = mysql.createPool({
     password : '10gXWOqeaf',
     host :'gigster2.fountaintechies.com'
    
-
    
       }); 
 // 14 feb
@@ -359,8 +358,15 @@ var userid=req.body.userid;
         console.log(val);
         console.log("Vallll");
         res.jsonp(val);
-      });    
-};
+      });  
+
+
+    };
+
+
+
+
+
 
 exports.assignbidscompleted=function(req,res){
 var userid=req.body.userid;
@@ -389,6 +395,20 @@ var prjid=req.body.prjid;
     //var query = "SELECT *  FROM btr_bids AS tbl1 LEFT JOIN btr_userprofile AS tbl2 ON tbl2.userId=tbl1.bidfrom where tbl1.projectId="+prjid;
   
   var query ="SELECT * FROM btr_bids AS tbl1 LEFT JOIN btr_userprofile AS tbl2  ON tbl2.userId = tbl1.bidfrom LEFT JOIN btr_users AS tbl3  ON tbl3.userId = tbl1.bidfrom WHERE tbl1.projectId ="+prjid;
+    db.query( query, function (err, val) { 
+      console.log(query);
+      console.log(err);
+        console.log(val);
+        res.jsonp(val);
+      });    
+};
+
+exports.hi=function(req,res){
+var prjid=req.body.prjid;
+    //var query = "SELECT *  FROM btr_bids AS tbl1 LEFT JOIN btr_userprofile AS tbl2 ON tbl2.userId=tbl1.bidfrom where tbl1.projectId="+prjid;
+  
+  var query ="SELECT * FROM btr_bids AS tbl1 LEFT JOIN btr_userprofile AS tbl2  ON tbl2.userId = tbl1.bidfrom LEFT JOIN btr_users AS tbl3  ON tbl3.userId = tbl1.bidfrom WHERE tbl1.projectId ="+prjid;
+
 
     db.query( query, function (err, val) { 
       console.log(query);
