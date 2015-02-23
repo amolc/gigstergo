@@ -29,7 +29,7 @@
     </p>
     <span style="padding:0px;" class="range range-positive">
       <a ng-click="statusreportmodel(p,$index)" style="width:100%;"> 
-        <span>send report</span>
+        <span style="dispaly:block;">send report</span>
          <span id="status-bar-start"> {{p.startdate | date:'dd,MMM yyyy'}}</span>
          <span id="status-bar-end">{{p.completiondate | date:'dd,MMM yyyy'}}</span>
         <input type="range" name="volume" min="0" max="100" value="{{(p.completion> 0)?p.completion:0}}" id="status-bar-width" readonly>
