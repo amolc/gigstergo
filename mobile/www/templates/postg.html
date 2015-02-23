@@ -4,8 +4,7 @@
     <div>
       <label for="title"><h3>Title</h3></label>
       <input id="title" class="inpute-post-gig" name="title" type="text" ng-model="postg.title" ng-required="true"/>
-      <span class="error" ng-if="mainForm.title.$invalid && mainForm.title.$dirty"   >Title required</span>   
-    
+      <span class="error" ng-if="mainForm.title.$invalid && mainForm.title.$dirty">Title required</span>   
 
       <label for="description"><h3>Description</h3></label>
       <textarea rows="10" cols="10" id="description" name="description" type="text" ng-model="postg.desc" required/>

@@ -131,7 +131,7 @@ if( window.localStorage.getItem('islogin') != 'true' ){
       prjid: $scope.progressmygigdetails.prjId
   };
 
-$http.post(baseURL + 'hi',reqdata).success(function(res) {
+$http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
         $scope.biddersinmygig = res;
         console.log(res);
         console.log($scope.biddersinmygig);
@@ -462,8 +462,9 @@ $scope.isRecentOrder = function(date) {
     if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        }else{
-        console.log("sentbid.......--------------------------------");
+        
       $scope.bidsentrecord=data;
+      console.log("sentbid.......--------------------------------");
       $scope.modal2.show();
        }
   };

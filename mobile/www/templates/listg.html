@@ -1,7 +1,7 @@
   <ion-view title="BROWSE GIG">
   
   <ion-content class="has-header"padding="true" style="background:#efefef;">
-      <div ng-repeat="list in listgigster" class="card">
+      <div ng-repeat="list in listgigster" class="card list1">
           <div class="row" ng-click="gigdetailsmodel(list)"  style="border-bottom: 1px solid #efefef;"> 
               <div class="col col-33 img-col">
                   
@@ -34,8 +34,8 @@
 
                            <div ng-if="list.userId != currentuser ">
                           <!--<button ng-if="list.userId != currentuser" class="new-bid-button" ng-click="gigdetail( list, $index )"> BID </button>-->
-                          <button ng-if="list.bidfrom != currentuser" class="new-bid-button" ng-click="gigdetail( list, $index )"> BID </button>
-                          <button ng-if="list.bidfrom == currentuser" class="new-bid-button" ng-click="sentbid(list)">BID SENT </button>
+                          <button ng-if="list.bidfrom != currentuser" class="new-bid-button" ng-click="gigdetail(list,$index)">BID</button>
+                          <button ng-if="list.bidfrom == currentuser" class="new-bid-button" ng-click="sentbid(list)">BID SENT</button>
                           </div>
                          
                           <!--<button ng-if="list.userId == currentuser" class="new-bid-button" ng-click="sentbid(list , $index)">BID SENT </button>     -->
