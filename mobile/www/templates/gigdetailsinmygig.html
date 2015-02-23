@@ -52,6 +52,7 @@
       <img src="img/person.jpg" class="list-gig-img">      
   </div>
   <div class="col col-75 img-col">
+    <button class="new-bid-button" ng-if="bidding.status != '2'" ng-click="awardgigmodel(list,$index)"> Award gig </button> 
     <h2>{{list.username}}</h2>
       <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
       <p><i class="icon  ion-star" id="star-icon"></i>
@@ -59,9 +60,10 @@
          <i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
+
       </p>
       
-       <button class="award-btn" ng-if="bidding.status != '2'" ng-click="awardgigmodel(list,$index)"> Award gig </button>    
+          
   </div>
 </div>  
  </div>
