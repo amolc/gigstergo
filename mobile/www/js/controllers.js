@@ -1185,10 +1185,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
   var reqdata={
       userid:userididid
   };
-        $http.post(baseURL + 'bidsbidding',reqdata).success(function(res) {
-          console.log("verifycode----");
-        var verifycode = Math.floor((Math.random() * 10000000000000000) + 1);
-        console.log(verifycode);
+        $http.post(baseURL + 'bidsbidding',reqdata).success(function(res) {          
         $scope.biddingbidscomplted = res;
        // console.log($scope.progress);
         if (res.status == 'false') {

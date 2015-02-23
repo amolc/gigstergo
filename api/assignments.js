@@ -10,10 +10,14 @@ var transporter = nodemailer.createTransport({
     }
 });
 var db = mysql.createPool({   
-    database : 'gigster',
+   /* database : 'gigster',
     user : 'gigstermobile',
     password : '10gXWOqeaf',
-    host :'gigster2.fountaintechies.com'
+    host :'gigster2.fountaintechies.com'*/
+    database : 'gigster2',
+    user : 'root',
+    password : '',
+    host :'localhost'
    
    
       }); 
@@ -65,7 +69,7 @@ exports.listgig = function(req, res) {
       });      
 };
 
-/*exports.app = function(req ,res){
+exports.app = function(req ,res){
   var userId=parseInt(req.body.userid);
 
   var query ="SELECT btr_bids.bidfrom,btr_projects.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage, GROUP_CONCAT( btr_bids.bidfrom ) \
@@ -78,7 +82,7 @@ exports.listgig = function(req, res) {
     res.jsonp(val);
   });
 };
-*/
+
 
 
 
@@ -88,8 +92,7 @@ exports.signup=function(req,res){
     var password=md5(req.body.password); 
     console.log(req.body);
     console.log(password);
-    var resdata={};
-
+    var resdata={};        
    userCRUD.load({usermail :req.body.gigid }, function (err, val) {  
      if(val.length>0){
              resdata={
@@ -99,10 +102,13 @@ exports.signup=function(req,res){
                 res.jsonp(resdata);
 
         }else{
-                userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username , 'profileimage':req.body.profileimage }, function (err, vals){
+                console.log("verifycode----");
+                var verifycode = Math.floor((Math.random() * 10000000000000000) + 1);
+                console.log(verifycode);
+                userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username , 'profileimage':req.body.profileimage,'verifycode':verifycode }, function (err, vals){
                 console.log(vals);
                   if(parseInt(vals.affectedRows)>0){
-                    var mailmatter = "<table align='center' style='background:#efefef;' cellspacing='30'><tbody><tr><td align='center'><img src='http://gigstergo.com/images/mail-logo.png'/></td></tr><tr><td align='center'><table cellspacing='15' ><tbody align='center'><tr><td><h1>You are one click away...</h1></td></tr><tr><td><h3 style='margin-bottom: -5px;'>"+req.body.gigid+"</h3></td></tr><tr><td>Click on the button below and verify your Gigster account</td></tr>     <tr><td><a style='border: 1px solid #F6B533;background:#ffcc00;border-radius: 5px;padding: 5px;font-weight:bold;color:#fff;text-decoration:none;' href='#'>Verify account</a></td></tr>  </tbody></table></td></tr></tbody></table>";
+                    var mailmatter = "<table align='center' style='background:#efefef;' cellspacing='30'><tbody><tr><td align='center'><img src='http://gigstergo.com/images/mail-logo.png'/></td></tr><tr><td align='center'><table cellspacing='15' ><tbody align='center'><tr><td><h1>You are one moment away...</h1></td></tr><tr><td><h3 style='margin-bottom: -5px;'>"+req.body.gigid+"</h3></td></tr><tr><td>Enter this code in app to varify your account </td></tr><tr><td>"+verifycode+"</td></tr>  </tbody></table></td></tr></tbody></table>";
                               send_mail(req.body.gigid,mailmatter,"Thank you for joining Gigster!");
                       resdata={
                                     status: true,
@@ -612,7 +618,7 @@ exports.sendfeedbackfrmbidder=function(req,res){
                 console.log(vals);
                   if(parseInt(vals.affectedRows)>0){
 
-                                  if(parseInt(val.affectedRows)>0){
+                                  if(parseInt(vals.affectedRows)>0){
                                       var resdata={
                                         status:true,
                                         massage:'feedback sent successfully!!!'
