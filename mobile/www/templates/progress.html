@@ -2,7 +2,7 @@
   <ion-content class="has-header">
 
 <div class="list"  ng-repeat="p in progress">
-  <div ng-if="p.status==2" class="list1">
+  <div ng-if="p.status==2">
   <div class="card  " >
     <div class="item item-avatar" style="padding-left: 100px;">
    <img src="img/person.jpg" id="award-img">
@@ -23,10 +23,11 @@
     </p>
     </div>
     <a style="width:100%;">
-    <div class="item range range-positive">
+    <div class="item range range-positive list1">
     <h4>send report</h4>
      <span id="status-bar-start"> {{p.startdate | date:'dd,MMM yyyy'}}</span>
      <span id="status-bar-end">{{p.completiondate | date:'dd,MMM yyyy'}}</span>
+    
     <input type="range" name="volume" min="0" max="100" value="{{(p.completion> 0)?p.completion:0}}" id="status-bar-width" readonly>
     </a>
 
