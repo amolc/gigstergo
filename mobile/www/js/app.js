@@ -171,7 +171,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
 .state('app.mygigs.progress', {
       url: "/progress",
       views: {
-        'home-tab' :{
+        'about-tab' :{
           templateUrl: "templates/progress.html",
           controller: 'ProgressCtrl'
         }
@@ -181,7 +181,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
 .state('app.mygigs.bid', {
       url: "/bid",
       views: {
-        'about-tab' :{
+        'home-tab' :{
           templateUrl: "templates/bid.html",
           controller:'biddingcontroller'     
         }
