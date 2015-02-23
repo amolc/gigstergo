@@ -10,15 +10,15 @@ var transporter = nodemailer.createTransport({
     }
 });
 var db = mysql.createPool({   
-   /* database : 'gigster',
+    database : 'gigster',
     user : 'gigstermobile',
     password : '10gXWOqeaf',
-    host :'gigster2.fountaintechies.com'*/
-    database : 'gigster2',
+    host :'gigster2.fountaintechies.com'
+/*    database : 'gigster2',
     user : 'root',
     password : '',
     host :'localhost'
-   
+*/   
    
       }); 
 // 14 feb
