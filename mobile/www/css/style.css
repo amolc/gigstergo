@@ -394,14 +394,14 @@ padding-top: 10px;}
 #msg-back:before{font-size: 20px;
 color: #fff;}
 #status-bar-start{position: absolute;top: 33%;font-size: 12px;
-color: rgb(94, 53, 13);margin-top: 0px;}
-#status-bar-width{padding: 0px;margin: 10px 0 10px 0; width: 100%}
+color: rgb(94, 53, 13);margin-top: 82px;}
+#status-bar-width{padding: 0px;margin: 25px 0 10px 0; width: 100%}
 #status-bar-end{position: absolute;
 top: 33%;
-right: 4%;
+right: 10%;
 font-size: 12px;
 color: rgb(94, 53, 13);
-margin-top: 0px;}
+margin-top: 82px;}
 #chat-icon{font-size: 25px;
 color: #168100;
 /* border: 2px solid; */
