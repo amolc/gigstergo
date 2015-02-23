@@ -9,7 +9,7 @@
 <div>
 <div class="row"> 
   <div class="col col-33 img-col">
-      <img src="img/person.jpg" class="list-gig-img">      
+      <img  ng-src="http://www.gigstergo.com/image.php?image=/uploads/profileimage/{{list.profileimage}}" class="list-gig-img">      
   </div>
   <div class="col col-67 img-col">
     <h2>{{progressmygigdetails.username}}</h2>
@@ -49,7 +49,7 @@
 </div>
 <div class="row" ng-repeat="list in bidders">
   <div class="col col-25 img-col">
-      <img src="img/person.jpg" class="list-gig-img">      
+      <img ng-src="http://www.gigstergo.com/image.php?image=/uploads/profileimage/{{list.profileimage}}" class="list-gig-img">      
   </div>
   <div class="col col-75 img-col">
     <button class="new-bid-button" ng-if="bidding.status != '2'" ng-click="awardgigmodel(list,$index)"> Award gig </button> 
