@@ -2,7 +2,7 @@
   <ion-content class="has-header">
 
 
-    <div class="list  list1" ng-repeat="b in bidding" >
+    <div class="list" ng-repeat="b in bidding" >
         <div class="list list-inset" ng-if="b.status != '2'" >
     <!--<div class="item item-avatar">
     <img src="img/person.png">
@@ -10,11 +10,13 @@
     <p>{{b.city}}</p>
     <p><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></p>
     </div>-->
-            <div class="item item-body" ng-click="gigdetailsmodelinmygig(b,$index)">
+            <div class="item item-body list1" >
             <!--div class="item item-body" ng-click="gigdetailsmodel(list)"-->
             
-                <h2>{{b.prjTitle}}</h2>
+                <h2 ng-click="gigdetailsmodelinmygig(b,$index)">{{b.prjTitle}}</h2>
                 <p>posted on : {{b.postedon | date:'medium'}}</p>
+                 <button class="new-bid-button" ng-if="b.status != '5'"  ng-click="cancelgigmodel( b, $index )"> Cancel gig </button>
+                 <p ng-if="b.status == '5'"> gig canceled....!!!! </p>
     
                 <p>
                     project description: {{b.prjdesc}}
@@ -24,8 +26,7 @@
                 </p>
     
             
-                 <button class="bid-button" ng-if="b.status != '5'"  ng-click="cancelgigmodel( b, $index )"> Cancel gig </button>
-                 <p ng-if="b.status == '5'"> gig canceled....!!!! </p>
+                
             </div>
               
       </div>
