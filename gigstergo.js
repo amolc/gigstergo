@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-assignments = require('./api/assignments.js');
+assignments = require('./api/gigsterapi.js');
 sendmail=require('./api/sendmail.js');
 
 app.all('*', function(req, res, next) {
