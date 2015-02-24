@@ -142,7 +142,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
         } else {
             $scope.bidders=res;
           console.log($scope.biddersinmygig);
-          console.log($scope.bidders);
+          //console.log($scope.bidders);
         }
       
       }).error(function() {
@@ -1648,6 +1648,7 @@ $scope.awardgigfunction=function(data){
        var date8 = date8.getFullYear()+'-'+month+'-'+day;             
           /*time=$filter('date')(date,"h:mm:ss a");
           date=$filter('date')(date,'yyyy/M/d');*/
+          console.log(date8);
           var stampo=event.timeStamp;
           $scope.postg={
                  expdate:date8, 
@@ -1780,38 +1781,6 @@ $scope.sendmsg=function(data){
 
   }   
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
