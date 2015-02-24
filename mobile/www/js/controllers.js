@@ -125,6 +125,8 @@ if( window.localStorage.getItem('islogin') != 'true' ){
 
             $scope.index=index;
      $scope.progressmygigdetails=data;
+console.log("this is data");
+     console.log(data);
      $scope.biddersinmygig={};
 
  var reqdata={
@@ -133,14 +135,14 @@ if( window.localStorage.getItem('islogin') != 'true' ){
 
 $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
         $scope.biddersinmygig = res;
-        console.log(res);
-        console.log($scope.biddersinmygig);
+        //console.log(res);
+        //console.log($scope.biddersinmygig);
         if (res.status == 'false') {
           alert(res.message);
         } else {
             $scope.bidders=res;
           console.log($scope.biddersinmygig);
-          console.log(bidders);
+          console.log($scope.bidders);
         }
       
       }).error(function() {
@@ -1312,6 +1314,8 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
       $scope.index=index;
      $scope.progressmygigdetails=data;
      $scope.biddersinmygig={};
+     console.log("hisdfsdfdsfsdxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+     console.log(data);
 
  var reqdata={
       prjid: $scope.progressmygigdetails.prjId
