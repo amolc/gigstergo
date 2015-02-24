@@ -1642,7 +1642,8 @@ $scope.awardgigfunction=function(data){
        var date8 = date8.getFullYear()+'-'+month+'-'+day;             
           /*time=$filter('date')(date,"h:mm:ss a");
           date=$filter('date')(date,'yyyy/M/d');*/
-          var stampo=event.timeStamp*1000;
+          //var stampo=date.now/1000;
+          var stampo = Math.floor(Date.now() / 1000);
           $scope.postg={
                  expdate:date8, 
                  userid:userididid,
