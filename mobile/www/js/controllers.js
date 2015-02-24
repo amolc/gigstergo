@@ -1644,6 +1644,8 @@ $scope.awardgigfunction=function(data){
           date=$filter('date')(date,'yyyy/M/d');*/
           //var stampo=date.now/1000;
           var stampo = Math.floor(Date.now() / 1000);
+          console.log("timeStamp----------");
+          console.log(stampo);
           $scope.postg={
                  expdate:date8, 
                  userid:userididid,
