@@ -140,6 +140,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
         } else {
             $scope.bidders=res;
           console.log($scope.biddersinmygig);
+          console.log(bidders);
         }
       
       }).error(function() {
