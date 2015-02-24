@@ -47,7 +47,8 @@
   <h3>Bids</h3>
   </div>
 </div>
-<div class="row" ng-repeat="list in bidders">
+<div></div>
+<div class="row list1" ng-repeat="list in bidders">
   <div class="col col-25 img-col">
       <img ng-src="http://www.gigstergo.com/image.php?image=/uploads/profileimage/{{list.profileimage}}" class="list-gig-img">      
   </div>
@@ -62,9 +63,13 @@
          <i class="icon  ion-star" id="star-icon"></i>
 
       </p>
+      <h4>Description: {{list.bidcontent}}</h4>
       
+       <h4>Bid price : {{list.bidprice}}</h4>
+        
           
   </div>
+
 </div>  
  </div>
 
