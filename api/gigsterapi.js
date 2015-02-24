@@ -217,6 +217,7 @@ exports.postgig= function (req,res){
 console.log(req.body);
 
 projectsCRUD.create({'userId': req.body.userid,'prjTitle': req.body.title,'prjdesc':req.body.desc,'postedon':req.body.postedon, 'proposedbudget':req.body.pay,'bidfrom':req.body.date,'bidto':req.body.expdate,'jobtype':req.body.jobtype,'keywords':req.body.skill,'gigLocation':req.body.gigLocation },
+
  function (err, vals){
     console.log(vals);
       if(parseInt(vals.affectedRows)>0){
