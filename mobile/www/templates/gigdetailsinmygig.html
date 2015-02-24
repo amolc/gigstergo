@@ -13,7 +13,7 @@
   </div>
   <div class="col col-67 img-col">
     <h2>{{progressmygigdetails.username}}</h2>
-      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{progressmygigdetails.city}}</p>
+      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{progressmygigdetails.gigLocation}}</p>
       <p><i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
@@ -47,14 +47,15 @@
   <h3>Bids</h3>
   </div>
 </div>
-<div class="row" ng-repeat="list in bidders">
+<div></div>
+<div class="row list1" ng-repeat="list in bidders">
   <div class="col col-25 img-col">
       <img ng-src="http://www.gigstergo.com/image.php?image=/uploads/profileimage/{{list.profileimage}}" class="list-gig-img">      
   </div>
   <div class="col col-75 img-col">
     <button class="new-bid-button" ng-if="bidding.status != '2'" ng-click="awardgigmodel(list,$index)"> Award gig </button> 
     <h2>{{list.username}}</h2>
-      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
+      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon" ></i>{{list.city}}</p>
       <p><i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
@@ -62,9 +63,13 @@
          <i class="icon  ion-star" id="star-icon"></i>
 
       </p>
+      <h4>Description: {{list.bidcontent}}</h4>
       
+       <h4>Bid price : {{list.bidprice}}</h4>
+        
           
   </div>
+
 </div>  
  </div>
 

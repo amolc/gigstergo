@@ -14,8 +14,8 @@
       <img src="img/person.jpg" class="list-gig-img">      
   </div>
   <div class="col col-67 img-col">
-    <h2>{{prjrecord.fname+" "+prjrecord.lname}}</h2>
-      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{prjrecord.city}}</p>
+    <h2>{{prjrecord.username}}</h2>
+      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{prjrecord.gigLocation}}</p>
       <p><i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
@@ -30,26 +30,27 @@
       <a class="item browse-gig-col" > 
             <h2>{{prjrecord.prjTitle}}</h2>
             <h4>Posted on:{{prjrecord.postedon|date:'dd/MM/yyyy'}}</h4>
-            <p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p> 
+            <h4>Description: <p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p></h4>
              <h4>Proposed budget: {{prjrecord.proposedbudget}}</h4> 
             
-               
+         
             
-              <div ng-if="prjrecord.userId != currentuser "> 
-              <button ng-if="prjrecord.userId != currentuser" class="bid-button" ng-click="gigdetail()"> BID </button>
-              <button ng-if="prjrecord.userId == currentuser" class="bid-button" ng-click="sentbid(prjrecord )"> BID SENT </button>
-            </div>
+            
                
       </a>
   </div>
  </div> 
 </div>
 <div class="row gig-row">
-<div class="col">
+<!--div class="col">
   <h4>Discription</h4>  
   <p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p> 
-</div>  
+</div-->  
 </div>
+  <div ng-if="prjrecord.userId != currentuser "> 
+              <button ng-if="prjrecord.userId != currentuser" class="bid-button" ng-click="gigdetail(prjrecord,$index)"> BID </button>
+              <button ng-if="prjrecord.userId == currentuser" class="bid-button" ng-click="sentbid(prjrecord )"> BID SENT </button>
+            </div>
 
 <button ng-if="prjrecord.userId == currentuser" class="bid-button" ng-click="cancelgig(prjrecord, index)" >Cancel Gig</button>
 </div>
@@ -62,8 +63,8 @@
   <div class="col col-25 img-col">
       <img src="img/person.jpg" class="list-gig-img">      
   </div>
-  <div class="col col-75 img-col">
-    <h2>{{list.fname+" "+list.lname}}</h2>
+  <div class="col col-75 img-col list1">
+    <h2>{{list.username}}</h2>
       <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
       <p><i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
@@ -71,6 +72,11 @@
          <i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
       </p>
+      <h4>Description: {{list.bidcontent}}</h4>
+      
+       <h4>Bid price : {{list.bidprice}}</h4>
+      
+
   </div>
 </div>  
  
