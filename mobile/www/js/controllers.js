@@ -1643,7 +1643,7 @@ $scope.awardgigfunction=function(data){
           /*time=$filter('date')(date,"h:mm:ss a");
           date=$filter('date')(date,'yyyy/M/d');*/
           //var stampo=date.now/1000;
-          var stampo = Math.floor(Date.now() / 1000);
+          var stampo = Math.floor(Date.now() / 1000)-(8*60*60);
           console.log("timeStamp----------");
           console.log(stampo);
           $scope.postg={
