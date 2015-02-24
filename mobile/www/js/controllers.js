@@ -490,6 +490,7 @@ $scope.isRecentOrder = function(date) {
      $scope.prjrecord=data;
      //console.log(data);
      $scope.bidders={};
+     console.log(data);
 
  var reqdata={
       prjid: $scope.prjrecord.prjId

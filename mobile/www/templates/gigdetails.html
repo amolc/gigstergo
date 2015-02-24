@@ -15,7 +15,7 @@
   </div>
   <div class="col col-67 img-col">
     <h2>{{prjrecord.username}}</h2>
-      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{prjrecord.city}}</p>
+      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{prjrecord.gigLocation}}</p>
       <p><i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
@@ -30,10 +30,10 @@
       <a class="item browse-gig-col" > 
             <h2>{{prjrecord.prjTitle}}</h2>
             <h4>Posted on:{{prjrecord.postedon|date:'dd/MM/yyyy'}}</h4>
-            <p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p> 
+            <h4>Description: <p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p></h4>
              <h4>Proposed budget: {{prjrecord.proposedbudget}}</h4> 
             
-               
+         
             
             
                
