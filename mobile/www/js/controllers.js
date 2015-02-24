@@ -1185,10 +1185,9 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
   var reqdata={
       userid:userididid
   };
-        $http.post(baseURL + 'assignbidscompleted',reqdata).success(function(res) {          // for Bids completed
+        $http.post(baseURL + 'bidsbidding',reqdata).success(function(res) {          
         $scope.biddingbidscomplted = res;
-       console.log("Now on bids completed------------");
-        console.log(res);
+       // console.log($scope.progress);
         if (res.status == 'false') {
                   alert(res.message);
         } else {
