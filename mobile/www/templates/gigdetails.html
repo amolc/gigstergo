@@ -42,13 +42,13 @@
  </div> 
 </div>
 <div class="row gig-row">
-<div class="col">
+<!--div class="col">
   <h4>Discription</h4>  
   <p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p> 
-</div>  
+</div-->  
 </div>
   <div ng-if="prjrecord.userId != currentuser "> 
-              <button ng-if="prjrecord.userId != currentuser" class="bid-button" ng-click="gigdetail()"> BID </button>
+              <button ng-if="prjrecord.userId != currentuser" class="bid-button" ng-click="gigdetail(prjrecord,$index)"> BID </button>
               <button ng-if="prjrecord.userId == currentuser" class="bid-button" ng-click="sentbid(prjrecord )"> BID SENT </button>
             </div>
 
