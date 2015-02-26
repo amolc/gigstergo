@@ -97,6 +97,14 @@ float: right;
 border: none;
 height: 65px;
 border-radius: 10%;}
+.new-bid-button1{color: #fff;
+margin: 0px 5px 5px 0;
+background-color: #fe8301;
+width: 50px;
+float: left;
+border: none;
+height: 35px;
+border-radius: 25%;}
 #Posted_date{font-family: 'source_sans_prosemibold';
 color: #503F2F;
 font-size: 16px;}
@@ -446,7 +454,7 @@ border-radius: 5px;}
   font-size: 14px;
 }
 #edit-profile{float: right;}
-.edit-icon{font-size: 14px;color: rgb(94, 53, 13);}
+.edit-icon{font-size: 14px;color: rgb(94, 53, 13); padding: 10px;}
 #profile-image{position: absolute;
 top: 0;
 right: 0;
