@@ -1014,8 +1014,9 @@ $scope.progress= {};
         if (res.status == 'false') {
           alert(res.message);
         } else {
-          console.log("No data");
+          console.log("No data aaaa");
         //$scope.states=res;
+        console.log($scope.biddingbids);
           
         }
       

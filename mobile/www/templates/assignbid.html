@@ -3,7 +3,7 @@
 
   <div class="list" ng-repeat="b in biddingbids">
         <div class="list list-inset" ng-if="b.status != '2'" >
-        <div class="item">
+        <!--div class="item">
     <div class="item-avatar">
     <img src="img/person.png">
     <h2 >{{b.username}}</h2>
@@ -11,7 +11,7 @@
    
     </div>
  <p><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></p>
-    <i class="icon ion-chatboxes" ng-click="msgmodel(currentuser,b.userId,b.prjId)" id="chat-icon"></i></div>
+    <i class="icon ion-chatboxes" ng-click="msgmodel(currentuser,b.userId,b.prjId)" id="chat-icon"></i></div -->
             <div class="item item-body" ng-click="showbiddetail(b)" >
                 <h2>{{b.prjTitle}}</h2>
                 <p>posted on : {{b.postedon | date:'medium'}}</p>
@@ -21,7 +21,9 @@
                 </p>
                 <p>
                     status : {{b.status}}
+                    Bids: {{b.userId}}
                 </p>
+
     
             </div>
       </div>
