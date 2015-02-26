@@ -60,7 +60,7 @@ app.post('/api/updateoverview',assignments.updateoverview);
 app.post('/api/updateabout',assignments.updateabout);
 app.post('/api/saveprofile',assignments.saveprofile);
 app.post('/api/sendfeedbackfrmbidder',assignments.sendfeedbackfrmbidder);
-app.post('/api/assignbidscompleted',assignment.assignbidscompleted);
+app.post('/api/assignbidscompleted',assignments.assignbidscompleted);
 
 
 
