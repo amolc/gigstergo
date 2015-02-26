@@ -385,6 +385,7 @@ var userid=req.body.userid;
     //var query = "SELECT * FROM btr_projects AS tbl1 LEFT JOIN btr_assignment AS tbl2 ON tbl2.projectId=tbl1.prjId LEFT JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.awardedto where tbl1.userId="+userid+" and tbl1.status='3' order by tbl1.postedon DESC";
     var query = "SELECT * FROM btr_projects AS tbl1 LEFT JOIN btr_bids AS tbl2 ON tbl1.prjId=tbl2.projectId LEFT JOIN btr_userprofile AS tbl3 ON tbl1.userId=tbl3.userId where tbl2.bidfrom="+userid+" and tbl1.status='3' group by tbl1.prjId";
     db.query( query, function (err, val) {  
+      console.log("completion API");
       console.log(query);
       console.log(err);
         console.log(val);
