@@ -8,12 +8,12 @@
   <ion-content>
   <form name="mainForm" ng-submit="doBid(bid)" id="post-gig-form">
   	<h3>{{bidsentrecord.prjTitle}}</h3>
-  	<h4 class="ng-binding">Proposed budget: {{bidsentrecord.proposedbudget}}</h4>
+  	<h4 class="ng-binding">Budget : ${{bidsentrecord.proposedbudget}}</h4>
     <div>
       <label for="description"><h3>Bid details: {{bidsentrecord.bidcontent}}</h3></label>
       </div>
     <div>
-      <label for="skill"><h3>Bid price : {{bidsentrecord.bidprice}} <h3></label>
+      <label for="skill"><h3>Bid price : ${{bidsentrecord.bidprice}} <h3></label>
     
     </div>
  
