@@ -305,7 +305,7 @@ padding: 5px;}
 #position{border: 1px solid #FFCB3E;margin-bottom: 15px;padding-left: 5px;display: inline;}
 #expdate{border: 1px solid #FFCB3E;margin-bottom: 15px;padding: 5px;margin-bottom: 40px;}
 img.list-gig-img{position: relative;
-max-width: 70px;
+max-width: 50px;
 height: auto;
 border-radius: 50px;}
 .menu{	background: url('../img/side-menu-bg.png') repeat 0 0 transparent;

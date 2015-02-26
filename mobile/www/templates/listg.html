@@ -3,12 +3,12 @@
   <ion-content class="has-header"padding="true" style="background:#efefef;">
       <div ng-repeat="list in listgigster" class="card list1">
           <div class="row" ng-click="gigdetailsmodel(list)"  style="border-bottom: 1px solid #efefef;"> 
-              <div class="col col-33 img-col">
+              <div class="col col-20 img-col">
                   
                  <!--  <img ng-src="https://graph.facebook.com/{{ user.id }}/picture?" />  -->
                    <img ng-src="http://www.gigstergo.com/image.php?image=/uploads/profileimage/{{list.profileimage}}" class="list-gig-img"> 
               </div>
-              <div class="col col-33 img-col">
+              <div class="col col-50 img-col">
                <h2>{{list.prjTitle}}</h2>
                <p style="white-space: pre-line;">{{list.prjdesc}}</p> 
                 <!-- <h2><a >{{list.username}}</a></h2>
@@ -24,7 +24,7 @@
           <div class="row gig-row">
            
              
-              <div class="col col-67">
+              <div class="col col-50">
                <h4>Proposed budget: {{list.proposedbudget}}</h4>  
                <h4 id="Posted_date">Posted: {{list.postedon|date:'dd/MM/yyyy'}}</h4>
                 <h4 id="map"> {{list.gigLocation}} </h4>
