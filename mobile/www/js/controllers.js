@@ -522,6 +522,56 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 
  
 
+ // Create the login modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/cancelgigmodel.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal2 = modal;
+  });
+  // Triggered in the login modal to close it
+  $scope.closecancelgigmodel = function() {
+    $scope.modal2.hide();
+  };
+  $scope.cancelgigmodel = function(data,index) {
+    if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }else{
+        $scope.cancelgigrecord=data;
+        $scope.cancelgigindex=index;
+        console.log("the data is for cancel");
+        console.log(data);
+     }
+    $scope.modal2.show();
+
+  };
+
+
+
+ $scope.cancelgig=function(projectid,index){
+  projectid= $scope.cancelgigrecord;
+  index = $scope.cancelgigindex;
+  console.log("cancelgig fired");
+       var reqdata={
+      prjid:projectid
+       };
+       console.log("project id is--------");
+       console.log(projectid);
+       $http.post(baseURL + 'cancelgig',reqdata).success(function(res) {
+        console.log(res);
+       //$scope.bidding[ index ].status= '5';
+         $scope.modal2.hide();
+         $scope.modal3.hide();
+         
+
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+      //$state.go('app.mygigs.progress');
+      console.log("success")
+      $state.go('app.listgig');
+    };
+
+
 
 
 
@@ -1418,6 +1468,8 @@ $scope.awardgigfunction=function(data){
        var reqdata={
       prjid:projectid
        };
+       console.log("this is project id ,,,,,,,,,,,,,,,,,,,");
+       console.log(projectid);
        $http.post(baseURL + 'cancelgig',reqdata).success(function(res) {
         console.log(res);
         $scope.bidding[ $scope.cancelgigindex ].status= '5';
