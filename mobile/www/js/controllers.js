@@ -332,10 +332,11 @@ $scope.sendfeedback=function(feedback){
 
     var userididid=parseInt(window.localStorage.getItem('userid1'));
 
+    
     console.log(userididid);
     //var userididid=window.localStorage.getItem('userid1');
-    //$scope.currentuser =parseInt(window.localStorage.getItem('userid1'));
-    //console.log($scope.currentuser);
+    $scope.currentuser =parseInt(window.localStorage.getItem('userid1'));
+    console.log($scope.currentuser);
 
 $scope.myvar = false;
   $scope.setFocus =  function(){
