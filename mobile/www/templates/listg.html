@@ -30,11 +30,11 @@
                     
                 
               </div>  
-
+                          
 
                            <div ng-if="list.userId != currentuser ">
-                          <button ng-if="list.userId != currentuser" class="new-bid-button" ng-click="gigdetail(list,$index)">BID</button>
-                          <button ng-if="list.bidfrom == currentuser" class="new-bid-button" ng-click="sentbid(list)">BID SENT</button>
+                          <button ng-if="list.bidfrom != currentuser" class="new-bid-button" ng-click="gigdetail(list,$index)">BID</button>
+                          <button ng-if="list.bidfrom==currentuser" class="new-bid-button" ng-click="sentbid(list)">BID SENT</button>
                           </div>
           </div> 
           <div class="row gig-row">
