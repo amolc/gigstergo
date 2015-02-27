@@ -580,6 +580,60 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 
 
 
+.controller('gigdetailsCtrl' , function($scope, $http, $state){
+
+
+  if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+    }   
+
+    var userididid=parseInt(window.localStorage.getItem('userid1'));
+
+    
+    console.log(userididid);
+    //var userididid=window.localStorage.getItem('userid1');
+    $scope.currentuser =parseInt(window.localStorage.getItem('userid1'));
+    console.log($scope.currentuser);
+
+     var reqdata={
+           userid:userididid
+      };
+      $scope.listgigster= {};
+      $scope.index=index;
+     $scope.prjrecord=data;
+     //console.log(data);
+     $scope.bidders={};
+
+ var reqdata={
+      prjid: $scope.prjrecord.prjId
+  };
+$http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
+        $scope.bidders = res;
+        console.log(res);
+        console.log($scope.bidders);
+        if (res.status == 'false') {
+          alert(res.message);
+        } else {
+            $scope.bidders=res;
+          console.log($scope.bidders);
+        }
+      
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+   
+
+
+    $scope.closecancelgigmodel = function() {
+    $state.go('app.listgig')
+  };
+
+
+
+})
+
+
+
 //new controllers
 .controller('homeCtrl', function($scope,$http,$state){
        if( window.localStorage.getItem('islogin') != 'true' ){

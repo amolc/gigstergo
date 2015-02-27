@@ -117,8 +117,8 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       url: "/gigdetails",
       views: {
         'menuContent' :{
-          templateUrl: "templates/gigdetails.html"
-        //  controller: 'gigdetailsCtrl' 
+          templateUrl: "templates/gigdetails.html",
+         controller: 'gigdetailsCtrl' 
         }
       }
     })
