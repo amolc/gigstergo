@@ -1124,7 +1124,8 @@ $scope.progress= {};
 
 // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/messages.html', {
-    scope: $scope
+    scope: $scope,
+    animation : 'slide-in-right'
   }).then(function(modal) {
     $scope.modal = modal;
   });
