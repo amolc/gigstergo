@@ -98,15 +98,14 @@ width: 65px;
 float: right;
 border: none;
 height: 65px;
-border-radius: 10%;}
-.new-bid-button1{color: #fff;
+border-radius: 10%; }
+.new-bid-button1{ color: #fff;
 margin: 10px 5px 5px 0;
 background-color: #fe8301;
-width: 50px;
-float: left;
+width: 80px;
 border: none;
 height: 35px;
-border-radius: 10%;}
+border-radius: 10px;}
 #Posted_date{font-family: 'source_sans_prosemibold';
 color: #503F2F;
 font-size: 16px;}

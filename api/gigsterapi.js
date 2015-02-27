@@ -151,7 +151,6 @@ exports.bidongig=function(req,res){
       bidCRUD.create({'bidfrom': req.body.currentuser,'bidon':req.body.bidon, 'projectId':req.body.record.prjId,'bidcontent':req.body.proposal,'bidprice':req.body.price}, function (err, vals){
            
             console.log(err);
-
             var mailmatter="<p>Hello "+req.body.record.fname+" "+req.body.record.lname+" </p><p>You have received a new bid on your Gig <a href='#'></a> from </p><p></p><p><a href='#'>Click here to see more details and award this Gig.</a></p>";
                        
 

@@ -17,12 +17,7 @@
    
    $scope.record=JSON.parse(userrecord);
 
-   OpenFB.get('/me').success(function (user) {
-                  $scope.user = user;
-                    
-                                  
-
-}); 
+   //OpenFB.get('/me').success(function (user) { $scope.user = user; });
  //  $scope.imgpath="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+$scope.record.profileimage+"&width=40&height=40&cropratio=1:1";
 //console.log(record);
 //$scope.user=userdetailsforprofile.usermail;
@@ -392,18 +387,18 @@ $scope.sendfeedback=function(feedback){
   $scope.bidongigform = function(data,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
             $state.go('app.login')
-       }else{
+    } else {
       $scope.recordindex=index;
       var userididid=window.localStorage.getItem('userid1');
-      var stampo=event.timeStamp;
-      $scope.record=data;
+      var stampo = event.timeStamp;
+      $scope.record = data;
       $scope.modal.show();
       $scope.bid={
           record : data,
           currentuser:userididid,
           bidon:stampo,
         }
-      }
+    }
     
   };
 
@@ -419,7 +414,7 @@ $scope.sendfeedback=function(feedback){
                 
                 $scope.warning = req.message; 
                 $scope.listgigster[ $scope.recordindex ].bidfrom= $scope.currentuser;
-                $scope.modal.hide();
+               // $scope.modal.hide();
           }).error(function(res){
             alert(res);
           });
@@ -432,7 +427,8 @@ $scope.sendfeedback=function(feedback){
 
  // Create the sentbid modal that we will use later
   $ionicModal.fromTemplateUrl('templates/sentbid.html', {
-    scope: $scope
+    scope: $scope,
+    animation : 'slide-in-right'
   }).then(function(modal) {
     $scope.modal2 = modal;
   });
