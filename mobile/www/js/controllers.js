@@ -397,7 +397,8 @@ $scope.isRecentOrder = function(date) {
 
   // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/bidongig.html', {
-         scope: $scope
+         scope: $scope,
+         animation : 'slide-in-right'
     }).then(function(modal) {
         $scope.modal = modal;
     });
@@ -408,7 +409,7 @@ $scope.isRecentOrder = function(date) {
      };
 
   // Open the login modal
-  $scope.gigdetail = function(data,index) {
+  $scope.bidongigform = function(data,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
             $state.go('app.login')
        }else{
