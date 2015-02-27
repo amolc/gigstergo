@@ -33,7 +33,7 @@ app.use('/mobile', express.static(__dirname + '/mobile/www'));
 app.get('/api/assignall', assignments.assignall);
 app.get('/api/getbid', assignments.getbid);
 app.get('/api/listgig/:page', assignments.listgig);
-app.get('/api/gigdetails', assignments.gigdetails);
+app.post('/api/gigdetails', assignments.gigdetails);
 app.get('/api/send', sendmail.sendmail);
 app.post('/api/sendmail', sendmail.sendmail);
 app.post('/api/loginval',assignments.loginval);

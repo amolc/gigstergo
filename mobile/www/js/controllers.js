@@ -501,7 +501,25 @@ $scope.sendfeedback=function(feedback){
             prjid: $stateParams.gigid
         };
         console.log("gigid is");
-        console.log($stateParams.gigid);
+        console.log(reqdata);
+
+
+         $http.post(baseURL + 'gigdetails',reqdata).success(function(res) {
+              $scope.gig = res;
+              console.log("resorces");
+              console.log(res);
+              if (res.status == 'false') {
+                alert(res.message);
+              } else {
+                  $scope.gig=res;
+                  console.log("$scope.gig");
+                console.log($scope.gig);
+              }
+            
+            }).error(function() {
+              alert("Please check your internet connection or data source..");
+            });
+         
       $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
               $scope.bidders = res;
            

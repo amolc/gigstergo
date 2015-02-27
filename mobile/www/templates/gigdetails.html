@@ -7,14 +7,14 @@
     </div>
   </ion-header-bar>
   <ion-content>
-<div>
+<div ng-repeat="list in gig">
 <div class="row"> 
   <div class="col col-20 img-col">
       <img src="img/person.jpg" class="list-gig-img">      
   </div>
   <div class="col col-60 img-col">
-    <h2>{{username}}</h2>
-      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{prjrecord.gigLocation}}</p>
+    <h2>{{list.username}}</h2>
+      <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.gigLocation}}</p>
       <p><i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
@@ -27,10 +27,10 @@
   <div class="col">
    <div class="list">
       <a class="item browse-gig-col" > 
-            <h2>{{prjrecord.prjTitle}}</h2>
-            <h4>Posted on:{{prjrecord.postedon|date:'dd/MM/yyyy'}}</h4>
-            <h4><p style="white-space: pre-line;">{{prjrecord.prjdesc}}</p></h4>
-             <h4>Budget : ${{prjrecord.proposedbudget}}</h4> 
+            <h2>{{list.prjTitle}}</h2>
+            <h4>Posted on:{{list.postedon|date:'dd/MM/yyyy'}}</h4>
+            <h4><p style="white-space: pre-line;">{{list.prjdesc}}</p></h4>
+             <h4>Budget : ${{list.proposedbudget}}</h4> 
                      
             
                

@@ -53,22 +53,25 @@ exports.getbid = function(req, res) {
 
 exports.gigdetails = function( req, res ){
 
-  var gigid = parseInt(req.body.gigid) ;
+  var prjid=req.body.prjid;
+  console.log("this is gigdetails");
+  console.log(prjid);
+ // var query ="SELECT * from btr_projects where btr_projects.prjId="+prjid;
+ var query=" SELECT * from btr_projects as tbl1 LEFT JOIN btr_users as tbl2 on tbl1.userId=tbl2.userId where tbl1.prjId="+prjid;
+  
+  db.query(query, function(err , val){
+    res.jsonp(val);
+    console.log(val);
+  });
    
-
-  
-
-  
-}
+};
 exports.listgig = function(req, res) {
  
-  var page = parseInt( req.params.page );
-  var from = page * 10;
-  var to = from + 10;
+  var userid = parseInt( req.body.userid );
   //SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId INNER JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId where tbl1.bidfrom="+userid+" and tbl1.status='3' order by tbl1.bidon DESC";
   //  var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId order by postedon DESC LIMIT 25";  
      
-    var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId where tbl1.status='0' OR tbl1.status='1' OR tbl1.status='2' order by postedon DESC LIMIT "+ from +','+to;  
+    var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId where tbl1.status='0' OR tbl1.status='1' OR tbl1.status='2' order by postedon DESC LIMIT 10";  
     //var query ="SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.profileimage, tbl4.bidfrom FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId LEFT JOIN btr_bids AS tbl4 ON tbl4.bidfrom=tbl3.userId order by postedon DESC LIMIT 25";
     //var query =  "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage,tbl4.* FROM btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=tbl1.userId LEFT join btr_bids AS tbl4 ON tbl4.bidfrom=tbl1.userId order by postedon DESC LIMIT 10";
     //var query="SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.* , tbl4.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId LEFT JOIN btr_bids AS tbl4 ON tbl4.bidfrom=tbl1.userId where tbl1.status='0' OR tbl1.status='1' OR tbl1.status='2' order by postedon DESC LIMIT 25";
@@ -151,30 +154,37 @@ exports.signup=function(req,res){
 
 
 exports.bidongig=function(req,res){
-  console.log("---------------------------------------------For bib on--------------------------------------");
-  
+  console.log("For bib on");
+  console.log(req.body);
       bidCRUD.create({'bidfrom': req.body.currentuser,'bidon':req.body.bidon, 'projectId':req.body.record.prjId,'bidcontent':req.body.proposal,'bidprice':req.body.price}, function (err, vals){
-        console.log(err);
-        var mailmatter ="<p>Hello "+req.body.record.fname+" "+req.body.record.lname+" </p><p>You have received a new bid on your Gig <a href='#'></a> from </p><p></p><p><a href='#'>Click here to see more details and award this Gig.</a></p>";
-        btrmsgCRUD.create({ 
-            'msgfrom':req.body.currentuser,
-            'msgto':req.body.record.userId,
-            'msgcontent':mailmatter,
-            'msgon':req.body.bidon,
-            'projectId':req.body.record.prjId,
-            'isread':'0',
-            'msgtype':'r'
-          }, function (err, vals){
+           
+            console.log(err);
 
+            var mailmatter="<p>Hello "+req.body.record.fname+" "+req.body.record.lname+" </p><p>You have received a new bid on your Gig <a href='#'></a> from </p><p></p><p><a href='#'>Click here to see more details and award this Gig.</a></p>";
+                       
+
+              btrmsgCRUD.create({'msgfrom':req.body.currentuser,'msgto':req.body.record.userId, 'msgcontent':mailmatter,'msgon':req.body.bidon,'projectId':req.body.record.prjId,'isread':'0','msgtype':'r'}, function (err, vals){
+
+              console.log("vals");
               console.log(vals);
-            var resdata={
-               status: true,
-               message :'Message added'
+      
+              var resdata={
+               status: false,
+               message :'Ooops! Error Occured...sefksdck'
                };
 
+
               res.jsonp(resdata);   
-          });
-    });
+
+
+
+              });
+
+
+
+
+             
+             });
 
      
 
