@@ -548,17 +548,19 @@ $scope.sendfeedback=function(feedback){
         $state.go('app.login')
     }   else {
 
-
        var reqdata={
             prjid: $stateParams.gigid
         };
+        console.log("gigid is");
+        console.log($stateParams.gigid);
       $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
               $scope.bidders = res;
-              console.log( "biddingdetails");
+           
               if (res.status == 'false') {
                 alert(res.message);
               } else {
                   $scope.bidders=res;
+                  console.log("$scope.bidders");
                 console.log($scope.bidders);
               }
             
