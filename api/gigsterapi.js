@@ -78,7 +78,8 @@ exports.app = function(req ,res){
       RIGHT JOIN btr_bids on btr_bids.projectId = btr_projects.prjId \
       LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=btr_projects.userId \
        LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=btr_projects.userId \
-       group by btr_bids.projectId order by postedon DESC LIMIT 25";console.log(query);
+       group by btr_bids.projectId order by postedon DESC LIMIT 10";
+       console.log(query);
   db.query(query, function(err, val){
     res.jsonp(val);
   });
