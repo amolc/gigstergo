@@ -101,6 +101,15 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
         }
       }
     })
+.state('app.gigdetails', {
+      url: "/gigdetails/:gigid",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/gigdetails.html",
+         controller: 'gigdetailsCtrl' 
+        }
+      }
+    })
 
 .state('app.postgig', {
       url: "/postgig",
@@ -112,16 +121,6 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
         }
       }  
   })
-
-.state('app.gigdetails', {
-      url: "/gigdetails",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/gigdetails.html",
-         controller: 'gigdetailsCtrl' 
-        }
-      }
-    })
 
 .state('app.gigster', {
       url: "/gigster",
