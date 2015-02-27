@@ -51,6 +51,9 @@ exports.getbid = function(req, res) {
       });    
 };
 
+exports.gigdetails = function( req, res ){
+  
+}
 exports.listgig = function(req, res) {
  
   var userid = parseInt( req.body.userid );
