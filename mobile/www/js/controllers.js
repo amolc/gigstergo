@@ -573,7 +573,8 @@ $scope.sendfeedback=function(feedback){
 
 // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/cancelgigmodel.html', {
-    scope: $scope
+    scope: $scope,
+    animation : 'slide-in-right'
   }).then(function(modal) {
     $scope.modal2 = modal;
   });
@@ -636,7 +637,8 @@ $scope.sendfeedback=function(feedback){
    $scope.social=true;
    // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/emaillogin2.html', {
-      scope: $scope
+      scope: $scope,
+      animation : 'slide-in-right'
     }).then(function(modal) {
       $scope.modal = modal;
     });
@@ -874,7 +876,8 @@ $scope.biddingawarded= {};
 
 // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/messages.html', {
-    scope: $scope
+    scope: $scope,
+    animation : 'slide-in-right'
   }).then(function(modal) {
     $scope.modal = modal;
   });
@@ -947,7 +950,8 @@ $scope.sendmsg=function(data){
 
  // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/statusreport.html', {
-    scope: $scope
+    scope: $scope,
+    animation : 'slide-in-right'
   }).then(function(modal) {
     $scope.modal5 = modal;
   });
@@ -997,7 +1001,8 @@ $scope.sendreport=function(record){
 
 // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/sendfeedback.html', {
-    scope: $scope
+    scope: $scope,
+    animation : 'slide-in-right'
   }).then(function(modal) {
     $scope.modal3 = modal;
   });
@@ -1044,7 +1049,8 @@ $scope.sendfeedback=function(feedback){
 
  // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/gigdetailsinmybid.html', {
-    scope: $scope
+    scope: $scope,
+    animation : 'slide-in-right'
   }).then(function(modal) {
     $scope.modal2 = modal;
   });
