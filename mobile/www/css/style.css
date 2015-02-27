@@ -74,7 +74,7 @@ font-size: 16px;
 font-family: 'source_sans_proregular';
 }
 p{font-size: 15px;
-font-family: 'source_sans_proregular'; padding-top: 10px;}
+font-family: 'source_sans_proregular';}
 
 h4 {
 	font-family: 'source_sans_probold';
@@ -106,7 +106,7 @@ width: 50px;
 float: left;
 border: none;
 height: 35px;
-border-radius: 25%;}
+border-radius: 10%;}
 #Posted_date{font-family: 'source_sans_prosemibold';
 color: #503F2F;
 font-size: 16px;}
