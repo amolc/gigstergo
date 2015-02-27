@@ -321,28 +321,23 @@ $scope.sendfeedback=function(feedback){
         $state.go('app.login')
     }   
 
-    var userididid=parseInt(window.localStorage.getItem('userid1'));
-
-    
-    console.log(userididid);
-    //var userididid=window.localStorage.getItem('userid1');
-    $scope.currentuser =parseInt(window.localStorage.getItem('userid1'));
-    
     $scope.myvar = false;
     $scope.setFocus =  function(){
       $scope.myvar= !$scope.myvar;
     };
 
     $scope.listgigster = { };
-
-    $http.get(baseURL + 'listgig').success(function(res) {
-      $scope.listgigster = res;
-        console.log($scope.listgigster);
+    $scope.$on('$stateChangeSuccess', function() {
+      $scope.loadMoreGigs();
     });
-
+    $scope.listgigster = [];
+    $scope.page = 1;
     $scope.loadMoreGigs = function(){
-      console.log('sdsdsd');
-       //$scope.$broadcast('scroll.infiniteScrollComplete');
+       $http.get( baseURL + 'listgig/' + $scope.page ).success(function(res) {
+          $scope.listgigster = res;
+            console.log($scope.listgigster);
+            //$scope.$broadcast('scroll.infiniteScrollComplete');
+        });
     }
 
     $scope.isRecentOrder = function(date) {
@@ -401,10 +396,6 @@ $scope.sendfeedback=function(feedback){
     }
     
   };
-
-
-
-
 
   // Perform the login action when the user submits the login form
   $scope.doBid = function(formstatus,bid) {
@@ -466,42 +457,9 @@ $scope.sendfeedback=function(feedback){
     } else {
 
         $state.go('app.gigdetails', { 'gigid' : projectid } );
-
-        /*$scope.index=index;
-        $scope.prjrecord=data;
-        // console.log(data);
-        $scope.bidders={};
-
-       var reqdata={
-            prjid: $scope.prjrecord.prjId
-        };*/
-      
-      /*$http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
-        $scope.bidders = res;
-        console.log(res);
-        console.log($scope.bidders);
-        if (res.status == 'false') {
-          alert(res.message);
-        } else {
-            $scope.bidders=res;
-          console.log($scope.bidders);
-        }
-      
-      }).error(function() {
-        alert("Please check your internet connection or data source..");
-      });*/
-
-      //$scope.modal3.show();
-    
-      
-       }
+    }
     
   };
-
- 
-
- 
-
 
 
  $scope.cancelgig=function(projectid,index){
@@ -527,11 +485,6 @@ $scope.sendfeedback=function(feedback){
       console.log("success")
       $state.go('app.listgig');
     };
-
-
-
-
-
 
 })
 
