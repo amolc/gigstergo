@@ -483,7 +483,7 @@ $scope.isRecentOrder = function(date) {
     $scope.modal3.hide();
   };
   
-  $scope.gigdetailsmodel = function( projectid ) {
+  $scope.gotogigdetails = function( projectid ) {
     if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
     } else {
