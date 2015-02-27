@@ -1209,7 +1209,8 @@ $scope.sendmsg=function(data){
         $state.go('app.login')
        }else{
       $scope.biddetailsrecord=data;
-
+      console.log("$scope.biddetailsrecord");
+      console.log($scope.biddetailsrecord);
        var reqdata={
            prjid: $scope.biddetailsrecord.prjId
         };
