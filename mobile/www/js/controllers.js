@@ -608,6 +608,8 @@ $scope.isRecentOrder = function(date) {
        }else{
         $scope.cancelgigrecord=data;
         $scope.cancelgigindex=index;
+        console.log("$scope.cancelgigrecord");
+        console.log($scope.cancelgigrecord);
      }
     $scope.modal2.show();
   };
