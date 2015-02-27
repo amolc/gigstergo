@@ -321,6 +321,9 @@ $scope.sendfeedback=function(feedback){
         $state.go('app.login')
     }   
 
+     var userididid=window.localStorage.getItem('userid1');
+      $scope.currentuser= userididid;
+
     $scope.myvar = false;
     $scope.setFocus =  function(){
       $scope.myvar= !$scope.myvar;
@@ -385,6 +388,7 @@ $scope.sendfeedback=function(feedback){
     } else {
       $scope.recordindex=index;
       var userididid=window.localStorage.getItem('userid1');
+      $scope.currentuser= userididid;
       var stampo = event.timeStamp;
       $scope.record = data;
       $scope.modal.show();
