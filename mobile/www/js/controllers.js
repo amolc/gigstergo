@@ -1,9 +1,5 @@
   angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, $http, $stateParams, $ionicLoading, OpenFB) {
-
-   
-
-
   $scope.user=window.localStorage.getItem('username');
   $scope.loginstatus = window.localStorage.getItem('islogin');
   $scope.myvar = true;
@@ -336,38 +332,25 @@ $scope.sendfeedback=function(feedback){
     console.log(userididid);
     //var userididid=window.localStorage.getItem('userid1');
     $scope.currentuser =parseInt(window.localStorage.getItem('userid1'));
-    console.log($scope.currentuser);
+    
+    $scope.myvar = false;
+    $scope.setFocus =  function(){
+      $scope.myvar= !$scope.myvar;
+    };
 
-$scope.myvar = false;
-  $scope.setFocus =  function(){
-    $scope.myvar= !$scope.myvar;
-  };
+    $scope.listgigster = { };
 
-     var reqdata={
-           userid:userididid
-      };
-      $scope.listgigster= {};
-
-
-
-  $http.get(baseURL + 'listgig').success(function(res) {
-
-           $scope.listgigster = res;
-        console.log(res);
-        console.log('listgigster obj');
+    $http.get(baseURL + 'listgig').success(function(res) {
+      $scope.listgigster = res;
         console.log($scope.listgigster);
-           if (res.status == 'false') {
-               alert(res.message);
-           } else {
-               $scope.listgigster=res;
-               console.log($scope.listgigster);
-           }
-      
-      }).error(function() {
-          alert("Please check your internet connection or data source..");
-      });
+    });
 
-$scope.isRecentOrder = function(date) {
+    $scope.loadMoreGigs = function(){
+      console.log('sdsdsd');
+       //$scope.$broadcast('scroll.infiniteScrollComplete');
+    }
+
+    $scope.isRecentOrder = function(date) {
 
           // Assuming date is a string of parsable format: ie. "2014-01-27T01:00:00+00:00"
             var diff = new Date() - new Date(date);
@@ -378,18 +361,15 @@ $scope.isRecentOrder = function(date) {
               //var nmonths = parseInt(days / 30);
 
               return days | 0;
-      }
+    }
           
- $scope.getimgurl=function(data){
-     
-  var record=data;
-      var url="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
-      //var url="img/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
-   return url;
- };
-
-
-
+   $scope.getimgurl=function(data){
+       
+    var record=data;
+        var url="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
+        //var url="img/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
+     return url;
+   };
 
 
  // Form data for the login modal  kv
