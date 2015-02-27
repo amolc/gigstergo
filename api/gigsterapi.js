@@ -367,7 +367,7 @@ exports.bidsbidding=function(req,res){
 var userid=req.body.userid;
     //var query = "SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId and tbl2.status='0' or tbl2.status='1' INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId where tbl1.bidfrom="+userid+" order by tbl1.bidon DESC";
     
-      var query="SELECT * FROM btr_projects AS tbl1 LEFT JOIN btr_bids AS tbl2 ON tbl1.prjId=tbl2.projectId LEFT JOIN btr_userprofile AS tbl3 ON tbl1.userId=tbl3.userId where tbl2.bidfrom = "+userid+" and ( tbl1.status='0' or tbl1.status='1' ) order by tbl1.postedon DESC";
+      var query="SELECT * FROM btr_projects AS tbl1 LEFT JOIN btr_bids AS tbl2 ON tbl1.prjId=tbl2.projectId LEFT JOIN btr_userprofile AS tbl3 ON tbl1.userId=tbl3.userId left join btr_users as tbl4 ON tbl1.userid=tbl4.userid where tbl2.bidfrom = "+userid+" and ( tbl1.status='0' or tbl1.status='1' ) order by tbl1.postedon DESC";
     
     //var query = "SELECT tbl1.*,tbl2.*,tbl3.*,tbl4.username FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId and tbl2.status='0' or tbl2.status='1' INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId  INNER JOIN btr_users AS tbl4 ON tbl4.userId=tbl2.userId where tbl1.bidfrom="+userid+" order by tbl1.bidon DESC";
    
