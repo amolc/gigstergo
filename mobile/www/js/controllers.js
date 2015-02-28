@@ -501,6 +501,10 @@ $scope.sendfeedback=function(feedback){
         $state.go('app.login')
     }   else {
 
+
+     var userididid=window.localStorage.getItem('userid1');
+      $scope.currentuser= userididid;
+
        var reqdata={
             prjid: $stateParams.gigid
         };
@@ -557,11 +561,14 @@ $scope.sendfeedback=function(feedback){
   $scope.closecancelgigmodel = function() {
     $scope.modal2.hide();
   };
-  $scope.cancelgigmodel = function(data,index) {
+  $scope.cancelgigmodel = function(projectid,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        }else{
-        $scope.cancelgigrecord=data;
+        var reqdata={
+            prjid: $stateParams.gigid
+        };
+        $scope.cancelgigrecord=reqdata;
         $scope.cancelgigindex=index;
         console.log("$scope.cancelgigrecord");
         console.log($scope.cancelgigrecord);
@@ -573,20 +580,22 @@ $scope.sendfeedback=function(feedback){
 
  $scope.cancelgig=function(projectid,index){
   console.log("cancelgig fired");
-       var reqdata={
-      prjid:projectid
-       };
+        var reqdata={
+            prjid: $stateParams.gigid
+        };
        console.log("this is project id ,,,,,,,,,,,,,,,,,,,");
-       console.log(projectid);
+       console.log(reqdata);
        $http.post(baseURL + 'cancelgig',reqdata).success(function(res) {
         console.log(res);
-        $scope.bidding[ $scope.cancelgigindex ].status= '5';
-         $scope.modal2.hide();
+        //$scope.bidding[ $scope.cancelgigindex ].status= '5';
+         
 
       }).error(function() {
         alert("Please check your internet connection or data source..");
       });
       //$state.go('app.mygigs.progress');
+      $scope.modal2.hide();
+      $state.go('app.listgig');
     };
 
 
