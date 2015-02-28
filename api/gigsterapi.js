@@ -143,7 +143,7 @@ exports.verifyacc=function(req,res){
    var umail = req.body.usermail;
     var vcode = req.body.verifycode; 
       
-     userCRUD.load({usermail :req.body.usermail, verifycode : req.body.verifycode }, function (err, val) {  
+     userCRUD.load({verifycode : req.body.verifycode }, function (err, val) {  
       console.log("In response..................");
       console.log(val);
       var resdata={
