@@ -220,7 +220,7 @@ exports.loginval = function(req, res) {
       console.log(gigname);
       console.log(password);
 
-    CRUD(db, 'btr_users').load({usermail :gigname, userpass : password }, function (err, val) {  
+    CRUD(db, 'btr_users').load({usermail :gigname, userpass : password,isactive:'1' }, function (err, val) {  
       var resdata={
         record:'',
         status:false,
@@ -234,7 +234,7 @@ exports.loginval = function(req, res) {
         resdata.message='successfully login welcom to ..';      
       }else{
         resdata.status=false;
-        resdata.message='Wrong user name or password';
+        resdata.message='Wrong user name or password Or Verify your account';
       }
         
       res.jsonp(resdata);
