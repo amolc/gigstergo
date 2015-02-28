@@ -139,18 +139,32 @@ exports.verifyacc=function(req,res){
    console.log("In verifyacc API now---------------") ;
     console.log(req.body);
    
-    var resdata={};        
-   userCRUD.load({usermail :req.body.usermail }, function (err, val) {  
-     if(val.length>0){
-             resdata={
-               status: false,
-               message :'Ooops! User Already Exists..'
-               };
-                res.jsonp(resdata);
-        }else{
-                
-        }           
-  });
+   var umail = req.body.usermail;
+    var vcode = req.body.verifycode; 
+      console.log(umail);
+      console.log(vcode);
+
+    CRUD(db, 'btr_users').load({usermail :umail}, function (err, val) {  
+      var resdata={
+        record:'',
+        status:false,
+        message :'err'
+      };
+
+      console.log("Response---------------------------");
+      console.log(val);
+      if(val.length>0){
+        resdata.record=val;
+        resdata.status=true;
+        console.log("Okkkkkkkkkkkkkkkkkkk...................");
+        resdata.message='successfully In verifyacc ..';      
+      }else{
+        resdata.status=false;
+        resdata.message='Wrong Email or verifycode';
+      }
+        
+      res.jsonp(resdata);
+    }); 
 };
 
 //for verify account api end here
