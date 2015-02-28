@@ -770,10 +770,6 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
       alert(res);
     });
        }
-      
- 
-
-
   };
 
 
@@ -833,16 +829,7 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
                 function () {
                     alert('OpenFB login failed');
                 });
-
-      
-
-      
-        
         };
-
-
-
-
 
 })
 
