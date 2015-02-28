@@ -143,8 +143,7 @@ exports.verifyacc=function(req,res){
     var vcode = req.body.verifycode; 
       console.log(umail);
       console.log(vcode);
-
-    CRUD(db, 'btr_users').load({usermail :umail}, function (err, val) {  
+    userCRUD.load({usermail :umail}, function (err, val) {  
       var resdata={
         record:'',
         status:false,
