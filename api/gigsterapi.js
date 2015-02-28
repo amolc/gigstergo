@@ -137,21 +137,21 @@ exports.signup=function(req,res){
 //for verify account api starts here
 exports.verifyacc=function(req,res){
    console.log("In verifyacc API now---------------") ;
-    console.log(req.body.usermail);
+    console.log(req.body.useremail);
     console.log(req.body.verifycode);
    
-   var umail = req.body.usermail;
-    var vcode = req.body.verifycode; 
-      
-     userCRUD.load({verifycode : req.body.verifycode }, function (err, val) {  
+  
+     userCRUD.load({usermail :req.body.useremail, verifycode : req.body.verifycode }, function (err, val) {  
       console.log("In response..................");
       console.log(val);
+      console.log(err);
+
       var resdata={
         record:'',
         status:false,
         message :'err'
       };
-      console.log(val)
+      
       if(val.length>0){
           console.log("Found---------------------------------");
         resdata.record=val;
