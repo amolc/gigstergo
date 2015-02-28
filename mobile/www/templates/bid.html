@@ -10,25 +10,30 @@
     <p>{{b.city}}</p>
     <p><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i><i class="icon ion-ios7-star-outline"></i></p>
     </div>-->
-            <div class="item item-body list1" >
+
+    <div class="row item item-body list1"> 
+            <div class="col col-50 img-col " >
             <!--div class="item item-body" ng-click="gigdetailsmodel(list)"-->
             
                 <h2 ng-click="gigdetailsmodelinmygig(b,$index)">{{b.prjTitle}}</h2>
                 <p>posted on : {{b.postedon | date:'medium'}}</p>
-                 <button class="new-bid-button" ng-if="b.status != '5'"  ng-click="cancelgigmodel( b, $index )"> Cancel gig </button>
-                 <p ng-if="b.status == '5'"> gig canceled....!!!! </p>
+                 
     
                 <p>
                     project description: {{b.prjdesc}}
                 </p>
-                <p>
-                    status : {{b.status}}
-                </p>
-    
-            
-                
-            </div>
-              
+                </div>   
+                <div class="col col-50 img-col">
+                <button class="new-bid-button" ng-if="b.status != '5'"  ng-click="cancelgigmodel( b, $index )"> Cancel gig </button>
+                 <p ng-if="b.status == '5'"> gig canceled....!!!! </p>
+                  
+                   
+                    
+              </div>
+             
+
+              </div>
+
       </div>
   </div>
 </ion-content>
