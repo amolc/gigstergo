@@ -746,7 +746,9 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
         }).error(function(res){
       alert(res);
     });
-       }  
+        $scope.modal3.hide();
+       }
+
   };
 //for verify A/c end
 
