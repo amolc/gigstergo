@@ -12,7 +12,7 @@
     </div>-->
 
     <div class="row item item-body list1"> 
-            <div class="col col-50 img-col " >
+            <div class="col col-80 img-col " >
             <!--div class="item item-body" ng-click="gigdetailsmodel(list)"-->
             
                 <h2 ng-click="gigdetailsmodelinmygig(b,$index)">{{b.prjTitle}}</h2>
@@ -23,7 +23,7 @@
                     project description: {{b.prjdesc}}
                 </p>
                 </div>   
-                <div class="col col-50 img-col">
+                <div class="col col-20 img-col">
                 <button class="new-bid-button" ng-if="b.status != '5'"  ng-click="cancelgigmodel( b, $index )"> Cancel gig </button>
                  <p ng-if="b.status == '5'"> gig canceled....!!!! </p>
                   
