@@ -155,6 +155,7 @@ exports.verifyacc=function(req,res){
       if(val.length>0){
             userCRUD.update({'usermail' :req.body.useremail},{'isactive' :'1'}, function (err, val1) {   
                 if(parseInt(val1.affectedRows)>0){
+                  console.log("Hiiiiiiii.................. Updated");
                     var resdata={
                       status:true,
                       massage:'updated  successfuly'
