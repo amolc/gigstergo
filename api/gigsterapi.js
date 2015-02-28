@@ -145,7 +145,7 @@ exports.verifyacc=function(req,res){
       console.log("In response..................");
       console.log(val);
       console.log(err);
-
+      
       var resdata={
         record:'',
         status:false,
@@ -153,14 +153,29 @@ exports.verifyacc=function(req,res){
       };
       
       if(val.length>0){
+            userCRUD.update({'usermail' :req.body.useremail},{'isactive' :'1'}, function (err, val1) {   
+                if(parseInt(val1.affectedRows)>0){
+                    var resdata={
+                      status:true,
+                      massage:'updated  successfuly'
+                       };
+                      }else{
+                        var resdata={
+                      status:false,
+                      massage:'not updated'
+                       };
+                        
+                      }
+                   // res.jsonp(resdata);
+                }); 
           console.log("Found---------------------------------");
         resdata.record=val;
         resdata.status=true;
         console.log("login");
-        resdata.message='successfully login welcom to ..';      
+        resdata.message='successfully Verified ..';      
       }else{
         resdata.status=false;
-        resdata.message='Wrong user name or password';
+        resdata.message='Wrong useremail or verifycode';
       }
         
       res.jsonp(resdata);
