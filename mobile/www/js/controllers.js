@@ -1251,38 +1251,6 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
        }
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })
 
 
@@ -1312,69 +1280,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
         alert("Please check your internet connection or data source..");
       });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .controller('biddingcontroller', function($scope,$http,$state, $ionicModal,$stateParams, $filter){
        if( window.localStorage.getItem('islogin') != 'true' ){
@@ -1566,13 +1472,6 @@ $scope.awardgigfunction=function(data){
       //$state.go('app.listgig');
       //$state.go('app.assignment.assignbid');
     };
-
-
-
-
-
-
-
 
 
 })
