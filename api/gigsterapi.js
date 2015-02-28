@@ -143,23 +143,24 @@ exports.verifyacc=function(req,res){
     var vcode = req.body.verifycode; 
       console.log(umail);
       console.log(vcode);
-    userCRUD.load({usermail :umail}, function (err, val) {  
+     userCRUD.load({usermail :umail, verifycode : vcode }, function (err, val) {  
+      console.log("In response..................");
+      console.log(val);
       var resdata={
         record:'',
         status:false,
         message :'err'
       };
-
-      console.log("Response---------------------------");
-      console.log(val);
+      console.log(val)
       if(val.length>0){
+              console.log("Found---------------------------------");
         resdata.record=val;
         resdata.status=true;
-        console.log("Okkkkkkkkkkkkkkkkkkk...................");
-        resdata.message='successfully In verifyacc ..';      
+        console.log("login");
+        resdata.message='successfully login welcom to ..';      
       }else{
         resdata.status=false;
-        resdata.message='Wrong Email or verifycode';
+        resdata.message='Wrong user name or password';
       }
         
       res.jsonp(resdata);
