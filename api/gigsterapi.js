@@ -96,12 +96,7 @@ exports.app = function(req ,res){
   });
 };
 
-
-
-
-
 exports.signup=function(req,res){
-
     var password=md5(req.body.password); 
     console.log(req.body);
     console.log(password);
@@ -113,12 +108,11 @@ exports.signup=function(req,res){
                message :'Ooops! User Already Exists..'
                };
                 res.jsonp(resdata);
-
         }else{
                 console.log("verifycode----");
                 var verifycode = Math.floor((Math.random() * 10000000000000000) + 1);
                 console.log(verifycode);
-                userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username , 'profileimage':req.body.profileimage,'verifycode':verifycode }, function (err, vals){
+                userCRUD.create({'usermail': req.body.gigid, 'userpass':password, 'username':req.body.username , 'profileimage':req.body.profileimage,'verifycode':verifycode,'isactive':'0' }, function (err, vals){
                 console.log(vals);
                   if(parseInt(vals.affectedRows)>0){
                     var mailmatter = "<table align='center' style='background:#efefef;' cellspacing='30'><tbody><tr><td align='center'><img src='http://gigstergo.com/images/mail-logo.png'/></td></tr><tr><td align='center'><table cellspacing='15' ><tbody align='center'><tr><td><h1>You are one moment away...</h1></td></tr><tr><td><h3 style='margin-bottom: -5px;'>"+req.body.gigid+"</h3></td></tr><tr><td>Enter this code in app to varify your account </td></tr><tr><td>"+verifycode+"</td></tr>  </tbody></table></td></tr></tbody></table>";
@@ -128,29 +122,38 @@ exports.signup=function(req,res){
                                     message :'Yipeeee! Registered successfully!!!!'
                               };
                               res.jsonp(resdata);
-
                 }else{
                 resdata={
                    status: false,
                    message :'Ooops! Error Occured...'
                  };
                  res.jsonp(resdata);
-
-                }
-              
+                }              
               });
-
-        }
-
-    
-    
-   
+        }           
   });
-
-
 };
 
+//for verify account api starts here
+exports.verifyacc=function(req,res){
+   console.log("In verifyacc API now---------------") ;
+    console.log(req.body);
+   
+    var resdata={};        
+   userCRUD.load({usermail :req.body.usermail }, function (err, val) {  
+     if(val.length>0){
+             resdata={
+               status: false,
+               message :'Ooops! User Already Exists..'
+               };
+                res.jsonp(resdata);
+        }else{
+                
+        }           
+  });
+};
 
+//for verify account api end here
 
 
 exports.bidongig=function(req,res){

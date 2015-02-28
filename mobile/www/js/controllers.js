@@ -717,7 +717,38 @@ $ionicModal.fromTemplateUrl('templates/forgotpass.html', {
     };
      
   };
+//for verify A/c start
+$ionicModal.fromTemplateUrl('templates/verifyacc.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal3 = modal;
+  });
+ 
+// Triggered in the login modal to close it
+  $scope.closeverifyaccmodal = function() {
+    $scope.modal3.hide();
+  };
 
+  // Open the login modal
+  $scope.verifyaccwindow = function(data) {
+     
+    $scope.modal3.show();
+  };
+ // Perform the login action when the user submits the login form
+
+
+  $scope.doverifyacc = function(formstatus,user){
+    if (formstatus==true) {
+      console.log("Hiiii there");
+      console.log(user);
+           $http.post(baseURL + 'verifyacc', user).success(function(res){
+
+        }).error(function(res){
+      alert(res);
+    });
+       }  
+  };
+//for verify A/c end
 
   $scope.dosignup = function(formstatus,user) {
 

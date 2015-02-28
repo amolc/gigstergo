@@ -7,18 +7,21 @@
   </ion-header-bar>
   <ion-content>
 
- <form name="forgotpassform" id="mail-menu" ng-submit="doforgotpass(forgotpassform.$valid,user)">
+ <form name="forgotpassform" id="mail-menu" ng-submit="doverifyacc(forgotpassform.$valid,user)">
         
 
 
 
         <div id="login1-div">
         <!-- <label for="email">Email</label> -->
-        <p id="or-name">Submit your email address, and we'll send you an email that helps you to create a new password.</p>
+        <p id="or-name">Submit your email address and verifycode sent to your Email.</p>
         
-        <input id="email" class="email-inpute" placeholder="Email" name="email" type="email" ng-model="user.gigid" required/>
-        <span class="error" ng-show="forgotpassform.email.$error.required && forgotpassform.email.$dirty" >required</span>
-        <span class="error" ng-show="forgotpassform.email.$error.email">Invalid email</span>
+        <input id="email" class="email-inpute" placeholder="Email" name="useremail" type="email" ng-model="user.useremail" required/>
+        <span class="error" ng-show="forgotpassform.useremail.$error.required && forgotpassform.useremail.$dirty" >required</span>
+        <span class="error" ng-show="forgotpassform.useremail.$error.email">Invalid email</span>
+
+        <input id="email" class="email-inpute" placeholder="Verify Code" name="verifycode" type="number" ng-model="user.verifycode" required/>
+        <span class="error" ng-show="forgotpassform.verifycode.$error.number">Invalid Code</span>
        <!--  <label for="password">Password</label> -->
         
         <div id="errmsg"></div>

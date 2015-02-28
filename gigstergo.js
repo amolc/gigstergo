@@ -61,7 +61,7 @@ app.post('/api/updateabout',assignments.updateabout);
 app.post('/api/saveprofile',assignments.saveprofile);
 app.post('/api/sendfeedbackfrmbidder',assignments.sendfeedbackfrmbidder);
 app.post('/api/assignbidscompleted',assignments.assignbidscompleted);
-
+app.post('/api/verifyacc',assignments.verifyacc);
 
 
 
