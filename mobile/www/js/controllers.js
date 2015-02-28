@@ -17,42 +17,35 @@
    
    $scope.record=JSON.parse(userrecord);
 
-   //OpenFB.get('/me').success(function (user) { $scope.user = user; });
- //  $scope.imgpath="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+$scope.record.profileimage+"&width=40&height=40&cropratio=1:1";
-//console.log(record);
-//$scope.user=userdetailsforprofile.usermail;
+           //OpenFB.get('/me').success(function (user) { $scope.user = user; });
+         //  $scope.imgpath="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+$scope.record.profileimage+"&width=40&height=40&cropratio=1:1";
+        //console.log(record);
+        //$scope.user=userdetailsforprofile.usermail;
 
-//console.log(user);
+        //console.log(user);
+          // Form data for the login modal
+         /* $scope.loginData = {};
+            // Create the login modal that we will use lat
+          // Triggered in the login modal to close it
+          $scope.closeLogin = function() {
+            $scope.modal.hide();
+          };
 
+          // Open the login modal
+          $scope.login = function() {
+            $scope.modal.show();
+          };
 
+          // Perform the login action when the user submits the login form
+          $scope.doLogin = function() {
+            console.log('Doing login', $scope.loginData);
 
-
-
-
-
-  // Form data for the login modal
- /* $scope.loginData = {};
-    // Create the login modal that we will use lat
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };*/
+            // Simulate a login delay. Remove this and replace with your login
+            // code if using a login system
+            $timeout(function() {
+              $scope.closeLogin();
+            }, 1000);
+          };*/
 
 
 
