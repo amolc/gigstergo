@@ -1,6 +1,6 @@
 <ion-modal-view> 
   <ion-header-bar id="bid-on-back">
-    <h3 class="title" id="bid-on-gig-name">Bid Details</h3>
+    <h3 class="title" id="bid-on-gig-name">Bidaa Details</h3>
     <div class="buttons">
       <button class="button button-clear" ng-click="closebiddetail()"><i class="icon ion-close-round" id="close-btn"></i></button>
     </div>
@@ -30,21 +30,21 @@
             <h2>{{biddetailsrecord.prjTitle}}</h2>
             <h4>Posted on:{{biddetailsrecord.postedon|date:'dd/MM/yyyy'}}</h4>
             <p style="white-space: pre-line;">{{biddetailsrecord.prjdesc}}</p> 
-             <h4>budget : ${{biddetailsrecord.prjdesc}}</h4> 
+             <h4>budget : ${{biddetailsrecord.proposedbudget}}</h4> 
            
       </a>
   </div>
  </div> 
 </div>
 <div class="row gig-row">
-<div class="col">
+<div class="col list1">
   <h4>Discription</h4>  
   <p style="white-space: pre-line;">{{biddetailsrecord.prjdesc}}</p> 
 </div>  
 </div>
 
 <div class="row">
-  <div class="col">
+  <div class="col" style="text-align: center;">
   <h3>Bids</h3>
   </div>
 </div>
