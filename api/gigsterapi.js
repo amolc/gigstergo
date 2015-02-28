@@ -136,26 +136,15 @@ exports.signup=function(req,res){
 
 //for verify account api starts here
 exports.verifyacc=function(req,res){
-   console.log("In verifyacc API now---------------") ;
-    console.log(req.body.useremail);
-    console.log(req.body.verifycode);
-   
-  
-     userCRUD.load({usermail :req.body.useremail, verifycode : req.body.verifycode }, function (err, val) {  
-      console.log("In response..................");
-      console.log(val);
-      console.log(err);
-      
+     userCRUD.load({usermail :req.body.useremail, verifycode : req.body.verifycode }, function (err, val) {    
       var resdata={
         record:'',
         status:false,
         message :'err'
       };
-      
       if(val.length>0){
             userCRUD.update({'usermail' :req.body.useremail},{'isactive' :'1'}, function (err, val1) {   
                 if(parseInt(val1.affectedRows)>0){
-                  console.log("Hiiiiiiii.................. Updated");
                     var resdata={
                       status:true,
                       massage:'updated  successfuly'
@@ -164,15 +153,12 @@ exports.verifyacc=function(req,res){
                         var resdata={
                       status:false,
                       massage:'not updated'
-                       };
-                        
+                       }; 
                       }
                    // res.jsonp(resdata);
                 }); 
-          console.log("Found---------------------------------");
         resdata.record=val;
         resdata.status=true;
-        console.log("login");
         resdata.message='successfully Verified ..';      
       }else{
         resdata.status=false;

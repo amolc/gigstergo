@@ -730,8 +730,7 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
   };
 
   // Open the login modal
-  $scope.verifyaccwindow = function(data) {
-     
+  $scope.verifyaccwindow = function(data) { 
     $scope.modal3.show();
   };
  // Perform the login action when the user submits the login form
@@ -739,10 +738,7 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
 
   $scope.doverifyacc = function(formstatus,user){
     if (formstatus==true) {
-      console.log("Hiiii there");
-      console.log(user);
            $http.post(baseURL + 'verifyacc', user).success(function(res){
-
         }).error(function(res){
       alert(res);
     });
