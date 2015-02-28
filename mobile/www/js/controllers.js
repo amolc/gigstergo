@@ -1378,7 +1378,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 
 
 
-.controller('biddingcontroller', function($scope,$http,$state, $ionicModal, $filter){
+.controller('biddingcontroller', function($scope,$http,$state, $ionicModal,$stateParams, $filter){
        if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        }
@@ -1396,7 +1396,8 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
         if (res.status == 'false') {
           alert(res.message);
         } else {
-          console.log("No data");
+          console.log("No dataaaaaaaaaaaaaa-----------------");
+          console.log($scope.bidding);
         //$scope.states=res;
           
         }
@@ -1406,7 +1407,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
       });
    
 
-   
+   console.log("in mygig bidding"); 
 
  // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/gigdetailsinmygig.html', {
@@ -1417,6 +1418,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
   // Triggered in the login modal to close it
   $scope.closegigdetailmodel = function() {
     $scope.modal3.hide();
+    console.log("modal3 on hide");
   };
   $scope.gigdetailsmodelinmygig = function(data,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
@@ -1426,9 +1428,14 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
      $scope.progressmygigdetails=data;
      $scope.biddersinmygig={};
 
+
  var reqdata={
       prjid: $scope.progressmygigdetails.prjId
   };
+  console.log("request projectid");
+  console.log(reqdata);
+
+
 
 $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
         $scope.biddersinmygig = res;
@@ -1438,6 +1445,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
           alert(res.message);
         } else {
             $scope.bidders=res;
+
           console.log($scope.biddersinmygig);
         }
       
@@ -1501,6 +1509,69 @@ $scope.awardgigfunction=function(data){
         alert("Please check your internet connection or data source..");
       });
 };
+
+
+
+
+          $scope.closecancelgigmodel = function() {
+          $state.go('app.mygigs.bid');
+        };
+
+
+// Create the login modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/cancelgigmodel.html', {
+    scope: $scope,
+    animation : 'slide-in-right'
+  }).then(function(modal) {
+    $scope.modal2 = modal;
+  });
+  // Triggered in the login modal to close it
+  $scope.closecancelgigmodel = function() {
+    $scope.modal2.hide();
+  };
+  $scope.cancelgigmodel = function(prjId,index) {
+    if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('app.login')
+       }else{
+        $scope.cancelgigrecord=prjId;
+        $scope.cancelgigindex=index;
+        console.log("$scope.cancelgigrecord");
+        console.log($scope.cancelgigrecord);
+     }
+    $scope.modal2.show();
+  };
+  
+
+ $scope.cancelgig=function(prjId,index){
+  console.log("cancelgig fired");
+
+
+  
+
+   var reqdata={
+      prjid: $scope.cancelgigrecord.prjId
+  };
+        
+       console.log("this is project id ,,,,,,,,,,,,,,,,,,,");
+       console.log(reqdata);
+       $http.post(baseURL + 'cancelgig',reqdata).success(function(res) {
+        console.log(res);
+        //$scope.bidding[ $scope.cancelgigindex ].status= '5';
+         
+
+      }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+      //$state.go('app.mygigs.progress');
+      $scope.modal2.hide();
+      $state.go('app.mygigs.bid');
+      //$state.go('app.listgig');
+      //$state.go('app.assignment.assignbid');
+    };
+
+
+
+
 
 
 
