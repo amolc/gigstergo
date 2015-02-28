@@ -143,7 +143,7 @@ exports.verifyacc=function(req,res){
     var vcode = req.body.verifycode; 
       console.log(umail);
       console.log(vcode);
-     userCRUD.load({usermail :umail, verifycode : vcode }, function (err, val) {  
+     userCRUD.load({usermail :req.body.usermail, verifycode : req.body.verifycode }, function (err, val) {  
       console.log("In response..................");
       console.log(val);
       var resdata={
@@ -153,7 +153,7 @@ exports.verifyacc=function(req,res){
       };
       console.log(val)
       if(val.length>0){
-              console.log("Found---------------------------------");
+          console.log("Found---------------------------------");
         resdata.record=val;
         resdata.status=true;
         console.log("login");
