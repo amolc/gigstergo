@@ -585,7 +585,6 @@ $scope.sendfeedback=function(feedback){
       $scope.modal.show();
     };
    // Perform the login action when the user submits the login form
-   $scope.linprofile = {};
     $scope.user = {
 
     };
@@ -600,8 +599,6 @@ $scope.sendfeedback=function(feedback){
 
            } else {
                    console.log(res.record[0]);
-                   $scope.linprofile = res.record[0];
-                   console.log( 'Profile image'+$scope.linprofile.profileimage )
                     window.localStorage.setItem('islogin',true);
                     window.localStorage.setItem('profileimage',res.record[0].profileimage);
                     window.localStorage.setItem('username',res.record[0].username);
@@ -1461,7 +1458,7 @@ $scope.awardgigfunction=function(data){
         console.log(res);
         $scope.userprofiledata = res;
         $scope.userprofile = $scope.userprofiledata.profile[0];
-        console.log("For profile passssssss--------------------------------------------");
+        $scope.userprofile.profileimage = profileUrl + $scope.userprofile.profileimage;
         console.log($scope.userprofile);
         if (res.status == 'false') {
           alert(res.message);
