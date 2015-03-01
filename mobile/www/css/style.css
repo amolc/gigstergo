@@ -126,12 +126,7 @@ background-color:#ffcc00;
 
 }
 
-#loginlogo{
-text-align: left;
-max-width: 100%;
-height: auto;
-padding-top: 5px;
-}
+#loginlogo{text-align: left; max-width: 100%; height: auto; padding-top: 15px; }
 #loginlogo img{width: 120px;padding-left: 5px;}
 img{
 	max-width: 100%;
