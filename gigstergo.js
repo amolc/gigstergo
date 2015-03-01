@@ -29,6 +29,7 @@ app.all('*', function(req, res, next) {
  });  
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/mobile', express.static(__dirname + '/mobile/www'));
+app.use('/profile', express.static(__dirname + '/img'));
 
 app.get('/api/assignall', assignments.assignall);
 app.get('/api/getbid', assignments.getbid);

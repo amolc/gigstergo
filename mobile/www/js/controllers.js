@@ -1,18 +1,18 @@
-  angular.module('starter.controllers', [])
+angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, $http, $stateParams, $ionicLoading, OpenFB) {
   $scope.user=window.localStorage.getItem('username');
   $scope.loginstatus = window.localStorage.getItem('islogin');
   $scope.myvar = true;
+
   $scope.setFocus =  function(){
-  $scope.myvar= !$scope.myvar;
-    
-};
+    $scope.myvar= !$scope.myvar;
+  };
 
-  if( $scope.loginstatus ){
-  $scope.loginstatus = false;
-}
-
-  console.log( 'lofgin status '+window.localStorage.getItem('islogin') );  
+    if( $scope.loginstatus ){
+      $scope.loginstatus = false;
+    }
+  
+  console.log( 'lofgin status '+window.localStorage.getItem('userdetails') );  
    var userrecord=window.localStorage.getItem('userdetails'); 
    
    $scope.record=JSON.parse(userrecord);
@@ -50,7 +50,7 @@
 
 
 
-var userididid=parseInt(window.localStorage.getItem('userid1'));
+    var userididid = parseInt(window.localStorage.getItem('userid1'));
 
     console.log("Object is "+userididid);
 
@@ -64,7 +64,7 @@ var userididid=parseInt(window.localStorage.getItem('userid1'));
 })
 
 .controller('ProgressCtrl', function($scope,$http,$stateParams, $state, $ionicModal) {
-if( window.localStorage.getItem('islogin') != 'true' ){
+  if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('app.login')
        }
   $scope.progress= {};
@@ -647,7 +647,7 @@ $scope.sendfeedback=function(feedback){
            } else {
                    console.log(res.record[0]);
                    $scope.linprofile = res.record[0];
-                   console.log( $scope.linprofile.profileimage )
+                   console.log( 'Profile image'+$scope.linprofile.profileimage )
                     window.localStorage.setItem('islogin',true);
                     window.localStorage.setItem('userdetails',JSON.stringify(res.record[0]));
                     window.localStorage.setItem('username',res.record[0].usermail);
