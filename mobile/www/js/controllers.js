@@ -13,8 +13,8 @@ angular.module('starter.controllers', [])
     }
   
   console.log( 'user details status '+window.localStorage.getItem('userdetails') );  
-
-   var userrecord=window.localStorage.getItem('userdetails'); 
+  $scope.profileimage = 'ashagsajgsjagsjasg';
+  var userrecord=window.localStorage.getItem('userdetails'); 
    
    $scope.record=JSON.parse(userrecord);
 
