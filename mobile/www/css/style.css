@@ -298,7 +298,7 @@ padding: 5px;}
 img.list-gig-img{ position: relative; max-width: 50px; width: 50px; height: 50px; border-radius: 50px;}
 
 /*Menus*/
-.menu-icon:before{font-size: 22px;border: 2px solid; border-radius: 50px; height: 40px; width: 40px; text-align: center; padding: 5px;}
+.menu-icon:before{font-size: 22px;border: 2px solid; border-radius: 50px; height:35px; width:35px; text-align: center; padding: 5px;}
 .menu-space{left: 70px; top: 16px; position: absolute; font-family: 'source_sans_prosemibold'; font-size: 16px;}
 .menu{	background: #ffcc00; }
 #gig-menus .item-content,#gig-menus .item{background: transparent; border: none; color: #fff; padding:4px; }

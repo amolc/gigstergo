@@ -27,18 +27,18 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
    
-.state('secure', {
-      url: "/secure",
-      templateUrl: "templates/secure.html",
-
-  })
+.state('applogin', {
+      url: "/applogin",
+      templateUrl: "templates/login.html",
+      controller:'mainloginctrl'
+})
 .state('app', {
       url: "/app",
       abstract: true,
       templateUrl: "templates/menu.html",
       controller: 'AppCtrl'
   })
-.state('app.login', {
+/*.state('applogin', {
       url: "/login",
       views: {
         'menuContent' :{
@@ -47,6 +47,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
         }
       }
   })
+*/
 .state('app.emailogin', {
         url: "/emailogin",
         views: {
@@ -341,7 +342,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
         })
 
 
-        .state('app.messages', {
+.state('app.messages', {
       url: "/messages",
       views: {
         'menuContent' :{
@@ -349,21 +350,20 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
           
         }
       }
-    });
+});
 
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('app/login');
+  $urlRouterProvider.otherwise('applogin');
 
 })
 .directive('logout', function( $state, $http ){
     return {
       restrict:'E',
       replace :'true',
-      template : '<a class="item-content" href="#"><i class="icon  ion-log-out menu-icon"></i><span class="menu-space">LOGOUT</span></a>',
+      template : '<span class="menu-space">LOGOUT</span>',
       compile : function(element, attributes) {
-            element.attr("id", "ass_logout");
             return {
                pre: function(scope, element, attributes, controller, transcludeFn){
                   scope.association_details = JSON.parse( window.localStorage.getItem("association_details") );                  
@@ -381,36 +381,12 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
                       $http.post(baseURL + 'HousingAppLogout', login ).success(function(res) {
                           // do nothing
                       });*/
-                      $state.go('app.login');
+                      $state.go('applogin');
                   })                  
                }
            }
         }
     }
-})
-.directive('logout2', function( $state ,  OpenFB){
-    
-    return {
-      restrict:'E',
-      template : '<span class="menu-space">LOGOUT</span>',
-      compile : function(element, attributes) {
-      element.attr("id", "ass_logout");
-    return {
-      pre: function(scope, element, attributes, controller, transcludeFn){
-      scope.association_details = JSON.parse( window.localStorage.getItem("association_details") );                  
-      },
-      post:function( scope, elem, attrs ){
-      elem.bind('click', function (){
-      window.localStorage.clear();
-      //window.localStorage.setItem('islogin',true);
-      $state.go('app.login');
-    })                  
-               }
-           }
-        }
-    }
-
-
 });
 
 exampleApp.controller("LoginController", function($scope, $http,$cordovaOauth, $localStorage, $state , $location , $window ) {

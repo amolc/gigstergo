@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
 
 .controller('ProgressCtrl', function($scope,$http,$stateParams, $state, $ionicModal) {
   if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }
   $scope.progress= {};
   var userididid=parseInt(window.localStorage.getItem('userid1'));
@@ -58,7 +58,7 @@ angular.module('starter.controllers', [])
 
         $scope.awardmygig = function(data, index){
             if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
 
             $scope.index=index;
@@ -102,7 +102,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
   };
   $scope.msgmodel = function(sender,reciever,projectid) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
                    // $scope.recordinmygawarded=data;
                   var stampo=event.timeStamp;
@@ -175,7 +175,7 @@ $scope.sendmsg=function(data){
   };
   $scope.statusreportmodel = function(data,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
         $scope.reportdata=data;
         $scope.indexinreport=index;
@@ -225,7 +225,7 @@ $scope.sendreport=function(record){
   };
   $scope.feedbackmodel = function(data,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
        $scope.feedbackdata=data;
         $scope.feedbackindex=index;
@@ -265,7 +265,7 @@ $scope.sendfeedback=function(feedback){
 .controller('ListgCtrl', function($scope,$http,$stateParams,$state,$ionicModal , $ionicLoading , OpenFB) {
   
   if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
     }   
 
      var userididid=window.localStorage.getItem('userid1');
@@ -324,7 +324,7 @@ $scope.sendfeedback=function(feedback){
   // Open the login modal
   $scope.bidongigform = function(data,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-            $state.go('app.login')
+            $state.go('applogin')
     } else {
       $scope.recordindex=index;
       var userididid=window.localStorage.getItem('userid1');
@@ -373,7 +373,7 @@ $scope.sendfeedback=function(feedback){
   };
   $scope.sentbid = function(data) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
         
       $scope.bidsentrecord=data;
@@ -397,7 +397,7 @@ $scope.sendfeedback=function(feedback){
   
   $scope.gotogigdetails = function( projectid ) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
     } else {
 
         $state.go('app.gigdetails', { 'gigid' : projectid } );
@@ -438,7 +438,7 @@ $scope.sendfeedback=function(feedback){
 
 
   if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
     }   else {
 
 
@@ -503,7 +503,7 @@ $scope.sendfeedback=function(feedback){
   };
   $scope.cancelgigmodel = function(projectid,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
         var reqdata={
             prjid: $stateParams.gigid
@@ -548,7 +548,7 @@ $scope.sendfeedback=function(feedback){
 //new controllers
 .controller('homeCtrl', function($scope,$http,$state){
        if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }
        
 
@@ -695,7 +695,7 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
           alert("signUp successful");
           if(res.status==true){
              $scope.modal1.hide();
-             $state.go('app.login');
+             $state.go('applogin');
           }else{
             
             var div = document.getElementById('errmsg');
@@ -703,7 +703,7 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
             div.innerHTML = res.message;
           }
          
-          //$state.go('app.login');
+          //$state.go('applogin');
         }).error(function(res){
       alert(res);
     });
@@ -773,19 +773,19 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
 
 .controller('mygigsctrl', function($scope,$http,$state){
        if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }
 })
 
 .controller('mainassognmentctrl', function($scope,$http,$state){
        if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }
 })
 
 .controller('assignmentCtrl', function($scope,$http,$state, $ionicModal){
        if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }
 $scope.biddingawarded= {};
  var userididid=window.localStorage.getItem('userid1');
@@ -825,7 +825,7 @@ $scope.biddingawarded= {};
   };
   $scope.msgmodel = function(sender,reciever,projectid) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
                    // $scope.recordinmygawarded=data;
                   var stampo=event.timeStamp;
@@ -899,7 +899,7 @@ $scope.sendmsg=function(data){
   };
   $scope.statusreportmodel = function(data,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
         $scope.reportdata=data;
         $scope.indexinreport=index;
@@ -950,7 +950,7 @@ $scope.sendreport=function(record){
   };
   $scope.feedbackmodel = function(data,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
        $scope.feedbackdata=data;
         $scope.feedbackindex=index;
@@ -998,7 +998,7 @@ $scope.sendfeedback=function(feedback){
   };
   $scope.showbiddetail = function(data) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
       $scope.biddetailsrecord=data;
 
@@ -1032,7 +1032,7 @@ $scope.sendfeedback=function(feedback){
 
 .controller('assignmentbidcontroller', function($scope,$http,$state, $ionicModal){
        if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }
 $scope.progress= {};
   var userididid=window.localStorage.getItem('userid1');
@@ -1073,7 +1073,7 @@ $scope.progress= {};
   };
   $scope.msgmodel = function(sender,reciever,projectid) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
                    // $scope.recordinmygawarded=data;
                   var stampo=event.timeStamp;
@@ -1147,7 +1147,7 @@ $scope.sendmsg=function(data){
   };
   $scope.showbiddetail = function(data) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
       $scope.biddetailsrecord=data;
       console.log("$scope.biddetailsrecord");
@@ -1182,7 +1182,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 
 .controller('assignmentbidcompleted', function($scope,$http,$state){
        if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }
         $scope.biddingbidscomplted= {};
   var userididid=window.localStorage.getItem('userid1');
@@ -1209,7 +1209,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
 
 .controller('biddingcontroller', function($scope,$http,$state, $ionicModal,$stateParams, $filter){
        if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }
        $scope.progress= {};
   var userididid=window.localStorage.getItem('userid1');
@@ -1251,7 +1251,7 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
   };
   $scope.gigdetailsmodelinmygig = function(data,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
       $scope.index=index;
      $scope.progressmygigdetails=data;
@@ -1360,7 +1360,7 @@ $scope.awardgigfunction=function(data){
   };
   $scope.cancelgigmodel = function(prjId,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
         $scope.cancelgigrecord=prjId;
         $scope.cancelgigindex=index;
@@ -1403,7 +1403,7 @@ $scope.awardgigfunction=function(data){
 
 .controller('completedcontroller', function($scope,$http,$state){
        if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }
 
        $scope.completed= {};
@@ -1434,7 +1434,7 @@ $scope.awardgigfunction=function(data){
 
 .controller('profilecontroller', function($scope, $http, $state, $ionicModal ,  OpenFB){
        if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }
        /* OpenFB.get('/me').success(function (user) {
                   $scope.user = user;
@@ -1478,7 +1478,7 @@ $scope.awardgigfunction=function(data){
 
     $scope.showeditprofilemodel = function(data) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login');
+        $state.go('applogin');
        }else{
               $scope.editprofilerecord={
                   prfId:data.prfId,
@@ -1570,7 +1570,7 @@ $scope.awardgigfunction=function(data){
       // Open the login modal
       $scope.showchangepassword = function( userprofile ) {
         if( window.localStorage.getItem('islogin') != 'true' ){
-            $state.go('app.login');
+            $state.go('applogin');
            }else{
               console.log( userprofile );
                   $scope.editprofilerecord={
@@ -1595,7 +1595,7 @@ $scope.awardgigfunction=function(data){
 
 .controller('postgigCtrl', function($scope,$http,$state,$filter){
  if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
     }
   var userididid=parseInt(window.localStorage.getItem('userid1'));
   console.log(userididid);
@@ -1654,7 +1654,7 @@ $scope.awardgigfunction=function(data){
 
 .controller('inboxcontroller', function($scope,$http,$state,$filter, $ionicModal){
  if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
     }
      var userididid=window.localStorage.getItem('userid1');
   console.log(userididid);
@@ -1684,7 +1684,7 @@ $scope.awardgigfunction=function(data){
   };
   $scope.msgmodel = function(sender,reciever,projectid) {
     if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('app.login')
+        $state.go('applogin')
        }else{
                    // $scope.recordinmygawarded=data;
                   var stampo=event.timeStamp;
