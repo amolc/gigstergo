@@ -356,11 +356,39 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('app/login');
 
-}).directive('logout', function( $state ,  OpenFB){
-    
-if( window.localStorage.getItem('islogin') == 'true' ){
-        
-       }
+})
+.directive('logout', function( $state, $http ){
+    return {
+      restrict:'E',
+      replace :'true',
+      template : '<a class="item-content" href="#"><i class="icon  ion-log-out menu-icon"></i><span class="menu-space">LOGOUT</span></a>',
+      compile : function(element, attributes) {
+            element.attr("id", "ass_logout");
+            return {
+               pre: function(scope, element, attributes, controller, transcludeFn){
+                  scope.association_details = JSON.parse( window.localStorage.getItem("association_details") );                  
+               },
+               post:function( scope, elem, attrs ){
+                  elem.bind('click', function (){
+                    window.localStorage.setItem( 'profileimage', '' );
+                    window.localStorage.setItem( 'username', '' );
+                    window.localStorage.setItem( 'useremail', '' );
+                    window.localStorage.setItem( 'userid1', '' );
+                    window.localStorage.setItem( 'islogin', false );
+                      /*var login = {
+                        device : device.uuid
+                      }
+                      $http.post(baseURL + 'HousingAppLogout', login ).success(function(res) {
+                          // do nothing
+                      });*/
+                      $state.go('app.login');
+                  })                  
+               }
+           }
+        }
+    }
+})
+.directive('logout2', function( $state ,  OpenFB){
     
     return {
       restrict:'E',

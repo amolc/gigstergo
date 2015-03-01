@@ -490,14 +490,14 @@ $scope.sendfeedback=function(feedback){
         };
 
 
-// Create the login modal that we will use later
+// Create the cancel gig modal that we will use later
   $ionicModal.fromTemplateUrl('templates/cancelgigmodel.html', {
     scope: $scope,
     animation : 'slide-in-right'
   }).then(function(modal) {
     $scope.modal2 = modal;
   });
-  // Triggered in the login modal to close it
+  
   $scope.closecancelgigmodel = function() {
     $scope.modal2.hide();
   };
