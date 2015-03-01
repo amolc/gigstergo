@@ -12,7 +12,8 @@ angular.module('starter.controllers', [])
       $scope.loginstatus = false;
     }
   
-  console.log( 'lofgin status '+window.localStorage.getItem('userdetails') );  
+  console.log( 'user details status '+window.localStorage.getItem('userdetails') );  
+
    var userrecord=window.localStorage.getItem('userdetails'); 
    
    $scope.record=JSON.parse(userrecord);
