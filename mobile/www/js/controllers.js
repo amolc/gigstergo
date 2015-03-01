@@ -303,15 +303,7 @@ $scope.sendfeedback=function(feedback){
               return days | 0;
     }
           
-   $scope.getimgurl=function(data){
-       
-    var record=data;
-        var url="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
-        //var url="img/"+record.profileimage+"&width=40&height=40&cropratio=1:1";
-     return url;
-   };
-
-
+   
  // Form data for the login modal  kv
     $scope.gigdata = {};
 
