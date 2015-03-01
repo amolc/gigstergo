@@ -6,8 +6,9 @@
               
               <div class="col img-col" ng-click="gotogigdetails( list.prjId )">
                <!-- <div class="col col-60 img-col" href="#/app/gigdetails" ng-controller="gigdetailsCtrl">-->
-                
-               <h4>{{list.prjTitle}}</h4><p>Budget : ${{list.proposedbudget}}</p>
+               <div><h3 style="float:left;">G{{list.prjId}}</h3>
+               <h3 style="float:right;margin:0px;">${{list.proposedbudget}}</h3></div>
+               <h4 style="clear:both;">{{list.prjTitle}}</h4>
                <p>{{list.prjdesc}}</p> 
                <!--h4>Posted On: {{list.postedon|date:'dd/MM/yyyy'}}</h4 -->
                 <!-- <h2><a >{{list.username}}</a></h2>
@@ -23,43 +24,29 @@
 
                            
           </div> 
-           <div class="row"   style="border-bottom: 1px solid #efefef;"> 
-            <div class="col col-20 img-col">
-                  
-                 <!--  <img ng-src="https://graph.facebook.com/{{ user.id }}/picture?" />  -->
-                   <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img"> 
-                              
-
-              </div>
-               <div class="col col-50 img-col">
-                  
-                   <p>{{list.username}}</p>
-                   <p>{{list.gigLocation}}</p>
-                    
-              </div>
-              <div class="col col-20 img-col">
-                 
-                   <div ng-if="list.userId != currentuser ">
-                          <button ng-if="list.userId != currentuser" class="new-bid-button1" ng-click="bidongigform(list,$index)">BID</button>
-                          <button ng-if="list.bidfrom == currentuser" class="new-bid-button1" ng-click="sentbid(list)">BID SENT</button>
-                          </div>
-
-           
-              </div>
-           
-           
-           </div>
-          <div class="row gig-row">
-           
-             
-              <!--div class="col col-50">
-               <h4>Proposed budget: {{list.proposedbudget}}</h4>  
-               <h4 id="Posted_date">Posted: {{list.postedon|date:'dd/MM/yyyy'}}</h4>
-                <h4 id="map"> {{list.gigLocation}} </h4>
-              </div -->
-                
-          </div>
-    </div>
+      <div class="row"   style="border-bottom: 1px solid #efefef;"> 
+        <div class="col col-20 img-col">
+          <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
+        </div>
+        <div class="col col-50 img-col">
+             <p>{{list.username}}</p>
+             <p>{{list.gigLocation}}</p>                    
+        </div>
+        <div class="col col-20 img-col">
+            <div ng-if="list.userId != currentuser ">
+              <button ng-if="list.userId != currentuser" class="new-bid-button1" ng-click="bidongigform(list,$index)">BID</button>
+              <button ng-if="list.bidfrom == currentuser" class="new-bid-button1" ng-click="sentbid(list)">BID SENT</button>
+            </div>
+        </div>
+      </div>
+      <div class="row gig-row">
+        <div class="col">
+         <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
+         <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
+        </div>
+      </div>
+      </div>
+      
     <ion-infinite-scroll on-infinite="loadMoreGigs()" distance="1%"></ion-infinite-scroll>
 
   </ion-content>
