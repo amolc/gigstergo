@@ -10,57 +10,10 @@ angular.module('starter.controllers', [])
 
     if( $scope.loginstatus ){
       $scope.loginstatus = false;
-    }
-  
-  console.log( 'user details status '+window.localStorage.getItem('userdetails') );  
-  $scope.profileimage = 'ashagsajgsjagsjasg';
-  var userrecord=window.localStorage.getItem('userdetails'); 
-   
-   $scope.record=JSON.parse(userrecord);
+      $scope.username = window.localStorage.getItem('username');
+      $scope.profileimage = profileUrl+window.localStorage.getItem('profileimage');
 
-           //OpenFB.get('/me').success(function (user) { $scope.user = user; });
-         //  $scope.imgpath="http://www.gigstergo.com/image.php?image=/uploads/profileimage/"+$scope.record.profileimage+"&width=40&height=40&cropratio=1:1";
-        //console.log(record);
-        //$scope.user=userdetailsforprofile.usermail;
-
-        //console.log(user);
-          // Form data for the login modal
-         /* $scope.loginData = {};
-            // Create the login modal that we will use lat
-          // Triggered in the login modal to close it
-          $scope.closeLogin = function() {
-            $scope.modal.hide();
-          };
-
-          // Open the login modal
-          $scope.login = function() {
-            $scope.modal.show();
-          };
-
-          // Perform the login action when the user submits the login form
-          $scope.doLogin = function() {
-            console.log('Doing login', $scope.loginData);
-
-            // Simulate a login delay. Remove this and replace with your login
-            // code if using a login system
-            $timeout(function() {
-              $scope.closeLogin();
-            }, 1000);
-          };*/
-
-
-
-
-    var userididid = parseInt(window.localStorage.getItem('userid1'));
-
-    console.log("Object is "+userididid);
-
-
-    var reqdata={
-           userid:userididid
-      };
-      $scope.listgigster= {};
-
+  }
       
 })
 
@@ -650,8 +603,9 @@ $scope.sendfeedback=function(feedback){
                    $scope.linprofile = res.record[0];
                    console.log( 'Profile image'+$scope.linprofile.profileimage )
                     window.localStorage.setItem('islogin',true);
-                    window.localStorage.setItem('userdetails',JSON.stringify(res.record[0]));
-                    window.localStorage.setItem('username',res.record[0].usermail);
+                    window.localStorage.setItem('profileimage',res.record[0].profileimage);
+                    window.localStorage.setItem('username',res.record[0].username);
+                    window.localStorage.setItem('useremail',res.record[0].usermail);
                     window.localStorage.setItem('userid1',res.record[0].userId);
                     $scope.modal.hide();
                    $state.go("app.profile");
@@ -802,7 +756,7 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
                    $scope.linprofile = res.record[0];
                     console.log( $scope.linprofile.profileimage )
                     window.localStorage.setItem('islogin',true);
-                    window.localStorage.setItem('userdetails',JSON.stringify(res.record[0]));
+                    //window.localStorage.setItem('userdetails',JSON.stringify(res.record[0]));
                     window.localStorage.setItem('username',res.record[0].usermail);
                     window.localStorage.setItem('userid1',res.record[0].userId);
                     $scope.modal.hide();
