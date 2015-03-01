@@ -286,12 +286,7 @@ height: 85px;
 border: 3px solid #fff;
 border-radius: 50%;}
 .item-content{background: red;}
-.menu-space{
-left: 70px;
-top: 27px;
-position: absolute;
-font-family: 'source_sans_prosemibold';
-font-size: 16px;}
+.menu-space{left: 70px; top: 20px; position: absolute; font-family: 'source_sans_prosemibold'; font-size: 16px;}
 .post-gig-btn{background-color: #FF7F00;color: #FFFFFF;border: 2px solid #FF7F00;font-family: 'source_sans_prosemibold';
 font-size: 18px;border-radius: 8px;}
 .tabs{background-color: #ECECEC;}
