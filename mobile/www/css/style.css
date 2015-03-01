@@ -291,7 +291,7 @@ height: 85px;
 border: 3px solid #fff;
 border-radius: 50%;}
 .item-content{background: red;}
-.menu-space{color: #fff;
+.menu-space{
 left: 70px;
 top: 27px;
 position: absolute;
@@ -317,11 +317,13 @@ img.list-gig-img{position: relative;
 max-width: 50px;
 height: auto;
 border-radius: 50px;}
-.menu{	background: url('../img/side-menu-bg.png') repeat 0 0 transparent;
-}
-#gig-menus .item-content,#gig-menus .item{background: transparent;
-border: none;}
-#gig-menus a.item-content:active{background: #fff;}
+
+/*Menus*/
+.menu{	background: #ffcc00; }
+#gig-menus .item-content,#gig-menus .item{background: transparent; border: none; color: #fff;}
+#gig-menus a.item-content:active ,
+#gig-menus a.item-content:active .menu-icon:before {  color: #5e350d;}
+
 
 #login_wraper{position: absolute;
 bottom: 10px; width: 100%}
