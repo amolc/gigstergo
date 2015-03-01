@@ -271,6 +271,7 @@ $scope.sendfeedback=function(feedback){
      var userididid=window.localStorage.getItem('userid1');
       $scope.currentuser= userididid;
 
+    $scope.profileUrl = profileUrl;
     $scope.myvar = false;
     $scope.setFocus =  function(){
       $scope.myvar= !$scope.myvar;
