@@ -126,8 +126,8 @@ background-color:#ffcc00;
 
 }
 
-#loginlogo{text-align: left; max-width: 100%; height: auto; padding-top: 10px; }
-.platform-ios #loginlogo{ padding-top: 20px;}
+#loginlogo{text-align: left; max-width: 100%; height: auto; padding-top: 50px; }
+.platform-ios #loginlogo{ padding-top: 60px;}
 
 #loginlogo img{width: 120px;padding-left: 5px;}
 img{
