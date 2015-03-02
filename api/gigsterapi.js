@@ -89,14 +89,14 @@ exports.listgig = function(req, res) {
           console.log(val2);
           if( val[project] )
             val[project].bidders = val2; 
-          
+
           if( project == val.length - 1 ){
             console.log("End REsult");
-            res.jsonp(val);
+            //res.jsonp(val);
 
           }
         });
-         
+          res.jsonp(val);         
     }
       
       
