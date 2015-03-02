@@ -80,7 +80,7 @@ exports.listgig = function(req, res) {
       for (var project in val) {
       var query1 = "select * FROM btr_bids,btr_users WHERE btr_bids.projectid=project.prjId and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
         db.query(query1, function(err, val2){
-          val.bidders = val2;   
+          val[project].bidders = val2;   
     });
     }
       console.log("listgig objects------------------------------------");
