@@ -78,6 +78,8 @@ exports.listgig = function(req, res) {
     console.log(query);
     db.query( query, function (err, val) {  
       res.jsonp(val);
+      console.log("listgig objects");
+      console.log(val);
     });
 };
 

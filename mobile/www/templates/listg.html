@@ -10,6 +10,7 @@
                <h3 style="float:right;margin:0px;">${{list.proposedbudget}}</h3></div>
                <h4 style="clear:both;">{{list.prjTitle}}</h4>
                <p>{{list.prjdesc}}</p> 
+               Projectid{{list.prjId}}
                <!--h4>Posted On: {{list.postedon|date:'dd/MM/yyyy'}}</h4 -->
                 <!-- <h2><a >{{list.username}}</a></h2>
                   <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
@@ -39,7 +40,7 @@
             </div>
         </div>
       </div>
-      <div class="row gig-row">
+      <div class="row gig-row" >
         <div class="col">
          <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
          <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">

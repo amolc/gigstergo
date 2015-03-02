@@ -289,6 +289,12 @@ $scope.sendfeedback=function(feedback){
             console.log($scope.listgigster);
             //$scope.$broadcast('scroll.infiniteScrollComplete');
         });
+      
+            
+
+
+
+
     }
 
     $scope.isRecentOrder = function(date) {
