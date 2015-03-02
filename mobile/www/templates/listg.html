@@ -35,18 +35,18 @@
             <div class="row gig-row">
             <div class="col">
             <p>{{list.prjdesc}}</p> 
-            <p>more</p> 
+            <p ng-click="gotogigdetails( list.prjId )" style="float: right;">more</p> 
             </div>
         </div>
 
     </div>
-    <div class="row"> 
+    <div class="row" style="margin: 2px;"> 
         
-          <div class="col col-70 img-col" style="border: 1px solid red;">
+          <div class="col col-70 img-col">
           <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
           <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">                    
           </div>
-          <div class="col col-20 img-col" style="border: 1px solid red;" >
+          <div class="col col-20 img-col">
             <div ng-if="list.userId != currentuser ">
               <button ng-if="list.userId != currentuser" class="new-bid-button1" ng-click="bidongigform(list,$index)">BID</button>
               <button ng-if="list.bidfrom == currentuser" class="new-bid-button1" ng-click="sentbid(list)">BID SENT</button>
