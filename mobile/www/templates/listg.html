@@ -10,14 +10,11 @@
         </div>
               <div class="col img-col" ng-click="gotogigdetails( list.prjId )">
                <!-- <div class="col col-60 img-col" href="#/app/gigdetails" ng-controller="gigdetailsCtrl">-->
-               <h4>{{list.prjTitle}}</h4>
-                <p>Lo{{list.gigLocation}}</p>
+                 <h4>{{list.prjTitle}}</h4>
+                 <p>{{list.gigLocation}}</p>
                  <!--<p style="float:right;margin:0px;">${{list.proposedbudget}}</p> -->
-              
-              
-               
-               <!--h4>Posted On: {{list.postedon|date:'dd/MM/yyyy'}}</h4 -->
-                <!-- <h2><a >{{list.username}}</a></h2>
+                 <!--h4>Posted On: {{list.postedon|date:'dd/MM/yyyy'}}</h4 -->
+                 <!-- <h2><a >{{list.username}}</a></h2>
                   <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
                   <p><i class="icon  ion-star" id="star-icon"></i>
                      <i class="icon  ion-star" id="star-icon"></i>
@@ -30,32 +27,29 @@
 
               <div class="col col-20 img-col" style="padding-top: 3pc;">
              <p style="float:right;margin:0px;">${{list.proposedbudget}}</p>
-        </div>
+              </div>
 
                            
-          </div> 
-
-          <div class="row gig-row">
-        <div class="col">
-        <p>{{list.prjdesc}}</p> 
-         </div>
-      </div>
-      <div class="row"   style="border-bottom: 1px solid #efefef;"> 
-        
-        <div class="col col-50 img-col">
-            <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
-         <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">                    
+        </div> 
+            <div class="row"   style="border-bottom: 1px solid #efefef;">
+            <div class="row gig-row">
+            <div class="col">
+            <p>{{list.prjdesc}}</p> 
+            </div>
         </div>
-        <div class="col col-20 img-col">
+
+    </div>
+    <div class="row"   style="border-bottom: 1px solid #efefef;"> 
+        
+          <div class="col col-80 img-col">
+          <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
+          <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">                    
+          </div>
+          <div class="col col-20 img-col">
             <div ng-if="list.userId != currentuser ">
               <button ng-if="list.userId != currentuser" class="new-bid-button1" ng-click="bidongigform(list,$index)">BID</button>
               <button ng-if="list.bidfrom == currentuser" class="new-bid-button1" ng-click="sentbid(list)">BID SENT</button>
             </div>
-        </div>
-      </div>
-      <div class="row gig-row">
-        <div class="col">
-         
         </div>
       </div>
       </div>
