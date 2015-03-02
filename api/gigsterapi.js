@@ -90,6 +90,7 @@ exports.listgig = function(req, res) {
           val[project].bidders = val2; 
           
         });
+    val[project].amol = 'aasasass'; 
     }
       console.log("listgig objects------------------------------------");
       console.log(val);
