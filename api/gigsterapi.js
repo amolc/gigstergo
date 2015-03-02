@@ -82,11 +82,11 @@ exports.listgig = function(req, res) {
         console.log(project);
         console.log(val[project].prjId);
         console.log(val[project].username);
-      var query1 = "select * FROM btr_bids,btr_users WHERE btr_bids.projectid=project.prjId and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
+      var query1 = "select * FROM btr_bids,btr_users WHERE btr_bids.projectid=val[project].prjId and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
       console.log(query1);
         db.query(query1, function(err, val2){
-          project.bidders = val2;
-
+          //project.bidders = val2;
+          val[project].bidders = val2; 
     });
     }
       console.log("listgig objects------------------------------------");
