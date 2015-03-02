@@ -88,8 +88,8 @@ exports.listgig = function(req, res) {
         //  console.log("val22222222222");
          // console.log(val2);
           //val[project].bidders.push(val2); 
-          //val[project].bidders = val2;
-          val[project].put('bidders', val2);
+          val.bidders = val2;
+          //val[project].put('bidders', val2);
 
           
         });
