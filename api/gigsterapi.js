@@ -76,41 +76,24 @@ exports.listgig = function(req, res) {
     //var query =  "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage,tbl4.* FROM btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=tbl1.userId LEFT join btr_bids AS tbl4 ON tbl4.bidfrom=tbl1.userId order by postedon DESC LIMIT 10";
     //var query="SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.* , tbl4.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId LEFT JOIN btr_bids AS tbl4 ON tbl4.bidfrom=tbl1.userId where tbl1.status='0' OR tbl1.status='1' OR tbl1.status='2' order by postedon DESC LIMIT 25";
     console.log(query);
-    db.query( query, function (err, val1) {    
+    db.query( query, function (err, val) {    
       for ( project = 0; project < val.length;  project++) {
         console.log("project    --------------------");
         console.log(project);
         console.log(val[project].prjId);
         console.log(val[project].username);
-      var query1 = "select COUNT(*) FROM btr_bids,btr_users WHERE btr_bids.projectid="+val[project].prjId+" and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
+      var query1 = "select * FROM btr_bids,btr_users WHERE btr_bids.projectid="+val[project].prjId+" and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
       console.log(query1);
-        db.query(query1, function(err2, val2){
+        db.query(query1, function(err, val2){
           console.log("val22222222222");
           console.log(val2);
-          if( val[project] )
-            val[project].bidders = val2; 
-
-          if( project == val.length - 1 ){
-            console.log("End REsult");
-            //res.jsonp(val);
-          }
+          val[project].bidders = val2; 
+          
         });
-          res.jsonp(val);         
     }
-
-    /*var query1 = "select COUNT(*) FROM btr_bids,btr_users WHERE btr_bids.projectid="+val.prjId+" and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
-    console.log(query1);
-    db.query(query1 , function(err1, val2){
-
-      var val={
-                     list:val1,
-                     count:val2          
-                   }
-
-          res.jsonp(val);
-
-    });*/
-      
+      console.log("listgig objects------------------------------------");
+      console.log(val);
+      res.jsonp(val);
     });
 };
 
