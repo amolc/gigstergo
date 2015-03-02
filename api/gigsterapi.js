@@ -77,7 +77,7 @@ exports.listgig = function(req, res) {
     //var query="SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.* , tbl4.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId LEFT JOIN btr_bids AS tbl4 ON tbl4.bidfrom=tbl1.userId where tbl1.status='0' OR tbl1.status='1' OR tbl1.status='2' order by postedon DESC LIMIT 25";
     console.log(query);
     db.query( query, function (err, val1) {    
-     /* for ( project = 0; project < val.length;  project++) {
+      for ( project = 0; project < val.length;  project++) {
         console.log("project    --------------------");
         console.log(project);
         console.log(val[project].prjId);
@@ -96,9 +96,9 @@ exports.listgig = function(req, res) {
           }
         });
           res.jsonp(val);         
-    }*/
+    }
 
-    var query1 = "select COUNT(*) FROM btr_bids,btr_users WHERE btr_bids.projectid="+val.prjId+" and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
+    /*var query1 = "select COUNT(*) FROM btr_bids,btr_users WHERE btr_bids.projectid="+val.prjId+" and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
     console.log(query1);
     db.query(query1 , function(err1, val2){
 
@@ -109,7 +109,7 @@ exports.listgig = function(req, res) {
 
           res.jsonp(val);
 
-    });
+    });*/
       
     });
 };
