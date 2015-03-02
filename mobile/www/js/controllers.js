@@ -1366,17 +1366,20 @@ $scope.awardgigfunction=function(data){
         $scope.cancelgigindex=index;
         console.log("$scope.cancelgigrecord");
         console.log($scope.cancelgigrecord);
-               }
+     }
     $scope.modal2.show();
   };
   
 
-   $scope.cancelgig=function(prjId,index){
-            console.log("cancelgig fired");
+ $scope.cancelgig=function(prjId,index){
+  console.log("cancelgig fired");
 
-           var reqdata={
-              prjid: $scope.cancelgigrecord.prjId
-          };
+
+  
+
+   var reqdata={
+      prjid: $scope.cancelgigrecord.prjId
+  };
         
        console.log("this is project id ,,,,,,,,,,,,,,,,,,,");
        console.log(reqdata);
@@ -1390,7 +1393,6 @@ $scope.awardgigfunction=function(data){
       });
       //$state.go('app.mygigs.progress');
       $scope.modal2.hide();
-      alert("Gig delete successful");
       $state.go('app.mygigs.bid');
       //$state.go('app.listgig');
       //$state.go('app.assignment.assignbid');
