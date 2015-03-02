@@ -88,13 +88,16 @@ exports.listgig = function(req, res) {
           console.log("val22222222222");
           console.log(val2);
           val[project].bidders = val2; 
-          
+          if( project == val.length - 1 ){
+            console.log("End REsult");
+            res.jsonp(val);
+
+          }
         });
-    val[project].amol = 'aasasass'; 
+         
     }
-      console.log("listgig objects------------------------------------");
-      console.log(val);
-      res.jsonp(val);
+      
+      
     });
 };
 
