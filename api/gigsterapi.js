@@ -78,15 +78,15 @@ exports.listgig = function(req, res) {
     console.log(query);
     db.query( query, function (err, val) {    
       for ( project = 0; project < val.length;  project++) {
-        console.log("project    --------------------");
-        console.log(project);
-        console.log(val[project].prjId);
-        console.log(val[project].username);
+        //console.log("project    --------------------");
+        //console.log(project);
+        //console.log(val[project].prjId);
+        //console.log(val[project].username);
       var query1 = "select * FROM btr_bids,btr_users WHERE btr_bids.projectid="+val[project].prjId+" and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
-      console.log(query1);
+      //console.log(query1);
         db.query(query1, function(err, val2){
-          console.log("val22222222222");
-          console.log(val2);
+        //  console.log("val22222222222");
+         // console.log(val2);
           val[project].bidders.push(val2); 
 
           
