@@ -98,7 +98,7 @@ exports.listgig = function(req, res) {
           res.jsonp(val);         
     }*/
 
-    var query1 = "select COUNT(*) FROM btr_bids,btr_users WHERE btr_bids.projectid="+val[project].prjId+" and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
+    var query1 = "select COUNT(*) FROM btr_bids,btr_users WHERE btr_bids.projectid="+val.prjId+" and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
     console.log(query1);
     db.query(query1 , function(err1, val2){
 
@@ -108,7 +108,7 @@ exports.listgig = function(req, res) {
                    }
 
           res.jsonp(response);
-                   
+
     });
       
     });
