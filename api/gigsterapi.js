@@ -87,7 +87,8 @@ exports.listgig = function(req, res) {
         db.query(query1, function(err, val2){
           console.log("val22222222222");
           console.log(val2);
-          val[project].bidders = val2; 
+          val[project].bidders.push(val2); 
+
           
         });
     }
