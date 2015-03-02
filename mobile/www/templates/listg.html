@@ -2,7 +2,7 @@
   
   <ion-content class="has-header" padding="true" style="background:#efefef;">
       <div ng-repeat="list in listgigster" class="card list1">
-          <div class="row"   style="border-bottom: 1px solid #efefef;"> 
+          <div class="row"  style="border-bottom: 1px solid #efefef;"> 
               
 
               <div class="col col-20 img-col">
@@ -26,17 +26,13 @@
                      <i class="icon  ion-star" id="star-icon"></i>
                   </p> -->
               <!--<button ng-if="list.userId == currentuser" class="new-bid-button" ng-click="sentbid(list , $index)">BID SENT </button>     -->
-              </div>  
-
-             
-
-                           
+             </div>  
         </div> 
             <div class="row"   style="border-bottom: 1px solid #efefef;">
             <div class="row gig-row">
-            <div class="col">
+            <div  class="col">
             <p>{{list.prjdesc}}</p> 
-            <p ng-click="gotogigdetails( list.prjId )" style="float: right;">more</p> 
+            <p ng-click="gotogigdetails( list.prjId )" style="float: right;">More</p>
             </div>
         </div>
 

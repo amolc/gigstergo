@@ -411,6 +411,8 @@ $scope.sendfeedback=function(feedback){
     
   };
 
+   
+
 
  $scope.cancelgig=function(projectid,index){
   projectid= $scope.cancelgigrecord;
