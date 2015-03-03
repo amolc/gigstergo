@@ -205,7 +205,10 @@ border-color: #E2AC10;
 	
 }
 
+.hi1{height: 50px; overflow: hidden;}
 
+.showMore { height: auto; }
+.showLess { max-height: 18px; overflow: hidden }
 
 .postgb .item{
 

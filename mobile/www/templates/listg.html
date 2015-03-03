@@ -16,7 +16,7 @@
                  
                  </div>
                  <!--<p style="float:right;margin:0px;">${{list.proposedbudget}}</p> -->
-                 <!--h4>Posted On: {{list.postedon|date:'dd/MM/yyyy'}}</h4 -->
+                 <h4>Posted On: {{list.postedon|date:'dd/MM/yyyy'}}</h4 >
                  <!-- <h2><a >{{list.username}}</a></h2>
                   <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
                   <p><i class="icon  ion-star" id="star-icon"></i>
@@ -28,11 +28,11 @@
               <!--<button ng-if="list.userId == currentuser" class="new-bid-button" ng-click="sentbid(list , $index)">BID SENT </button>     -->
              </div>  
         </div> 
-            <div class="row"   style="border-bottom: 1px solid #efefef;">
+            <div class="row " ng-init="more = false"  style="border-bottom: 1px solid #efefef;">
             <div class="row gig-row">
-            <div  class="col">
-            <p>{{list.prjdesc}}</p> 
-            <p ng-click="gotogigdetails( list.prjId )" style="float: right;">More</p>
+            <div class="col">
+            <p ng-class="{'showMore': more, 'showLess': !more}">{{list.prjdesc}}</p> 
+            <p ng-click="more = !more" style="float: right;">More</p>
             </div>
         </div>
 
@@ -55,4 +55,4 @@
     <ion-infinite-scroll on-infinite="loadMoreGigs()" distance="1%"></ion-infinite-scroll>
 
   </ion-content>
-</ion-view>`
+</ion-view>
