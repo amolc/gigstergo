@@ -296,7 +296,7 @@ padding: 5px;}
 #skill{border: 1px solid #FFCB3E;margin-bottom: 15px;padding-left: 5px;display: inline;}
 #position{border: 1px solid #FFCB3E;margin-bottom: 15px;padding-left: 5px;display: inline;}
 #expdate{border: 1px solid #FFCB3E;margin-bottom: 15px;padding: 5px;margin-bottom: 40px;}
-img.list-gig-img{ position: relative; max-width: 50px; width: 50px; height: 50px; border-radius: 50px; margin: 10px; }
+img.list-gig-img{ position: relative; max-width: 50px; width: 50px; height: 50px; border-radius: 50px; margin: 7px; }
 
 /*Menus*/
 .menu-icon:before{font-size: 22px;border: 2px solid; border-radius: 50px; height:35px; width:35px; text-align: center; padding: 5px;}
