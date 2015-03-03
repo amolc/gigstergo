@@ -14,7 +14,7 @@
       <img src="img/person.jpg" class="list-gig-img">      
   </div>
   <div class="col col-60 img-col">
-    <h2>{{list.username}}</h2>
+    <h2>{{list.username | uppercase}}</h2>
       <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.gigLocation}}</p>
       <p><i class="icon  ion-star" id="star-icon"></i>
          <i class="icon  ion-star" id="star-icon"></i>
@@ -28,12 +28,11 @@
   <div class="col">
    <div class="list">
       <a class="item browse-gig-col" > 
-            <h2>{{list.prjTitle}}</h2>
-            <h4>Posted on:{{list.postedon|date:'dd/MM/yyyy'}}</h4>
+            <h2 style="text-transform: capitalize">{{list.prjTitle}}</h2>
+            <h4>Posted on:{{list.bidfrom|date:'dd/MM/yyyy'}}</h4>
             <h4><p style="white-space: pre-line;">{{list.prjdesc}}</p></h4>
              <h4>Budget : ${{list.proposedbudget}}</h4> 
-                     
-            
+                      
                
       </a>
   </div>

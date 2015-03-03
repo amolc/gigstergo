@@ -273,6 +273,7 @@ $scope.sendfeedback=function(feedback){
 
     $scope.profileUrl = profileUrl;
     $scope.myvar = false;
+
     $scope.setFocus =  function(){
       $scope.myvar= !$scope.myvar;
     };
@@ -286,6 +287,7 @@ $scope.sendfeedback=function(feedback){
     $scope.loadMoreGigs = function(){
        $http.get( baseURL + 'listgig/' + $scope.page ).success(function(res) {
           $scope.listgigster = res;
+            console.log("listgigsterllllllllllllllllll");
             console.log($scope.listgigster);
             //$scope.$broadcast('scroll.infiniteScrollComplete');
         });
@@ -293,9 +295,8 @@ $scope.sendfeedback=function(feedback){
             
 
 
-
-
     }
+
 
     $scope.isRecentOrder = function(date) {
 
@@ -356,9 +357,13 @@ $scope.sendfeedback=function(feedback){
                 $scope.warning = req.message; 
                 $scope.listgigster[ $scope.recordindex ].bidfrom= $scope.currentuser;
                // $scope.modal.hide();
+             
           }).error(function(res){
             alert(res);
           });
+          console.log("bidding success...............");
+          $scope.modal.hide();
+          $state.go('app.listgig');
     }
     
 
@@ -411,8 +416,6 @@ $scope.sendfeedback=function(feedback){
     
   };
 
-   
-
 
  $scope.cancelgig=function(projectid,index){
   projectid= $scope.cancelgigrecord;
@@ -437,6 +440,10 @@ $scope.sendfeedback=function(feedback){
       console.log("success")
       $state.go('app.listgig');
     };
+
+
+    
+
 
 })
 
@@ -1622,7 +1629,7 @@ $scope.awardgigfunction=function(data){
           /*time=$filter('date')(date,"h:mm:ss a");
           date=$filter('date')(date,'yyyy/M/d');*/
           //var stampo=date.now/1000;
-          var stampo = Math.floor(Date.now() / 1000)+(8*60*60);
+          //var stampo = Math.floor(Date.now() / 1000)+(8*60*60);
           console.log("timeStamp----------");
           console.log(stampo);
           $scope.postg={
@@ -1631,13 +1638,16 @@ $scope.awardgigfunction=function(data){
                  postedon:stampo,
                  date:date,
                }
+               
                console.log($scope.postg);
 
  $scope.insertgig =function(formstatus,postg)
  {   
      
     if(formstatus==true){
+      console.log("post date..............");
       console.log(postg);
+
        var div = document.getElementById('errmsgpostgig');
        $http.post(baseURL + 'postgig', postg).success(function(res) {
                    
