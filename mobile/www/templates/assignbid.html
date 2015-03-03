@@ -15,13 +15,11 @@
             <div class="item item-body list1" ng-click="showbiddetail(b)" >
                 <h2 style="text-transform: capitalize">{{b.prjTitle}}</h2>
                 <p>posted on : {{b.postedon | date:'medium'}}</p>
-    
                 <p>
-                    project description: {{b.prjdesc}}
+                   <h4>project description: {{b.prjdesc}}</h4>
                 </p>
                 <p>
-                    status : {{b.status}}
-                    Bids: {{b.userId}}
+                    <h4>Budget : ${{b.proposedbudget}}</h4>
                 </p>
 
     

@@ -322,7 +322,7 @@ font-size: 21px;}
 #login-text{font-size: 30px;font-family: 'source_sans_proextralight';color: #fff;margin-bottom: 20px;}
 .browse-gig-col{padding: 0;}
 a.item.browse-gig-col{border:none;margin-top: 15px;}
-.img-col{padding:0px;}
+.img-col{padding:0px; margin: 0px;}
 #map-icon{font-size: 18px;padding-right: 5px;color: #5E350D;}
 .gig-paragraph{margin: 0;}
 #star-icon{font-size: 22px;
