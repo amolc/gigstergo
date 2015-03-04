@@ -746,7 +746,7 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
 				      OpenFB.get('/me').success(function (user) {
 				    
                   $scope.user = user;
-                 alert(user.name +' '+ user.email + +user.id );
+                 //alert(user.name +' '+ user.email + +user.id );
                      console.log(user);                     
                      $http.post(baseURL + 'loginfb', user).success(function(res) {
                                       
