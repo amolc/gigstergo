@@ -102,6 +102,9 @@ exports.listgig = function(req, res) {
           
         });
     }*/
+    console.log("Bidders values");
+    console.log(val.bidders);
+
       console.log("listgig objects------------------------------------");
       console.log(val);
       res.jsonp(val);
