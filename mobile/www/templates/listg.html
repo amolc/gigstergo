@@ -13,7 +13,7 @@
                  <h4 style="text-transform: capitalize">{{list.prjTitle}}</h4>
                  <div>
                  <p style="border 1px solid red;"><i class="icon  ion-location" id="map-icon"></i>{{list.gigLocation}} <a class="budgt">${{list.proposedbudget}}</a></p>
-                 <h4>GroupConcat{{list.GROUP_CONCAT}}</h4>
+                 
                  </div>
                  <!--<p style="float:right;margin:0px;">${{list.proposedbudget}}</p> -->
                  <h4>Posted On: {{list.postedon|date:'dd/MM/yyyy'}}</h4 >
@@ -40,6 +40,7 @@
     <div class="row" style="margin: 2px;"> 
         
           <div class="col col-70 img-col">
+            <h4>GroupConcat : {{list.bidders}}</h4>
           <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
           <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">                    
           </div>
