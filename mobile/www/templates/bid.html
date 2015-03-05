@@ -13,16 +13,23 @@
                     <div class="col col-80 img-col " >
                     <!--div class="item item-body" ng-click="gigdetailsmodel(list)"-->
                     <h2 ng-click="gigdetailsmodelinmygig(b,$index)">{{b.prjTitle}}</h2>
-                    <p>posted on : {{b.postedon | date:'medium'}}</p>
-                    <p>project description: {{b.prjdesc}}</p>
-                    <p>project prjId: {{b.prjId}}</p>
+                    <div>
+                 <h2 style="border 1px solid red;"><i class="icon  ion-location" id="map-icon"></i>{{list.gigLocation}} <a class="budgt">Budget: ${{b.proposedbudget}}</a></h2>
+                 
+                 </div>      
+                    <p>posted on : {{b.postedon | date}}</p>
+                    <p>description: {{b.prjdesc}}</p>
+                    <!--p>project prjId: {{b.prjId}}</p-->
+                     
                     
                     </div>   
                     <div class="col col-20 img-col">
                     <button class="new-bid-button" ng-if="b.status != '5'"  ng-click="cancelgigmodel( b,prjId )"> Cancel gig </button>
                     <p ng-if="b.status == '5'"> gig canceled....!!!! </p>
                     </div>
+              
               </div>
+
 
       </div>
   </div>
