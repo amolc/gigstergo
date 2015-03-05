@@ -53,15 +53,15 @@
 <button ng-if="list.userId == currentuser" class="bid-button" ng-click="cancelgigmodel( prjrecord.prjId, $index )" >Cancel Gig</button>
 </div>
 <div class="row">
-  <div class="col">
+  <div class="col bidlbl">
   <h3>Bids</h3>
   </div>
 </div>
 <div class="row list1" ng-repeat="list in bidders">
-  <div class="col col-25 img-col">
+  <div class="col col-25 img-col2">
       <img src="img/person.jpg" class="list-gig-img">      
   </div>
-  <div class="col col-75 img-col ">
+  <div class="col col-75 img-col2 ">
     <h2>{{list.username}}</h2>
       <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
       <p><i class="icon  ion-star" id="star-icon"></i>

@@ -49,10 +49,10 @@
 </div>
 <div></div>
 <div class="row list1" ng-repeat="list in bidders">
-  <div class="col col-25 img-col">
+  <div class="col col-25 img-col1">
       <img ng-src="http://www.gigstergo.com/image.php?image=/uploads/profileimage/{{list.profileimage}}" class="list-gig-img">      
   </div>
-  <div class="col col-75 img-col">
+  <div class="col col-75 img-col1">
     <button class="new-bid-button" ng-if="bidding.status != '2'" ng-click="awardgigmodel(list,$index)"> Award gig </button> 
     <h2>{{list.username}}</h2>
       <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon" ></i>{{list.city}}</p>

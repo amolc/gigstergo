@@ -94,11 +94,11 @@ margin: 0px auto}
 .new-bid-button{color: #fff;
 margin: 25px 5px 5px 0;
 background-color: #fe8301;
-width: 65px;
+width: 60px;
 float: right;
 border: none;
-height: 65px;
-border-radius: 10%; }
+height: 60px;
+border-radius: 54%; }
 .new-bid-button1{ color: #fff;
 margin: 0px 0px 0px 0px;
 background-color: #fe8301;
@@ -107,6 +107,7 @@ border: none;
 height: 60px;
 float: right;
 border-radius: 54px;}
+.bidlbl{text-align: center;}
 #Posted_date{font-family: 'source_sans_prosemibold';
 color: #503F2F;
 font-size: 16px;}
@@ -326,6 +327,7 @@ font-size: 21px;}
 .browse-gig-col{padding: 0;}
 a.item.browse-gig-col{border:none;margin-top: 15px;}
 .img-col{padding:0px; margin: 0px;}
+.img-col2{padding:0px; margin: 10px;}
 #map-icon{font-size: 18px;padding-right: 5px;color: #5E350D;}
 .gig-paragraph{margin: 0;}
 #star-icon{font-size: 22px;

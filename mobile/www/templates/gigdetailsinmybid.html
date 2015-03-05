@@ -1,6 +1,6 @@
 <ion-modal-view> 
   <ion-header-bar id="bid-on-back">
-    <h3 class="title" id="bid-on-gig-name">Bidaa Details</h3>
+    <h3 class="title" id="bid-on-gig-name">Bid Details</h3>
     <div class="buttons">
       <button class="button button-clear" ng-click="closebiddetail()"><i class="icon ion-close-round" id="close-btn"></i></button>
     </div>
@@ -44,16 +44,16 @@
 </div>
 
 <div class="row">
-  <div class="col" style="text-align: center;">
+  <div class="col bidlbl" >
   <h3>Bids</h3>
   </div>
 </div>
 <div class="row list1" ng-repeat="list in bidders">
-  <div class="col col-25 img-col">
+  <div class="col col-25 img-col2">
       <!--<img src="img/person.jpg" class="list-gig-img"> -->     
       <img ng-src="http://www.gigstergo.com/image.php?image=/uploads/profileimage/{{list.profileimage}}" class="list-gig-img">
   </div>
-  <div class="col col-75 img-col">
+  <div class="col col-75 img-col2">
     <h2 >{{list.username | uppercase}}</h2>
       <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
       <p><i class="icon  ion-star" id="star-icon"></i>
@@ -63,8 +63,7 @@
          <i class="icon  ion-star" id="star-icon"></i>
       </p>
       <h4>Description: {{list.bidcontent}}</h4>
-      
-       <h4>Bid price: {{list.bidprice}} </h4>
+      <h4>Bid price: {{list.bidprice}} </h4>
   </div>
 </div>  
  </div>
