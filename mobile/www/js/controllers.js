@@ -278,60 +278,34 @@ $scope.sendfeedback=function(feedback){
       $scope.myvar= !$scope.myvar;
     };
 
-    $scope.listgigster = { };
-    $scope.$on('$stateChangeSuccess', function() {
-      $scope.loadMoreGigs();
-    });
-    $scope.listgigster = [];
-    $scope.page = 1;
-    $scope.loadMoreGigs = function(){
-       $http.get( baseURL + 'listgig/' + $scope.page ).success(function(res) {
-       // console.log("resource log");
+        $scope.listgigster = { };
+        $scope.$on('$stateChangeSuccess', function() {
+        $scope.loadMoreGigs();
+        });
+        $scope.listgigster = [];
+        $scope.page = 1;
+        $scope.loadMoreGigs = function(){
+        $http.get( baseURL + 'listgig/' + $scope.page ).success(function(res) {
+        // console.log("resource log");
         //console.log(res);
-          $scope.listgigster = res;
-            //console.log("listgigsterllllllllllllllllll");
-            //console.log($scope.listgigster);
+        $scope.listgigster = res;
 
-            //console.log($scope.listgigster.length);
+      for(i=0; i<$scope.listgigster.length; i++){
 
-            for(i=0; i<$scope.listgigster.length; i++){
-
-            //console.log($scope.listgigster[i].prjId);  
-
-            //console.log($scope.listgigster[i].bidders); 
-
-            var res1 = $scope.listgigster[i].bidders.split(","); 
-
-            //console.log(res1);
-            var len = res1.length;
-
-            //console.log(len);
-$scope.posts = [];
-            for(m=0; m<len; m++){
-
-              //console.log(res1[m]+'.jpg');
-
-                $scope.posts = {
-                 a :  res1[m]+'.jpg'
-                }
-              console.log($scope.posts);
-
-            }
-
-                /* $scope.txtdata = {
-        'sfe_screen' : 256.JPG
+        var res1 = $scope.listgigster[i].bidders.split(","); 
+        //console.log(res1);        
+        var len = res1.length;
+        var posts = [];
+        for(m=0; m<len; m++){
+           posts.push ( profileUrl+res1[m]+'.jpg' );
+        }
+        $scope.listgigster[i].bidders=posts;
+        console.log($scope.listgigster[i].bidders);          
       }
-                        */
-            }
-
-            //$scope.$broadcast('scroll.infiniteScrollComplete');
+        //$scope.$broadcast('scroll.infiniteScrollComplete');
         });
       
-            
-
-
-    }
-
+      }
 
     $scope.isRecentOrder = function(date) {
 
@@ -401,8 +375,6 @@ $scope.posts = [];
           $state.go('app.listgig');
     }
     
-
-
     
 };
 
