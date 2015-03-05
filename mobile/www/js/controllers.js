@@ -300,7 +300,7 @@ $scope.sendfeedback=function(feedback){
            posts.push ( profileUrl+res1[m]+'.jpg' );
         }
         $scope.listgigster[i].bidders=posts;
-        console.log($scope.listgigster[i].bidders);          
+        //console.log($scope.listgigster[i].bidders);          
       }
         //$scope.$broadcast('scroll.infiniteScrollComplete');
         });
