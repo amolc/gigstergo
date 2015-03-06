@@ -16,7 +16,7 @@ function deviceready() {
     }
 
     try {
-        //alert( device.platform +' '+ device.uuid );
+        alert( device.platform +' '+ device.uuid );
         pushNotification = window.plugins.pushNotification;
         //pushNotification.unregister(successHandler, errorHandler);
         pushNotification.register(
@@ -26,14 +26,6 @@ function deviceready() {
         alert(e);
     }
 }
-
-function successHandler(data) {
-    if( device.platform == 'ios' || device.platform == 'iOS' ){
-      window.localStorage.setItem("token_id", data );    
-    }
-    
-
-};
 
 function errorHandler(e) {
     //alert("ERROR" + e);
