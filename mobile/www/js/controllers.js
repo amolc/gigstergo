@@ -1,3 +1,76 @@
+document.addEventListener("deviceready", deviceready, false);
+function deviceready() {
+          
+    if ( device.platform == 'android' || device.platform == 'Android'  ){
+      var pushconfig = {
+        "senderID":"474273970829",
+        "ecb":"onNotificationAPN"
+      };
+    } else {
+      var pushconfig = {
+        "badge":"true",
+        "sound":"true",
+        "alert":"true"
+        //"ecb":"onNotificationAPN"
+      };
+    }
+
+    try {
+        //alert( device.platform +' '+ device.uuid );
+        pushNotification = window.plugins.pushNotification;
+        //pushNotification.unregister(successHandler, errorHandler);
+        pushNotification.register(
+            successHandler,
+            errorHandler, pushconfig );
+    } catch (e) {
+        alert(e);
+    }
+}
+
+function successHandler(data) {
+    if( device.platform == 'ios' || device.platform == 'iOS' ){
+      window.localStorage.setItem("token_id", data );    
+    }
+    
+
+};
+
+function errorHandler(e) {
+    //alert("ERROR" + e);
+}
+
+function onNotificationAPN (event) {
+    //alert("NO: " + JSON.stringify(event));
+    window.localStorage.setItem("token_id", event.regid );    
+    
+    if ( event.regid )
+    {
+        //alert( event.regid);
+        navigator.notification.alert(event.alert);
+
+    }
+
+    if ( event.alert )
+    {
+        navigator.notification.alert(event.alert);
+
+    }
+
+    if ( event.sound )
+    {
+        var snd = new Media(event.sound);
+        snd.play();
+    }
+
+    if ( event.badge )
+    {
+        pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
+    }
+}
+
+
+
+
 angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, $http, $stateParams, $ionicLoading, OpenFB) {
   $scope.user=window.localStorage.getItem('username');
