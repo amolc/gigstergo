@@ -6,9 +6,7 @@
   <content src="index.html"/>
   <access origin="*"/>
 
-  <preference name="SplashScreen" value="screen1" />
-  <preference name="SplashScreenDelay" value="5100" />
-
+  
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>

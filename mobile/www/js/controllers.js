@@ -1,64 +1,11 @@
-document.addEventListener("deviceready", deviceready, false);
-function deviceready() {
-         alert('deviceready');
-    if ( device.platform == 'android' || device.platform == 'Android'  ){
-      var pushconfig = {
-        "senderID":"474273970829",
-        "ecb":"onNotificationAPN"
-      };
-    } else {
-      var pushconfig = {
-        "badge":"true",
-        "sound":"true",
-        "alert":"true"
-        //"ecb":"onNotificationAPN"
-      };
-    }
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
 
-    try {
-        alert( device.platform +' '+ device.uuid );
-        pushNotification = window.plugins.pushNotification;
-        //pushNotification.unregister(successHandler, errorHandler);
-        pushNotification.register(
-            successHandler,
-            errorHandler, pushconfig );
-    } catch (e) {
-        alert(e);
-    }
-}
+  alert( device.platform +' '+ device.uuid );
+  alert("this is on deviceready");
+  
+ }
 
-function errorHandler(e) {
-    //alert("ERROR" + e);
-}
-
-function onNotificationAPN (event) {
-    alert("NO: " + JSON.stringify(event));
-    window.localStorage.setItem("token_id", event.regid );    
-    
-    if ( event.regid )
-    {
-        //alert( event.regid);
-        navigator.notification.alert(event.alert);
-
-    }
-
-    if ( event.alert )
-    {
-        navigator.notification.alert(event.alert);
-
-    }
-
-    if ( event.sound )
-    {
-        var snd = new Media(event.sound);
-        snd.play();
-    }
-
-    if ( event.badge )
-    {
-        pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
-    }
-}
 
 angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, $http, $stateParams, $ionicLoading, OpenFB) {
@@ -69,6 +16,7 @@ angular.module('starter.controllers', [])
   $scope.setFocus =  function(){
     $scope.myvar= !$scope.myvar;
   };
+
 
     if( $scope.loginstatus ){
       $scope.loginstatus = false;
@@ -1881,3 +1829,6 @@ $scope.sendmsg=function(data){
     }
 
 })
+
+
+

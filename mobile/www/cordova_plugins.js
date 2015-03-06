@@ -8,6 +8,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
+        "id": "com.phonegap.plugins.PushPlugin.PushNotification",
+        "clobbers": [
+            "PushNotification"
+        ]
+    },
+    {
         "file": "plugins/nl.x-services.plugins.googleplus/www/GooglePlus.js",
         "id": "nl.x-services.plugins.googleplus.GooglePlus",
         "clobbers": [
@@ -27,6 +34,13 @@ module.exports = [
         "clobbers": [
             "window.open"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.statusbar/www/statusbar.js",
+        "id": "org.apache.cordova.statusbar.statusbar",
+        "clobbers": [
+            "window.StatusBar"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -35,10 +49,12 @@ module.exports.metadata =
     "android.support.v4": "21.0.1",
     "com.google.playservices": "21.0.0",
     "com.ionic.keyboard": "1.0.3",
-    "nl.x-services.plugins.googleplus": "1.0.8",
+    "com.phonegap.plugins.PushPlugin": "2.4.0",
+    "nl.x-services.plugins.googleplus": "1.1.0",
     "org.apache.cordova.console": "0.2.12",
     "org.apache.cordova.device": "0.2.13",
-    "org.apache.cordova.inappbrowser": "0.5.4"
+    "org.apache.cordova.inappbrowser": "0.6.0",
+    "org.apache.cordova.statusbar": "0.1.10"
 }
 // BOTTOM OF METADATA
 });
