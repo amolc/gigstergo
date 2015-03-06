@@ -18,6 +18,7 @@
     "https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git",
     "nl.x-services.plugins.googleplus",
     "org.apache.cordova.inappbrowser",
-    "org.apache.cordova.statusbar"
+    "org.apache.cordova.statusbar",
+    "https://github.com/phonegap-build/PushPlugin.git"
   ]
 }
