@@ -263,6 +263,20 @@ exports.loginval = function(req, res) {
  }; 
 
 
+
+exports.setdeviceId = function(req, res){
+
+  console.log("device id is ");
+  console.log(req.body);
+
+
+};
+
+
+
+
+
+
 exports.postgig= function (req,res){
 
 console.log(req.body);

@@ -1,8 +1,9 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 
-  alert( device.platform +' '+ device.uuid );
-  alert("this is on deviceready");
+  //alert( device.platform +' '+ device.uuid );
+  
+  //alert("this is on deviceready");
   
  }
 
@@ -587,6 +588,16 @@ $scope.sendfeedback=function(feedback){
 })
 
 .controller('mainloginctrl', function($scope , $http , $state , $ionicModal , $location , OpenFB){
+
+   var deviceid= device.uuid;
+
+   $http.post(baseURL + 'setdeviceId',deviceid).success(function(res) {
+           if (res.status == false) {
+                alert(res.message);
+                     var div = document.getElementById('errmsg');
+                       div.innerHTML = res.message;
+           }
+
    if( window.localStorage.getItem('islogin')=='true' ){
     $state.go('app.listgig')
    }
