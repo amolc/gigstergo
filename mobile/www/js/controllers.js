@@ -1,11 +1,77 @@
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
+document.addEventListener("deviceready", deviceready, false);
+function deviceready() {
+          
+    if ( device.platform == 'android' || device.platform == 'Android'  ){
+      var pushconfig = {
+        "senderID":"474273970829",
+        "ecb":"onNotificationAPN"
+      };
+    } else {
+      var pushconfig = {
+        "badge":"true",
+        "sound":"true",
+        "alert":"true"
+        //"ecb":"onNotificationAPN"
+      };
+    }
 
-  //alert( device.platform +' '+ device.uuid );
-  
-  //alert("this is on deviceready");
-  
- }
+    try {
+        alert( device.platform +' '+ device.uuid );
+        pushNotification = window.plugins.pushNotification;
+        //pushNotification.unregister(successHandler, errorHandler);
+        pushNotification.register(
+            successHandler,
+            errorHandler, pushconfig );
+    } catch (e) {
+        alert('this alet is because'+e)
+        alert(e);
+    }
+}
+
+function successHandler(data) {
+    if( device.platform == 'android' || device.platform == 'Android' ){
+
+      alert('this is to'+data);
+
+      //window.localStorage.setItem("token_id", data );    
+    }
+    
+
+};
+
+function errorHandler(e) {
+    //alert("ERROR" + e);
+}
+
+function onNotificationAPN (event) {
+    //alert("NO: " + JSON.stringify(event));
+    window.localStorage.setItem("token_id", event.regid );    
+    
+    if ( event.regid )
+    {
+        alert('this is regid '+event.regid);
+        navigator.notification.alert(event.alert);
+
+    }
+
+    if ( event.alert )
+    {
+        navigator.notification.alert(event.alert);
+
+    }
+
+    if ( event.sound )
+    {
+        var snd = new Media(event.sound);
+        snd.play();
+    }
+
+    if ( event.badge )
+    {
+        pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
+    }
+}
+
 
 
 angular.module('starter.controllers', [])
@@ -587,16 +653,22 @@ $scope.sendfeedback=function(feedback){
 
 })
 
-.controller('mainloginctrl', function($scope , $http , $state , $ionicModal , $location , OpenFB){
+.controller('mainloginctrl', function($scope , $http , $state , $ionicModal ,$stateParams, $location , OpenFB , $cordovaPush){
 
-   var deviceid= device.uuid;
 
-   $http.post(baseURL + 'setdeviceId',deviceid).success(function(res) {
+/*
+    $scope.deviceinfo = {      
+          platform : device.platform,
+          device : device.uuid,
+          token_id : window.localStorage.getItem("token_id")
+      };
+
+   $http.post(baseURL + 'setdeviceId',deviceinfo).success(function(res) {
            if (res.status == false) {
                 alert(res.message);
                      var div = document.getElementById('errmsg');
                        div.innerHTML = res.message;
-           }
+           }*/
 
    if( window.localStorage.getItem('islogin')=='true' ){
     $state.go('app.listgig')
