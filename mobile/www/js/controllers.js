@@ -17,6 +17,8 @@ function deviceready() {
 
     try {
         alert( device.platform +' '+ device.uuid );
+        window.localStorage.setItem("uid", device.uuid );    
+        window.localStorage.setItem("android", device.platform );    
         pushNotification = window.plugins.pushNotification;
         //pushNotification.unregister(successHandler, errorHandler);
         pushNotification.register(
@@ -346,6 +348,24 @@ $scope.sendfeedback=function(feedback){
         $state.go('applogin')
     }   
 
+  var android=window.localStorage.getItem("android");
+  var uid=window.localStorage.getItem("uid");
+  var token_id=window.localStorage.getItem("token_id");
+
+
+  
+        $http.post(baseURL + 'setdeviceId',{ userid : userididid , platform: android , device: uid , token_id:token_id}).success(function(res) {
+           if (res.status == false) {
+                alert(res.message);
+                     var div = document.getElementById('errmsg');
+                       div.innerHTML = res.message;
+           }
+        }).error(function() {
+                     alert("Please check your internet connection or data source..");
+          }); 
+
+
+
      var userididid=window.localStorage.getItem('userid1');
       $scope.currentuser= userididid;
 
@@ -655,7 +675,7 @@ $scope.sendfeedback=function(feedback){
 })
 
 .controller('mainloginctrl', function($scope , $http , $state , $ionicModal ,$stateParams, $location , OpenFB , $cordovaPush){
-
+/*
   var platform=device.platform;
   var device=device.uuid;
   var token_id=window.localStorage.getItem("token_id");
@@ -669,7 +689,7 @@ $scope.sendfeedback=function(feedback){
            }
         }).error(function() {
                      alert("Please check your internet connection or data source..");
-          }); 
+          }); */
 
     
    if( window.localStorage.getItem('islogin')=='true' ){

@@ -271,6 +271,7 @@ exports.setdeviceId = function(req, res){
   console.log(req.body.platform);
   console.log(req.body.device);
   console.log(req.body.token_id);
+  console.log(req.body.userid);
 
 };
   
