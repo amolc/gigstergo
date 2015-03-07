@@ -348,6 +348,9 @@ $scope.sendfeedback=function(feedback){
         $state.go('applogin')
     }   
 
+    var userididid=window.localStorage.getItem('userid1');
+      $scope.currentuser= userididid;
+
   var android=window.localStorage.getItem("android");
   var uid=window.localStorage.getItem("uid");
   var token_id=window.localStorage.getItem("token_id");

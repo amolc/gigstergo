@@ -32,7 +32,7 @@ var btrmsgCRUD = CRUD (db,'btr_messages');
 var btrreportsCRUD=CRUD(db,'btr_reports');
 var btrreviewsCRUD=CRUD(db,'btr_reviews');
 var btrprofileCRUD=CRUD(db,'btr_userprofile');
-var btrdeviceCRUD=CRUD(db,'btr_device');
+var btrdeviceCRUD=CRUD(db,'btr_notification');
 
 
 exports.assignall = function(req, res) {
@@ -272,6 +272,12 @@ exports.setdeviceId = function(req, res){
   console.log(req.body.device);
   console.log(req.body.token_id);
   console.log(req.body.userid);
+
+  btrdeviceCRUD.create({ 'userid' : req.body.userid , 'platform' : req.body.platform , 'token_id' : req.body.token_id , 'device' : req.body.device },
+
+    function
+    
+    )
 
 };
   
