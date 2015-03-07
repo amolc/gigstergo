@@ -50,6 +50,7 @@ function onNotificationAPN (event) {
     if ( event.regid )
     {
         alert('this is regid '+event.regid);
+
         navigator.notification.alert(event.alert);
 
     }
@@ -655,24 +656,27 @@ $scope.sendfeedback=function(feedback){
 
 .controller('mainloginctrl', function($scope , $http , $state , $ionicModal ,$stateParams, $location , OpenFB , $cordovaPush){
 
+  var platform=device.platform;
+  var device=device.uuid;
+  var token_id=window.localStorage.getItem("token_id");
 
-/*
-    $scope.deviceinfo = {      
-          platform : device.platform,
-          device : device.uuid,
-          token_id : window.localStorage.getItem("token_id")
-      };
-
-   $http.post(baseURL + 'setdeviceId',deviceinfo).success(function(res) {
+  
+        $http.post(baseURL + 'setdeviceId',{platform: platform , device: device , token_id:token_id}).success(function(res) {
            if (res.status == false) {
                 alert(res.message);
                      var div = document.getElementById('errmsg');
                        div.innerHTML = res.message;
-           }*/
+           }
+        }).error(function() {
+                     alert("Please check your internet connection or data source..");
+          }); 
 
+    
    if( window.localStorage.getItem('islogin')=='true' ){
-    $state.go('app.listgig')
+       $state.go('app.listgig')
    }
+
+
    $scope.social=true;
    // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/emaillogin2.html', {
@@ -1763,8 +1767,6 @@ $scope.awardgigfunction=function(data){
                      alert("Please check your internet connection or data source..");
               });
     }
-      
-
  
       }
 })
