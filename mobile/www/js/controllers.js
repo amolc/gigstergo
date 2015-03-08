@@ -351,12 +351,10 @@ $scope.sendfeedback=function(feedback){
     var userididid=window.localStorage.getItem('userid1');
       $scope.currentuser= userididid;
 
-  var android=window.localStorage.getItem("android");
+
+  /*var android=window.localStorage.getItem("android");
   var uid=window.localStorage.getItem("uid");
   var token_id=window.localStorage.getItem("token_id");
-
-
-  
         $http.post(baseURL + 'setdeviceId',{ userid : userididid , platform: android , device: uid , token_id:token_id}).success(function(res) {
            if (res.status == false) {
                 alert(res.message);
@@ -366,7 +364,7 @@ $scope.sendfeedback=function(feedback){
         }).error(function() {
                      alert("Please check your internet connection or data source..");
           }); 
-
+*/
 
 
      var userididid=window.localStorage.getItem('userid1');
@@ -390,7 +388,6 @@ $scope.sendfeedback=function(feedback){
         // console.log("resource log");
         //console.log(res);
         $scope.listgigster = res;
-
       for(i=0; i<$scope.listgigster.length; i++){
 
         var res1 = $scope.listgigster[i].bidders.split(","); 
@@ -448,12 +445,34 @@ $scope.sendfeedback=function(feedback){
       $scope.currentuser= userididid;
       var stampo = event.timeStamp;
       $scope.record = data;
+      console.log("this is gigdetails");
+      
       $scope.modal.show();
       $scope.bid={
           record : data,
           currentuser:userididid,
           bidon:stampo,
         }
+
+
+              $scope.notifmessage={
+                record : data
+              };
+              console.log("notifmessage");
+              console.log($scope.notifmessage);
+
+  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
+               $scope.response = res;
+               console.log(res);
+               alert("this is notifmessage");
+               alert($scope.response);
+               }).error(function() {
+                 alert("Please check your internet connection or data source..");
+             });
+
+
+
+
     }
     
   };
@@ -474,24 +493,6 @@ $scope.sendfeedback=function(feedback){
           console.log("bidding success...............");
           $scope.modal.hide();
           $state.go('app.listgig');
-
-
-              $scope.notifmessage={
-              messagetitle:"Title",
-              message:"Logn successful",
-              userid:userididid
-            };
-
-  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
-               $scope.response = res;
-               console.log(res);
-               alert("this is notifmessage");
-               alert($scope.response);
-               }).error(function() {
-                 alert("Please check your internet connection or data source..");
-             });
-
-
 
 
     }

@@ -1,9 +1,11 @@
 exports.notification = function(req, res) {
-  var messagetitle=req.body.messagetitle;
+  
+    console.log(resdata.body);
+  /*var messagetitle=req.body.messagetitle;
   var message=req.body.message;
   var userid = parseInt( req.body.userid );
   console.log("user id for push is");
-  console.log('userid= '+userid);
+  console.log('userid= '+userid);*/
 
     var mysql = require('mysql');
     var db = mysql.createPool({   
