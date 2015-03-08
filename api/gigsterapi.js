@@ -267,36 +267,37 @@ exports.loginval = function(req, res) {
 
 exports.setdeviceId = function(req, res){
 
-  console.log("device id is ");
-  console.log(req.body.platform);
-  console.log(req.body.device);
-  console.log(req.body.token_id);
-  console.log(req.body.userid);
+console.log("device id is ");
+console.log(req.body.platform);
+console.log(req.body.device);
+console.log(req.body.token_id);
+console.log(req.body.userid);
+var query = "select * from btr_notification WHERE token_id='"+token_id+"'";
+db.query(query, function(err, rows){
+var resdata={
+status:false,
+message : ''
+};
+if(rows.length==0){
+btrdeviceCRUD.create({ 'userid' : req.body.userid , 'platform' : req.body.platform , 'token_id' : req.body.token_id , 'device' : req.body.device },   
+function (err, val){
+console.log(val);
+if(parseInt(val.affectedRows)>0){
+resdata.status=true;
+resdata.message='data successfully added'; 
+res.jsonp(resdata);
+}else{
+resdata.status=false;
+resdata.message='record not added ';
+res.jsonp(resdata);
+}
 
+});
 
-
-btrdeviceCRUD.create({ 'userid' : req.body.userid , 'platform' : req.body.platform , 'token_id' : req.body.token_id , 'device' : req.body.device },
-    
-
- function (err, val){
-    console.log(val);
-      if(parseInt(val.affectedRows)>0){
-         var resdata={
-        status:true,
-        message :'device information added successfully!!!!'
-        };
-      }else{
-        var resdata={
-        status:false,
-        message :'error occured!!!!'
-        };
-      }
-     
-
-
-      res.jsonp(resdata);   
-    });
-
+}else{
+res.jsonp(resdata);
+} 
+});
 
 };
   

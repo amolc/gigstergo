@@ -35,7 +35,7 @@ function successHandler(data) {
 
       //alert('this is to'+data);
 
-      //window.localStorage.setItem("token_id", data );    
+      window.localStorage.setItem("token_id", data );    
     }
     
 
@@ -680,9 +680,9 @@ $scope.sendfeedback=function(feedback){
 .controller('mainloginctrl', function($scope , $http , $state , $ionicModal ,$stateParams, $location , OpenFB , $cordovaPush){
 
 
-
+/*
     var userididid=window.localStorage.getItem('userid1');
-    
+
             $scope.notifmessage={
               messagetitle:"Title",
               message:"Logn successful",
@@ -697,7 +697,7 @@ $scope.sendfeedback=function(feedback){
                }).error(function() {
                  alert("Please check your internet connection or data source..");
              });
-
+*/
 
 /*
   var platform=device.platform;
