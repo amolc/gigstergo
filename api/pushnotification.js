@@ -1,6 +1,6 @@
 exports.notification = function(req, res) {
     console.log("req.body.userId");
-    console.log(req.body);
+    console.log(req.body.record);
 
 
 
