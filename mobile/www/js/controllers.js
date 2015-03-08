@@ -680,15 +680,20 @@ $scope.sendfeedback=function(feedback){
 .controller('mainloginctrl', function($scope , $http , $state , $ionicModal ,$stateParams, $location , OpenFB , $cordovaPush){
 
 
+
+    var userididid=window.localStorage.getItem('userid1');
+    
             $scope.notifmessage={
               messagetitle:"Title",
               message:"Logn successful",
-              userid:"1"
+              userid:userididid
             };
 
   $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
                $scope.response = res;
                console.log(res);
+               alert("this is notifmessage");
+               alert($scope.response);
                }).error(function() {
                  alert("Please check your internet connection or data source..");
              });
