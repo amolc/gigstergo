@@ -6,7 +6,7 @@ exports.notification = function(req, res) {
     console.log(req.body.record.prjdesc);
 
 
-    /*
+    
   var messagetitle="req.body";
   var message="req.body.message";
   var userid = 129;    // parseInt( req.body.userid );
@@ -69,8 +69,8 @@ exports.notification = function(req, res) {
       };
 
       res.jsonp(resdata);       
-    }); */    
-    res.jsonp(resdata);
+    });     
+
 };
 
 
