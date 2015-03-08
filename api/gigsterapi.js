@@ -271,11 +271,14 @@ console.log(req.body.token_id);
 console.log(req.body.userid);
 var query = "select * from btr_notification WHERE token_id='"+req.body.token_id+"'";
 db.query(query, function(err, rows){
+console.log("this is select result");
+console.log(rows);
 var resdata={
 status:false,
 message : ''
 };
 if(rows.length==0){
+console.log("in if");
 btrdeviceCRUD.create({ 'userid' : req.body.userid , 'platform' : req.body.platform , 'token_id' : req.body.token_id , 'device' : req.body.device },   
 function (err, val){
 console.log(val);

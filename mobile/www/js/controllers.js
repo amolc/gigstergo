@@ -474,6 +474,26 @@ $scope.sendfeedback=function(feedback){
           console.log("bidding success...............");
           $scope.modal.hide();
           $state.go('app.listgig');
+
+
+              $scope.notifmessage={
+              messagetitle:"Title",
+              message:"Logn successful",
+              userid:userididid
+            };
+
+  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
+               $scope.response = res;
+               console.log(res);
+               alert("this is notifmessage");
+               alert($scope.response);
+               }).error(function() {
+                 alert("Please check your internet connection or data source..");
+             });
+
+
+
+
     }
     
     
@@ -953,23 +973,6 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
 $scope.biddingawarded= {};
  var userididid=window.localStorage.getItem('userid1');
   console.log(userididid);
-
-      var userididid=window.localStorage.getItem('userid1');
-
-            $scope.notifmessage={
-              messagetitle:"Title",
-              message:"Logn successful",
-              userid:userididid
-            };
-
-  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
-               $scope.response = res;
-               console.log(res);
-               alert("this is notifmessage");
-               alert($scope.response);
-               }).error(function() {
-                 alert("Please check your internet connection or data source..");
-             });
 
 
 
