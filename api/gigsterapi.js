@@ -273,6 +273,8 @@ exports.setdeviceId = function(req, res){
   console.log(req.body.token_id);
   console.log(req.body.userid);
 
+
+
 btrdeviceCRUD.create({ 'userid' : req.body.userid , 'platform' : req.body.platform , 'token_id' : req.body.token_id , 'device' : req.body.device },
     
 
