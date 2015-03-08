@@ -1,6 +1,7 @@
 exports.notification = function(req, res) {
   
     console.log(req.body);
+    console.log(req.body.userId);
   /*var messagetitle=req.body.messagetitle;
   var message=req.body.message;
   var userid = parseInt( req.body.userid );
