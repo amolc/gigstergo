@@ -4,6 +4,7 @@ exports.notification = function(req, res) {
   var userid = parseInt( req.body.userid );
   console.log('userid= '+userid);
 
+    var mysql = require('mysql');
     var db = mysql.createPool({   
     database : 'gigster',
     user : 'gigstermobile',
@@ -28,7 +29,7 @@ exports.notification = function(req, res) {
     var CRUD = require('mysql-crud');
     var notifCrud=CRUD(db, 'tbl_notification');
      
-     notifCrud.load({'housing_ass_id':hid}, function (err, val) {       
+     notifCrud.load({'userid': userid}, function (err, val) {       
         totalrows=val;  
         
       for(i=0;i<totalrows.length;i++){
