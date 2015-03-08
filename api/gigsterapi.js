@@ -273,7 +273,27 @@ exports.setdeviceId = function(req, res){
   console.log(req.body.token_id);
   console.log(req.body.userid);
 
-//  btrdeviceCRUD.create({ 'userid' : req.body.userid , 'platform' : req.body.platform , 'token_id' : req.body.token_id , 'device' : req.body.device },
+btrdeviceCRUD.create({ 'userid' : req.body.userid , 'platform' : req.body.platform , 'token_id' : req.body.token_id , 'device' : req.body.device },
+    
+
+ function (err, val){
+    console.log(val);
+      if(parseInt(val.affectedRows)>0){
+         var resdata={
+        status:true,
+        message :'device information added successfully!!!!'
+        };
+      }else{
+        var resdata={
+        status:false,
+        message :'error occured!!!!'
+        };
+      }
+     
+
+
+      res.jsonp(resdata);   
+    });
 
 
 };
