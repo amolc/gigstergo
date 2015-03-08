@@ -486,21 +486,21 @@ $scope.sendfeedback=function(feedback){
          
             if(key == 'prjTitle' || key == 'prjdesc' || key == 'userId') {
               console.log()
-              this.push(key + ': ' + value);    
+              //this.push(key+' '+value); 
+              this.push(key+' : '+value);   
             }
           
           }, log);
           console.log("log/////");
           console.log(log);
 
-
-           $scope.notifmessage={
+           var notifmessage={
                 record : log
               };
               console.log("notifmessage");
-              console.log($scope.notifmessage);
+              console.log(notifmessage);
 
-  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
+  $http.post(baseURL + 'pushnotification',notifmessage).success(function(res) {
                $scope.response = res;
                console.log("res");
                console.log(res);
