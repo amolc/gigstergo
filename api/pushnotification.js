@@ -15,7 +15,7 @@ exports.notification = function(req, res) {
     host :'gigster2.fountaintechies.com'
 
    });
-    // android notifications
+    /*// android notifications
     var gcm = require('node-gcm');
     var anDmessage = new gcm.Message();
     anDmessage.addData('message',message);
@@ -63,7 +63,7 @@ exports.notification = function(req, res) {
       };
 
       res.jsonp(resdata);       
-    });     
+    });*/     
 };
 
 
