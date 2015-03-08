@@ -263,16 +263,13 @@ exports.loginval = function(req, res) {
     }); 
  }; 
 
-
-
 exports.setdeviceId = function(req, res){
-
 console.log("device id is ");
 console.log(req.body.platform);
 console.log(req.body.device);
 console.log(req.body.token_id);
 console.log(req.body.userid);
-var query = "select * from btr_notification WHERE token_id='"+token_id+"'";
+var query = "select * from btr_notification WHERE token_id='"+req.body.token_id+"'";
 db.query(query, function(err, rows){
 var resdata={
 status:false,
@@ -291,9 +288,7 @@ resdata.status=false;
 resdata.message='record not added ';
 res.jsonp(resdata);
 }
-
 });
-
 }else{
 res.jsonp(resdata);
 } 
