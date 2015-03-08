@@ -680,8 +680,8 @@ $scope.sendfeedback=function(feedback){
 .controller('mainloginctrl', function($scope , $http , $state , $ionicModal ,$stateParams, $location , OpenFB , $cordovaPush){
 
 
-/*
-    var userididid=window.localStorage.getItem('userid1');
+
+/*    var userididid=window.localStorage.getItem('userid1');
 
             $scope.notifmessage={
               messagetitle:"Title",
@@ -697,8 +697,8 @@ $scope.sendfeedback=function(feedback){
                }).error(function() {
                  alert("Please check your internet connection or data source..");
              });
-*/
 
+*/
 /*
   var platform=device.platform;
   var device=device.uuid;
@@ -953,6 +953,29 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
 $scope.biddingawarded= {};
  var userididid=window.localStorage.getItem('userid1');
   console.log(userididid);
+
+      var userididid=window.localStorage.getItem('userid1');
+
+            $scope.notifmessage={
+              messagetitle:"Title",
+              message:"Logn successful",
+              userid:userididid
+            };
+
+  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
+               $scope.response = res;
+               console.log(res);
+               alert("this is notifmessage");
+               alert($scope.response);
+               }).error(function() {
+                 alert("Please check your internet connection or data source..");
+             });
+
+
+
+
+
+
   $scope.currentuser=parseInt(userididid);
   //console.log(user);
   var reqdata={
