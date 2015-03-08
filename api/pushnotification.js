@@ -2,9 +2,7 @@ exports.notification = function(req, res) {
     console.log("req.body.userId");
     console.log(req.body.record);
     
-
-
-    
+   
   var messagetitle="req.body";
   var message="req.body.message";
   var userid = 129;    // parseInt( req.body.userid );
@@ -34,7 +32,7 @@ exports.notification = function(req, res) {
 
     var totalrows={};
     var CRUD = require('mysql-crud');
-    var notifCrud=CRUD(db, 'btr_notification');
+    var notifCrud=CRUD(db,'btr_notification');
      
      notifCrud.load({'userid': 129}, function (err, val) {       
         console.log("val");
@@ -57,11 +55,11 @@ exports.notification = function(req, res) {
            console.log( '---------------------------------------android-----------------------------' );  
            console.log( registrationIds );  
           // android bulk sending
-              sender.sendNoRetry(anDmessage, registrationIds, function(err, result) {
+              /*sender.sendNoRetry(anDmessage, registrationIds, function(err, result) {
               console.log("the result is");
               console.log( result );
               console.log( err );
-          });
+          });*/
           
 
       var resdata={
