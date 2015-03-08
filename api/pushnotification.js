@@ -1,12 +1,10 @@
 exports.notification = function(req, res) {
   
-    console.log(req.body);
-    console.log(req.body.userId);
-  /*var messagetitle=req.body.messagetitle;
-  var message=req.body.message;
-  var userid = parseInt( req.body.userid );
+  var messagetitle="req.body.messagetitle";
+  var message="req.body.message";
+  var userid = 129;    // parseInt( req.body.userid );
   console.log("user id for push is");
-  console.log('userid= '+userid);*/
+  console.log('userid= '+userid);
 
     var mysql = require('mysql');
     var db = mysql.createPool({   
@@ -16,7 +14,7 @@ exports.notification = function(req, res) {
     host :'gigster2.fountaintechies.com'
 
    });
-    /*// android notifications
+    // android notifications
     var gcm = require('node-gcm');
     var anDmessage = new gcm.Message();
     anDmessage.addData('message',message);
@@ -33,7 +31,7 @@ exports.notification = function(req, res) {
     var CRUD = require('mysql-crud');
     var notifCrud=CRUD(db, 'btr_notification');
      
-     notifCrud.load({'userid': userid}, function (err, val) {       
+     notifCrud.load({'userid': 129}, function (err, val) {       
         totalrows=val;  
         
       for(i=0;i<totalrows.length;i++){
@@ -64,7 +62,7 @@ exports.notification = function(req, res) {
       };
 
       res.jsonp(resdata);       
-    });*/     
+    });     
 };
 
 
