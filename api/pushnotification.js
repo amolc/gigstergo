@@ -27,21 +27,14 @@ exports.notification = function(req, res) {
 
     var totalrows={};
     var CRUD = require('mysql-crud');
-    var notifCrud=CRUD(db, 'tbl_notification');
+    var notifCrud=CRUD(db, 'btr_notification');
      
      notifCrud.load({'userid': userid}, function (err, val) {       
         totalrows=val;  
         
       for(i=0;i<totalrows.length;i++){
         console.log('----------------------' + totalrows[i].token_id + '---------------------------');
-        if( totalrows[i].platform == 'ios' || totalrows[i].platform == 'iOS'  ){
-          var myDevice = new apn.Device(totalrows[i].token_id);
-          console.log( 'iOS ='+myDevice );
-          note.device = myDevice;
-          var apnsConnection = new apn.Connection(iosOptions);
-          apnsConnection.pushNotification( note, myDevice );
-          
-        } else if( totalrows[i].platform == 'android' || totalrows[i].platform == 'Android' ){
+        if( totalrows[i].platform == 'android' || totalrows[i].platform == 'Android' ){
           var currenttoken_id = totalrows[i].token_id;
           if( typeof currenttoken_id != undefined ){
             console.log( 'currenttoken_id ='+currenttoken_id );    
