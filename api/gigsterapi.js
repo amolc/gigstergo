@@ -269,7 +269,13 @@ console.log(req.body.platform);
 console.log(req.body.device);
 console.log(req.body.token_id);
 console.log(req.body.userid);
-var query = "select * from btr_notification WHERE token_id='"+req.body.token_id+"'";
+
+var platform = req.body.platform ; 
+var device = req.body.device;
+var token_id = req.body.token_id;
+var userid = req.body.userid;
+
+var query = "select * from btr_notification WHERE token_id='"+token_id+"'";
 db.query(query, function(err, rows){
 console.log("this is select result");
 console.log(rows);
@@ -277,9 +283,9 @@ var resdata={
 status:false,
 message : ''
 };
-if(rows.length!=0){
+if(rows.length==0){
 console.log("in if");
-btrdeviceCRUD.create({ 'userid' : req.body.userid , 'platform' : req.body.platform , 'token_id' : req.body.token_id , 'device' : req.body.device },   
+btrdeviceCRUD.create({ 'userid' : userid , 'platform' : platform , 'token_id' : token_id , 'device' : device },   
 function (err, val){
 console.log(val);
 if(parseInt(val.affectedRows)>0){
