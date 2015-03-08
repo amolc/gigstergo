@@ -1,6 +1,11 @@
 exports.notification = function(req, res) {
-  
-  var messagetitle="req.body.messagetitle";
+    
+    console.log(req.body);
+
+
+
+    /*
+  var messagetitle="req.body";
   var message="req.body.message";
   var userid = 129;    // parseInt( req.body.userid );
   console.log("user id for push is");
@@ -62,7 +67,7 @@ exports.notification = function(req, res) {
       };
 
       res.jsonp(resdata);       
-    });     
+    }); */    
 };
 
 

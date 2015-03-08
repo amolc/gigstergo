@@ -445,18 +445,57 @@ $scope.sendfeedback=function(feedback){
       $scope.currentuser= userididid;
       var stampo = event.timeStamp;
       $scope.record = data;
+      console.log(data);
       console.log("this is gigdetails");
-      
+
       $scope.modal.show();
       $scope.bid={
           record : data,
           currentuser:userididid,
           bidon:stampo,
         }
+             
 
 
-              $scope.notifmessage={
-                record : data
+
+    }
+    
+  };
+
+  // Perform the login action when the user submits the login form
+  $scope.doBid = function(formstatus,bid) {
+    console.log("formstatus");
+    console.log(bid);
+    if(formstatus==true){
+            $http.post(baseURL + 'bidongig', bid).success(function(req,res){
+                
+                $scope.warning = req.message; 
+                $scope.listgigster[ $scope.recordindex ].bidfrom= $scope.currentuser;
+               // $scope.modal.hide();
+             
+          }).error(function(res){
+            alert(res);
+          });
+          console.log("bidding success...............");
+          $scope.modal.hide();
+          $state.go('app.listgig');
+     }
+        
+          var log = [];
+          angular.forEach(bid['record'], function(value, key) {
+         
+            if(key == 'prjTitle' || key == 'prjdesc' || key == 'userId') {
+              console.log()
+              this.push(key + ': ' + value);    
+            }
+          
+          }, log);
+          console.log("log/////");
+          console.log(log);
+
+
+           $scope.notifmessage={
+                record : log
               };
               console.log("notifmessage");
               console.log($scope.notifmessage);
@@ -471,33 +510,6 @@ $scope.sendfeedback=function(feedback){
              });
 
 
-
-
-    }
-    
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doBid = function(formstatus,bid) {
-    console.log(formstatus);
-    if(formstatus==true){
-            $http.post(baseURL + 'bidongig', bid).success(function(req,res){
-                
-                $scope.warning = req.message; 
-                $scope.listgigster[ $scope.recordindex ].bidfrom= $scope.currentuser;
-               // $scope.modal.hide();
-             
-          }).error(function(res){
-            alert(res);
-          });
-          console.log("bidding success...............");
-          $scope.modal.hide();
-          $state.go('app.listgig');
-
-
-    }
-    
-    
 };
 
  // Create the sentbid modal that we will use later
