@@ -113,8 +113,8 @@ exports.listgig = function(req, res) {
         });
     }*/
 
-      console.log("listgig objects------------------------------------");
-      console.log(val);
+      //console.log("listgig objects------------------------------------");
+      //console.log(val);
       res.jsonp(val);
     });
 };

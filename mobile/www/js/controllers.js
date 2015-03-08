@@ -16,7 +16,7 @@ function deviceready() {
     }
 
     try {
-        alert( device.platform +' '+ device.uuid );
+        //alert( device.platform +' '+ device.uuid );
         window.localStorage.setItem("uid", device.uuid );    
         window.localStorage.setItem("android", device.platform );    
         pushNotification = window.plugins.pushNotification;
@@ -33,7 +33,7 @@ function deviceready() {
 function successHandler(data) {
     if( device.platform == 'android' || device.platform == 'Android' ){
 
-      alert('this is to'+data);
+      //alert('this is to'+data);
 
       //window.localStorage.setItem("token_id", data );    
     }
@@ -51,7 +51,7 @@ function onNotificationAPN (event) {
     
     if ( event.regid )
     {
-        alert('this is regid '+event.regid);
+        //alert('this is regid '+event.regid);
 
         navigator.notification.alert(event.alert);
 
@@ -852,8 +852,28 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
        }
   };
 
+    
 
 
+
+/*//for Store device information while user login
+  var userididid=window.localStorage.getItem('userid1');
+  //$scope.currentuser= userididid;
+  var android=window.localStorage.getItem("android");
+  var uid=window.localStorage.getItem("uid");
+  var token_id=window.localStorage.getItem("token_id");
+
+
+  
+  $http.post(baseURL + 'setdeviceId',{ userid : userididid , platform: android , device: uid , token_id:token_id}).success(function(res) {
+       if (res.status == false) {
+            alert(res.message);
+                 var div = document.getElementById('errmsg');
+                   div.innerHTML = res.message;
+       }
+    }).error(function() {
+                 alert("Please check your internet connection or data source..");
+      }); */
 // function to submit the form after all validation has occurred      
   $scope.submitForm = function(isValid) {
 
