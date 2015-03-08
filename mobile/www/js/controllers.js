@@ -494,13 +494,13 @@ $scope.sendfeedback=function(feedback){
           console.log("log/////");
           console.log(log);
 
-           var notifmessage={
+           $scope.notifmessage={
                 record : log
               };
               console.log("notifmessage");
-              console.log(notifmessage);
+              console.log($scope.notifmessage);
 
-  $http.post(baseURL + 'pushnotification',notifmessage).success(function(res) {
+  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
                $scope.response = res;
                console.log("res");
                console.log(res);
