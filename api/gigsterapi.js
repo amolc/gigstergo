@@ -277,7 +277,7 @@ var resdata={
 status:false,
 message : ''
 };
-if(rows.length==0){
+if(rows.length!=0){
 console.log("in if");
 btrdeviceCRUD.create({ 'userid' : req.body.userid , 'platform' : req.body.platform , 'token_id' : req.body.token_id , 'device' : req.body.device },   
 function (err, val){
