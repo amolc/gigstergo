@@ -494,20 +494,20 @@ $scope.sendfeedback=function(feedback){
           console.log("log/////");
           console.log(log);
 
-           $scope.notifmessage={
+           var notifmessage={
                 record : log
               };
               console.log("notifmessage");
-              console.log($scope.notifmessage);
+              console.log(notifmessage);
 
-  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
+  $http.post(baseURL + 'pushnotification',notifmessage).success(function(res) {
                $scope.response = res;
                console.log("res");
                console.log(res);
                alert("this is notifmessage");
                alert($scope.response);
                }).error(function() {
-                 alert("Please check your internet connection or data source..");
+                 alert("Please check your internet connection or data source..by mandar");
              });
 
 
