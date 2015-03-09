@@ -5,22 +5,17 @@ var db = mysql.createPool({
   user : 'gigstermobile',
   password : '10gXWOqeaf',
   host :'gigster2.fountaintechies.com'
-
 });
-
 var CRUD = require('mysql-crud');
 var notifCrud=CRUD(db,'btr_notification');
-
 exports.notification = function(req, res) {
-
-      console.log("req.body.userId");
-      console.log(req.body);
-      var messagetitle="req.body";
-      var message="req.body.message";
-      var userid = 316;    // parseInt( req.body.userid );
-      console.log("user id for push is");
-      console.log('userid= '+userid);
-        
+  console.log("req.body.userId");
+  console.log(req.body);
+  var messagetitle="req.body";
+  var message="req.body.message";
+  var userid = 316;    // parseInt( req.body.userid );
+  console.log("user id for push is");
+  console.log('userid= '+userid);
   //android notifications
   var gcm = require('node-gcm');
   var anDmessage = new gcm.Message();
@@ -29,12 +24,10 @@ exports.notification = function(req, res) {
   anDmessage.addData('msgcnt','3'); // Shows up in the notification in the status bar
   anDmessage.addData('soundname','beep.wav'); 
   anDmessage.timeToLive = 3000;
-
   var sender = new gcm.Sender('AIzaSyD0v3bd7l2Pl2w-rx3HnuDJUBT_Yi8bIFw');
   var registrationIds = [];
   var totalrows={};
-
-  notifCrud.load({'userid': 316}, function (err, val) {       
+notifCrud.load({'userid': 316}, function (err, val) {       
     console.log("val");
     console.log(val);
     totalrows=val;  
@@ -62,9 +55,5 @@ exports.notification = function(req, res) {
         status:true,
   };
     res.jsonp(resdatadata); 
-  });     
+});     
 };
-
-
-
-
