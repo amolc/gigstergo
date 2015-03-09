@@ -472,15 +472,8 @@ $scope.sendfeedback=function(feedback){
                 $scope.warning = req.message; 
                 $scope.listgigster[ $scope.recordindex ].bidfrom= $scope.currentuser;
                // $scope.modal.hide();
-/*
-             $scope.notifmessage={
-                //record : log
-                record : bid
-              };
-              console.log("notifmessage");
-              console.log($scope.notifmessage);
 
-  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
+    $http.post(baseURL + 'pushnotification',bid).success(function(res) {
                $scope.response = res;
                console.log("res");
                console.log(res);
@@ -488,7 +481,7 @@ $scope.sendfeedback=function(feedback){
                alert($scope.response);
                }).error(function() {
                  alert("Please check your internet connection or data source..for pushNotification");
-             });*/
+             });
 
 
           }).error(function(res){
