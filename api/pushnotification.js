@@ -60,10 +60,10 @@ exports.notification = function(req, res) {
               console.log( result );
               console.log( err );
           });
-        var resdata={
+        var resdatadata={
         status:true,
        };
-      res.jsonp(resdata); 
+      res.jsonp(resdatadata); 
     });     
    
 };
