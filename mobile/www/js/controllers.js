@@ -473,31 +473,7 @@ $scope.sendfeedback=function(feedback){
                 $scope.listgigster[ $scope.recordindex ].bidfrom= $scope.currentuser;
                // $scope.modal.hide();
 
-            
-          }).error(function(res){
-            alert(res);
-          });
-          console.log("bidding success...............");
-          $scope.modal.hide();
-          $state.go('app.listgig');
-     }
-
-
-
-          /*var log = [];
-          angular.forEach(bid['record'], function(value, key) {
-         
-            if(key == 'prjTitle' || key == 'prjdesc' || key == 'userId') {
-              console.log()
-              //this.push(key+' '+value); 
-              this.push(key+' : '+value);   
-            }
-          
-          }, log);
-          console.log("log/////");
-          console.log(log);
-*/
-            $scope.notifmessage={
+             $scope.notifmessage={
                 //record : log
                 record : bid
               };
@@ -513,6 +489,16 @@ $scope.sendfeedback=function(feedback){
                }).error(function() {
                  alert("Please check your internet connection or data source..for pushNotification");
              });
+
+
+          }).error(function(res){
+            alert(res);
+          });
+          console.log("bidding success...............");
+          $scope.modal.hide();
+          $state.go('app.listgig');
+     }
+         
 
 };
 

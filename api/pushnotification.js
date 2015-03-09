@@ -17,7 +17,7 @@ exports.notification = function(req, res) {
   
   console.log("user id for push is");
   console.log('userid= '+userid);
-  //android notifications
+  /*//android notifications
   var gcm = require('node-gcm');
   var anDmessage = new gcm.Message();
   anDmessage.addData('message',message);
@@ -56,5 +56,5 @@ notifCrud.load({'userid': userid}, function (err, val) {
         status:true,
   };
     res.jsonp(resdatadata); 
-});     
+});*/     
 };
