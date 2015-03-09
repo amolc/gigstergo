@@ -67,12 +67,20 @@ exports.listgig = function(req, res) {
 
   //var query = "SELECT tbl1.*,tbl2.fname,tbl2.lname,tbl2.city, tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId where tbl1.status='0' OR tbl1.status='1' OR tbl1.status='2' order by postedon DESC LIMIT 10";  
 
-  var query="SELECT btr_bids.bidfrom,btr_projects.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage, GROUP_CONCAT( btr_bids.bidfrom ) as bidders \
+  /*var query="SELECT btr_bids.bidfrom,btr_projects.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage, GROUP_CONCAT( btr_bids.bidfrom ) as bidders \
   FROM btr_projects \
   RIGHT JOIN btr_bids on btr_bids.projectId = btr_projects.prjId \
   LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=btr_projects.userId \
   LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=btr_projects.userId \
   where btr_projects.status='0' OR btr_projects.status='1' OR btr_projects.status='2' group by btr_bids.projectId order by btr_projects.postedon DESC LIMIT 10 ";
+*/
+  
+  var query="SELECT btr_bids.bidfrom,btr_projects.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage, GROUP_CONCAT( btr_bids.bidfrom ) as bidders \
+  FROM btr_projects \
+  RIGHT JOIN btr_bids on btr_bids.projectId = btr_projects.prjId \
+  LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=btr_projects.userId \
+  LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=btr_projects.userId \
+  where btr_projects.status='0' OR btr_projects.status='1' OR btr_projects.status='2' group by btr_projects.prjId order by btr_projects.postedon DESC LIMIT 10";
 
   /*var query="select usermail from btr_users where userID in ( SELECT GROUP_CONCAT( btr_bids.bidfrom )
   FROM btr_projects \
