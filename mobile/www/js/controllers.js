@@ -504,7 +504,7 @@ $scope.sendfeedback=function(feedback){
                $scope.response = res;
                console.log("res");
                console.log(res);
-               alert("this is notifmessage");
+               alert("Request is sent");
                alert($scope.response);
                }).error(function() {
                  alert("Please check your internet connection or data source..by mandar");
