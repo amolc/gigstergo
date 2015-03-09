@@ -28,12 +28,8 @@ exports.notification = function(req, res) {
   var sender = new gcm.Sender('AIzaSyB7Qt1rwhf8jdwsmMP_SruxsqZDoM_Envs');
   var registrationIds = [];
   var totalrows={};
-notifCrud.load({'userid': userid}, function (err, val) {       
-    console.log("val");
-    console.log(val);
-    totalrows=val;  
-    console.log("totalrows");
-    console.log(totalrows);
+  // function for load token_id 
+  notifCrud.load({'userid': userid}, function (err, totalrows) {       
     for(i=0;i<totalrows.length;i++){
       console.log('-------' + totalrows[i].token_id + '------');
       if( totalrows[i].platform == 'android' || totalrows[i].platform == 'Android' ){
