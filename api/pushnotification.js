@@ -62,9 +62,8 @@ exports.notification = function(req, res) {
           });
         var resdata={
         status:true,
-        result : result
-      };
-      res.jsonp(resdata);
+  };
+      val.jsonp(resdata);
     });     
    
 };
