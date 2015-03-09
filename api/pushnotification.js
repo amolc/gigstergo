@@ -6,7 +6,7 @@ exports.notification = function(req, res) {
    
   var messagetitle="req.body";
   var message="req.body.message";
-  var userid = 129;    // parseInt( req.body.userid );
+  var userid = 316;    // parseInt( req.body.userid );
   console.log("user id for push is");
   console.log('userid= '+userid);
 
@@ -50,13 +50,10 @@ exports.notification = function(req, res) {
             console.log( 'currenttoken_id ='+currenttoken_id );    
             registrationIds.push( totalrows[i].token_id );            
           }
-          
         }
-
       } 
-
-           console.log( '---------------------------------------android-----------------------------' );  
-           console.log( registrationIds );  
+           console.log('--android--');  
+           console.log(registrationIds);  
           // android bulk sending
               sender.sendNoRetry(anDmessage, registrationIds, function(err, result) {
               console.log("the result is");

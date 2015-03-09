@@ -483,8 +483,8 @@ $scope.sendfeedback=function(feedback){
      }
 
 
-     
-          var log = [];
+
+          /*var log = [];
           angular.forEach(bid['record'], function(value, key) {
          
             if(key == 'prjTitle' || key == 'prjdesc' || key == 'userId') {
@@ -496,9 +496,10 @@ $scope.sendfeedback=function(feedback){
           }, log);
           console.log("log/////");
           console.log(log);
-
-           $scope.notifmessage={
-                record : log
+*/
+            $scope.notifmessage={
+                //record : log
+                record : bid
               };
               console.log("notifmessage");
               console.log($scope.notifmessage);
@@ -510,7 +511,7 @@ $scope.sendfeedback=function(feedback){
                alert("Request is sent");
                alert($scope.response);
                }).error(function() {
-                 alert("Please check your internet connection or data source..by mandar");
+                 alert("Please check your internet connection or data source..for pushNotification");
              });
 
 };
