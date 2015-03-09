@@ -12,11 +12,7 @@ exports.notification = function(req, res) {
   console.log(req.body);
   var messagetitle=req.body.record.prjTitle;
   var message=req.body.record.prjdesc;
-  
   var userid = req.body.record.userId;  
-  
-  
-  
   //android notifications
   var gcm = require('node-gcm');
   var anDmessage = new gcm.Message();

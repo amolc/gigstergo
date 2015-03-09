@@ -204,10 +204,10 @@ exports.verifyacc=function(req,res){
 };
 //for verify account api end here
 exports.bidongig=function(req,res){
-  console.log("For bib on");
+    //console.log("For bib on");
   //console.log(req.body);
   bidCRUD.create({'bidfrom': req.body.currentuser,'bidon':req.body.bidon, 'projectId':req.body.record.prjId,'bidcontent':req.body.proposal,'bidprice':req.body.price}, function (err, vals){
-    console.log(err);
+    //console.log(err);
     //var mailmatter="<p>Hello "+req.body.record.fname+" "+req.body.record.lname+" </p><p>You have received a new bid on your Gig <a href='#'></a> from </p><p></p><p><a href='#'>Click here to see more details and award this Gig.</a></p>";
     // insert message for inbox
     //btrmsgCRUD.create({'msgfrom':req.body.currentuser,'msgto':req.body.record.userId, 'msgcontent':mailmatter,'msgon':req.body.bidon,'projectId':req.body.record.prjId,'isread':'0','msgtype':'r'}, function (err, vals){
