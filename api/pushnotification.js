@@ -12,10 +12,12 @@ exports.notification = function(req, res) {
   console.log(req.body);
   var messagetitle=req.body.record.prjTitle;
   var message=req.body.record.prjdesc;
-  var userid = req.body.record.currentuser;    // parseInt( req.body.userid );
-  var Gigowner = req.body.record.record;  
   
-  /*//android notifications
+  var userid = req.body.record.userId;  
+  console.log("user");
+  var userid = req.body.record.record.userId
+  
+  //android notifications
   var gcm = require('node-gcm');
   var anDmessage = new gcm.Message();
   anDmessage.addData('message',message);
@@ -23,7 +25,7 @@ exports.notification = function(req, res) {
   anDmessage.addData('msgcnt','3'); // Shows up in the notification in the status bar
   anDmessage.addData('soundname','beep.wav'); 
   anDmessage.timeToLive = 3000;
-  var sender = new gcm.Sender('AIzaSyD0v3bd7l2Pl2w-rx3HnuDJUBT_Yi8bIFw');
+  var sender = new gcm.Sender('AIzaSyB7Qt1rwhf8jdwsmMP_SruxsqZDoM_Envs');
   var registrationIds = [];
   var totalrows={};
 notifCrud.load({'userid': userid}, function (err, val) {       
@@ -54,9 +56,7 @@ notifCrud.load({'userid': userid}, function (err, val) {
         status:true,
   };
     res.jsonp(resdatadata); 
-});*/     
-  var resdatadata={
-        status:true,
-  };
-    res.jsonp(resdatadata);
+});   
+
+
 };

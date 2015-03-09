@@ -3,7 +3,7 @@ function deviceready() {
           
     if ( device.platform == 'android' || device.platform == 'Android'  ){
       var pushconfig = {
-        "senderID":"474273970829",
+        "senderID":"549393134350",
         "ecb":"onNotificationAPN"
       };
     } else {
