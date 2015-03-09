@@ -472,7 +472,8 @@ $scope.sendfeedback=function(feedback){
                 $scope.warning = req.message; 
                 $scope.listgigster[ $scope.recordindex ].bidfrom= $scope.currentuser;
                // $scope.modal.hide();
-             
+
+            
           }).error(function(res){
             alert(res);
           });
@@ -480,7 +481,9 @@ $scope.sendfeedback=function(feedback){
           $scope.modal.hide();
           $state.go('app.listgig');
      }
-        
+
+
+     
           var log = [];
           angular.forEach(bid['record'], function(value, key) {
          
@@ -509,7 +512,6 @@ $scope.sendfeedback=function(feedback){
                }).error(function() {
                  alert("Please check your internet connection or data source..by mandar");
              });
-
 
 };
 
