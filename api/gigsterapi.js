@@ -72,7 +72,7 @@ exports.listgig = function(req, res) {
   RIGHT JOIN btr_bids on btr_bids.projectId = btr_projects.prjId \
   LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=btr_projects.userId \
   LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=btr_projects.userId \
-  where btr_projects.status='0' OR btr_projects.status='1' OR btr_projects.status='2' group by btr_bids.projectId order by postedon DESC LIMIT 10 ";
+  where btr_projects.status='0' OR btr_projects.status='1' OR btr_projects.status='2' group by btr_bids.projectId order by btr_projects.postedon DESC LIMIT 10 ";
 
   /*var query="select usermail from btr_users where userID in ( SELECT GROUP_CONCAT( btr_bids.bidfrom )
   FROM btr_projects \
