@@ -36,31 +36,24 @@ var btrdeviceCRUD=CRUD(db,'btr_notification');
 
 
 exports.assignall = function(req, res) {
-    
-    var query = "SELECT * FROM btr_assignment";  
-    db.query( query, function (err, val) {  
-        res.jsonp(val);
-      });    
+  var query = "SELECT * FROM btr_assignment";  
+  db.query( query, function (err, val) {  
+    res.jsonp(val);
+  });    
 };
-
-
-
 exports.getbid = function(req, res) {
-    
-    var query = "SELECT * FROM btr_bids";  
-    db.query( query, function (err, val) {  
-        res.jsonp(val);
-      });    
+  var query = "SELECT * FROM btr_bids";  
+  db.query( query, function (err, val) {  
+    res.jsonp(val);
+  });    
 };
 
 exports.gigdetails = function( req, res ){
-
   var prjid=req.body.prjid;
   console.log("this is gigdetails");
   console.log(prjid);
- // var query ="SELECT * from btr_projects where btr_projects.prjId="+prjid;
- var query=" SELECT * from btr_projects as tbl1 LEFT JOIN btr_users as tbl2 on tbl1.userId=tbl2.userId where tbl1.prjId="+prjid;
-  
+   // var query ="SELECT * from btr_projects where btr_projects.prjId="+prjid;
+  var query=" SELECT * from btr_projects as tbl1 LEFT JOIN btr_users as tbl2 on tbl1.userId=tbl2.userId where tbl1.prjId="+prjid;
   db.query(query, function(err , val){
     res.jsonp(val);
     console.log(val);
@@ -68,51 +61,46 @@ exports.gigdetails = function( req, res ){
    
 };
 exports.listgig = function(req, res) {
- 
   var userid = parseInt( req.body.userid );
   //SELECT * FROM btr_bids tbl1 INNER JOIN btr_projects AS tbl2 ON tbl2.prjId=tbl1.projectId INNER JOIN btr_userprofile AS tbl3 ON tbl3.userId=tbl2.userId INNER JOIN btr_reviews AS tbl4 ON tbl4.ratefrom=tbl3.userId where tbl1.bidfrom="+userid+" and tbl1.status='3' order by tbl1.bidon DESC";
   //  var query = "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId order by postedon DESC LIMIT 25";  
-     
-    //var query = "SELECT tbl1.*,tbl2.fname,tbl2.lname,tbl2.city, tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId where tbl1.status='0' OR tbl1.status='1' OR tbl1.status='2' order by postedon DESC LIMIT 10";  
 
-    var query="SELECT btr_bids.bidfrom,btr_projects.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage, GROUP_CONCAT( btr_bids.bidfrom ) as bidders \
-      FROM btr_projects \
-      RIGHT JOIN btr_bids on btr_bids.projectId = btr_projects.prjId \
-      LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=btr_projects.userId \
-       LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=btr_projects.userId \
-       where btr_projects.status='0' OR btr_projects.status='1' OR btr_projects.status='2' group by btr_bids.projectId order by postedon DESC LIMIT 10 ";
+  //var query = "SELECT tbl1.*,tbl2.fname,tbl2.lname,tbl2.city, tbl3.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId where tbl1.status='0' OR tbl1.status='1' OR tbl1.status='2' order by postedon DESC LIMIT 10";  
 
-  /*           var query="select usermail from btr_users where userID in ( SELECT GROUP_CONCAT( btr_bids.bidfrom )
-      FROM btr_projects \
-      RIGHT JOIN btr_bids on btr_bids.projectId = btr_projects.prjId \
-      LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=btr_projects.userId \
-       LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=btr_projects.userId \
-       group by btr_bids.projectId order by postedon DESC LIMIT 10 ";
-*/
-    //var query ="SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.profileimage, tbl4.bidfrom FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId LEFT JOIN btr_bids AS tbl4 ON tbl4.bidfrom=tbl3.userId order by postedon DESC LIMIT 25";
-    //var query =  "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage,tbl4.* FROM btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=tbl1.userId LEFT join btr_bids AS tbl4 ON tbl4.bidfrom=tbl1.userId order by postedon DESC LIMIT 10";
-    //var query="SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.* , tbl4.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId LEFT JOIN btr_bids AS tbl4 ON tbl4.bidfrom=tbl1.userId where tbl1.status='0' OR tbl1.status='1' OR tbl1.status='2' order by postedon DESC LIMIT 25";
-    console.log(query);
-    
-    db.query( query, function (err, val) {    
-      /*for ( project = 0; project < val.length;  project++) {
+  var query="SELECT btr_bids.bidfrom,btr_projects.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage, GROUP_CONCAT( btr_bids.bidfrom ) as bidders \
+  FROM btr_projects \
+  RIGHT JOIN btr_bids on btr_bids.projectId = btr_projects.prjId \
+  LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=btr_projects.userId \
+  LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=btr_projects.userId \
+  where btr_projects.status='0' OR btr_projects.status='1' OR btr_projects.status='2' group by btr_bids.projectId order by postedon DESC LIMIT 10 ";
+
+  /*var query="select usermail from btr_users where userID in ( SELECT GROUP_CONCAT( btr_bids.bidfrom )
+  FROM btr_projects \
+  RIGHT JOIN btr_bids on btr_bids.projectId = btr_projects.prjId \
+  LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=btr_projects.userId \
+  LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=btr_projects.userId \
+  group by btr_bids.projectId order by postedon DESC LIMIT 10 ";
+  */
+  //var query ="SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.profileimage, tbl4.bidfrom FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId LEFT JOIN btr_bids AS tbl4 ON tbl4.bidfrom=tbl3.userId order by postedon DESC LIMIT 25";
+  //var query =  "SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage,tbl4.* FROM btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=tbl1.userId LEFT join btr_bids AS tbl4 ON tbl4.bidfrom=tbl1.userId order by postedon DESC LIMIT 10";
+  //var query="SELECT tbl1.*,tbl2.fname, tbl2.lname,tbl2.city, tbl3.* , tbl4.* FROM  btr_projects AS tbl1 LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=tbl1.userId LEFT JOIN btr_users AS tbl3 ON tbl3.userId=tbl1.userId LEFT JOIN btr_bids AS tbl4 ON tbl4.bidfrom=tbl1.userId where tbl1.status='0' OR tbl1.status='1' OR tbl1.status='2' order by postedon DESC LIMIT 25";
+  console.log(query);
+  db.query( query, function (err, val) {    
+    /*for ( project = 0; project < val.length;  project++) {
         //console.log("project    --------------------");
         //console.log(project);
         //console.log(val[project].prjId);
         //console.log(val[project].username);
-      var query1 = "select * FROM btr_bids,btr_users WHERE btr_bids.projectid="+val[project].prjId+" and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
-      //console.log(query1);
+        var query1 = "select * FROM btr_bids,btr_users WHERE btr_bids.projectid="+val[project].prjId+" and btr_bids.bidfrom=btr_users.userId and btr_bids.bidfrom=btr_users.userId";
+        //console.log(query1);
         db.query(query1, function(err, val2){
         //  console.log("val22222222222");
-         // console.log(val2);
-          //val[project].bidders.push(val2); 
-          val[project].bidders = val2;
-          //val[project].put('bidders', val2);
-
-          
+        // console.log(val2);
+        //val[project].bidders.push(val2); 
+        val[project].bidders = val2;
+        //val[project].put('bidders', val2);
         });
-    }*/
-
+      }*/
       //console.log("listgig objects------------------------------------");
       //console.log(val);
       res.jsonp(val);
@@ -182,19 +170,19 @@ exports.verifyacc=function(req,res){
       };
       if(val.length>0){
             userCRUD.update({'usermail' :req.body.useremail},{'isactive' :'1'}, function (err, val1) {   
-                if(parseInt(val1.affectedRows)>0){
-                    var resdata={
-                      status:true,
-                      massage:'updated  successfuly'
-                       };
-                      }else{
-                        var resdata={
-                      status:false,
-                      massage:'not updated'
-                       }; 
-                      }
-                   // res.jsonp(resdata);
-                }); 
+              if(parseInt(val1.affectedRows)>0){
+                var resdata={
+                  status:true,
+                  massage:'updated  successfuly'
+                };
+              }else{
+                var resdata={
+                  status:false,
+                  massage:'not updated'
+                }; 
+              }
+              // res.jsonp(resdata);
+            }); 
         resdata.record=val;
         resdata.status=true;
         resdata.message='successfully Verified ..';      
@@ -206,10 +194,7 @@ exports.verifyacc=function(req,res){
       res.jsonp(resdata);
     }); 
 };
-
 //for verify account api end here
-
-
 exports.bidongig=function(req,res){
   console.log("For bib on");
   console.log(req.body);
@@ -218,8 +203,7 @@ exports.bidongig=function(req,res){
     var mailmatter="<p>Hello "+req.body.record.fname+" "+req.body.record.lname+" </p><p>You have received a new bid on your Gig <a href='#'></a> from </p><p></p><p><a href='#'>Click here to see more details and award this Gig.</a></p>";
     // insert message for inbox
     btrmsgCRUD.create({'msgfrom':req.body.currentuser,'msgto':req.body.record.userId, 'msgcontent':mailmatter,'msgon':req.body.bidon,'projectId':req.body.record.prjId,'isread':'0','msgtype':'r'}, function (err, vals){
-    
-    projectsCRUD.create({});
+      projectsCRUD.create({});
       console.log("vals");
       console.log(vals);
       var resdata={
