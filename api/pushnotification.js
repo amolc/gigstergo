@@ -35,7 +35,7 @@ exports.notification = function(req, res) {
     var CRUD = require('mysql-crud');
     var notifCrud=CRUD(db,'btr_notification');
      
-     notifCrud.load({'userid': 129}, function (err, val) {       
+     notifCrud.load({'userid': userid}, function (err, val) {       
         console.log("val");
         console.log(val);
         totalrows=val;  
