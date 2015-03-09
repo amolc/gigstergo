@@ -33,12 +33,8 @@ exports.notification = function(req, res) {
 
   var sender = new gcm.Sender('AIzaSyD0v3bd7l2Pl2w-rx3HnuDJUBT_Yi8bIFw');
   var registrationIds = [];
-
-
   var totalrows={};
-  
-   
-   notifCrud.load({'userid': 316}, function (err, val) {       
+  notifCrud.load({'userid': 316}, function (err, val) {       
       console.log("val");
       console.log(val);
       totalrows=val;  
