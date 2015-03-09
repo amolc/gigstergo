@@ -10,10 +10,10 @@ var CRUD = require('mysql-crud');
 var notifCrud=CRUD(db,'btr_notification');
 exports.notification = function(req, res) {
   console.log("req.body.record.projId");
-  console.log(req.body.record.userId);
+  console.log(req.body.currentuser);
   var messagetitle=req.body.record.prjTitle;
   var message=req.body.record.prjdesc;
-  var userid = req.body.record.userId;    // parseInt( req.body.userid );
+  var userid = req.body.currentuser;    // parseInt( req.body.userid );
   
   console.log("user id for push is");
   console.log('userid= '+userid);
