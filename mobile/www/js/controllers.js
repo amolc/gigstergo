@@ -352,7 +352,7 @@ $scope.sendfeedback=function(feedback){
       $scope.currentuser= userididid;
 
 
-  /*var android=window.localStorage.getItem("android");
+  var android=window.localStorage.getItem("android");
   var uid=window.localStorage.getItem("uid");
   var token_id=window.localStorage.getItem("token_id");
         $http.post(baseURL + 'setdeviceId',{ userid : userididid , platform: android , device: uid , token_id:token_id}).success(function(res) {
@@ -364,7 +364,7 @@ $scope.sendfeedback=function(feedback){
         }).error(function() {
                      alert("Please check your internet connection or data source..");
           }); 
-*/
+
 
 
      var userididid=window.localStorage.getItem('userid1');
