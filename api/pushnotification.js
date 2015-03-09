@@ -38,6 +38,8 @@ exports.notification = function(req, res) {
         console.log("val");
         console.log(val);
         totalrows=val;  
+        console.lgo("totalrows");
+        console.log(totalrows);
         
       for(i=0;i<totalrows.length;i++){
         console.log('----------------------' + totalrows[i].token_id + '---------------------------');
