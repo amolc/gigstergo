@@ -214,19 +214,14 @@ exports.bidongig=function(req,res){
     });
   });
 };
-
-
-
 exports.loginval = function(req, res) {
-    //console.log(req.body);
-    console.log( md5(req.body.password) );
-    
-    var gigname=req.body.gigname;
-    var password=md5(req.body.password); 
-      console.log(gigname);
-      console.log(password);
-
-    CRUD(db, 'btr_users').load({usermail :gigname, userpass : password,isactive:'1' }, function (err, val) {  
+  //console.log(req.body);
+  console.log( md5(req.body.password) );
+  var gigname=req.body.gigname;
+  var password=md5(req.body.password); 
+  console.log(gigname);
+  console.log(password);
+  CRUD(db, 'btr_users').load({usermail :gigname, userpass : password,isactive:'1' }, function (err, val) {  
       var resdata={
         record:'',
         status:false,

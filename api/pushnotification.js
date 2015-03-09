@@ -9,11 +9,12 @@ var db = mysql.createPool({
 var CRUD = require('mysql-crud');
 var notifCrud=CRUD(db,'btr_notification');
 exports.notification = function(req, res) {
-  console.log("req.body.userId");
-  console.log(req.body);
-  var messagetitle="req.body";
-  var message="req.body.message";
-  var userid = 316;    // parseInt( req.body.userid );
+  console.log("req.body.record.projId");
+  console.log(req.body.record.userId);
+  var messagetitle=req.body.record.prjTitle;
+  var message=req.body.record.prjdesc;
+  var userid = req.body.record.userId;    // parseInt( req.body.userid );
+  
   console.log("user id for push is");
   console.log('userid= '+userid);
   //android notifications
@@ -27,7 +28,7 @@ exports.notification = function(req, res) {
   var sender = new gcm.Sender('AIzaSyD0v3bd7l2Pl2w-rx3HnuDJUBT_Yi8bIFw');
   var registrationIds = [];
   var totalrows={};
-notifCrud.load({'userid': 316}, function (err, val) {       
+notifCrud.load({'userid': userid}, function (err, val) {       
     console.log("val");
     console.log(val);
     totalrows=val;  
