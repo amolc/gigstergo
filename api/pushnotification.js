@@ -55,17 +55,16 @@ exports.notification = function(req, res) {
            console.log('--android--');  
            console.log(registrationIds);  
           // android bulk sending
-             /* sender.sendNoRetry(anDmessage, registrationIds, function(err, result) {
+              sender.sendNoRetry(anDmessage, registrationIds, function(err, result) {
               console.log("the result is");
               console.log( result );
               console.log( err );
           });
-          */
-
-      var resdata={
+          
+     var resdata={
         status:true
       };
-res.jsonp(resdata);
+      res.jsonp(resdata);
             
     });     
    
