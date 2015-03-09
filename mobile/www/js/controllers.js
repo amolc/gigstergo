@@ -472,7 +472,7 @@ $scope.sendfeedback=function(feedback){
                 $scope.warning = req.message; 
                 $scope.listgigster[ $scope.recordindex ].bidfrom= $scope.currentuser;
                // $scope.modal.hide();
-
+/*
              $scope.notifmessage={
                 //record : log
                 record : bid
@@ -488,7 +488,7 @@ $scope.sendfeedback=function(feedback){
                alert($scope.response);
                }).error(function() {
                  alert("Please check your internet connection or data source..for pushNotification");
-             });
+             });*/
 
 
           }).error(function(res){
