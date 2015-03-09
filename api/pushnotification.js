@@ -9,11 +9,11 @@ var db = mysql.createPool({
 var CRUD = require('mysql-crud');
 var notifCrud=CRUD(db,'btr_notification');
 exports.notification = function(req, res) {
-  console.log("req.body.record.projId");
-  console.log(req.body);
+  console.log("req.body.record.currentuser");
+  console.log(req.body.record.currentuser);
   var messagetitle=req.body.record.prjTitle;
   var message=req.body.record.prjdesc;
-  var userid = req.body.currentuser;    // parseInt( req.body.userid );
+  var userid = req.body.record.currentuser;    // parseInt( req.body.userid );
   
   console.log("user id for push is");
   console.log('userid= '+userid);
