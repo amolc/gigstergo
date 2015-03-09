@@ -65,10 +65,10 @@ exports.notification = function(req, res) {
       var resdata={
         status:true
       };
-
+res.jsonp(resdata);
             
     });     
-   res.jsonp(resdata);
+   
 };
 
 

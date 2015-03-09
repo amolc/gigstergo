@@ -504,7 +504,7 @@ $scope.sendfeedback=function(feedback){
               console.log("notifmessage");
               console.log($scope.notifmessage);
 
-  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
+  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(req,res) {
                $scope.response = res;
                console.log("res");
                console.log(res);
