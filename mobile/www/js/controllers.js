@@ -79,17 +79,13 @@ angular.module('starter.controllers', [])
   $scope.user=window.localStorage.getItem('username');
   $scope.loginstatus = window.localStorage.getItem('islogin');
   $scope.myvar = true;
-
   $scope.setFocus =  function(){
     $scope.myvar= !$scope.myvar;
   };
-
-
-    if( $scope.loginstatus ){
-      $scope.loginstatus = false;
-      $scope.username = window.localStorage.getItem('username');
-      $scope.profileimage = profileUrl+window.localStorage.getItem('profileimage');
-
+  if( $scope.loginstatus ){
+    $scope.loginstatus = false;
+    $scope.username = window.localStorage.getItem('username');
+    $scope.profileimage = profileUrl+window.localStorage.getItem('profileimage');
   }
       
 })
@@ -457,8 +453,6 @@ $scope.sendfeedback=function(feedback){
           $scope.modal.hide();
           $state.go('app.listgig');
      }
-         
-
 };
 
  // Create the sentbid modal that we will use later
@@ -1437,20 +1431,28 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
   };
 
 $scope.awardgigfunction=function(data){
-  console.log(data);
-       $http.post(baseURL + 'awardgig',data).success(function(res) {
-        console.log(res);
-        $scope.bidding[ $scope.awardgigindex ].status= '2';
-         $scope.modal.hide();
+  console.log('awarded');
+  console.log(data.awardedto);
+      $http.post(baseURL + 'awardgig',data).success(function(res) {
+      console.log(res);
+      $scope.bidding[ $scope.awardgigindex ].status= '2';
+
+      /*$http.post(baseURL + 'pushnotification',data).success(function(res) {
+               $scope.response = res;
+               console.log("res");
+               console.log(res);
+               alert("Request is sent");
+               alert($scope.response);
+               }).error(function() {
+                 alert("Please check your internet connection or data source..for pushNotification");
+             });*/
+       
+        $scope.modal.hide();
 
       }).error(function() {
         alert("Please check your internet connection or data source..");
       });
 };
-
-
-
-
           $scope.closecancelgigmodel = function() {
           $state.go('app.mygigs.bid');
         };
