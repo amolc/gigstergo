@@ -336,40 +336,47 @@ $scope.sendfeedback=function(feedback){
   }   
   var userididid=window.localStorage.getItem('userid1');
   $scope.currentuser= userididid;
-    var userididid=window.localStorage.getItem('userid1');
-    $scope.currentuser= userididid;
-    $scope.profileUrl = profileUrl;
-    $scope.myvar = false;
-    $scope.setFocus =  function(){
-      $scope.myvar= !$scope.myvar;
-    };
-      $scope.listgigster = { };
-      $scope.$on('$stateChangeSuccess', function() {
-        $scope.loadMoreGigs();
-      });
-      $scope.listgigster = [];
-      $scope.page = 1;
-      $scope.loadMoreGigs = function(){
-        $http.get( baseURL + 'listgig/' + $scope.page ).success(function(res) {
-          // console.log("resource log");
-          //console.log(res);
-          $scope.listgigster = res;
-          for(i=0; i<$scope.listgigster.length; i++){
-            if($scope.listgigster[i].bidders!=null){
-              var res1 = $scope.listgigster[i].bidders.split(","); 
-              //console.log(res1);        
-              var len = res1.length;
-              var posts = [];
-              for(m=0; m<len; m++){
-                 posts.push ( profileUrl+res1[m]+'.jpg' );
-              }
-            }
-              $scope.listgigster[i].bidders=posts;
-              //console.log($scope.listgigster[i].bidders);          
+  $scope.profileUrl = profileUrl;
+  $scope.myvar = false;
+  $scope.setFocus =  function(){
+    $scope.myvar= !$scope.myvar;
+  };
+  $scope.listgigster = { };
+  $scope.$on('$stateChangeSuccess', function() {
+    $scope.loadMoreGigs();
+  });
+  $scope.listgigster = [];
+  $scope.page = 1;
+  $scope.loadMoreGigs = function(){
+    $http.get( baseURL + 'listgig/' + $scope.page ).success(function(res) {
+      // console.log("resource log");
+      //console.log(res);
+      $scope.listgigster = res;
+      for(i=0; i<$scope.listgigster.length; i++){
+        if($scope.listgigster[i].bidders!=null){
+          var res1 = $scope.listgigster[i].bidders.split(","); 
+          //console.log(res1);        
+          var len = res1.length;
+          var posts = [];
+          //var bidderTemp= [];
+          for(m=0; m<len; m++){
+            posts.push ( profileUrl+res1[m]+'.jpg' );
+            //bidderTemp.push(res1[m]);
           }
-              //$scope.$broadcast('scroll.infiniteScrollComplete');
-        });
+        }
+        $scope.listgigster[i].bidders=posts;
+        /*console.log("bidder");
+        console.log(posts);
+*/
+        /*if(posts.indexOf($scope.currentuser)){
+            $scope.listgigster[i].bidsent=false;
+          }else{
+            $scope.listgigster[i].bidsent=true;      
+            }*/
       }
+      //$scope.$broadcast('scroll.infiniteScrollComplete');
+    });
+  }
     $scope.isRecentOrder = function(date) {
       // Assuming date is a string of parsable format: ie. "2014-01-27T01:00:00+00:00"
       var diff = new Date() - new Date(date);
