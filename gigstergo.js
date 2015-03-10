@@ -37,6 +37,7 @@ app.post('/api/gigdetails', assignments.gigdetails);
 app.get('/api/send', sendmail.sendmail);
 app.post('/api/sendmail', sendmail.sendmail);
 app.post('/api/loginval',login.loginval);
+app.post('/api/logOut',login.logOut);
 app.post('/api/pushnotification', push.notification);
 app.post('/api/progressassignments',assignments.progressassignments);
 app.post('/api/postgig',assignments.postgig);

@@ -366,7 +366,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
       compile : function(element, attributes) {
             return {
                pre: function(scope, element, attributes, controller, transcludeFn){
-                  scope.association_details = JSON.parse( window.localStorage.getItem("association_details") );                  
+                  //scope.association_details = JSON.parse( window.localStorage.getItem("association_details") );                  
                },
                post:function( scope, elem, attrs ){
                   elem.bind('click', function (){
@@ -375,12 +375,12 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
                     window.localStorage.setItem( 'useremail', '' );
                     window.localStorage.setItem( 'userid1', '' );
                     window.localStorage.setItem( 'islogin', false );
-                      /*var login = {
+                      var login = {
                         device : device.uuid
                       }
-                      $http.post(baseURL + 'HousingAppLogout', login ).success(function(res) {
+                      $http.post(baseURL + 'logOut', login ).success(function(res) {
                           // do nothing
-                      });*/
+                      });
                       $state.go('applogin');
                   })                  
                }

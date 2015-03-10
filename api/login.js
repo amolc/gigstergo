@@ -52,3 +52,14 @@ exports.loginval = function(req, res) {
               
     }); 
  }; 
+
+
+exports.logOut = function(req, res) {
+  // do logOut and delete device entry from notofication llist 
+  var device = req.body.device; 
+  console.log( 'Device='+device)
+  btrdeviceCRUD.destroy({'device' : device },function (err, vals) { console.log( 'Del Erro='+err ) });
+  resdata.status = true;
+  resdata.message='Delete';
+  res.jsonp(resdata);      
+};
