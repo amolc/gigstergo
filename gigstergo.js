@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({
 assignments = require('./api/gigsterapi.js');
 sendmail=require('./api/sendmail.js');
 push=require('./api/pushnotification.js');
+login=require('./api/login.js');
 
 app.all('*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -36,7 +37,7 @@ app.post('/api/gigdetails', assignments.gigdetails);
 app.get('/api/send', sendmail.sendmail);
 app.post('/api/setdeviceId',assignments.setdeviceId);
 app.post('/api/sendmail', sendmail.sendmail);
-app.post('/api/loginval',assignments.loginval);
+app.post('/api/loginval',login.loginval);
 app.post('/api/pushnotification', push.notification);
 app.post('/api/progressassignments',assignments.progressassignments);
 app.post('/api/postgig',assignments.postgig);
