@@ -737,6 +737,13 @@ $scope.sendfeedback=function(feedback){
       $scope.modal.show();
     };
    // Perform the login action when the user submits the login form
+   if( typeof device != undefined ){
+    device = {
+      uuid : 1,
+      platform : 'web'
+    }
+    window.localStorage.setItem("token_id", 0 );
+   }
     $scope.user = {
       device : device.uuid,
       platform : device.platform,
