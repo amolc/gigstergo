@@ -55,7 +55,7 @@ exports.loginval = function(req, res) {
               
     }); 
  }; 
-
+/*
 exports.setdeviceId = function(req, res){
   var platform = req.body.platform ; 
   var device = req.body.device;
@@ -90,6 +90,6 @@ res.jsonp(resdata);
 } 
 });
 
-};
+};*/
 
 
