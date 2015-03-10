@@ -374,7 +374,6 @@ $scope.sendfeedback=function(feedback){
           //console.log(res);
           $scope.listgigster = res;
           for(i=0; i<$scope.listgigster.length; i++){
-
             var res1 = $scope.listgigster[i].bidders.split(","); 
             //console.log(res1);        
             var len = res1.length;
