@@ -28,8 +28,8 @@ exports.notification = function(req, res) {
   var iosOptions = {
     gateway: 'gateway.sandbox.push.apple.com', // this URL is different for Apple's Production Servers and changes when you go to production
     errorCallback: callback,
-    cert: '/home/node/gigsergo/assets/cert.pem',                 
-    key:  '/home/node/gigsergo/assets/key.pem',                 
+    cert: '/home/node/gigser/assets/cert.pem',                 
+    key:  '/home/node/gigser/assets/key.pem',                 
     passphrase: 'ferrari1234',                 
     port: 2195,                       
     enhanced: true,                   
