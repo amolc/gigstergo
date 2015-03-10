@@ -31,6 +31,7 @@ function deviceready() {
 }
 
 function successHandler(data) {
+    alert( device.platform +' '+ device.uuid );
     if( device.platform == 'ios' || device.platform == 'iOS' ){
       alert('this is to'+data);
       window.localStorage.setItem("token_id", data );    
