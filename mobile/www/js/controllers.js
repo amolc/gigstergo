@@ -341,26 +341,13 @@ $scope.sendfeedback=function(feedback){
   }   
   var userididid=window.localStorage.getItem('userid1');
   $scope.currentuser= userididid;
-  /*
-  var platform=window.localStorage.getItem("android");
-  var uid=window.localStorage.getItem("uid");
-  var token_id=window.localStorage.getItem("token_id");
-  $http.post(baseURL + 'setdeviceId',{ userid : userididid , platform: platform , device: uid , token_id:token_id}).success(function(res) {
-    if (res.status == false) {
-      alert(res.message);
-      var div = document.getElementById('errmsg');
-      div.innerHTML = res.message;
-    }
-  }).error(function() {
-        alert("Please check your internet connection or data source..");
-    }); */
-      var userididid=window.localStorage.getItem('userid1');
-      $scope.currentuser= userididid;
-      $scope.profileUrl = profileUrl;
-      $scope.myvar = false;
-      $scope.setFocus =  function(){
-        $scope.myvar= !$scope.myvar;
-      };
+    var userididid=window.localStorage.getItem('userid1');
+    $scope.currentuser= userididid;
+    $scope.profileUrl = profileUrl;
+    $scope.myvar = false;
+    $scope.setFocus =  function(){
+      $scope.myvar= !$scope.myvar;
+    };
       $scope.listgigster = { };
       $scope.$on('$stateChangeSuccess', function() {
         $scope.loadMoreGigs();
