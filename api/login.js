@@ -59,7 +59,9 @@ exports.logOut = function(req, res) {
   var device = req.body.device; 
   console.log( 'Device='+device)
   btrdeviceCRUD.destroy({'device' : device },function (err, vals) { console.log( 'Del Erro='+err ) });
-  var resdata.status = true;
+  var resdata ={
+    status :true
+  } 
   resdata.message='Delete';
   res.jsonp(resdata);      
 };
