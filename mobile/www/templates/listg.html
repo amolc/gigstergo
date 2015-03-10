@@ -39,7 +39,7 @@
     <div class="row" style="margin: 2px;"> 
       <h4 style="padding-top : 15px;">BIDS</h4>
           <div  class="col col-70">
-          <a ng-repeat="bider in list.bidders track by $index" >
+          <a ng-repeat="bider in list.bidders | limitTo:2 track by $index "  >
           <img src="{{bider}}" alt="" class="list-gig-img"/>
           <!--img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
           <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img"-->                   
