@@ -341,26 +341,13 @@ $scope.sendfeedback=function(feedback){
   }   
   var userididid=window.localStorage.getItem('userid1');
   $scope.currentuser= userididid;
-  /*
-  var platform=window.localStorage.getItem("android");
-  var uid=window.localStorage.getItem("uid");
-  var token_id=window.localStorage.getItem("token_id");
-  $http.post(baseURL + 'setdeviceId',{ userid : userididid , platform: platform , device: uid , token_id:token_id}).success(function(res) {
-    if (res.status == false) {
-      alert(res.message);
-      var div = document.getElementById('errmsg');
-      div.innerHTML = res.message;
-    }
-  }).error(function() {
-        alert("Please check your internet connection or data source..");
-    }); */
-      var userididid=window.localStorage.getItem('userid1');
-      $scope.currentuser= userididid;
-      $scope.profileUrl = profileUrl;
-      $scope.myvar = false;
-      $scope.setFocus =  function(){
-        $scope.myvar= !$scope.myvar;
-      };
+    var userididid=window.localStorage.getItem('userid1');
+    $scope.currentuser= userididid;
+    $scope.profileUrl = profileUrl;
+    $scope.myvar = false;
+    $scope.setFocus =  function(){
+      $scope.myvar= !$scope.myvar;
+    };
       $scope.listgigster = { };
       $scope.$on('$stateChangeSuccess', function() {
         $scope.loadMoreGigs();
@@ -677,39 +664,7 @@ $scope.sendfeedback=function(feedback){
 
 
 
-/*    var userididid=window.localStorage.getItem('userid1');
 
-            $scope.notifmessage={
-              messagetitle:"Title",
-              message:"Logn successful",
-              userid:userididid
-            };
-
-  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
-               $scope.response = res;
-               console.log(res);
-               alert("this is notifmessage");
-               alert($scope.response);
-               }).error(function() {
-                 alert("Please check your internet connection or data source..");
-             });
-
-*/
-/*
-  var platform=device.platform;
-  var device=device.uuid;
-  var token_id=window.localStorage.getItem("token_id");
-
-  
-        $http.post(baseURL + 'setdeviceId',{platform: platform , device: device , token_id:token_id}).success(function(res) {
-           if (res.status == false) {
-                alert(res.message);
-                     var div = document.getElementById('errmsg');
-                       div.innerHTML = res.message;
-           }
-        }).error(function() {
-                     alert("Please check your internet connection or data source..");
-          }); */
 
     
    if( window.localStorage.getItem('islogin')=='true' ){
@@ -747,7 +702,7 @@ $scope.sendfeedback=function(feedback){
     $scope.user = {
       device : device.uuid,
       platform : device.platform,
-      toke_id : window.localStorage.getItem("token_id")
+      token_id : window.localStorage.getItem("token_id")
     };
     $scope.dologin = function(formstatus,user) {
         if(formstatus==true){
