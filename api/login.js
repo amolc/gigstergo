@@ -7,7 +7,7 @@ var db = mysql.createPool({
   password : '10gXWOqeaf',
   host :'gigster2.fountaintechies.com'
 });
-
+var CRUD = require('mysql-crud');
 exports.loginval = function(req, res) {
   //console.log(req.body);
   console.log( md5(req.body.password) );
