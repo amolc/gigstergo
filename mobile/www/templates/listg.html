@@ -1,57 +1,54 @@
-  <ion-view title="BROWSE GIG">
-  
+<ion-view title="BROWSE GIG">
   <ion-content class="has-header" padding="true" style="background:#efefef;">
-      <div ng-repeat="list in listgigster" class="card list1">
-          <div class="row"  style="border-bottom: 1px solid #efefef;"> 
-              
-
-              <div class="col col-20 img-col">
-          <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
+    <div ng-repeat="list in listgigster" class="card list1">
+      <div class="row"  style="border-bottom: 1px solid #efefef;"> 
+        <div class="col col-20 img-col">
+           <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
         </div>
-              <div class="col img-col" ng-click="gotogigdetails( list.prjId )">
-               <!-- <div class="col col-60 img-col" href="#/app/gigdetails" ng-controller="gigdetailsCtrl">-->
-                 <h4 style="text-transform: capitalize">{{list.prjTitle}}</h4>
-                 <div>
-                 <p style="border 1px solid red;"><i class="icon  ion-location" id="map-icon"></i>{{list.gigLocation}} <a class="budgt">Budget: ${{list.proposedbudget}}</a></p>
-                 </div>
-                 <!--<p style="float:right;margin:0px;">${{list.proposedbudget}}</p> -->
-                 <h4>Posted On: {{list.postedon|date:'dd/MM/yyyy'}}</h4 >
-                 <!-- <h2><a >{{list.username}}</a></h2>
-                  <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
-                  <p><i class="icon  ion-star" id="star-icon"></i>
-                     <i class="icon  ion-star" id="star-icon"></i>
-                     <i class="icon  ion-star" id="star-icon"></i>
-                     <i class="icon  ion-star" id="star-icon"></i>
-                     <i class="icon  ion-star" id="star-icon"></i>
-                  </p> -->
-              <!--<button ng-if="list.userId == currentuser" class="new-bid-button" ng-click="sentbid(list , $index)">BID SENT </button>     -->
-             </div>  
-        </div> 
-            <div class="row " ng-init="more = false"  style="border-bottom: 1px solid #efefef;">
-            <div class="row gig-row">
-            <div class="col">
+        <div class="col img-col" ng-click="gotogigdetails( list.prjId )">
+          <!-- <div class="col col-60 img-col" href="#/app/gigdetails" ng-controller="gigdetailsCtrl">-->
+          <h4 style="text-transform: capitalize">{{list.prjTitle}}</h4>
+          <div>
+            <p style="border 1px solid red;"><i class="icon  ion-location" id="map-icon"></i>{{list.gigLocation}} <a class="budgt">Budget: ${{list.proposedbudget}}</a></p>
+          </div>
+          <!--<p style="float:right;margin:0px;">${{list.proposedbudget}}</p> -->
+          <h4>Posted On: {{list.postedon|date:'dd/MM/yyyy'}}</h4 >
+          <!-- <h2><a >{{list.username}}</a></h2>
+          <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
+          <p><i class="icon  ion-star" id="star-icon"></i>
+          <i class="icon  ion-star" id="star-icon"></i>
+          <i class="icon  ion-star" id="star-icon"></i>
+          <i class="icon  ion-star" id="star-icon"></i>
+          <i class="icon  ion-star" id="star-icon"></i>
+          </p> -->
+          <!--<button ng-if="list.userId == currentuser" class="new-bid-button" ng-click="sentbid(list , $index)">BID SENT </button>     -->
+        </div>  
+      </div> 
+      <div class="row " ng-init="more = false"  style="border-bottom: 1px solid #efefef;">
+        <div class="row gig-row">
+          <div class="col">
             <p ng-class="{'showMore': more, 'showLess': !more}">{{list.prjdesc}}</p> 
             <p ng-click="more = !more" style="float: right;">More..</p>
-            </div>
-        </div>
-
-    </div>
-    <div class="row" style="margin: 2px;"> 
-      <h4 style="padding-top : 15px;">BIDS</h4>
-          <div  class="col col-70">
-          <a ng-repeat="bider in list.bidders | limitTo:2 track by $index "  >
-          <img src="{{bider}}" alt="" class="list-gig-img"/>
-          <!--img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
-          <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img"-->                   
-          </a>
           </div>
-          <div class="col col-20 img-col">
-            <div ng-if="list.userId != currentuser ">
-              <button ng-if="list.bidders != currentuser" class="new-bid-button1" ng-click="bidongigform(list,$index)">BID</button>
-              <button ng-if="list.bidders == currentuser" class="new-bid-button1" ng-click="sentbid(list)">BID SENT</button>
-            </div>
         </div>
       </div>
+      <div class="row" style="margin: 2px;"> 
+        <h4 style="padding-top : 15px;">BIDS</h4>
+        <div  class="col col-70">
+          <a ng-repeat="bider in list.bidders | limitTo:2 track by $index "  >
+            <img src="{{bider}}" alt="" class="list-gig-img"/>
+            <!--img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img">
+            <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img"--> 
+          </a>
+        </div>
+        <div class="col col-20 img-col">
+          <div ng-if="list.userId != currentuser ">
+            <button ng-show="list.bidsent" class="new-bid-button1" ng-click="bidongigform(list,$index)">BID</button>
+            <button ng-hide="list.bidsent" class="new-bid-button1" ng-click="sentbid(list)">BID SENT</button>
+          </div>
+        </div>
+      </div>
+
       </div>
       
     <ion-infinite-scroll icon="ion-loading-c" on-infinite="loadMoreGigs()" distance="1%"></ion-infinite-scroll>
