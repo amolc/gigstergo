@@ -691,8 +691,10 @@ $scope.sendfeedback=function(feedback){
     };
    // Perform the login action when the user submits the login form
     $scope.user = {
-      device : device.uuid,
-      platform : device.platform,
+      /*device : device.uuid,
+      platform : device.platform,*/
+      device   :  window.localStorage.getItem("uid"),
+      platform : window.localStorage.getItem("platform"),
       token_id : window.localStorage.getItem("token_id")
     };
     $scope.dologin = function(formstatus,user) {
