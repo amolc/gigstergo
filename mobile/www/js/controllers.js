@@ -341,10 +341,11 @@ $scope.sendfeedback=function(feedback){
   }   
   var userididid=window.localStorage.getItem('userid1');
   $scope.currentuser= userididid;
-  var android=window.localStorage.getItem("android");
+  /*
+  var platform=window.localStorage.getItem("android");
   var uid=window.localStorage.getItem("uid");
   var token_id=window.localStorage.getItem("token_id");
-  $http.post(baseURL + 'setdeviceId',{ userid : userididid , platform: android , device: uid , token_id:token_id}).success(function(res) {
+  $http.post(baseURL + 'setdeviceId',{ userid : userididid , platform: platform , device: uid , token_id:token_id}).success(function(res) {
     if (res.status == false) {
       alert(res.message);
       var div = document.getElementById('errmsg');
@@ -352,7 +353,7 @@ $scope.sendfeedback=function(feedback){
     }
   }).error(function() {
         alert("Please check your internet connection or data source..");
-    }); 
+    }); */
       var userididid=window.localStorage.getItem('userid1');
       $scope.currentuser= userididid;
       $scope.profileUrl = profileUrl;
@@ -372,12 +373,14 @@ $scope.sendfeedback=function(feedback){
           //console.log(res);
           $scope.listgigster = res;
           for(i=0; i<$scope.listgigster.length; i++){
-            var res1 = $scope.listgigster[i].bidders.split(","); 
-            //console.log(res1);        
-            var len = res1.length;
-            var posts = [];
-            for(m=0; m<len; m++){
-               posts.push ( profileUrl+res1[m]+'.jpg' );
+            if($scope.listgigster[i].bidders!=null){
+              var res1 = $scope.listgigster[i].bidders.split(","); 
+              //console.log(res1);        
+              var len = res1.length;
+              var posts = [];
+              for(m=0; m<len; m++){
+                 posts.push ( profileUrl+res1[m]+'.jpg' );
+              }
             }
               $scope.listgigster[i].bidders=posts;
               //console.log($scope.listgigster[i].bidders);          
@@ -735,7 +738,9 @@ $scope.sendfeedback=function(feedback){
     };
    // Perform the login action when the user submits the login form
     $scope.user = {
-
+      device : device.uuid,
+      platform : device.platform,
+      toke_id : window.localStorage.getItem("token_id")
     };
     $scope.dologin = function(formstatus,user) {
         if(formstatus==true){
