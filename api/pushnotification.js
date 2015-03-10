@@ -13,6 +13,29 @@ exports.notification = function(req, res) {
   var messagetitle=req.body.record.prjTitle;
   var message=req.body.record.prjdesc;
   var userid = req.body.record.userId;  
+  // ios notification settings 
+  var apn = require('apn');
+  var note = new apn.Notification();
+  note.expiry = Math.floor(Date.now() / 1000) + 3600;
+  note.badge = Number(1) || 0 ;
+  note.sound = "notification-beep.wav";
+  note.alert = { "body" : messagetitle +' '+message, "action-loc-key" : "Play" , "launch-image" : "mysplash.png"};
+  note.payload = {'messageFrom': 'admin'};
+  var callback = function(errorNum, notification){
+      console.log('Error is: %s', errorNum);
+      console.log("Note " + notification);
+  };
+  var iosOptions = {
+    gateway: 'gateway.sandbox.push.apple.com', // this URL is different for Apple's Production Servers and changes when you go to production
+    errorCallback: callback,
+    cert: '/home/node/gigsergo/assets/cert.pem',                 
+    key:  '/home/node/gigsergo/assets/key.pem',                 
+    passphrase: 'ferrari1234',                 
+    port: 2195,                       
+    enhanced: true,                   
+    cacheLength: 100                  
+  };
+
   //android notifications
   var gcm = require('node-gcm');
   var anDmessage = new gcm.Message();
@@ -34,7 +57,13 @@ exports.notification = function(req, res) {
           console.log( 'currenttoken_id ='+currenttoken_id );    
           registrationIds.push( totalrows[i].token_id );            
         }
-      }
+      }else if( totalrows[i].platform == 'ios' || totalrows[i].platform == 'iOS'  ){
+          var myDevice = new apn.Device(totalrows[i].token_id);
+          console.log( 'iOS ='+myDevice );
+          note.device = myDevice;
+          var apnsConnection = new apn.Connection(iosOptions);
+          apnsConnection.pushNotification( note, myDevice );
+        }
     } 
   console.log('--android--');  
   console.log(registrationIds);  
