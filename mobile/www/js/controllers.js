@@ -334,6 +334,11 @@ $scope.sendfeedback=function(feedback){
   if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('applogin')
   }   
+
+  var stampo = Math.floor(Date.now() / 1000)+(8*60*60);
+          console.log("timeStamp----------");
+          console.log(stampo);
+
   var userididid=window.localStorage.getItem('userid1');
   $scope.currentuser= userididid;
   $scope.profileUrl = profileUrl;
