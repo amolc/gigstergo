@@ -705,7 +705,7 @@ $scope.sendfeedback=function(feedback){
                     window.localStorage.setItem('username',res.record[0].username);
                     window.localStorage.setItem('useremail',res.record[0].usermail);
                     window.localStorage.setItem('userid1',res.record[0].userId);
-                    alert('login');
+                    
                    $scope.modal.hide();
                    $state.go("app.profile");
            }
