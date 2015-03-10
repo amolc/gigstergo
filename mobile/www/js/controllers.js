@@ -352,6 +352,7 @@ $scope.sendfeedback=function(feedback){
       // console.log("resource log");
       //console.log(res);
       $scope.listgigster = res;
+
       for(i=0; i<$scope.listgigster.length; i++){
         if($scope.listgigster[i].bidders!=null){
           console.log($scope.listgigster[i].bidders);
@@ -360,6 +361,7 @@ $scope.sendfeedback=function(feedback){
           var len = res1.length;
           var posts = [];
           var bidderTemp= [];
+          $scope.listgigster.bidsent=false;
           for(m=0; m<len; m++){
             posts.push ( profileUrl+res1[m]+'.jpg' );
             bidderTemp.push(res1[m]);
@@ -368,7 +370,7 @@ $scope.sendfeedback=function(feedback){
           console.log(bidderTemp);
           if(bidderTemp.indexOf($scope.currentuser)){
             $scope.listgigster.bidsent=true;
-            console.log($scope.listgigster.bidsent);
+            
            }else{
             $scope.listgigster.bidsent=false;
              }
@@ -432,22 +434,18 @@ $scope.sendfeedback=function(feedback){
     console.log(bid);
     if(formstatus==true){
             $http.post(baseURL + 'bidongig', bid).success(function(req,res){
-                
                 $scope.warning = req.message; 
                 $scope.listgigster[ $scope.recordindex ].bidfrom= $scope.currentuser;
                // $scope.modal.hide();
-
     $http.post(baseURL + 'pushnotification',bid).success(function(res) {
                $scope.response = res;
                console.log("res");
                console.log(res);
-               alert("Request is sent");
-               alert($scope.response);
+               //alert("Request is sent");
+               //alert($scope.response);
                }).error(function() {
                  alert("Please check your internet connection or data source..for pushNotification");
              });
-
-
           }).error(function(res){
             alert(res);
           });
@@ -681,7 +679,6 @@ $scope.sendfeedback=function(feedback){
       $scope.modal.show();
     };
    // Perform the login action when the user submits the login form
-   alert( window.localStorage.getItem("uid") +' '+ window.localStorage.getItem("platform") + '' +window.localStorage.getItem("token_id"));
     $scope.user = {
       device : window.localStorage.getItem("uid"),
       platform : window.localStorage.getItem("platform"),
