@@ -839,16 +839,14 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
   };
     // facebook login
     $scope.facebookLogin = function ( ) {
-            
-            OpenFB.login('email,read_stream,publish_stream').then(
-                function () {
-                  //$scope.user = user ;
-                  //alert('Login successful');
-				      OpenFB.get('/me').success(function (user) {
-				    
-                  $scope.user = user;
-                 //alert(user.name +' '+ user.email + +user.id );
-                     console.log(user);                     
+      OpenFB.login('email,read_stream,publish_stream').then(
+      function () {
+        //$scope.user = user ;
+        //alert('Login successful');
+        OpenFB.get('/me').success(function (user) {
+				  $scope.user = user;
+          //alert(user.name +' '+ user.email + +user.id );
+           console.log(user);                     
                      $http.post(baseURL + 'loginfb', user).success(function(res) {
                                       
                                  console.log(res);
