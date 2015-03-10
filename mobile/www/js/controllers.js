@@ -664,39 +664,7 @@ $scope.sendfeedback=function(feedback){
 
 
 
-/*    var userididid=window.localStorage.getItem('userid1');
 
-            $scope.notifmessage={
-              messagetitle:"Title",
-              message:"Logn successful",
-              userid:userididid
-            };
-
-  $http.post(baseURL + 'pushnotification',$scope.notifmessage).success(function(res) {
-               $scope.response = res;
-               console.log(res);
-               alert("this is notifmessage");
-               alert($scope.response);
-               }).error(function() {
-                 alert("Please check your internet connection or data source..");
-             });
-
-*/
-/*
-  var platform=device.platform;
-  var device=device.uuid;
-  var token_id=window.localStorage.getItem("token_id");
-
-  
-        $http.post(baseURL + 'setdeviceId',{platform: platform , device: device , token_id:token_id}).success(function(res) {
-           if (res.status == false) {
-                alert(res.message);
-                     var div = document.getElementById('errmsg');
-                       div.innerHTML = res.message;
-           }
-        }).error(function() {
-                     alert("Please check your internet connection or data source..");
-          }); */
 
     
    if( window.localStorage.getItem('islogin')=='true' ){
