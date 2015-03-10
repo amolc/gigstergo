@@ -31,10 +31,8 @@ function deviceready() {
 }
 
 function successHandler(data) {
-    if( device.platform == 'android' || device.platform == 'Android' ){
-
-      //alert('this is to'+data);
-
+    if( device.platform == 'ios' || device.platform == 'iOS' ){
+      alert('this is to'+data);
       window.localStorage.setItem("token_id", data );    
     }
     
