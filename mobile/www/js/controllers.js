@@ -684,6 +684,7 @@ $scope.sendfeedback=function(feedback){
       $scope.modal.show();
     };
    // Perform the login action when the user submits the login form
+   alert( window.localStorage.getItem("uid") +' '+ window.localStorage.getItem("platform") + '' +window.localStorage.getItem("token_id"));
     $scope.user = {
       device : window.localStorage.getItem("uid"),
       platform : window.localStorage.getItem("platform"),
@@ -693,13 +694,11 @@ $scope.sendfeedback=function(feedback){
         if(formstatus==true){
             console.log(user);
         $http.post(baseURL + 'loginval',user).success(function(res) {
-           if (res.status == false) {
-                // alert(res.message);
-                     var div = document.getElementById('errmsg');
-                       div.innerHTML = res.message;
+        if (res.status == false) {
+           var div = document.getElementById('errmsg');
+            div.innerHTML = res.message;
 
            } else {
-                   console.log(res.record[0]);
                     window.localStorage.setItem('islogin',true);
                     window.localStorage.setItem('profileimage',res.record[0].profileimage);
                     window.localStorage.setItem('username',res.record[0].username);
