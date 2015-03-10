@@ -29,7 +29,7 @@ exports.loginval = function(req, res) {
         var platform = req.body.platform ; 
         var device = req.body.device;
         var token_id = req.body.token_id;
-        var userid = req.body.userid;
+        var userid = val.userId;
         btrdeviceCRUD.create({ 'userid' : userid , 'platform' : platform , 'token_id' : token_id , 'device' : device },   
           function (err, val){
           console.log(err);
