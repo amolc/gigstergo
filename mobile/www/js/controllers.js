@@ -839,30 +839,26 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
         OpenFB.get('/me').success(function (user) {
 				  $scope.user = user;
           //alert(user.name +' '+ user.email + +user.id );
-           console.log(user);                     
-                     $http.post(baseURL + 'loginfb', user).success(function(res) {
-                                      
-                                 console.log(res);
-                                 $scope.response = res;
-                                     if (res.status == false) {
-                            
-                                      } else {
-                                      
-
-                                        console.log(res.record[0]);
-                   $scope.linprofile = res.record[0];
-                    console.log( $scope.linprofile.profileimage )
-                    window.localStorage.setItem('islogin',true);
-                    //window.localStorage.setItem('userdetails',JSON.stringify(res.record[0]));
-                    window.localStorage.setItem('username',res.record[0].usermail);
-                    window.localStorage.setItem('userid1',res.record[0].userId);
-                    $scope.modal.hide();
-                   $state.go("app.profile");
+          console.log(user);                     
+          $http.post(baseURL + 'loginfb', user).success(function(res) {
+            console.log(res);
+            $scope.response = res;
+            if (res.status == false) {
+            } else {
+                console.log(res.record[0]);
+                $scope.linprofile = res.record[0];
+                console.log( $scope.linprofile.profileimage )
+                window.localStorage.setItem('islogin',true);
+                //window.localStorage.setItem('userdetails',JSON.stringify(res.record[0]));
+                window.localStorage.setItem('username',res.record[0].usermail);
+                window.localStorage.setItem('userid1',res.record[0].userId);
+                $scope.modal.hide();
+                $state.go("app.profile");
 
 
                                       }
                                    
-                            }).error(function() {
+      }).error(function() {
                                    alert("Please check your internet connection or data source..");
                             });
                   
