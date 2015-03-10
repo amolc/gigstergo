@@ -695,7 +695,7 @@ $scope.sendfeedback=function(feedback){
     $scope.user = {
       device : device.uuid,
       platform : device.platform,
-      toke_id : window.localStorage.getItem("token_id")
+      token_id : window.localStorage.getItem("token_id")
     };
     $scope.dologin = function(formstatus,user) {
         if(formstatus==true){
