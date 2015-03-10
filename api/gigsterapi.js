@@ -77,7 +77,7 @@ exports.listgig = function(req, res) {
   
   var query="SELECT btr_bids.bidfrom,btr_projects.*,tbl2.fname, tbl2.lname,tbl2.city , tbl3.profileimage, GROUP_CONCAT( btr_bids.bidfrom ) as bidders \
   FROM btr_projects \
-  RIGHT JOIN btr_bids on btr_bids.projectId = btr_projects.prjId \
+  LEFT JOIN btr_bids on btr_bids.projectId = btr_projects.prjId \
   LEFT OUTER join btr_userprofile AS tbl2 ON tbl2.userId=btr_projects.userId \
   LEFT OUTER join btr_users AS tbl3 ON tbl3.userId=btr_projects.userId \
   where btr_projects.status='0' OR btr_projects.status='1' OR btr_projects.status='2' group by btr_projects.prjId order by btr_projects.postedon DESC LIMIT 10";
