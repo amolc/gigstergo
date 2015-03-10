@@ -45,6 +45,7 @@ function errorHandler(e) {
 
 function onNotificationAPN (event) {
     //alert("NO: " + JSON.stringify(event));
+
     window.localStorage.setItem("token_id", event.regid );    
     
     if ( event.regid )
@@ -72,9 +73,6 @@ function onNotificationAPN (event) {
         pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
     }
 }
-
-
-
 angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, $http, $stateParams, $ionicLoading, OpenFB) {
   $scope.user=window.localStorage.getItem('username');
