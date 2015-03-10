@@ -326,96 +326,76 @@ $scope.sendreport=function(record){
 
 
 $scope.sendfeedback=function(feedback){
-     $http.post(baseURL + 'sendfeedback',feedback).success(function(res) {
-        console.log(res);
-        if(res.status==true){
-             $scope.progress[ $scope.feedbackindex ].status= '3';
-             $scope.modal3.hide();
-        }
-
-      }).error(function() {
+  $http.post(baseURL + 'sendfeedback',feedback).success(function(res) {
+    console.log(res);
+    if(res.status==true){
+      $scope.progress[ $scope.feedbackindex ].status= '3';
+      $scope.modal3.hide();
+    }
+  }).error(function() {
         alert("Please check your internet connection or data source..");
-      });
+    });
 };
-
-
 })
-
-
 .controller('ListgCtrl', function($scope,$http,$stateParams,$state,$ionicModal , $ionicLoading , OpenFB) {
-  
   if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('applogin')
-    }   
-
-    var userididid=window.localStorage.getItem('userid1');
-      $scope.currentuser= userididid;
-
-
+  }   
+  var userididid=window.localStorage.getItem('userid1');
+  $scope.currentuser= userididid;
   var android=window.localStorage.getItem("android");
   var uid=window.localStorage.getItem("uid");
   var token_id=window.localStorage.getItem("token_id");
-        $http.post(baseURL + 'setdeviceId',{ userid : userididid , platform: android , device: uid , token_id:token_id}).success(function(res) {
-           if (res.status == false) {
-                alert(res.message);
-                     var div = document.getElementById('errmsg');
-                       div.innerHTML = res.message;
-           }
-        }).error(function() {
-                     alert("Please check your internet connection or data source..");
-          }); 
-
-
-
-     var userididid=window.localStorage.getItem('userid1');
+  $http.post(baseURL + 'setdeviceId',{ userid : userididid , platform: android , device: uid , token_id:token_id}).success(function(res) {
+    if (res.status == false) {
+      alert(res.message);
+      var div = document.getElementById('errmsg');
+      div.innerHTML = res.message;
+    }
+  }).error(function() {
+        alert("Please check your internet connection or data source..");
+    }); 
+      var userididid=window.localStorage.getItem('userid1');
       $scope.currentuser= userididid;
-
-    $scope.profileUrl = profileUrl;
-    $scope.myvar = false;
-
-    $scope.setFocus =  function(){
-      $scope.myvar= !$scope.myvar;
-    };
-
-        $scope.listgigster = { };
-        $scope.$on('$stateChangeSuccess', function() {
+      $scope.profileUrl = profileUrl;
+      $scope.myvar = false;
+      $scope.setFocus =  function(){
+        $scope.myvar= !$scope.myvar;
+      };
+      $scope.listgigster = { };
+      $scope.$on('$stateChangeSuccess', function() {
         $scope.loadMoreGigs();
-        });
-        $scope.listgigster = [];
-        $scope.page = 1;
-        $scope.loadMoreGigs = function(){
+      });
+      $scope.listgigster = [];
+      $scope.page = 1;
+      $scope.loadMoreGigs = function(){
         $http.get( baseURL + 'listgig/' + $scope.page ).success(function(res) {
-        // console.log("resource log");
-        //console.log(res);
-        $scope.listgigster = res;
-      for(i=0; i<$scope.listgigster.length; i++){
+          // console.log("resource log");
+          //console.log(res);
+          $scope.listgigster = res;
+          for(i=0; i<$scope.listgigster.length; i++){
 
-        var res1 = $scope.listgigster[i].bidders.split(","); 
-        //console.log(res1);        
-        var len = res1.length;
-        var posts = [];
-        for(m=0; m<len; m++){
-           posts.push ( profileUrl+res1[m]+'.jpg' );
-        }
-        $scope.listgigster[i].bidders=posts;
-        //console.log($scope.listgigster[i].bidders);          
-      }
-        //$scope.$broadcast('scroll.infiniteScrollComplete');
+            var res1 = $scope.listgigster[i].bidders.split(","); 
+            //console.log(res1);        
+            var len = res1.length;
+            var posts = [];
+            for(m=0; m<len; m++){
+               posts.push ( profileUrl+res1[m]+'.jpg' );
+            }
+              $scope.listgigster[i].bidders=posts;
+              //console.log($scope.listgigster[i].bidders);          
+          }
+              //$scope.$broadcast('scroll.infiniteScrollComplete');
         });
-      
       }
-
     $scope.isRecentOrder = function(date) {
-
-          // Assuming date is a string of parsable format: ie. "2014-01-27T01:00:00+00:00"
-            var diff = new Date() - new Date(date);
-
-          // Calculate from milliseconds
-             var days = ((((diff / 1000) / 60) / 60) / 24);
-            // var nWeeks = parseInt(days / 7);
-              //var nmonths = parseInt(days / 30);
-
-              return days | 0;
+      // Assuming date is a string of parsable format: ie. "2014-01-27T01:00:00+00:00"
+      var diff = new Date() - new Date(date);
+      // Calculate from milliseconds
+      var days = ((((diff / 1000) / 60) / 60) / 24);
+      // var nWeeks = parseInt(days / 7);
+      //var nmonths = parseInt(days / 30);
+      return days | 0;
     }
           
    
