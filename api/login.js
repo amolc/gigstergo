@@ -8,6 +8,8 @@ var db = mysql.createPool({
   host :'gigster2.fountaintechies.com'
 });
 var CRUD = require('mysql-crud');
+var userCRUD = CRUD (db,'btr_users');
+var btrdeviceCRUD=CRUD(db,'btr_notification');
 exports.loginval = function(req, res) {
   //console.log(req.body);
   console.log( md5(req.body.password) );
