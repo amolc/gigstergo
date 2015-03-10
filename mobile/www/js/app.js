@@ -10,7 +10,7 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
 
 .run(function($ionicPlatform , OpenFB) {
 
-   OpenFB.init('842322769161509');
+ //  OpenFB.init('842322769161509');
    
   $ionicPlatform.ready(function() {
        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
@@ -450,7 +450,7 @@ var clientSecret = "3cJKVKS9Jz3ukuckhGnlWoqg";
         alert(JSON.stringify(result));
         window.localStorage.setItem('islogin',true);
         alert('Login success');
-        $state.go("app.tabs.listgig");
+        $state.go("app.listgig");
       },
       function(error){
         alert.log(error);
@@ -492,37 +492,3 @@ exampleApp.directive("passwordVerify", function() {
 
 'use strict';
 
-exampleApp.directive('match', match);
-
-function match ($parse) {
-    return {
-        require: '?ngModel',
-        restrict: 'A',
-        link: function(scope, elem, attrs, ctrl) {
-            if(!ctrl) {
-                if(console && console.warn){
-                    console.warn('Match validation requires ngModel to be on the element');
-                }
-                return;
-            }
-
-            var matchGetter = $parse(attrs.match);
-
-            scope.$watch(getMatchValue, function(){
-                ctrl.$validate();
-            });
-
-            ctrl.$validators.match = function(){
-                return ctrl.$viewValue === getMatchValue();
-            };
-
-            function getMatchValue(){
-                var match = matchGetter(scope);
-                if(angular.isObject(match) && match.hasOwnProperty('$viewValue')){
-                    match = match.$viewValue;
-                }
-                return match;
-            }
-        }
-    };
-}

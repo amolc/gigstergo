@@ -18,7 +18,7 @@ function deviceready() {
     try {
         //alert( device.platform +' '+ device.uuid );
         window.localStorage.setItem("uid", device.uuid );    
-        window.localStorage.setItem("android", device.platform );    
+        window.localStorage.setItem("platform", device.platform );    
         pushNotification = window.plugins.pushNotification;
         //pushNotification.unregister(successHandler, errorHandler);
         pushNotification.register(
@@ -659,12 +659,6 @@ $scope.sendfeedback=function(feedback){
 })
 
 .controller('mainloginctrl', function($scope , $http , $state , $ionicModal ,$stateParams, $location , OpenFB , $cordovaPush){
-
-
-
-
-
-    
    if( window.localStorage.getItem('islogin')=='true' ){
        $state.go('app.listgig')
    }
@@ -690,11 +684,9 @@ $scope.sendfeedback=function(feedback){
       $scope.modal.show();
     };
    // Perform the login action when the user submits the login form
-   
-   
     $scope.user = {
-      device : device.uuid,
-      platform : device.platform,
+      device : window.localStorage.getItem("uid"),
+      platform : window.localStorage.getItem("platform"),
       token_id : window.localStorage.getItem("token_id")
     };
     $scope.dologin = function(formstatus,user) {
@@ -713,7 +705,8 @@ $scope.sendfeedback=function(feedback){
                     window.localStorage.setItem('username',res.record[0].username);
                     window.localStorage.setItem('useremail',res.record[0].usermail);
                     window.localStorage.setItem('userid1',res.record[0].userId);
-                    $scope.modal.hide();
+                    alert('login');
+                   $scope.modal.hide();
                    $state.go("app.profile");
            }
               }).error(function() {

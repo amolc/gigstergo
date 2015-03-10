@@ -5,10 +5,11 @@
  
  
  //typeof device
-if(  document.location.hostname == '192.168.1.3' ){
+ //alert( document.location.hostname );
+/*if(  document.location.hostname == '192.168.1.3' ){
       device = {
         uuid : 1,
         platform : 'web'
     }
     window.localStorage.setItem("token_id", 0 );
-   }
+   }*/
