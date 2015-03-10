@@ -5,7 +5,7 @@
  
  
  //typeof device
- //alert( document.location.hostname );
+ alert( document.location.hostname );
 if(  document.location.hostname == '192.168.1.3' || document.location.hostname == '192.168.0.101' ){
       device = {
         uuid : 1,
