@@ -12,7 +12,7 @@
             <p style="border 1px solid red;"><i class="icon  ion-location" id="map-icon"></i>{{list.gigLocation}} <a class="budgt">Budget: ${{list.proposedbudget}}</a></p>
           </div>
           <!--<p style="float:right;margin:0px;">${{list.proposedbudget}}</p> -->
-          <h4>Posted On: {{list.postedon|date:'dd/MM/yyyy'}}</h4 >
+          <h4>Posted On: {{list.postedon | date:'dd/MM/yyyy'}}</h4 >
           <!-- <h2><a >{{list.username}}</a></h2>
           <p class="gig-paragraph"><i class="icon  ion-location" id="map-icon"></i>{{list.city}}</p>
           <p><i class="icon  ion-star" id="star-icon"></i>
@@ -41,7 +41,7 @@
             <img ng-src="{{profileUrl}}{{list.profileimage}}" class="list-gig-img"--> 
           </a>
         </div>
-        <div class="col col-20 img-col">
+          <div class="col col-20 img-col">
           <div ng-if="list.userId != currentuser ">
             <button ng-show="list.bidsent" class="new-bid-button1" ng-click="bidongigform(list,$index)">BID</button>
             <button ng-hide="list.bidsent" class="new-bid-button1" ng-click="sentbid(list)">BID SENT</button>

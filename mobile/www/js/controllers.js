@@ -354,26 +354,27 @@ $scope.sendfeedback=function(feedback){
       $scope.listgigster = res;
       for(i=0; i<$scope.listgigster.length; i++){
         if($scope.listgigster[i].bidders!=null){
+          console.log($scope.listgigster[i].bidders);
           var res1 = $scope.listgigster[i].bidders.split(","); 
           //console.log(res1);        
           var len = res1.length;
           var posts = [];
-          //var bidderTemp= [];
+          var bidderTemp= [];
           for(m=0; m<len; m++){
             posts.push ( profileUrl+res1[m]+'.jpg' );
-            //bidderTemp.push(res1[m]);
+            bidderTemp.push(res1[m]);
           }
+          $scope.listgigster[i].bidders=posts;
+          console.log(bidderTemp);
+          if(bidderTemp.indexOf($scope.currentuser)){
+            $scope.listgigster.bidsent=true;
+            console.log($scope.listgigster.bidsent);
+           }else{
+            $scope.listgigster.bidsent=false;
+             }
         }
-        $scope.listgigster[i].bidders=posts;
-        /*console.log("bidder");
-        console.log(posts);
-*/
-        /*if(posts.indexOf($scope.currentuser)){
-            $scope.listgigster[i].bidsent=false;
-          }else{
-            $scope.listgigster[i].bidsent=true;      
-            }*/
       }
+
       //$scope.$broadcast('scroll.infiniteScrollComplete');
     });
   }
@@ -416,19 +417,13 @@ $scope.sendfeedback=function(feedback){
       $scope.record = data;
       console.log(data);
       console.log("this is gigdetails");
-
       $scope.modal.show();
       $scope.bid={
           record : data,
           currentuser:userididid,
           bidon:stampo,
         }
-             
-
-
-
     }
-    
   };
 
   // Perform the login action when the user submits the login form

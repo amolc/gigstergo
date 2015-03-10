@@ -35,7 +35,6 @@ exports.notification = function(req, res) {
     enhanced: true,                   
     cacheLength: 100                  
   };
-
   //android notifications
   var gcm = require('node-gcm');
   var anDmessage = new gcm.Message();
@@ -78,6 +77,4 @@ exports.notification = function(req, res) {
   };
     res.jsonp(resdatadata); 
 });   
-
-
 };

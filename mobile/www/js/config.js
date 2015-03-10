@@ -12,6 +12,4 @@ if(  document.location.hostname == '192.168.1.3' || document.location.hostname =
         platform : 'web'
     }
     window.localStorage.setItem("token_id", 0 );
-   }{ 
-   alert( 'hostname = ' + document.location.hostname );
-}
+   }

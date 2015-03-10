@@ -34,18 +34,19 @@
    <span class="error" ng-show="mainForm.jobtype.$error.required">per gig or per hour required</span> 
 
   </ul>
-<div class="row" style="padding: 0px;">  
+
+  <div class="col col-50 img-col">
+      <label for="skill"><h3 style="clear:both;">Location(optional)</h3></label>
+      <input id="skill" name="gigLocation" type="text" ng-model="postg.gigLocation"/>
+      <!--<span class="error" ng-if="mainForm.location.$dirty && mainForm.location.$error.required">required</span> -->
+  </div> 
   <div class="col-50 img-col">
       <label for="skill"><h3 style="clear:both;">Skills you require</h3></label>
       <input id="skill" name="skill" type="text" ng-model="postg.skill" required/>
       <span class="error" ng-if="mainForm.skill.$dirty && mainForm.skill.$error.required">Skills required</span> 
   </div>
-  <div class="col col-50 img-col">
-      <label for="skill"><h3 style="clear:both;">Location(optional)</h3></label>
-      <input id="skill" name="gigLocation" type="text" ng-model="postg.gigLocation"/>
-      <!--<span class="error" ng-if="mainForm.location.$dirty && mainForm.location.$error.required">required</span> -->
-  </div>    
-</div>
+     
+
 
   
       <label for="expdate"><h3>Select expiry date of your Gig</h3></label>
