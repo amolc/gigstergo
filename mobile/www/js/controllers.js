@@ -1,78 +1,59 @@
 document.addEventListener("deviceready", deviceready, false);
 function deviceready() {
-          
-    if ( device.platform == 'android' || device.platform == 'Android'  ){
-      var pushconfig = {
-        "senderID":"549393134350",
-        "ecb":"onNotificationAPN"
-      };
-    } else {
-      var pushconfig = {
-        "badge":"true",
-        "sound":"true",
-        "alert":"true"
-        //"ecb":"onNotificationAPN"
-      };
-    }
-
-    try {
-        //alert( device.platform +' '+ device.uuid );
-        window.localStorage.setItem("uid", device.uuid );    
-        window.localStorage.setItem("platform", device.platform );    
-        pushNotification = window.plugins.pushNotification;
-        //pushNotification.unregister(successHandler, errorHandler);
-        pushNotification.register(
-            successHandler,
-            errorHandler, pushconfig );
+  if ( device.platform == 'android' || device.platform == 'Android'  ){
+    var pushconfig = {
+      "senderID":"549393134350",
+      "ecb":"onNotificationAPN"
+    };
+  }else {
+    var pushconfig = {
+      "badge":"true",
+      "sound":"true",
+      "alert":"true"
+      //"ecb":"onNotificationAPN"
+    };
+  }
+  try{
+    //alert( device.platform +' '+ device.uuid );
+    window.localStorage.setItem("uid", device.uuid );    
+    window.localStorage.setItem("platform", device.platform );    
+    pushNotification = window.plugins.pushNotification;
+    //pushNotification.unregister(successHandler, errorHandler);
+    pushNotification.register(
+    successHandler,
+    errorHandler, pushconfig );
     } catch (e) {
         alert('this alet is because'+e)
         alert(e);
     }
 }
-
 function successHandler(data) {
-    alert( 'in successHandler=' + device.platform +' '+ device.uuid );
-    if( device.platform == 'ios' || device.platform == 'iOS' ){
-      alert('this is to'+data);
-      window.localStorage.setItem("token_id", data );    
-    }
-    
-
+  alert( 'in successHandler=' + device.platform +' '+ device.uuid );
+  if( device.platform == 'ios' || device.platform == 'iOS' ){
+    alert('this is to'+data);
+    window.localStorage.setItem("token_id", data );    
+  }
 };
-
 function errorHandler(e) {
     //alert("ERROR" + e);
 }
-
 function onNotificationAPN (event) {
-    //alert("NO: " + JSON.stringify(event));
-
-    window.localStorage.setItem("token_id", event.regid );    
-    
-    if ( event.regid )
-    {
-        //alert('this is regid '+event.regid);
-
+  //alert("NO: " + JSON.stringify(event));
+  window.localStorage.setItem("token_id", event.regid );    
+  if ( event.regid ){
+    //alert('this is regid '+event.regid);
+    navigator.notification.alert(event.alert);
+  }
+  if ( event.alert ){
         navigator.notification.alert(event.alert);
-
-    }
-
-    if ( event.alert )
-    {
-        navigator.notification.alert(event.alert);
-
-    }
-
-    if ( event.sound )
-    {
-        var snd = new Media(event.sound);
-        snd.play();
-    }
-
-    if ( event.badge )
-    {
-        pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
-    }
+  }
+  if ( event.sound ){
+    var snd = new Media(event.sound);
+    snd.play();
+  }
+  if ( event.badge ){
+    pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
+  }
 }
 angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, $http, $stateParams, $ionicLoading, OpenFB) {
@@ -87,13 +68,12 @@ angular.module('starter.controllers', [])
     $scope.username = window.localStorage.getItem('username');
     $scope.profileimage = profileUrl+window.localStorage.getItem('profileimage');
   }
-      
 })
 
 .controller('ProgressCtrl', function($scope,$http,$stateParams, $state, $ionicModal) {
   if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('applogin')
-       }
+    $state.go('applogin')
+  }
   $scope.progress= {};
   var userididid=parseInt(window.localStorage.getItem('userid1'));
   console.log(userididid);
@@ -103,67 +83,53 @@ angular.module('starter.controllers', [])
   };
   //controller.log(reqdata);
   $http.post(baseURL + 'progressassignments',reqdata).success(function(res) {
-        console.log(res);
-        $scope.progress = res;
-       // console.log(progress);
-
-        if (res.status == 'false') {
-          alert(res.message);
-        } else {
-          console.log("No data");
-        //$scope.states=res;
-          
-        }
-      
-      }).error(function() {
+    console.log(res);
+    $scope.progress = res;
+    // console.log(progress);
+    if (res.status == 'false') {
+      alert(res.message);
+    } else {
+      console.log("No data");
+      //$scope.states=res;
+    }
+  }).error(function() {
         alert("Please check your internet connection or data source..");
+    });
+  $ionicModal.fromTemplateUrl('templates/MygigAwardedgigdtls.html', {
+      scope:$scope
+    }).then(function(modal){
+        $scope.modal4=modal;
       });
-
-
-        $ionicModal.fromTemplateUrl('templates/MygigAwardedgigdtls.html', {
-          scope:$scope
-        }).then(function(modal){
-          $scope.modal4=modal;
-        });
-        $scope.closegigdetailmodel = function(){
-          $scope.modal4.hide();
-        };
-
-        $scope.awardmygig = function(data, index){
-            if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('applogin')
-       }else{
-
-            $scope.index=index;
-     $scope.progressmygigdetails=data;
-     $scope.biddersinmygig={};
-
- var reqdata={
-      prjid: $scope.progressmygigdetails.prjId
+  $scope.closegigdetailmodel = function(){
+    $scope.modal4.hide();
   };
-
-$http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
-        $scope.biddersinmygig = res;
-        console.log(res);
-        console.log($scope.biddersinmygig);
-        if (res.status == 'false') {
-          alert(res.message);
-        } else {
-            $scope.bidders=res;
+  $scope.awardmygig = function(data, index){
+    if( window.localStorage.getItem('islogin') != 'true' ){
+        $state.go('applogin')
+    }else{
+       $scope.index=index;
+       $scope.progressmygigdetails=data;
+       $scope.biddersinmygig={};
+       var reqdata={
+        prjid: $scope.progressmygigdetails.prjId
+       };
+       $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
+          $scope.biddersinmygig = res;
+          console.log(res);
           console.log($scope.biddersinmygig);
-        }
-      
-      }).error(function() {
+          if (res.status == 'false') {
+            alert(res.message);
+          } else {
+              $scope.bidders=res;
+            console.log($scope.biddersinmygig);
+          }
+        }).error(function() {
         alert("Please check your internet connection or data source..");
       });
-
-            $scope.modal4.show();
-       }
-        }
-
-
-
-// Create the login modal that we will use later
+      $scope.modal4.show();
+    }
+  }
+  // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/messages.html', {
     scope: $scope
   }).then(function(modal) {
@@ -177,26 +143,25 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
     if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('applogin')
        }else{
-                   // $scope.recordinmygawarded=data;
-                  var stampo=event.timeStamp;
-                  $scope.sendmsgdata={
-                              projectid : projectid,
-                              msgfrom : sender,
-                              msgto : reciever,
-                              msgon: stampo,
-                              isread:'0',
-                              msgtype:'d',
-                              reportid:'',
-                              haveattachment : '0',
-                                  };
-             }
-     var reqdata={
-      prjid : projectid,
-      msgfrom : sender,
-      msgto : reciever
-      };
-
-      console.log(reqdata);
+          // $scope.recordinmygawarded=data;
+          var stampo=event.timeStamp;
+          $scope.sendmsgdata={
+          projectid : projectid,
+          msgfrom : sender,
+          msgto : reciever,
+          msgon: stampo,
+          isread:'0',
+          msgtype:'d',
+          reportid:'',
+          haveattachment : '0',
+          };
+       }
+       var reqdata={
+         prjid : projectid,
+         msgfrom : sender,
+         msgto : reciever
+       };
+       console.log(reqdata);
        $http.post(baseURL + 'getpreviousmsgs',reqdata).success(function(res) {
         console.log(res);
         $scope.msgs=res;
@@ -204,16 +169,11 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
         $scope.to=reciever;
         $scope.sender=$scope.msgs.sender[0].fname+" "+$scope.msgs.sender[0].lname;
         $scope.reciever=$scope.msgs.reciever[0].fname+" "+$scope.msgs.reciever[0].lname;
-
-
       }).error(function() {
         alert("Please check your internet connection or data source..");
       });
- 
-
     $scope.modal.show();
   };
-
 $scope.sendmsg=function(data){
   msgcontent=data.data;
   $scope.data=data;
@@ -226,16 +186,12 @@ $scope.sendmsg=function(data){
           $scope.msgs.msgs.push($scope.data);
           console.log($scope.data);
         }
-        
-
       }).error(function() {
         alert("Please check your internet connection or data source..");
       });
-
   }   
 };
 /*
-
  // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/statusreport.html', {
     scope: $scope
