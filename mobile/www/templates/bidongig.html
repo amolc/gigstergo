@@ -12,7 +12,7 @@
   	<h4 class="ng-binding">budget : ${{record.proposedbudget}}</h4>
     <div>
       <label for="description"><h3>Bid Details</h3></label>
-      <textarea cols="10" rows="10" id="description" placeholder="Other than price, sending more information usually helps. For example, how long the Gig will take or when you are available etc" type="text" name="description" ng-model="bid.proposal" required required></textarea>
+      <textarea cols="10" rows="5" id="description" placeholder="Other than price, sending more information usually helps. For example, how long the Gig will take or when you are available etc" type="text" name="description" ng-model="bid.proposal" required required></textarea>
       <span class="error" ng-if="mainForm.description.$dirty && mainForm.description.$error.required">Description required</span>
     </div>
     <div>
@@ -20,7 +20,9 @@
       <input id="skill" name="price" type="number" ng-model="bid.price" required/>
       <span class="error" ng-if="mainForm.price.$invalid && mainForm.price.$dirty && mainForm.price.$error.required">Bid price required</span>
     </div>
-    <button style=""class="button button-block post-gig-btn"> Bid Now </button>
+    <div style="text-align: center;">
+    <button style=""class="button post-gig-btn"> Bid Now </button>
+    </div>
   </form>
     
   </ion-content>
