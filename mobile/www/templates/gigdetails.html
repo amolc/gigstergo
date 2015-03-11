@@ -31,7 +31,14 @@
       <a class="item browse-gig-col" > 
             <h2 style="text-transform: capitalize">{{list.prjTitle}}</h2>
             <h4>Posted on:{{list.bidfrom|date:'dd/MM/yyyy'}}</h4>
-            <h4><p style="white-space: pre-line;">{{list.prjdesc}}</p></h4>
+            <div class="row " ng-init="more = false"  style="border-bottom: 1px solid #efefef;">
+        <div class="row gig-row">
+          <div class="col">
+            <p style="text-align: justify;" ng-class="{'showMore': more, 'showLess': !more}">{{list.prjdesc}}</p> 
+            <p  ng-click="more = !more" style="float: right;">More..</p>
+          </div>
+        </div>
+      </div>
              <h4>Budget : ${{list.proposedbudget}}</h4> 
                       
                
