@@ -27,7 +27,7 @@
       <div class="row " ng-init="more = false"  style="border-bottom: 1px solid #efefef;">
         <div class="row gig-row">
           <div class="col">
-            <p ng-class="{'showMore': more, 'showLess': !more}">{{list.prjdesc}}</p> 
+            <p style="text-align: justify;" ng-class="{'showMore': more, 'showLess': !more}">{{list.prjdesc}}</p> 
             <p ng-show="list.showmore" ng-click="more = !more" style="float: right;">More..</p>
           </div>
         </div>
