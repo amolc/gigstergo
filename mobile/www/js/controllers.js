@@ -544,61 +544,45 @@ $scope.sendfeedback=function(feedback){
 
 
 .controller('gigdetailsCtrl' , function($scope, $http, $state, $stateParams, $ionicModal ){
-
-
   if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('applogin')
-    }   else {
-
-
-     var userididid=window.localStorage.getItem('userid1');
-      $scope.currentuser= userididid;
-
-       var reqdata={
-            prjid: $stateParams.gigid
-        };
-        console.log("gigid is");
-        console.log(reqdata);
-
-
-         $http.post(baseURL + 'gigdetails',reqdata).success(function(res) {
-              $scope.gig = res;
-              console.log("resorces");
-              console.log(res);
-              if (res.status == 'false') {
-                alert(res.message);
-              } else {
-                  $scope.gig=res;
-                  console.log("$scope.gig");
-                console.log($scope.gig);
-              }
-            
-            }).error(function() {
-              alert("Please check your internet connection or data source..");
-            });
-         
-      $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
-              $scope.bidders = res;
-           
-              if (res.status == 'false') {
-                alert(res.message);
-              } else {
-                  $scope.bidders=res;
-                  console.log("$scope.bidders");
-                console.log($scope.bidders);
-              }
-            
-            }).error(function() {
-              alert("Please check your internet connection or data source..");
-            });
-         
-
-
-          $scope.closecancelgigmodel = function() {
-          $state.go('app.listgig')
-        };
-
-
+    $state.go('applogin')
+  }else {
+    var userididid=window.localStorage.getItem('userid1');
+    $scope.currentuser= userididid;
+    var reqdata={
+      prjid: $stateParams.gigid
+    };
+    console.log("gigid is");
+    console.log(reqdata);
+    $http.post(baseURL + 'gigdetails',reqdata).success(function(res) {
+      $scope.gig = res;
+      console.log("resorces");
+      console.log(res);
+      if (res.status == 'false') {
+        alert(res.message);
+      } else {
+        $scope.gig=res;
+        console.log("$scope.gig");
+        console.log($scope.gig);
+      }
+    }).error(function() {
+        alert("Please check your internet connection or data source..");
+      });
+  $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
+    $scope.bidders = res;
+    if (res.status == 'false') {
+      alert(res.message);
+    } else {
+        $scope.bidders=res;
+        console.log("$scope.bidders");
+        console.log($scope.bidders);
+      }
+  }).error(function() {
+      alert("Please check your internet connection or data source..");
+    });
+  $scope.closecancelgigmodel = function() {
+      $state.go('app.listgig')
+  };
 // Create the cancel gig modal that we will use later
   $ionicModal.fromTemplateUrl('templates/cancelgigmodel.html', {
     scope: $scope,
@@ -606,46 +590,40 @@ $scope.sendfeedback=function(feedback){
   }).then(function(modal) {
     $scope.modal2 = modal;
   });
-  
   $scope.closecancelgigmodel = function() {
     $scope.modal2.hide();
   };
   $scope.cancelgigmodel = function(projectid,index) {
     if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('applogin')
-       }else{
+    }else{
         var reqdata={
-            prjid: $stateParams.gigid
+          prjid: $stateParams.gigid
         };
         $scope.cancelgigrecord=reqdata;
         $scope.cancelgigindex=index;
         console.log("$scope.cancelgigrecord");
         console.log($scope.cancelgigrecord);
-     }
+      }
     $scope.modal2.show();
   };
-
-
-
- $scope.cancelgig=function(projectid,index){
-  console.log("cancelgig fired");
-        var reqdata={
-            prjid: $stateParams.gigid
-        };
-       console.log("this is project id ,,,,,,,,,,,,,,,,,,,");
-       console.log(reqdata);
-       $http.post(baseURL + 'cancelgig',reqdata).success(function(res) {
-        console.log(res);
-        //$scope.bidding[ $scope.cancelgigindex ].status= '5';
-         
-
-      }).error(function() {
-        alert("Please check your internet connection or data source..");
-      });
-      //$state.go('app.mygigs.progress');
-      $scope.modal2.hide();
-      $state.go('app.listgig');
+  $scope.cancelgig=function(projectid,index){
+    console.log("cancelgig fired");
+    var reqdata={
+      prjid: $stateParams.gigid
     };
+    console.log("this is project id ,,,,,,,,,,,,,,,,,,,");
+    console.log(reqdata);
+    $http.post(baseURL + 'cancelgig',reqdata).success(function(res) {
+      console.log(res);
+      //$scope.bidding[ $scope.cancelgigindex ].status= '5';
+    }).error(function() {
+          alert("Please check your internet connection or data source..");
+        });
+        //$state.go('app.mygigs.progress');
+        $scope.modal2.hide();
+        $state.go('app.listgig');
+  };
 
 
     }
@@ -656,44 +634,37 @@ $scope.sendfeedback=function(feedback){
 
 //new controllers
 .controller('homeCtrl', function($scope,$http,$state){
-       if( window.localStorage.getItem('islogin') != 'true' ){
-        $state.go('applogin')
-       }
-       
-
+   if( window.localStorage.getItem('islogin') != 'true' ){
+      $state.go('applogin')
+   }
 })
 
 .controller('mainloginctrl', function($scope , $http , $state , $ionicModal ,$stateParams, $location , OpenFB , $cordovaPush){
-   if( window.localStorage.getItem('islogin')=='true' ){
-       $state.go('app.listgig')
-   }
-
-
-   $scope.social=true;
-   // Create the login modal that we will use later
-    $ionicModal.fromTemplateUrl('templates/emaillogin2.html', {
-      scope: $scope,
-      animation : 'slide-in-right'
-    }).then(function(modal) {
-      $scope.modal = modal;
-    });
-   
-  // Triggered in the login modal to close it
-    $scope.closeemaillogin = function() {
-      $scope.modal.hide();
-    };
-
-    // Open the login modal
-    $scope.emaillogin = function(data) {
-      
-      $scope.modal.show();
-    };
-   // Perform the login action when the user submits the login form
-    $scope.user = {
+  if( window.localStorage.getItem('islogin')=='true' ){
+    $state.go('app.listgig')
+  }
+  $scope.social=true;
+  // Create the login modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/emaillogin2.html', {
+    scope: $scope,
+    animation : 'slide-in-right'
+  }).then(function(modal) {
+       $scope.modal = modal;
+     });
+    // Triggered in the login modal to close it
+  $scope.closeemaillogin = function() {
+    $scope.modal.hide();
+  };
+  // Open the login modal
+  $scope.emaillogin = function(data) {
+    $scope.modal.show();
+  };
+  // Perform the login action when the user submits the login form
+  $scope.user = {
       device : window.localStorage.getItem("uid"),
       platform : window.localStorage.getItem("platform"),
       token_id : window.localStorage.getItem("token_id")
-    };
+  };
     $scope.dologin = function(formstatus,user) {
         if(formstatus==true){
             console.log(user);
@@ -703,20 +674,18 @@ $scope.sendfeedback=function(feedback){
             div.innerHTML = res.message;
 
            } else {
-                    window.localStorage.setItem('islogin',true);
-                    window.localStorage.setItem('profileimage',res.record[0].profileimage);
-                    window.localStorage.setItem('username',res.record[0].username);
-                    window.localStorage.setItem('useremail',res.record[0].usermail);
-                    window.localStorage.setItem('userid1',res.record[0].userId);
-                    
-                   $scope.modal.hide();
-                   $state.go("app.profile");
+              window.localStorage.setItem('islogin',true);
+              window.localStorage.setItem('profileimage',res.record[0].profileimage);
+              window.localStorage.setItem('username',res.record[0].username);
+              window.localStorage.setItem('useremail',res.record[0].usermail);
+              window.localStorage.setItem('userid1',res.record[0].userId);
+              $scope.modal.hide();
+              $state.go("app.profile");
            }
               }).error(function() {
                      alert("Please check your internet connection or data source..");
           });
         }
-      
 };
 
 // Create the login modal that we will use later
@@ -794,48 +763,37 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
     });
         $scope.modal3.hide();
        }
-
   };
 //for verify A/c end
-
   $scope.dosignup = function(formstatus,user) {
-
        if(formstatus==true){
-           $http.post(baseURL + 'signup', user).success(function(res){
-         // $scope.warning = req.message; 
+          $http.post(baseURL + 'signup', user).success(function(res){
+          // $scope.warning = req.message; 
           console.log(res);
           alert("signUp successful");
           if(res.status==true){
-             $scope.modal1.hide();
-             $state.go('applogin');
+            $scope.modal1.hide();
+            $state.go('applogin');
           }else{
-            
             var div = document.getElementById('errmsg');
-
             div.innerHTML = res.message;
           }
-         
           //$state.go('applogin');
         }).error(function(res){
       alert(res);
     });
        }
   };
-
-
-
 // function to submit the form after all validation has occurred      
   $scope.submitForm = function(isValid) {
-
     // check to make sure the form is completely valid
     if (isValid) { 
       alert('our form is amazing');
     }
-
   };
-    // facebook login
-    $scope.facebookLogin = function ( ) {
-      OpenFB.login('email,read_stream,publish_stream').then(
+// facebook login
+  $scope.facebookLogin = function ( ) {
+    OpenFB.login('email,read_stream,publish_stream').then(
       function () {
         //$scope.user = user ;
         //alert('Login successful');
@@ -857,23 +815,16 @@ $ionicModal.fromTemplateUrl('templates/verifyacc.html', {
                 window.localStorage.setItem('userid1',res.record[0].userId);
                 $scope.modal.hide();
                 $state.go("app.profile");
-
-
-                                      }
-                                   
-      }).error(function() {
-                                   alert("Please check your internet connection or data source..");
-                            });
-                  
-            		});			
-				          
-
-
-                },
-                function () {
-                    alert('OpenFB login failed');
-                });
-        };
+              }
+            }).error(function() {
+                alert("Please check your internet connection or data source..");
+              });
+        });			
+      },
+      function () {
+        alert('OpenFB login failed');
+      });
+  };
 
 })
 
