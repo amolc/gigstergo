@@ -15,11 +15,12 @@ var db = mysql.createPool({
     password : '10gXWOqeaf',
     host :'gigster2.fountaintechies.com'
     
-/*    database : 'gigster2',
+    /*
+    database : 'gigster2',
     user : 'root',
     password : '',
     host :'localhost'
-*/   
+  */ 
    
       }); 
 // 14 feb

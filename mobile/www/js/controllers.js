@@ -335,7 +335,7 @@ $scope.sendfeedback=function(feedback){
         $state.go('applogin')
   }   
 
-  var stampo = Math.floor(Date.now() / 1000)+(8*60*60);
+  var stampo = Date.now();
           console.log("timeStamp----------");
           console.log(stampo);
 
@@ -357,10 +357,10 @@ $scope.sendfeedback=function(feedback){
       // console.log("resource log");
       //console.log(res);
       $scope.listgigster = res;
-
+      //console.log(res);
       for(i=0; i<$scope.listgigster.length; i++){
         if($scope.listgigster[i].bidders!=null){
-          console.log($scope.listgigster[i].bidders);
+          //console.log($scope.listgigster[i].bidders);
           var res1 = $scope.listgigster[i].bidders.split(","); 
           //console.log(res1);        
           var len = res1.length;
@@ -372,14 +372,19 @@ $scope.sendfeedback=function(feedback){
             bidderTemp.push(res1[m]);
           }
           $scope.listgigster[i].bidders=posts;
-          console.log(bidderTemp);
+          //console.log(bidderTemp);
           if(bidderTemp.indexOf($scope.currentuser)){
-            $scope.listgigster.bidsent=true;
-            
-           }else{
-            $scope.listgigster.bidsent=false;
-             }
+            $scope.listgigster[i].bidsent=true;
+            }else{
+            $scope.listgigster[i].bidsent=false;
+            }
         }
+        if ( $scope.listgigster[i].prjdesc.length > 100 ) {
+                $scope.listgigster[i].showmore=true;
+            
+            }else{
+              $scope.listgigster[i].showmore=false;
+              }
       }
 
       //$scope.$broadcast('scroll.infiniteScrollComplete');
