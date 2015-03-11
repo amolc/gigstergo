@@ -53,9 +53,9 @@
 </div-->  
 </div>
 
-  <div ng-if="list.userId != currentuser "> 
-              <button ng-if="list.userId != currentuser" class="bid-button" ng-click="gigdetail(list,$index)"> BID </button>
-              <button ng-if="list.bidfrom == currentuser" class="bid-button" ng-click="sentbid(list )"> BID SENT </button>
+  <div style="text-align : center;" ng-if="list.userId != currentuser "> 
+              <button ng-if="list.userId != currentuser" class="button post-gig-btn" ng-click="gigdetail(list,$index)"> BID </button>
+              <button ng-if="list.bidfrom == currentuser" class="button post-gig-btn" ng-click="sentbid(list )"> BID SENT </button>
             </div>
               
 <button ng-if="list.userId == currentuser" class="bid-button" ng-click="cancelgigmodel( prjrecord.prjId, $index )" >Cancel Gig</button>
