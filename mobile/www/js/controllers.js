@@ -1279,7 +1279,8 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
       userid:userididid
   };
   $http.post(baseURL + 'biddingmygigs',reqdata).success(function(res) {
-        //console.log(res);
+        console.log("res");
+        console.log(res);
         $scope.bidding = res;
        // console.log($scope.progress);
         if (res.status == 'false') {
@@ -1288,18 +1289,13 @@ $http.post(baseURL + 'biddingdetails',reqdata).success(function(res) {
           console.log("No dataaaaaaaaaaaaaa-----------------");
           console.log($scope.bidding);
         //$scope.states=res;
-          
         }
-      
       }).error(function() {
         alert("Please check your internet connection or data source..");
       });
-   
-
    console.log("in mygig bidding"); 
-
- // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/gigdetailsinmygig.html', {
+   // Create the login modal that we will use later
+   $ionicModal.fromTemplateUrl('templates/gigdetailsinmygig.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal3 = modal;
