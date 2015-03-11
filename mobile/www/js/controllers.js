@@ -476,13 +476,13 @@ $scope.sendfeedback=function(feedback){
   $scope.closebiddetail = function() {
     $scope.modal2.hide();
   };
-  $scope.sentbid = function(data) {
+  $scope.sentbid = function(bid) {
     if( window.localStorage.getItem('islogin') != 'true' ){
         $state.go('applogin')
        }else{
-        
-      $scope.bidsentrecord=data;
-      console.log("sentbid.......--------------------------------");
+      $scope.bidsentrecord=bid;
+      console.log(bid);
+      console.log('sentbid.......--------------------------------');
       $scope.modal2.show();
        }
   };

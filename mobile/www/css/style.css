@@ -74,7 +74,7 @@ font-size: 16px;
 font-family: 'source_sans_proregular';
 }
 p{font-size: 15px;
-font-family: 'source_sans_proregular';}
+font-family: 'source_sans_proregular'; text-align: justify;}
 
 h4 {
 	font-family: 'source_sans_probold';

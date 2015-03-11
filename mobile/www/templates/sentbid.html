@@ -2,22 +2,21 @@
   <ion-header-bar id="bid-on-gig-name">
     <h3 id="bid-on-gig-name" class="title">BID SENT</h3>
     <div class="buttons">
-      <button class="button button-clear" ng-click="closebiddetail()"><i class="icon ion-chevron-left" id="close-btn"></i></button>
+      <button class="button button-clear" ng-click="closebiddetail()"><i class="icon ion-chevron-left"id="close-btn"></i></button>
     </div>
   </ion-header-bar>
   <ion-content>
-  <form name="mainForm" ng-submit="doBid(bid)" id="post-gig-form">
-  	<h3>{{bidsentrecord.prjTitle}}</h3>
+  	<h3>Project Title : {{bidsentrecord.prjTitle}}</h3>
   	<h4 class="ng-binding">Budget : ${{bidsentrecord.proposedbudget}}</h4>
     <div>
-      <label for="description"><h3>Bid details: {{bidsentrecord.bidcontent}}</h3></label>
-      </div>
+      <p><i class="icon  ion-location" id="map-icon"></i>{{bidsentrecord.gigLocation}} <a class="budgt">Budget: ${{bidsentrecord.proposedbudget}}</a></p>
+    </div>
+    <div>
+      <label for="description"><h3>Bid details: {{bidsentrecord.prjdesc}}</h3></label>
+    </div>
     <div>
       <label for="skill"><h3>Bid price : ${{bidsentrecord.bidprice}} <h3></label>
-    
+      <label for="skill"><h3>Gig Location : {{bidsentrecord.gigLocation}} <h3></label>
     </div>
- 
-  </form>
-    
   </ion-content>
 </ion-modal-view>
