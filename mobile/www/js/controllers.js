@@ -624,9 +624,7 @@ $scope.sendfeedback=function(feedback){
         $scope.modal2.hide();
         $state.go('app.listgig');
   };
-
-
-    }
+}
 
 })
 
