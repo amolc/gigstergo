@@ -23,7 +23,8 @@ exports.notification = function(req, res) {
   note.payload = {'messageFrom': 'admin'};
   var callback = function(errorNum, notification){
       console.log('Error is: %s', errorNum);
-      console.log("Note " + notification);
+      console.log("Note =" );
+      console.log( notification ); 
   };
   var iosOptions = {
     gateway: 'gateway.sandbox.push.apple.com', // this URL is different for Apple's Production Servers and changes when you go to production
