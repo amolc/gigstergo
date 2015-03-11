@@ -336,9 +336,8 @@ $scope.sendfeedback=function(feedback){
   }   
 
   var stampo = Date.now();
-          console.log("timeStamp----------");
-          console.log(stampo);
-
+  console.log("timeStamp----------");
+  console.log(stampo);
   var userididid=window.localStorage.getItem('userid1');
   $scope.currentuser= userididid;
   $scope.profileUrl = profileUrl;
@@ -357,7 +356,7 @@ $scope.sendfeedback=function(feedback){
       // console.log("resource log");
       //console.log(res);
       $scope.listgigster = res;
-      //console.log(res);
+      console.log(res);
       for(i=0; i<$scope.listgigster.length; i++){
         if($scope.listgigster[i].bidders!=null){
           //console.log($scope.listgigster[i].bidders);
@@ -1669,6 +1668,7 @@ $scope.awardgigfunction=function(data){
   var userididid=parseInt(window.localStorage.getItem('userid1'));
   console.log(userididid);
       var date = new Date();
+      console.log(date);
      var date8 = new Date();
      date8.setDate(date8.getDate() + 7);
      if((date8.getMonth()+1)<10)
@@ -1684,12 +1684,13 @@ $scope.awardgigfunction=function(data){
           date=$filter('date')(date,'yyyy/M/d');*/
           //var stampo=date.now/1000;
           var stampo = Math.floor(Date.now() / 1000)+(8*60*60);
+
           console.log("timeStamp----------");
           console.log(stampo);
           $scope.postg={
                  expdate:date8, 
                  userid:userididid,
-                 postedon:stampo,
+                 postedon:date,
                  date:date,
                }
                
