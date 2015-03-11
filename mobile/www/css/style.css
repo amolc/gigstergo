@@ -283,7 +283,7 @@ border: 3px solid #fff;
 border-radius: 50%;}
 .item-content{background: red;}
 .post-gig-btn{background-color: #FF7F00;color: #FFFFFF;border: 2px solid #FF7F00;font-family: 'source_sans_prosemibold';
-font-size: 18px;border-radius: 8px;}
+font-size: 18px;border-radius: 8px; text-align: center;}
 .tabs{background-color: #ECECEC;}
 .tabs-striped.tabs-background-energized .tabs {
 background-color: #FFFFFF;
@@ -391,14 +391,14 @@ padding-top: 10px;}
 #msg-back:before{font-size: 20px;
 color: #fff;}
 #status-bar-start{position: absolute;top: 33%;font-size: 12px;
-color: rgb(94, 53, 13);margin-top: 82px;}
+color: rgb(94, 53, 13);margin-top: 97px;}
 #status-bar-width{background: #FFDB00;padding: 0px;margin: 25px 0 10px 0; width: 100%}
 #status-bar-end{position: absolute;
 top: 33%;
 right: 10%;
 font-size: 12px;
 color: rgb(94, 53, 13);
-margin-top: 82px;}
+margin-top: 97px;}
 #chat-icon{font-size: 25px;
 color: #168100;
 /* border: 2px solid; */
