@@ -1690,7 +1690,7 @@ $scope.awardgigfunction=function(data){
           $scope.postg={
                  expdate:date8, 
                  userid:userididid,
-                 postedon:date,
+                 postedon:stampo,
                  date:date,
                }
                
