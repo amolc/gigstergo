@@ -76,7 +76,7 @@ font-family: 'source_sans_proregular';
 p{font-size: 15px;
 font-family: 'source_sans_proregular';}
 h4 {
-	font-family: 'source_sans_probold';
+	font-family: 'source_sans_prosemibold';
 	color: #5E350D;	
 	font-size: 16px;
 	text-transform: initial;
@@ -207,7 +207,7 @@ border-color: #E2AC10;
 .hi1{height: 50px; overflow: hidden;}
 
 .showMore { height: auto; }
-.showLess { max-height: 40px; overflow: hidden ; padding-top: 5px; }
+.showLess { max-height: 45px; overflow: hidden ; padding-top: 5px; }
 
 .postgb .item{
 
