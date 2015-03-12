@@ -23,11 +23,23 @@
           </p> -->
           <!--<button ng-if="list.userId == currentuser" class="new-bid-button" ng-click="sentbid(list , $index)">BID SENT </button>     -->
         </div>  
+      </div>
+      <div class="row" style="margin: 2px;"  ng-init="more = false"> 
+        <div  class="col col-70">
+          <a>
+          <p style="text-align: justify;" ng-class="{'showMore': more, 'showLess': !more}">{{list.prjdesc}}</p>
+         </a>
+        </div>
+          <div>
+          <div>
+            <p ng-show="list.showmore" ng-click="more = !more" style="padding-top : 30px ; " >More..</p>
+          </div>
+        </div>
       </div> 
-      <div class="row col gig-row" ng-init="more = false">
+      <!--div class="row col gig-row" ng-init="more = false">
             <p style="text-align: justify;" ng-class="{'showMore': more, 'showLess': !more}">{{list.prjdesc}}</p> 
             <p ng-show="list.showmore" ng-click="more = !more" style="float: right;">More..</p>
-      </div>
+      </div-->
       <div class="row" style="margin: 2px;"> 
         <h4 style="padding-top : 15px;">BIDS</h4>
         <div  class="col col-70">
