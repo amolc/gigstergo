@@ -1,4 +1,4 @@
-<ion-view title="BROWSE GIG">
+<ion-view title="BROWSE GIGS">
   <ion-content class="has-header" padding="true" style="background:#efefef;">
     <div ng-repeat="list in listgigster" class="card list1">
       <div class="row"  style="border-bottom: 1px solid #efefef;"> 
@@ -24,13 +24,9 @@
           <!--<button ng-if="list.userId == currentuser" class="new-bid-button" ng-click="sentbid(list , $index)">BID SENT </button>     -->
         </div>  
       </div> 
-      <div class="row " ng-init="more = false"  style="border-bottom: 1px solid #efefef;">
-        <div class="row gig-row">
-          <div class="col">
+      <div class="row col gig-row" ng-init="more = false">
             <p style="text-align: justify;" ng-class="{'showMore': more, 'showLess': !more}">{{list.prjdesc}}</p> 
             <p ng-show="list.showmore" ng-click="more = !more" style="float: right;">More..</p>
-          </div>
-        </div>
       </div>
       <div class="row" style="margin: 2px;"> 
         <h4 style="padding-top : 15px;">BIDS</h4>
@@ -48,9 +44,7 @@
           </div>
         </div>
       </div>
-
       </div>
-      
     <ion-infinite-scroll icon="ion-loading-c" on-infinite="loadMoreGigs()" distance="1%"></ion-infinite-scroll>
 
   </ion-content>
