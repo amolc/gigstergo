@@ -66,9 +66,9 @@ angular.module('starter.controllers', [])
         $scope.register();
     }, false);
 
-    ionPlatform.ready.then(function (device) {
+    /*ionPlatform.ready.then(function (device) {
         $scope.register();
-    });
+    });*/
 
 
     // Register
