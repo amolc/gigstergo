@@ -57,9 +57,15 @@ function onNotificationAPN (event) {
   }
 }*/
 angular.module('starter.controllers', [])
-.controller('AppCtrl', function($scope, $ionicModal, $cordovaPush , $state, $http, $stateParams, $ionicLoading, OpenFB, ionPlatform ) {
+.controller('AppCtrl', function($scope, $ionicPlatform, $cordovaPush , $state, $http, $stateParams, $ionicLoading, OpenFB, ionPlatform ) {
 
-  // call to register automatically upon device ready
+  
+// call to register automatically upon device ready
+    
+    document.addEventListener("deviceready", function () {
+        $scope.register();
+    }, false);
+
     ionPlatform.ready.then(function (device) {
         $scope.register();
     });
