@@ -375,13 +375,15 @@ var exampleApp=angular.module('starter', ['ionic', 'starter.controllers','ngStor
                     window.localStorage.setItem( 'useremail', '' );
                     window.localStorage.setItem( 'userid1', '' );
                     window.localStorage.setItem( 'islogin', false );
-                      var login = {
-                        device : device.uuid
-                      }
-                      $http.post(baseURL + 'logOut', login ).success(function(res) {
-                          // do nothing
-                      });
-                      $state.go('applogin');
+                    window.localStorage.setItem( 'token_id', '' );
+                    var logout = {
+                      device : window.localStorage.getItem("uid" )
+                    }
+                    window.localStorage.setItem( 'uid', '' );
+                    $http.post(baseURL + 'logOut', logout ).success(function(res) {
+                        // do nothing
+                    });
+                    $state.go('applogin');
                   })                  
                }
            }
