@@ -47,8 +47,8 @@ exports.loginval = function(req, res) {
       production : false,
       gateway: 'gateway.sandbox.push.apple.com', // this URL is different for Apple's Production Servers and changes when you go to production
       errorCallback: callback,
-      cert: '/var/www/gigstergo/assets/gigstergo.Cert.pem',                 
-      key:  '/var/www/gigstergo/assets/gigstergo.Key.pem',                 
+      cert: '/var/www/gigstergo/assets/PushnotifyCert.pem',                 
+      key:  '/var/www/gigstergo/assets/PushnotifyKey.pem',                 
       passphrase: 'ferrari1234',                 
       port: 2195,                       
       enhanced: true,                   
@@ -59,7 +59,7 @@ exports.loginval = function(req, res) {
     apnsConnection.on('connected', function(connected) { console.log("connected",connected); });
     apnsConnection.on('transmitted', function(transmitted) { console.log("transmitted",transmitted); });
     apnsConnection.on('disconnected', function() { console.log("disconnected");});
-    apnsConnection.pushNotification( note, 'ce1c081e03ad5c16aa400756f274e753ec0b52b0d32ab6e10de5962f2d0393c6' );
+    apnsConnection.pushNotification( note, 'd1067cee3135a5fa4a8cc2cf4862397db2c4f3b394adacd25d5fe4c35f30c735' );
 
    
 

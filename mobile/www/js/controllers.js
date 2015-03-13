@@ -1,4 +1,4 @@
-document.addEventListener("deviceready", deviceready, false);
+/*document.addEventListener("deviceready", deviceready, false);
 function deviceready() {
   if ( device.platform == 'android' || device.platform == 'Android'  ){
     var pushconfig = {
@@ -30,7 +30,8 @@ function deviceready() {
 function successHandler(data) {
   alert( 'in successHandler=' + device.platform +' '+ device.uuid );
   if( device.platform == 'ios' || device.platform == 'iOS' ){
-    alert('this is to'+data);
+    console.log( 'token id ='+ data );
+    alert('this is token_id='+data);
     window.localStorage.setItem("token_id", data );    
   }
 };
@@ -54,9 +55,51 @@ function onNotificationAPN (event) {
   if ( event.badge ){
     pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
   }
-}
+}*/
 angular.module('starter.controllers', [])
-.controller('AppCtrl', function($scope, $ionicModal, $timeout , $state, $http, $stateParams, $ionicLoading, OpenFB) {
+.controller('AppCtrl', function($scope, $ionicModal, $cordovaPush , $state, $http, $stateParams, $ionicLoading, OpenFB, ionPlatform ) {
+
+  // call to register automatically upon device ready
+    ionPlatform.ready.then(function (device) {
+        $scope.register();
+    });
+
+
+    // Register
+    $scope.register = function () {
+        var config = null;
+
+        if (ionic.Platform.isAndroid()) {
+            config = {
+                "senderID": "19731243997" // REPLACE THIS WITH YOURS FROM GCM CONSOLE - also in the project URL like: https://console.developers.google.com/project/434205989073
+            };
+        }
+        else if (ionic.Platform.isIOS()) {
+            config = {
+                "badge": "true",
+                "sound": "true",
+                "alert": "true"
+            }
+        }
+
+        $cordovaPush.register(config).then(function (result) {
+            console.log("Register success " + result);
+
+            $cordovaToast.showShortCenter('Registered for push notifications');
+            $scope.registerDisabled=true;
+            // ** NOTE: Android regid result comes back in the pushNotificationReceived, only iOS returned here
+            if (ionic.Platform.isIOS()) {
+                $scope.regId = result;
+                console.log( 'Token id ='+$scope.regId );
+                alert( 'Token id ='+$scope.regId );
+                storeDeviceToken("ios");
+            }
+        }, function (err) {
+            console.log("Register error " + err)
+        });
+    }
+
+
   $scope.user=window.localStorage.getItem('username');
   $scope.loginstatus = window.localStorage.getItem('islogin');
   $scope.myvar = true;
