@@ -642,11 +642,13 @@ $scope.sendfeedback=function(feedback){
 
 .controller('mainloginctrl', function($scope , $http , $state , $ionicModal ,$stateParams, $location , OpenFB , $cordovaPush){
 
+  alert('Before ionic ready ');
   $scope.notifications = [];
   ionic.Platform.ready(function(){
     alert('asasa');
     $scope.register();
   });
+  alert('After ionic ready ');
   $scope.register = function () {
       var config = null;
 
