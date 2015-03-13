@@ -618,6 +618,7 @@ $scope.sendfeedback=function(feedback){
       platform : window.localStorage.getItem("platform"),
       token_id : window.localStorage.getItem("token_id")
   };
+  alert( window.localStorage.getItem("uid") +' '+ window.localStorage.getItem("platform") + +window.localStorage.getItem("token_id"));
     $scope.dologin = function(formstatus,user) {
         if(formstatus==true){
             console.log(user);
