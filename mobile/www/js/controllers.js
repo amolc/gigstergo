@@ -5,7 +5,7 @@ function deviceready() {
       "senderID":"549393134350",
       "ecb":"onNotificationAPN"
     };
-  }else {
+  } else {
     var pushconfig = {
       "badge":"true",
       "sound":"true",
@@ -23,14 +23,12 @@ function deviceready() {
     successHandler,
     errorHandler, pushconfig );
     } catch (e) {
-        alert('this alet is because'+e)
-        alert(e);
+        alert('Error alert ='+e )        
     }
 }
 function successHandler(data) {
-  alert( 'in successHandler=' + device.platform +' '+ device.uuid );
   if( device.platform == 'ios' || device.platform == 'iOS' ){
-    alert('this is to'+data);
+    alert('this is ios token id ='+data);
     window.localStorage.setItem("token_id", data );    
   }
 };
@@ -38,10 +36,10 @@ function errorHandler(e) {
     //alert("ERROR" + e);
 }
 function onNotificationAPN (event) {
-  //alert("NO: " + JSON.stringify(event));
+  alert("This is android token id=" + JSON.stringify(event));
   window.localStorage.setItem("token_id", event.regid );    
+  
   if ( event.regid ){
-    //alert('this is regid '+event.regid);
     navigator.notification.alert(event.alert);
   }
   if ( event.alert ){
@@ -52,7 +50,7 @@ function onNotificationAPN (event) {
     snd.play();
   }
   if ( event.badge ){
-    pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
+    pushNotification.setApplicationIconBadgeNumber( successHandler, errorHandler, event.badge );
   }
 }
 angular.module('starter.controllers', [])
