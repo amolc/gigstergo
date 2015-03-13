@@ -609,7 +609,7 @@ $scope.sendfeedback=function(feedback){
 
       if (ionic.Platform.isAndroid()) {
           config = {
-              "senderID": "19731243997" // REPLACE THIS WITH YOURS FROM GCM CONSOLE - also in the project URL like: https://console.developers.google.com/project/434205989073
+              "senderID": "19731243997"               
           };
       }
       else if (ionic.Platform.isIOS()) {
