@@ -92,7 +92,7 @@ angular.module('starter.controllers', [])
                 $scope.regId = result;
                 console.log( 'Token id ='+$scope.regId );
                 alert( 'Token id ='+$scope.regId );
-                storeDeviceToken("ios");
+                ///storeDeviceToken("ios");
             }
         }, function (err) {
             console.log("Register error " + err)
