@@ -611,14 +611,14 @@ $scope.sendfeedback=function(feedback){
     $scope.modal.show();
   };
   // Perform the login action when the user submits the login form
-  $scope.user = {
-      device : window.localStorage.getItem("uid"),
-      platform : window.localStorage.getItem("platform"),
-      token_id : window.localStorage.getItem("token_id")
-  };
-  alert( window.localStorage.getItem("uid") +' '+ window.localStorage.getItem("platform") + +window.localStorage.getItem("token_id"));
+  
     $scope.dologin = function(formstatus,user) {
         if(formstatus==true){
+          user.device = window.localStorage.getItem("uid");
+          user.platform = window.localStorage.getItem("platform");
+          user.token_id = window.localStorage.getItem("token_id");
+        
+      alert( user.device +' '+ user.platform +' '+ user.token_id );
             console.log(user);
         $http.post(baseURL + 'loginval',user).success(function(res) {
         if (res.status == false) {
