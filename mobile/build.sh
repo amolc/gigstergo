@@ -1,5 +1,6 @@
 #/bin/sh
 
-rm -Rf "build/gigstergo*" #deletes previous ipa
-xcodebuild -scheme gigstergo clean archive -archivePath build/gigstergo
-xcodebuild -exportArchive -exportFormat ipa -archivePath "build/gigstergo.xcarchive" -exportPath "build/gigstergo.ipa" -exportProvisioningProfile "gigstergo"
+rm -Rf platforms/ios/build/* #deletes previous ipa
+cd platforms/ios/
+xcodebuild -scheme GigsterGo clean archive -archivePath build/GigsterGo
+xcodebuild -exportArchive -exportFormat ipa -archivePath "build/GigsterGo.xcarchive" -exportPath "build/GigsterGo.ipa" -exportProvisioningProfile "pushnotification"
