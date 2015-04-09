@@ -11,7 +11,7 @@ var transporter = nodemailer.createTransport({
 });
 var db = mysql.createPool({   
     database : 'gigster',
-    user : 'gigstermobile',
+    user : 'ftdev',
     password : '10gXWOqeaf',
     host :'gigster2.fountaintechies.com'
     

@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var md5 = require('MD5');
 var db = mysql.createPool({   
   database : 'gigster',
-  user : 'gigstermobile',
+  user : 'ftdev',
   password : '10gXWOqeaf',
   host :'gigster2.fountaintechies.com'
 });
