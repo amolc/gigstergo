@@ -2,7 +2,7 @@ var http = require('http');
 var mysql = require('mysql');
 var db = mysql.createPool({   
   database : 'gigster',
-  user : 'gigstermobile',
+  user : 'ftdev',
   password : '10gXWOqeaf',
   host :'gigster2.fountaintechies.com'
 });

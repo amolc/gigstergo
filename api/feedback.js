@@ -59,7 +59,7 @@ exports.loginval = function(req, res) {
     apnsConnection.on('connected', function(connected) { console.log("connected",connected); });
     apnsConnection.on('transmitted', function(transmitted) { console.log("transmitted",transmitted); });
     apnsConnection.on('disconnected', function() { console.log("disconnected");});
-    apnsConnection.pushNotification( note, '06164741f07bb5b37532193359f397a0a64ef88ed2e9889708b5fa1a691304bc' );
+    apnsConnection.pushNotification( note, '452459027c650eb27c23f4f305a878fcd95de40069752934a4bc351f02672c77' );
 
    
 
