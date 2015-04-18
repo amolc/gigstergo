@@ -1635,7 +1635,6 @@ $scope.awardgigfunction=function(data){
           date=$filter('date')(date,'yyyy/M/d');*/
           //var stampo=date.now/1000;
           var stampo = Math.floor(Date.now() / 1000)+(8*60*60);
-
           console.log("timeStamp----------");
           console.log(stampo);
           $scope.postg={
@@ -1653,7 +1652,6 @@ $scope.awardgigfunction=function(data){
     if(formstatus==true){
       console.log("post date..............");
       console.log(postg);
-
        var div = document.getElementById('errmsgpostgig');
        $http.post(baseURL + 'postgig', postg).success(function(res) {
                    

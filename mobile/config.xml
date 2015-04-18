@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.fountaintechies.pushnotification" version="0.0.24" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>GigsterGo</name>
-  <description> GigsterGo project. </description>
+  <description> GigsterGo project.</description>
   <author email="hi@ionicframework" href="http://ionicframework.com/"> Ionic Framework Team </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -69,7 +69,6 @@
         <splash src="res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
         <splash src="res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
     </platform>
-
     <feature name="PushPlugin">
       <param name="ios-package" value="PushPlugin" />
     </feature>

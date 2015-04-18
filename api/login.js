@@ -2,11 +2,12 @@ var http = require('http');
 var mysql = require('mysql');
 var md5 = require('MD5');
 var db = mysql.createPool({   
-  database : 'gigster',
-  user : 'gigstermobile',
-  password : '10gXWOqeaf',
-  host :'gigster2.fountaintechies.com'
-});
+    database : 'gigster',
+    user : 'ftdev',
+    password : '10gXWOqeaf',
+    host :'apps.fountaintechies.com' 
+  }); 
+
 var CRUD = require('mysql-crud');
 var userCRUD = CRUD (db,'btr_users');
 var btrdeviceCRUD=CRUD(db,'btr_notification');

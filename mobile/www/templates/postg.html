@@ -10,8 +10,6 @@
       <textarea rows="5" cols="10" id="description" name="description" type="text" ng-model="postg.desc" required/>
       </textarea> 
       <span class="error" ng-if="mainForm.description.$error.required && mainForm.description.$dirty" >Description required</span> 
-
-   
     <label for="description"><h3>How much would you like to pay?</h3></label>
     <input id="post-gig-inpute" name="pay" type="number" min="0" placeholder="" ng-model="postg.pay" required/>
  <!-- <span class="error" ng-show="mainForm.pay.$error.required">required</span> -->
@@ -32,7 +30,6 @@
        <h3>Per hour</h3>
     </li>
    <span class="error" ng-show="mainForm.jobtype.$error.required">per gig or per hour required</span> 
-
   </ul>
  <div class="img-col">
       <label for="skill"><h3 style="clear:both;">Skills you require</h3></label>
@@ -50,69 +47,7 @@
       <input  name="date" type="hidden" ng-model="postg.date" /></label>
   </div>
   <div id="errmsgpostgig"></div>
-  <button style="" class="button button-block post-gig-btn"> POST GIG </button>
+  <button style="" class="button button-block post-gig-btn" ng-click="postgig(postg)"> POST GIG </button>
   </form>
 </ion-content>
-</ion-view>
-
-
-
-
-
-
-<!--<ion-view title="PostGig">
- 
-  <ion-content class="has-header postgb">
-    
-<div class="list postgb">
-  <label class="item item-input item-floating-label">
-    <span class="input-label"><h3>Title(Headline for your gigs)</h3></span>
-    <input type="text" placeholder="Title" class="input-color" ng-model="postg.title">
-  </label>
-  <label class="item item-input item-floating-label">
-    <span class="input-label"><h3>Description</h3></span>
-    <input type="text" placeholder="Description" ng-model="postg.desc">
-  </label>
-  <label class="item item-input item-floating-label">
-    <span class="input-label"><h3>How much u ve a pay</h3></span>
-    <input type="text" placeholder="How much your like to pay" ng-model="postg.pay">
-  </label>
-
-  <ul class="list">
-
-  <li class="item item-checkbox postgb">
-     <label class="checkbox">
-       <input type="checkbox" ng-model="postg.jobtype"ng-true-value="f" ng-disabled="postg.f">
-     </label>
-     <h4>Per gig</h4>
-  </li>
-<li class="item item-checkbox postgb">
-     <label class="checkbox" >
-       <input type="checkbox" ng-disabled="postg.jobtype" ng-true-value="h" ng-model="postg.h">
-     </label>
-     <h4>Per hour</h4>
-  </li>
- 
-
-</ul>
-<label class="item item-input item-floating-label">
-    <span class="input-label"><h3>Skills you required</h3></span>
-    <input type="text" placeholder="Skills you required" ng-model="postg.skill">
-  </label>
-
-<label class="item item-input item-floating-label">
-    <span class="input-label"><h3>Select expiry date of your Gig</h3></span>
-    <input type="date" placeholder="Select expiry date of your Gig" ng-model="postg.expdate">
-  </label>
-
-<div class="card">
-<button style=""class="button button-block button-assertive" ng-click="ins(postg)">
-  Post gig
-</button>
-</div>
-</div>
-
-
-  </ion-content>
-</ion-view>
-    -->
+</ion-view> 
